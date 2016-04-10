@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="这是测试页面！">
 <meta property="og:image" content="http://i.imgur.com/2nySjAO.png">
-<meta property="og:updated_time" content="2016-04-10T05:35:35.306Z">
+<meta property="og:updated_time" content="2016-04-10T09:37:42.262Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="新文章">
 <meta name="twitter:description" content="这是测试页面！">
@@ -54,9 +54,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -116,11 +116,46 @@
 <h1 id="字体样式测试"><a href="#字体样式测试" class="headerlink" title="字体样式测试"></a>字体样式测试</h1><h2 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h2><p><em>斜体</em></p>
 <h2 id="粗体"><a href="#粗体" class="headerlink" title="粗体"></a>粗体</h2><p><strong>粗体</strong></p>
 <p>#表格测试<br>| Tables        | Are           | Cool  |<br>| ————- |:————-:| —–:|<br>| col 3 is      | right-aligned | $1600 |<br>| col 2 is      | centered      |   $12 |<br>| zebra stripes | are neat      |    $1 |</p>
+<pre><code>&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+android:layout_width=&quot;match_parent&quot;
+android:layout_height=&quot;match_parent&quot;
+android:gravity=&quot;right&quot;
+android:layout_marginTop=&quot;5dp&quot;
+android:orientation=&quot;vertical&quot;
+android:layout_marginRight=&quot;50dp&quot;
+tools:context=&quot;.MainActivity&quot;&gt;
 
+&lt;TextView
+    android:id=&quot;@+id/birthday_text&quot;
+    style=&quot;@style/MirrorText&quot;
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:textSize=&quot;@dimen/mirror_birthday_text_size&quot;
+    android:visibility=&quot;gone&quot;
+    tools:text=&quot;Happy Birthday Andy!&quot; /&gt;
+
+&lt;TextView
+    android:id=&quot;@+id/day_text&quot;
+    style=&quot;@style/MirrorText&quot;
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:visibility=&quot;visible&quot;
+    android:textSize=&quot;80sp&quot;
+    tools:text=&quot;Sunday the 22nd&quot; /&gt;
+&lt;TextView
+    android:id=&quot;@+id/data_text&quot;
+    style=&quot;@style/MirrorText&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;0dp&quot;
+    android:textSize=&quot;35sp&quot;
+    tools:text=&quot;Sunday the 22nd&quot; /&gt;
+&lt;include layout=&quot;@layout/clock&quot; /&gt;
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/10/my-new-post/" data-id="cimu28z130001cgh4gvj3v8fv" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/04/10/my-new-post/" data-id="cimudn9lg00018sh46tem5d07" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
@@ -133,7 +168,7 @@
   
   
     <a href="/2016/04/10/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ancien</strong>
+      <strong class="article-nav-caption">Ouder</strong>
       <div class="article-nav-title">Hello World</div>
     </a>
   
@@ -148,7 +183,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Catégories</h3>
+    <h3 class="widget-title">Categorieën</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li></ul>
     </div>
@@ -158,7 +193,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Labels</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li></ul>
     </div>
@@ -168,7 +203,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/tags/test/" style="font-size: 10px;">test</a>
     </div>
@@ -177,7 +212,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li></ul>
     </div>
@@ -187,7 +222,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
         
@@ -212,7 +247,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 John Doe<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
