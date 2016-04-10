@@ -131,6 +131,7 @@ body {
   display: -ms-flexbox;
   display: box;
   display: flex;
+  background-image: url("/img/bg.jpg");
   -webkit-flex-direction: column;
   -webkit-box-orient: vertical;
   -moz-box-orient: vertical;
