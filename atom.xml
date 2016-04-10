@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jcmels.github.io/"/>
-  <updated>2016-04-10T09:37:42.262Z</updated>
+  <updated>2016-04-10T13:46:31.143Z</updated>
   <id>http://jcmels.github.io/</id>
   
   <author>
@@ -14,6 +14,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo+github搭个人博客第一章--安装Hexo</title>
+    <link href="http://jcmels.github.io/2016/04/10/hexo1/"/>
+    <id>http://jcmels.github.io/2016/04/10/hexo1/</id>
+    <published>2016-04-10T13:12:26.000Z</published>
+    <updated>2016-04-10T13:46:31.143Z</updated>
+    
+    <content type="html">&lt;p&gt;作为一个程序员，有一个自己的博客是很必要的，目前市面上有好多博客给我们选择，比如CSDN或者新浪的，可是这都不是我想要的，无意中我发现了hexo，一秒钟爱上它！美好的东西可是好多刺的比如玫瑰，所以在搭建hexo的时候我也踩了好多坑，本系列教材帮你填坑，让你搭hexo时顺风顺水！&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;前期准备&quot;&gt;&lt;a href=&quot;#前期准备&quot; class=&quot;headerlink&quot; title=&quot;前期准备&quot;&gt;&lt;/a&gt;前期准备&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;必要且充分条件——fq&lt;/li&gt;
+&lt;li&gt;下载&lt;a href=&quot;https://nodejs.org/en/&quot; title=&quot;node.js&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;node.js&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;下载&lt;a href=&quot;http://git-scm.com/download&quot; title=&quot;git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Git&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;拥有&lt;a href=&quot;https://github.com/&quot; title=&quot;github&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;github&lt;/a&gt;账号&lt;/li&gt;
+&lt;li&gt;了解node、Git基本命令&lt;/li&gt;
+&lt;li&gt;markdowmpad！！强烈推荐&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&quot;正式安装&quot;&gt;&lt;a href=&quot;#正式安装&quot; class=&quot;headerlink&quot; title=&quot;正式安装&quot;&gt;&lt;/a&gt;正式安装&lt;/h1&gt;&lt;p&gt;安装git和node.js步骤就在这里省略了，毕竟都是下一步下一步的操作。  &lt;/p&gt;
+&lt;h2 id=&quot;安装Hexo&quot;&gt;&lt;a href=&quot;#安装Hexo&quot; class=&quot;headerlink&quot; title=&quot;安装Hexo&quot;&gt;&lt;/a&gt;安装Hexo&lt;/h2&gt;&lt;hr&gt;
+&lt;p&gt;环境安装好了，现在需要安装主角hexo！在任意位置右键鼠标选择  git bash here  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/kV3YEmv.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;输入安装hexo的命令&lt;br&gt;&lt;code&gt;npm install -g hexo&lt;/code&gt;&lt;br&gt;&lt;img src=&quot;http://i.imgur.com/eb7TyEz.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;当你看到下图所示的代码就代表你安装成功了&lt;br&gt;&lt;img src=&quot;http://i.imgur.com/9PKJjeD.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;h2 id=&quot;配置hexo&quot;&gt;&lt;a href=&quot;#配置hexo&quot; class=&quot;headerlink&quot; title=&quot;配置hexo&quot;&gt;&lt;/a&gt;配置hexo&lt;/h2&gt;&lt;p&gt;在你喜欢的位置新建文件夹比如E：/hexo，右键还是选git bash here，输入代码：&lt;code&gt;hexo init&lt;/code&gt;他会从github下载文件并初始化你的hexo文件夹&lt;br&gt;安装依赖包，输入代码：&lt;br&gt;&lt;code&gt;npm install&lt;/code&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/VNbOwno.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;h2 id=&quot;部署在本地&quot;&gt;&lt;a href=&quot;#部署在本地&quot; class=&quot;headerlink&quot; title=&quot;部署在本地&quot;&gt;&lt;/a&gt;部署在本地&lt;/h2&gt;&lt;p&gt;然后让我们看下刚刚下载了什么东西，还是在E：/hexo中右键选git bash here，输入代码：&lt;br&gt;&lt;code&gt;hexo g&lt;/code&gt;&lt;br&gt;&lt;img src=&quot;http://i.imgur.com/nqdVkxq.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;code&gt;hexo d&lt;/code&gt;&lt;br&gt;&lt;img src=&quot;http://i.imgur.com/8gpCItr.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;这样我们就把网页部署在本地，可以通过&lt;a href=&quot;http://localhost:4000/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:4000/&lt;/a&gt;访问，是不是好帅！当然我们目前只是在本地预览，别人想要访问的话还需要部署到服务器。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;作为一个程序员，有一个自己的博客是很必要的，目前市面上有好多博客给我们选择，比如CSDN或者新浪的，可是这都不是我想要的，无意中我发现了hexo，一秒钟爱上它！美好的东西可是好多刺的比如玫瑰，所以在搭建hexo的时候我也踩了好多坑，本系列教材帮你填坑，让你搭hexo时顺风顺水！
+    
+    </summary>
+    
+      <category term="blog" scheme="http://jcmels.github.io/categories/blog/"/>
+    
+    
+      <category term="hexo" scheme="http://jcmels.github.io/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>新文章</title>
