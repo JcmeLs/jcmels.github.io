@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Jcme丶Ls&#39;Blog</title>
+  <subtitle>木讷、后知后觉geek一枚</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://jcmels.github.io/"/>
+  <updated>2016-04-10T09:37:42.262Z</updated>
+  <id>http://jcmels.github.io/</id>
+  
+  <author>
+    <name>Jcme丶Ls</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>新文章</title>
+    <link href="http://jcmels.github.io/2016/04/10/my-new-post/"/>
+    <id>http://jcmels.github.io/2016/04/10/my-new-post/</id>
+    <published>2016-04-10T01:07:33.000Z</published>
+    <updated>2016-04-10T09:37:42.262Z</updated>
+    
+    <content type="html">&lt;p&gt;这是测试页面！&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;测试页面&lt;/p&gt;
+&lt;h1 id=&quot;标题测试&quot;&gt;&lt;a href=&quot;#标题测试&quot; class=&quot;headerlink&quot; title=&quot;标题测试&quot;&gt;&lt;/a&gt;标题测试&lt;/h1&gt;&lt;h1 id=&quot;一级标题&quot;&gt;&lt;a href=&quot;#一级标题&quot; class=&quot;headerlink&quot; title=&quot;一级标题&quot;&gt;&lt;/a&gt;一级标题&lt;/h1&gt;&lt;h2 id=&quot;二级标题&quot;&gt;&lt;a href=&quot;#二级标题&quot; class=&quot;headerlink&quot; title=&quot;二级标题&quot;&gt;&lt;/a&gt;二级标题&lt;/h2&gt;&lt;h3 id=&quot;三级标题&quot;&gt;&lt;a href=&quot;#三级标题&quot; class=&quot;headerlink&quot; title=&quot;三级标题&quot;&gt;&lt;/a&gt;三级标题&lt;/h3&gt;&lt;h4 id=&quot;四级标题&quot;&gt;&lt;a href=&quot;#四级标题&quot; class=&quot;headerlink&quot; title=&quot;四级标题&quot;&gt;&lt;/a&gt;四级标题&lt;/h4&gt;&lt;h5 id=&quot;五级标题&quot;&gt;&lt;a href=&quot;#五级标题&quot; class=&quot;headerlink&quot; title=&quot;五级标题&quot;&gt;&lt;/a&gt;五级标题&lt;/h5&gt;&lt;h6 id=&quot;六级标题&quot;&gt;&lt;a href=&quot;#六级标题&quot; class=&quot;headerlink&quot; title=&quot;六级标题&quot;&gt;&lt;/a&gt;六级标题&lt;/h6&gt;&lt;h1 id=&quot;列表测试&quot;&gt;&lt;a href=&quot;#列表测试&quot; class=&quot;headerlink&quot; title=&quot;列表测试&quot;&gt;&lt;/a&gt;列表测试&lt;/h1&gt;&lt;h2 id=&quot;有序列表&quot;&gt;&lt;a href=&quot;#有序列表&quot; class=&quot;headerlink&quot; title=&quot;有序列表&quot;&gt;&lt;/a&gt;有序列表&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;jdkfhjdfash&lt;/li&gt;
+&lt;li&gt;fdgdfg&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;fhgsdh&lt;/li&gt;
+&lt;li&gt;djkhf&lt;/li&gt;
+&lt;li&gt;jsdhfj&lt;/li&gt;
+&lt;li&gt;djfhujd&lt;/li&gt;
+&lt;li&gt;fdjsh&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;无序列表&quot;&gt;&lt;a href=&quot;#无序列表&quot; class=&quot;headerlink&quot; title=&quot;无序列表&quot;&gt;&lt;/a&gt;无序列表&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;sjdh&lt;/li&gt;
+&lt;li&gt;sd&lt;/li&gt;
+&lt;li&gt;g&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;引用测试&quot;&gt;&lt;a href=&quot;#引用测试&quot; class=&quot;headerlink&quot; title=&quot;引用测试&quot;&gt;&lt;/a&gt;引用测试&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;djfhuid&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;超链接测试&quot;&gt;&lt;a href=&quot;#超链接测试&quot; class=&quot;headerlink&quot; title=&quot;超链接测试&quot;&gt;&lt;/a&gt;超链接测试&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://www.baidu.com&quot; title=&quot;baidu&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.baidu.com&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;图片测试&quot;&gt;&lt;a href=&quot;#图片测试&quot; class=&quot;headerlink&quot; title=&quot;图片测试&quot;&gt;&lt;/a&gt;图片测试&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/2nySjAO.png&quot; alt=&quot;插入图片&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;字体样式测试&quot;&gt;&lt;a href=&quot;#字体样式测试&quot; class=&quot;headerlink&quot; title=&quot;字体样式测试&quot;&gt;&lt;/a&gt;字体样式测试&lt;/h1&gt;&lt;h2 id=&quot;斜体&quot;&gt;&lt;a href=&quot;#斜体&quot; class=&quot;headerlink&quot; title=&quot;斜体&quot;&gt;&lt;/a&gt;斜体&lt;/h2&gt;&lt;p&gt;&lt;em&gt;斜体&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&quot;粗体&quot;&gt;&lt;a href=&quot;#粗体&quot; class=&quot;headerlink&quot; title=&quot;粗体&quot;&gt;&lt;/a&gt;粗体&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;粗体&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;#表格测试&lt;br&gt;| Tables        | Are           | Cool  |&lt;br&gt;| ————- |:————-:| —–:|&lt;br&gt;| col 3 is      | right-aligned | $1600 |&lt;br&gt;| col 2 is      | centered      |   $12 |&lt;br&gt;| zebra stripes | are neat      |    $1 |&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;LinearLayout xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android&amp;quot;
+xmlns:tools=&amp;quot;http://schemas.android.com/tools&amp;quot;
+android:layout_width=&amp;quot;match_parent&amp;quot;
+android:layout_height=&amp;quot;match_parent&amp;quot;
+android:gravity=&amp;quot;right&amp;quot;
+android:layout_marginTop=&amp;quot;5dp&amp;quot;
+android:orientation=&amp;quot;vertical&amp;quot;
+android:layout_marginRight=&amp;quot;50dp&amp;quot;
+tools:context=&amp;quot;.MainActivity&amp;quot;&amp;gt;
+
+&amp;lt;TextView
+    android:id=&amp;quot;@+id/birthday_text&amp;quot;
+    style=&amp;quot;@style/MirrorText&amp;quot;
+    android:layout_width=&amp;quot;wrap_content&amp;quot;
+    android:layout_height=&amp;quot;wrap_content&amp;quot;
+    android:textSize=&amp;quot;@dimen/mirror_birthday_text_size&amp;quot;
+    android:visibility=&amp;quot;gone&amp;quot;
+    tools:text=&amp;quot;Happy Birthday Andy!&amp;quot; /&amp;gt;
+
+&amp;lt;TextView
+    android:id=&amp;quot;@+id/day_text&amp;quot;
+    style=&amp;quot;@style/MirrorText&amp;quot;
+    android:layout_width=&amp;quot;wrap_content&amp;quot;
+    android:layout_height=&amp;quot;wrap_content&amp;quot;
+    android:visibility=&amp;quot;visible&amp;quot;
+    android:textSize=&amp;quot;80sp&amp;quot;
+    tools:text=&amp;quot;Sunday the 22nd&amp;quot; /&amp;gt;
+&amp;lt;TextView
+    android:id=&amp;quot;@+id/data_text&amp;quot;
+    style=&amp;quot;@style/MirrorText&amp;quot;
+    android:layout_width=&amp;quot;match_parent&amp;quot;
+    android:layout_height=&amp;quot;0dp&amp;quot;
+    android:textSize=&amp;quot;35sp&amp;quot;
+    tools:text=&amp;quot;Sunday the 22nd&amp;quot; /&amp;gt;
+&amp;lt;include layout=&amp;quot;@layout/clock&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这是测试页面！&lt;br&gt;
+    
+    </summary>
+    
+      <category term="blog" scheme="http://jcmels.github.io/categories/blog/"/>
+    
+    
+      <category term="test" scheme="http://jcmels.github.io/tags/test/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://jcmels.github.io/2016/04/10/hello-world/"/>
+    <id>http://jcmels.github.io/2016/04/10/hello-world/</id>
+    <published>2016-04-10T00:49:58.028Z</published>
+    <updated>2016-04-10T00:49:58.030Z</updated>
+    
+    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
