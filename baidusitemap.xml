@@ -4,36 +4,6 @@
 
     
   <url>
-    <loc>http://jcmels.github.io/2016/04/11/test2/</loc>
-    <lastmod>2016-04-11T15:40:46.327Z</lastmod>
-    <data>
-        <display>
-        <title>Test2</title>
-        <pubTime>2016-04-11T15:40:13.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jcmels.github.io/2016/04/11/test1/</loc>
-    <lastmod>2016-04-11T15:32:15.689Z</lastmod>
-    <data>
-        <display>
-        <title>Test1</title>
-        <pubTime>2016-04-11T15:31:50.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://jcmels.github.io/2016/04/11/hexo2/</loc>
     <lastmod>2016-04-11T15:10:52.611Z</lastmod>
     <data>
@@ -93,39 +63,4 @@
     </url>
 
     
-    
-  <url>
-    <loc>http://jcmels.github.io/2016/04/10/my-new-post/</loc>
-    <lastmod>2016-04-10T09:37:42.262Z</lastmod>
-    <data>
-        <display>
-        <title>新文章</title>
-        <pubTime>2016-04-10T01:07:33.000Z</pubTime>
-        
-        <tag>test</tag>
-         
-         
-           
-             
-              <breadCrumb title="blog" url="http://jcmels.github.io/categories/blog/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jcmels.github.io/2016/04/10/hello-world/</loc>
-    <lastmod>2016-04-10T00:49:58.030Z</lastmod>
-    <data>
-        <display>
-        <title>Hello World</title>
-        <pubTime>2016-04-10T00:49:58.028Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
 </urlset>
