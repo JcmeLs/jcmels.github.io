@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jcmels.github.io/"/>
-  <updated>2016-04-11T15:05:00.102Z</updated>
+  <updated>2016-04-11T15:10:52.611Z</updated>
   <id>http://jcmels.github.io/</id>
   
   <author>
@@ -20,11 +20,12 @@
     <link href="http://jcmels.github.io/2016/04/11/hexo2/"/>
     <id>http://jcmels.github.io/2016/04/11/hexo2/</id>
     <published>2016-04-11T14:50:45.000Z</published>
-    <updated>2016-04-11T15:05:00.102Z</updated>
+    <updated>2016-04-11T15:10:52.611Z</updated>
     
     <content type="html">&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/GDP5bNB.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;&amp;nbsp;&amp;nbsp;我们建立独立博客都是为了发（装）博（X）文，那如何发呢？或者说如何编辑和发布呢？接下来我们将会学习发布第一篇文章。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;新建文档&quot;&gt;&lt;a href=&quot;#新建文档&quot; class=&quot;headerlink&quot; title=&quot;新建文档&quot;&gt;&lt;/a&gt;新建文档&lt;/h2&gt;&lt;p&gt;打开你的hexo文件夹，右键git bash，输入命令：&lt;br&gt;    hexo new “my new post”&lt;/p&gt;
 &lt;h2 id=&quot;编辑文档&quot;&gt;&lt;a href=&quot;#编辑文档&quot; class=&quot;headerlink&quot; title=&quot;编辑文档&quot;&gt;&lt;/a&gt;编辑文档&lt;/h2&gt;&lt;p&gt;在hexo文件夹下找到source_post文件夹，再从source_post中找到我们刚新建的my-new-post.md文件，使用文本编辑器如（ATOM）或者专门的markdownpad。markdown语法可以百度，也可以等明天的教程。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;--- &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;title: my new post #可以改成中文的，如“新文章”&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;date: 2016-02-21 16:04:09 #发表日期，一般不改动&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;categories: blog #文章文类&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;tags: blog #文章标签，多于一项时用这种格式，只有一项时使用&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	#这里是正文，用markdown写，你可以选择写一段显示在首页的简介后，加上&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;!--more--&amp;gt;，在&amp;lt;!--more--&amp;gt;之前的内容会显示在首页，之后的内容会被隐藏，当游客点击Read more才能看到。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;断网了。。。。明天更。。。&lt;/p&gt;
 </content>
     
     <summary type="html">
