@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jcmels.github.io/"/>
-  <updated>2016-04-12T01:56:36.267Z</updated>
+  <updated>2016-04-12T17:46:11.483Z</updated>
   <id>http://jcmels.github.io/</id>
   
   <author>
@@ -14,6 +14,142 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Markdown入门</title>
+    <link href="http://jcmels.github.io/2016/04/12/markdown/"/>
+    <id>http://jcmels.github.io/2016/04/12/markdown/</id>
+    <published>2016-04-12T15:05:06.000Z</published>
+    <updated>2016-04-12T17:46:11.483Z</updated>
+    
+    <content type="html">&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;现如今，移动办公越来越多了，有时候需要在手机上写文章应急，可是排版很麻烦，直到有一天，朋友推荐给我一种全新的标记语言——Markdown，我刚开始听说标记语言的时候就在想标记语言在手机上排版不是更麻烦吗？后来经过了解才发现markdown是一种轻量级的标记语言，语法非常简单，常用的标记符号也就十来个，所以学习成本非常的低，而且用过一次就回不去了！&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;  &lt;/p&gt;
+&lt;h1 id=&quot;what&quot;&gt;&lt;a href=&quot;#what&quot; class=&quot;headerlink&quot; title=&quot;what&quot;&gt;&lt;/a&gt;what&lt;/h1&gt;&lt;h2 id=&quot;宗旨&quot;&gt;&lt;a href=&quot;#宗旨&quot; class=&quot;headerlink&quot; title=&quot;宗旨&quot;&gt;&lt;/a&gt;宗旨&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Markdown 的目标是实现「易读易写」。&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;可读性，无论如何，都是最重要的。一份使用 Markdown 格式撰写的文件应该可以直接以纯文本发布，并且看起来不会像是由许多标签或 是格式指令所构成。Markdown 语法受到一些既有 text-to-HTML 格式的影响，包括 Setext、atx、Textile、reStructuredText、Grutatext 和 EtText，而最大灵感来源其实是纯文本电子邮件的格式。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;兼容&quot;&gt;&lt;a href=&quot;#兼容&quot; class=&quot;headerlink&quot; title=&quot;兼容&quot;&gt;&lt;/a&gt;兼容&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Markdown 语法的目标是：成为一种适用于网络的书写语言。&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Markdown 不是想要取代 HTML，甚至也没有要和它相近，它的语法种类很少，只对应 HTML 标记的一小部分。Markdown 的构想不是要使得 HTML 文档更容易书写。在我看来， HTML 已经很容易写了。Markdown 的理念是，能让文档更容易读、写和随意改。HTML 是一种发布的格式，Markdown 是一种书写的格式。就这样，Markdown 的格式语法只涵盖纯文本可以涵盖的范围。  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;以上内容全是官方文档翻译而来的。&lt;/p&gt;
+&lt;h1 id=&quot;why&quot;&gt;&lt;a href=&quot;#why&quot; class=&quot;headerlink&quot; title=&quot;why&quot;&gt;&lt;/a&gt;why&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;轻量级的标记语言&lt;/li&gt;
+&lt;li&gt;简洁的语法代替了排版&lt;/li&gt;
+&lt;li&gt;越来越多网站支持markdown&lt;/li&gt;
+&lt;li&gt;到处格式随心所欲&lt;/li&gt;
+&lt;li&gt;hexo框架发布文章用的是markdown=。=&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&quot;how&quot;&gt;&lt;a href=&quot;#how&quot; class=&quot;headerlink&quot; title=&quot;how&quot;&gt;&lt;/a&gt;how&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.markdown.cn/&quot; title=&quot;markdown中文网&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Markdown官方中文文档&lt;/a&gt;，这里有完整版的语法，我只挑常用语法与个别扩展语法进行说明。  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;标题&quot;&gt;&lt;a href=&quot;#标题&quot; class=&quot;headerlink&quot; title=&quot;标题&quot;&gt;&lt;/a&gt;标题&lt;/h2&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;每篇文章都需要标题，在Markdown中，想定义标题只需要在文字前加&lt;code&gt;#&lt;/code&gt;就行了，记得后面空个空格  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;# 一级标题&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&quot;一级标题&quot;&gt;&lt;a href=&quot;#一级标题&quot; class=&quot;headerlink&quot; title=&quot;一级标题&quot;&gt;&lt;/a&gt;一级标题&lt;/h1&gt;&lt;p&gt;&lt;code&gt;## 二级标题&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&quot;二级标题&quot;&gt;&lt;a href=&quot;#二级标题&quot; class=&quot;headerlink&quot; title=&quot;二级标题&quot;&gt;&lt;/a&gt;二级标题&lt;/h2&gt;&lt;p&gt;&lt;code&gt;### 三级标题&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;三级标题&quot;&gt;&lt;a href=&quot;#三级标题&quot; class=&quot;headerlink&quot; title=&quot;三级标题&quot;&gt;&lt;/a&gt;三级标题&lt;/h3&gt;&lt;/blockquote&gt;
+&lt;p&gt;四级五级六级就以此类推。。。&lt;/p&gt;
+&lt;h2 id=&quot;列表&quot;&gt;&lt;a href=&quot;#列表&quot; class=&quot;headerlink&quot; title=&quot;列表&quot;&gt;&lt;/a&gt;列表&lt;/h2&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;写文章时我们也经常需要列举些东西，这时候就需要列表了，列表还是分为有序列表和无序列表。&lt;/p&gt;
+&lt;h3 id=&quot;有序列表&quot;&gt;&lt;a href=&quot;#有序列表&quot; class=&quot;headerlink&quot; title=&quot;有序列表&quot;&gt;&lt;/a&gt;有序列表&lt;/h3&gt;&lt;p&gt;在markdown中我们只需要在文字前加&lt;code&gt;1. 2. 3.&lt;/code&gt;就可以生成有序列表，文字与标签之间必须要有空格 。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;列表1&lt;/li&gt;
+&lt;li&gt;列表2&lt;/li&gt;
+&lt;li&gt;列表3  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;无序列表&quot;&gt;&lt;a href=&quot;#无序列表&quot; class=&quot;headerlink&quot; title=&quot;无序列表&quot;&gt;&lt;/a&gt;无序列表&lt;/h3&gt;&lt;p&gt;在markdown中我们只需要在文字前加&lt;code&gt;-&lt;/code&gt;、&lt;code&gt;+&lt;/code&gt;、&lt;code&gt;*&lt;/code&gt;中的其中一个标签就可以生成无序列表，文字与标签之间必须要有空格  。  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;列表&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;列表&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;列表&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;引用&quot;&gt;&lt;a href=&quot;#引用&quot; class=&quot;headerlink&quot; title=&quot;引用&quot;&gt;&lt;/a&gt;引用&lt;/h2&gt;&lt;p&gt;写文章时难免会要引用别人的句子，那就需要使用引用标签了，而markdown中引用标签只是一个&lt;code&gt;&amp;gt;&lt;/code&gt;大于号空格后面跟句子就行了&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;举个栗子，我要吃栗子。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;超链接&quot;&gt;&lt;a href=&quot;#超链接&quot; class=&quot;headerlink&quot; title=&quot;超链接&quot;&gt;&lt;/a&gt;超链接&lt;/h2&gt;&lt;p&gt;写文章跳转也是常事，markdown中&lt;code&gt;[显示名称](链接)&lt;/code&gt;就可以添加超链接了如&lt;code&gt;[baidu](http://www.baidu.com)&lt;/code&gt;&lt;br&gt;&lt;a href=&quot;http://www.baidu.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;baidu&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;图片&quot;&gt;&lt;a href=&quot;#图片&quot; class=&quot;headerlink&quot; title=&quot;图片&quot;&gt;&lt;/a&gt;图片&lt;/h2&gt;&lt;p&gt;markdown中插图片是插URL的，当然放文件夹里也可以通过路径访问，markdownpad可以自动生成URL不过也可以使用CloudApp生成URL。图片代码为&lt;code&gt;![图片名](URL)&lt;/code&gt;&lt;br&gt;&lt;img src=&quot;http://i.imgur.com/6Ylb81A.png&quot; alt=&quot;悠行&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;代码&quot;&gt;&lt;a href=&quot;#代码&quot; class=&quot;headerlink&quot; title=&quot;代码&quot;&gt;&lt;/a&gt;代码&lt;/h2&gt;&lt;p&gt;作为程序员，我们的博客会经常分享些代码，那么就需要代码框了！在markdown下很简单，只需要两个反引号`把代码放在中间就行了。当然hexo有代码高亮机制，详情可以看之前的博文。&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;MainActivity&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;AppCompatActivity&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       	&lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt;.onCreate(savedInstanceState);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      	 	setContentView(R.layout.activity_main);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  	 	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&quot;分割线&quot;&gt;&lt;a href=&quot;#分割线&quot; class=&quot;headerlink&quot; title=&quot;分割线&quot;&gt;&lt;/a&gt;分割线&lt;/h2&gt;&lt;p&gt;有时候我们需要用分割线来划分区域，那么在markdown中我们只需要打三个&lt;code&gt;***&lt;/code&gt;或者三个&lt;code&gt;---&lt;/code&gt;来添加分割线  &lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;表格（扩展）&quot;&gt;&lt;a href=&quot;#表格（扩展）&quot; class=&quot;headerlink&quot; title=&quot;表格（扩展）&quot;&gt;&lt;/a&gt;表格（扩展）&lt;/h2&gt;&lt;p&gt;表格在markdown中就比较麻烦了，它属于扩展语法&lt;br&gt;格式为&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;| 表头&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; | 表头&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; | 表头&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt; |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;| ----|:----:| ----: |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;| 内容 | 内容 | 内容 |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;| 内容 | 内容 | 内容 |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;| 内容 | 内容 | 内容 |&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;表头1&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;表头2&lt;/th&gt;
+&lt;th style=&quot;text-align:right&quot;&gt;表头3&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;内容&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;内容&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;内容&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;内容&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;内容&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;内容&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;内容&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;内容&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;内容&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&quot;字体&quot;&gt;&lt;a href=&quot;#字体&quot; class=&quot;headerlink&quot; title=&quot;字体&quot;&gt;&lt;/a&gt;字体&lt;/h2&gt;&lt;p&gt;markdown提供了粗体跟斜体，而且很方便。&lt;br&gt;粗体：&lt;code&gt;** 中间文字 **&lt;/code&gt;  &lt;strong&gt;粗体&lt;/strong&gt;&lt;br&gt;斜体：&lt;code&gt;* 中间文字*&lt;/code&gt;  &lt;em&gt;斜体&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&quot;特殊字符&quot;&gt;&lt;a href=&quot;#特殊字符&quot; class=&quot;headerlink&quot; title=&quot;特殊字符&quot;&gt;&lt;/a&gt;特殊字符&lt;/h2&gt;&lt;p&gt;在markdown中特殊字符如*、+、-这些一般都不会显示出来，这时候就需要转义了，在字符前加\就可以了&lt;/p&gt;
+&lt;h1 id=&quot;tool&quot;&gt;&lt;a href=&quot;#tool&quot; class=&quot;headerlink&quot; title=&quot;tool&quot;&gt;&lt;/a&gt;tool&lt;/h1&gt;&lt;h2 id=&quot;编辑器&quot;&gt;&lt;a href=&quot;#编辑器&quot; class=&quot;headerlink&quot; title=&quot;编辑器&quot;&gt;&lt;/a&gt;编辑器&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;ATOM&lt;/li&gt;
+&lt;li&gt;sublime&lt;/li&gt;
+&lt;li&gt;markdownpad&lt;/li&gt;
+&lt;li&gt;Mou (mac)&lt;/li&gt;
+&lt;li&gt;Ulysses (mac)&lt;/li&gt;
+&lt;li&gt;简书（web）&lt;/li&gt;
+&lt;li&gt;为知笔记&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;图片转URL&quot;&gt;&lt;a href=&quot;#图片转URL&quot; class=&quot;headerlink&quot; title=&quot;图片转URL&quot;&gt;&lt;/a&gt;图片转URL&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.getcloudapp.com/&quot; title=&quot;Cloudapp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Cloudapp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://weibotuchuang.sinaapp.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;围脖床图修复计划&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;markdownpad自带&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;现如今，移动办公越来越多了，有时候需要在手机上写文章应急，可是排版很麻烦，直到有一天，朋友推荐给我一种全新的标记语言——Markdown，我刚开始听说标记语言的时候就在想标记语言在手机上排版不是更麻烦吗？后来经过了解才发现markdown是一种轻量级的标记语言，语法非常简单，常用的标记符号也就十来个，所以学习成本非常的低，而且用过一次就回不去了！
+    
+    </summary>
+    
+      <category term="blog" scheme="http://jcmels.github.io/categories/blog/"/>
+    
+    
+      <category term="markdown" scheme="http://jcmels.github.io/tags/markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://jcmels.github.io/2016/04/12/phototest/"/>
+    <id>http://jcmels.github.io/2016/04/12/phototest/</id>
+    <published>2016-04-12T07:05:07.772Z</published>
+    <updated>2016-04-12T07:16:49.686Z</updated>
+    
+    <content type="html">&lt;div class=&quot;group-picture&quot;&gt;&lt;div class=&quot;group-picture-container&quot;&gt;&lt;div class=&quot;group-picture-row&quot;&gt;&lt;div class=&quot;group-picture-column&quot; style=&quot;width: 100%;&quot;&gt;&lt;img src=&quot;http://i.imgur.com/VvK2XY2.png&quot; alt=&quot;&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;group-picture-row&quot;&gt;&lt;div class=&quot;group-picture-column&quot; style=&quot;width: 50%;&quot;&gt;&lt;img src=&quot;http://i.imgur.com/bApVfrK.png&quot; alt=&quot;&quot;&gt;&lt;/div&gt;&lt;div class=&quot;group-picture-column&quot; style=&quot;width: 50%;&quot;&gt;&lt;img src=&quot;http://i.imgur.com/6Ylb81A.png&quot; alt=&quot;&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;group-picture&quot;&gt;&lt;div class=&quot;group-picture-container&quot;&gt;&lt;div class=&quot;group-picture-row&quot;&gt;&lt;div class=&quot;group-picture-column&quot; style=&quot;widt
+    
+    </summary>
+    
+      <category term="photo" scheme="http://jcmels.github.io/categories/photo/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Gallery_test</title>
