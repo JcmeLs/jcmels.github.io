@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="Jcme丶Ls's Blog">
 <meta property="og:description" content="&amp;nbsp;&amp;nbsp;我们建立独立博客都是为了发（装）博（X）文，那如何发呢？或者说如何编辑和发布呢？接下来我们将会学习发布第一篇文章。">
 <meta property="og:image" content="http://i.imgur.com/GDP5bNB.jpg">
-<meta property="og:updated_time" content="2016-04-11T15:10:52.611Z">
+<meta property="og:updated_time" content="2016-04-12T01:21:54.583Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo+github搭个人博客第一章--发布第一篇文章">
 <meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;我们建立独立博客都是为了发（装）博（X）文，那如何发呢？或者说如何编辑和发布呢？接下来我们将会学习发布第一篇文章。">
@@ -99,14 +99,14 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#新建文档"><span class="toc-number">1.</span> <span class="toc-text">新建文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编辑文档"><span class="toc-number">2.</span> <span class="toc-text">编辑文档</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#新建文档"><span class="toc-number">1.</span> <span class="toc-text">新建文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编辑文档"><span class="toc-number">2.</span> <span class="toc-text">编辑文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发布博文"><span class="toc-number">3.</span> <span class="toc-text">发布博文</span></a></li></ol>
 		
 		</div>
 		
 		<p><img src="http://i.imgur.com/GDP5bNB.jpg" alt=""><br>&nbsp;&nbsp;我们建立独立博客都是为了发（装）博（X）文，那如何发呢？或者说如何编辑和发布呢？接下来我们将会学习发布第一篇文章。<br><a id="more"></a></p>
-<h2 id="新建文档"><a href="#新建文档" class="headerlink" title="新建文档"></a>新建文档</h2><p>打开你的hexo文件夹，右键git bash，输入命令：<br>    hexo new “my new post”</p>
-<h2 id="编辑文档"><a href="#编辑文档" class="headerlink" title="编辑文档"></a>编辑文档</h2><p>在hexo文件夹下找到source_post文件夹，再从source_post中找到我们刚新建的my-new-post.md文件，使用文本编辑器如（ATOM）或者专门的markdownpad。markdown语法可以百度，也可以等明天的教程。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">--- </span><br><span class="line">title: my new post #可以改成中文的，如“新文章”</span><br><span class="line">date: 2016-02-21 16:04:09 #发表日期，一般不改动</span><br><span class="line">categories: blog #文章文类</span><br><span class="line">tags: blog #文章标签，多于一项时用这种格式，只有一项时使用</span><br><span class="line">---</span><br><span class="line">	#这里是正文，用markdown写，你可以选择写一段显示在首页的简介后，加上</span><br><span class="line">	&lt;!--more--&gt;，在&lt;!--more--&gt;之前的内容会显示在首页，之后的内容会被隐藏，当游客点击Read more才能看到。</span><br></pre></td></tr></table></figure></p>
-<p>断网了。。。。明天更。。。</p>
+<h2 id="新建文档"><a href="#新建文档" class="headerlink" title="新建文档"></a>新建文档</h2><p>打开你的hexo文件夹，右键git bash，输入命令：<br><code>hexo new &quot;my new post&quot;</code></p>
+<h2 id="编辑文档"><a href="#编辑文档" class="headerlink" title="编辑文档"></a>编辑文档</h2><p>在hexo文件夹下找到source_post文件夹，再从source_post中找到我们刚新建的my-new-post.md文件，使用文本编辑器如（ATOM）或者专门的markdownpad。markdown语法可以百度，也可以等明天的教程。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">--- </span><br><span class="line">title: my new post #可以改成中文的，如“新文章”</span><br><span class="line">date: 2016-02-21 16:04:09 #发表日期，一般不改动</span><br><span class="line">categories: blog #文章文类</span><br><span class="line">tags: blog #文章标签</span><br><span class="line">---</span><br><span class="line">#这里是正文，用markdown写，你可以选择写一段显示在首页的简介后，加上</span><br><span class="line">&lt;!--more--&gt;，在&lt;!--more--&gt;之前的内容会显示在首页，之后的内容会被隐藏，当游客点击Read more才能看到。</span><br></pre></td></tr></table></figure></p>
+<h2 id="发布博文"><a href="#发布博文" class="headerlink" title="发布博文"></a>发布博文</h2><p>写完文章后，你可以使用以下命令生成静态文件。<br><code>hexo g</code><br>现在可以在本地预览效果，输入以下命令。<br><code>hexo s</code><br>觉得排版OK了，内容也完善了，输入以下命令发布。<br><code>hexo d</code><br>然后就可以通过你的域名访问了，比如jcmels.github.io</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -165,7 +165,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#新建文档"><span class="toc-number">1.</span> <span class="toc-text">新建文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编辑文档"><span class="toc-number">2.</span> <span class="toc-text">编辑文档</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#新建文档"><span class="toc-number">1.</span> <span class="toc-text">新建文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编辑文档"><span class="toc-number">2.</span> <span class="toc-text">编辑文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发布博文"><span class="toc-number">3.</span> <span class="toc-text">发布博文</span></a></li></ol>
  
   </div>
 
