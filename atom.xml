@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jcmels.github.io/"/>
-  <updated>2016-04-14T14:58:03.620Z</updated>
+  <updated>2016-05-01T01:55:17.431Z</updated>
   <id>http://jcmels.github.io/</id>
   
   <author>
@@ -16,18 +16,109 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>自我打脸。。。</title>
-    <link href="http://jcmels.github.io/2016/04/14/jotting/"/>
-    <id>http://jcmels.github.io/2016/04/14/jotting/</id>
-    <published>2016-04-14T14:55:40.000Z</published>
-    <updated>2016-04-14T14:58:03.620Z</updated>
+    <title>简单工厂模式</title>
+    <link href="http://jcmels.github.io/2016/04/28/factory-pattern/"/>
+    <id>http://jcmels.github.io/2016/04/28/factory-pattern/</id>
+    <published>2016-04-27T16:23:44.000Z</published>
+    <updated>2016-05-01T01:55:17.431Z</updated>
     
-    <content type="html">&lt;p&gt;说好了一天一更，还有这星期把hexo的完善教程放上来，可是太忙了没时间码子。。。真是自我打脸。。。后续教程会慢慢放上来的&lt;/p&gt;
+    <content type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近上系统分析与设计课的时候，老师提到了程序员进阶必备之–设计模式，第一个讲的就是简单工厂模式，但由于课时紧张，没有细讲，然后我又觉得很有用，于是下课后参考《大话设计模式》这本书来学习设计模式，正好第一章也是简单工厂模式，那今天就讲讲这个简单工厂模式吧！&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h2&gt;&lt;p&gt;工厂模式网上很多都是以披萨店为栗子，那我也用披萨店来做栗子吧！&lt;br&gt;先说说工厂模式的优点吧  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可维护性高&lt;/li&gt;
+&lt;li&gt;可复用性高&lt;/li&gt;
+&lt;li&gt;拓展性好&lt;/li&gt;
+&lt;li&gt;灵活好用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;再来看看它有什么缺点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;违背了开闭原则&lt;/li&gt;
+&lt;li&gt;所有业务逻辑都在工厂类实现，一旦工厂类出bug，整个系统不能用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;项目描述&quot;&gt;&lt;a href=&quot;#项目描述&quot; class=&quot;headerlink&quot; title=&quot;项目描述&quot;&gt;&lt;/a&gt;项目描述&lt;/h2&gt;&lt;p&gt;披萨店里有一名店长，目前卖两种口味披萨，&lt;code&gt;GreekPizza&lt;/code&gt;和&lt;code&gt;CheesePizza&lt;/code&gt;，每个披萨都有&lt;code&gt;prePare()&lt;/code&gt;,&lt;code&gt;bake()&lt;/code&gt;,&lt;code&gt;cut()&lt;/code&gt;,&lt;code&gt;box()&lt;/code&gt;这4种步骤，原料，烘培，切割，打包，最后给用户吃。&lt;br&gt;&lt;img src=&quot;http://i.imgur.com/7vhkJPv.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;传统方式&quot;&gt;&lt;a href=&quot;#传统方式&quot; class=&quot;headerlink&quot; title=&quot;传统方式&quot;&gt;&lt;/a&gt;传统方式&lt;/h2&gt;&lt;p&gt;在我们没学设计模式前，我们可能会这样写这个代码。&lt;br&gt;&lt;strong&gt;pizza抽象类&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Pizza&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;prepare&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;bake&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;cut&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GreekPizza类&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;GreekPizza&lt;/span&gt;  &lt;span class=&quot;keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Pizza&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;prepare&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       System.out.println(&lt;span class=&quot;string&quot;&gt;&quot;准备GreekPizza~&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;bake&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        System.out.println(&lt;span class=&quot;string&quot;&gt;&quot;正在烤GreekPizza~&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;cut&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        System.out.println(&lt;span class=&quot;string&quot;&gt;&quot;正在切GreekPizza~&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        System.out.println(&lt;span class=&quot;string&quot;&gt;&quot;正在打包GreekPizza~&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;CheesePizza类&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;CheesePizza&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Pizza&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;prepare&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       System.out.println(&lt;span class=&quot;string&quot;&gt;&quot;准备CheesePizza~&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;bake&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        System.out.println(&lt;span class=&quot;string&quot;&gt;&quot;正在烤CheesePizza~&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;cut&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        System.out.println(&lt;span class=&quot;string&quot;&gt;&quot;正在切CheesePizza~&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        System.out.println(&lt;span class=&quot;string&quot;&gt;&quot;正在打包CheesePizza~&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;店长根据客户点的餐生成不同的披萨&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;try&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Pizza pizza;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;cheese&quot;&lt;/span&gt;.equal(orderType)) pizza = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; CheesePizza();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;greek&quot;&lt;/span&gt;.equal(orderType)) pizza = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; GreekPizza();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;span class=&quot;keyword&quot;&gt;catch&lt;/span&gt;(Exception e)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;业务很简答，根据用户想买的披萨，生成不同的披萨。&lt;br&gt;传统的设置这样也没错，如果业务发展，会造成什么问题呢？&lt;br&gt;现在如果多了一种口味 chocolatePizza，正常办法是生成一个ChocolatePizza类，继承于Pizza，然后在OrderPizza中，添加&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;chocolate&quot;&lt;/span&gt;.equal(orderType)) pizza = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; ChocolatePizza();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;可是后来披萨口味越来越多，负责点餐的店长会很不开心的，既要点餐又要做披萨，一个人忙不够来，希望请一个厨师来专门做披萨，那样他才会轻松点。而他所想的解决方案，简单工厂模式就可以做到。&lt;/p&gt;
+&lt;h2 id=&quot;简单工厂模式&quot;&gt;&lt;a href=&quot;#简单工厂模式&quot; class=&quot;headerlink&quot; title=&quot;简单工厂模式&quot;&gt;&lt;/a&gt;简单工厂模式&lt;/h2&gt;&lt;p&gt;简单工厂模式是类的创建模式，又叫做静态工厂方法&lt;code&gt;Static Factory Method&lt;/code&gt;模式。简单工厂模式是由一个工厂对象决定创建出哪一种产品类的实例。&lt;br&gt;简单工厂模式的结构如下：&lt;br&gt;&lt;img src=&quot;http://i.imgur.com/9hTl6Rp.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;从图中可以看出，简单工厂模式涉及到工厂角色，抽象产品以及具体产品，他们分别的作用是：  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;工厂：是工厂方法的核心，含有与应用紧密相关的商业逻辑。&lt;/li&gt;
+&lt;li&gt;抽象产品：是由工厂方法创建的对象的父类，或者他们共同拥有的接口，这里指的是pizza类。&lt;/li&gt;
+&lt;li&gt;具体产品：工厂方法所创建的任务对象，这里指的是GreekPizza和CheesePizza。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;把上面的披萨项目用简单工厂模式来实现的话，就是创建一个工厂类，相当于厨师，来“做pizza”，而店长只需要告诉他需要哪种pizza就可以了。&lt;br&gt;&lt;strong&gt;工厂类&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;SimplePizzaFactory&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; Pizza &lt;span class=&quot;title&quot;&gt;CreatePizza&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String orderType)&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Pizza pizza = &lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (orderType.equals(&lt;span class=&quot;string&quot;&gt;&quot;cheese&quot;&lt;/span&gt;)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            pizza = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; CheesePizza();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (orderType.equals(&lt;span class=&quot;string&quot;&gt;&quot;greek&quot;&lt;/span&gt;)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            pizza = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; GreekPizza();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; pizza;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;在使用的时候，店长只需要调用工厂类的&lt;code&gt;CreatePizza()&lt;/code&gt;，静态方法就可以了：&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;try&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Pizza pizza;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pizza=SimplePizzaFactory.CreatePizza(&lt;span class=&quot;string&quot;&gt;&quot;cheese&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pizza=SimplePizzaFactory.CreatePizza(&lt;span class=&quot;string&quot;&gt;&quot;greek&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;span class=&quot;keyword&quot;&gt;catch&lt;/span&gt;(Exception e)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;这样设计后，店长就轻松多了，只要负责告诉工厂类（厨师）需要什么类型的披萨就可以，终于不要担心搞错了而负责任。&lt;br&gt;而且当我们想添加品种时，只需要再新建一个类ChocolatePizza，然后在工厂类中加入：&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (orderType.equals(&lt;span class=&quot;string&quot;&gt;&quot;chocolate&quot;&lt;/span&gt;)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            pizza = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; ChocolatePizza();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;然后调用的时候传入chocolate，即可生产Chocolatepizza了。&lt;/p&gt;
+&lt;h2 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h2&gt;&lt;p&gt;既然简单工厂模式有着可维护性高，可复用性高，拓展性好，灵活好用这些个有点，那我们什么时候该用它呢？&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;工厂类负责创建的对象比较少时&lt;/li&gt;
+&lt;li&gt;客户端只知道传入工厂类的参数，对如何创建对象不关心时。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;下期将讲解工厂模式，时间不定，敬请期待。&lt;/p&gt;
+&lt;/blockquote&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;说好了一天一更，还有这星期把hexo的完善教程放上来，可是太忙了没时间码子。。。真是自我打脸。。。后续教程会慢慢放上来的&lt;/p&gt;
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近上系统分析与设计课的时候，老师提到了程序员进阶必备之–设计模式，第一个讲的就是简单工厂模式，但由于课时紧张，没有细讲，然后我又觉得很有用，于是下课后参考《大话设计模式》这本书来学习设计模式，正好第一章也是简单工厂模式，那今天就讲讲这个简单工厂模式吧！&lt;br&gt;
+    
+    </summary>
+    
+      <category term="设计模式" scheme="http://jcmels.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="设计模式，从入门到懵逼。" scheme="http://jcmels.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%8C%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%87%B5%E9%80%BC%E3%80%82/"/>
+    
+      <category term="工厂模式" scheme="http://jcmels.github.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="创建型" scheme="http://jcmels.github.io/tags/%E5%88%9B%E5%BB%BA%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>闲聊--没更新的日子在干什么</title>
+    <link href="http://jcmels.github.io/2016/04/21/jotting2/"/>
+    <id>http://jcmels.github.io/2016/04/21/jotting2/</id>
+    <published>2016-04-21T14:59:36.000Z</published>
+    <updated>2016-05-01T02:04:35.396Z</updated>
+    
+    <content type="html">&lt;p&gt;首先，博主是个学生，最近老师在讲SSH，64个学时，4周讲完，然后每天几乎都满课每晚还要练习SSH，还要练习我的主业–Android。其次博主最近参加的比赛进了省赛，APP要完善，所以更没时间更新了。不过等博主有空的时候就会更新，而且更新的全是干货比如设计模式，比如Android开发小技巧，还有就是之前说过博主是个不更新就死星人，所以我还会更新些github上的Android库教程，当然Google开发的新功能我也会尽量更新的！&lt;br&gt;另外目前更新的设计模式都是理论知识，等有空了博主会研究下在安卓里设计模式的实践，到时候会同步更新博客的，敬请期待！&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;首先，博主是个学生，最近老师在讲SSH，64个学时，4周讲完，然后每天几乎都满课每晚还要练习SSH，还要练习我的主业–Android。其次博主最近参加的比赛进了省赛，APP要完善，所以更没时间更新了。不过等博主有空的时候就会更新，而且更新的全是干货比如设计模式，比如Andr
+    
+    </summary>
+    
+      <category term="闲谈" scheme="http://jcmels.github.io/categories/%E9%97%B2%E8%B0%88/"/>
+    
+    
+      <category term="随笔" scheme="http://jcmels.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自我打脸。。。</title>
+    <link href="http://jcmels.github.io/2016/04/14/jotting/"/>
+    <id>http://jcmels.github.io/2016/04/14/jotting/</id>
+    <published>2016-04-14T14:55:40.000Z</published>
+    <updated>2016-04-21T15:00:34.569Z</updated>
+    
+    <content type="html">&lt;p&gt;说好了一天一更，还有这星期把hexo的完善教程放上来，可是太忙了没时间码字。。。真是自我打脸。。。后续教程会慢慢放上来的&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;说好了一天一更，还有这星期把hexo的完善教程放上来，可是太忙了没时间码字。。。真是自我打脸。。。后续教程会慢慢放上来的&lt;/p&gt;
 
     
     </summary>
