@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jcmels.github.io/2016/05/02/factory-pattern2/</loc>
+    
+    <lastmod>2016-05-02T05:45:30.838Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jcmels.github.io/2016/04/21/jotting2/</loc>
     
     <lastmod>2016-05-01T02:04:35.396Z</lastmod>
