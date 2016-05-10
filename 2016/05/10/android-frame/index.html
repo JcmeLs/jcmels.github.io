@@ -1,0 +1,1174 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="YpFWcb4DZeHSjgCAKBeQVz6MAUVqRK0claCiklXZoQ0" />
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android从入门到转行,框架," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jcme丶Ls's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="最近在写创业项目的Android APP，由于是快速开发，所以会用到一些现成的开源库，这里做一下汇总，方便大家和自己，免得下次用的时候还要到处找。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android_frame">
+<meta property="og:url" content="http://jcmels.github.io/2016/05/10/android-frame/index.html">
+<meta property="og:site_name" content="Jcme丶Ls's Blog">
+<meta property="og:description" content="最近在写创业项目的Android APP，由于是快速开发，所以会用到一些现成的开源库，这里做一下汇总，方便大家和自己，免得下次用的时候还要到处找。">
+<meta property="og:image" content="https://github.com/chrisbanes/Android-PullToRefresh/raw/master/header_graphic.png">
+<meta property="og:image" content="https://camo.githubusercontent.com/588a2ef2cdcfb6c71e88437df486226dd15605b3/687474703a2f2f737261696e2d6769746875622e71696e6975646e2e636f6d2f756c7472612d7074722f73746f72652d686f7573652d737472696e672d61727261792e676966">
+<meta property="og:image" content="http://static.open-open.com/lib/uploadImg/20150604/20150604144436_710.jpg">
+<meta property="og:image" content="https://github.com/alienjun/WaveRefreshForAndroid/raw/master/Sceenshots/screenshot1.gif">
+<meta property="og:image" content="https://github.com/armcha/LuseenBottomNavigation/raw/master/ScreenShots/gifView2.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/aurelhubert/ahbottomnavigation/master/demo1.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/roughike/BottomBar/master/demo_shifting.gif">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/6faa9679gw1f3qm0ne4uqj20hj0mjwg6.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/rudsonlive/NavigationDrawer-MaterialDesign/master/Screenshot/Screenshot_01.png">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/6faa9679gw1f3qlsuhmdnj208e0cr74c.jpg">
+<meta property="og:image" content="https://camo.githubusercontent.com/a7131784a75e6f07646108b8304b0a0d4efd306b/687474703a2f2f62616f62616f6c6f7665796f752e636f6d2f666c6f77696e676472617765722e676966">
+<meta property="og:image" content="https://github.com/bushijie/ParallaxSwipeBack/raw/master/show.gif">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/6faa9679gw1f3qlt8eo9mj208c0dvwew.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/6faa9679gw1f3qlvwi5txj20k00zkjz9.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/6faa9679gw1f3qmq5do7ij20u01hck1o.jpg">
+<meta property="og:image" content="https://camo.githubusercontent.com/183f464b177ffa9d0b35f396796ec64f37ce87db/687474703a2f2f7777312e73696e61696d672e636e2f6d773639302f36313064633033346a7731656a6f7175696476767367323038693036333075342e676966">
+<meta property="og:image" content="https://github.com/JcmeLs/animate/raw/master/images/explode_window_transition.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/lgvalle/Material-Animations/master/screenshots/transition_explode.gif">
+<meta property="og:image" content="https://github.com/tyrantgit/ExplosionField/raw/master/explosionfield.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/dinuscxj/LoadingDrawable/master/Preview/SceneryDrawable.gif?width=300">
+<meta property="og:image" content="https://github.com/arimorty/floatingsearchview/raw/master/images/vf353.gif">
+<meta property="og:image" content="https://github.com/afollestad/drag-select-recyclerview/raw/master/art/showcase.gif">
+<meta property="og:image" content="https://camo.githubusercontent.com/0ac94850f861178a7e72def63efc75cedabb7314/687474703a2f2f692e696d6775722e636f6d2f316c6e653279732e706e67">
+<meta property="og:image" content="https://github.com/Cleveroad/SlidingTutorial-Android/raw/master/images/demo.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/iammert/MaterialIntroView/master/art/materialintroviewgif.gif">
+<meta property="og:image" content="https://github.com/hanks-zyh/HTextView/raw/master/screenshot/demo2.gif">
+<meta property="og:image" content="https://github.com/xmuSistone/android-snake-menu/raw/master/capture1.gif">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/6faa9679gw1f3qn29qv8aj207x0dgwer.jpg">
+<meta property="og:image" content="https://github.com/Nightonke/BoomMenu/raw/master/Pictures/show_share.gif?raw=true">
+<meta property="og:updated_time" content="2016-05-10T14:14:27.408Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android_frame">
+<meta name="twitter:description" content="最近在写创业项目的Android APP，由于是快速开发，所以会用到一些现成的开源库，这里做一下汇总，方便大家和自己，免得下次用的时候还要到处找。">
+<meta name="twitter:image" content="https://github.com/chrisbanes/Android-PullToRefresh/raw/master/header_graphic.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Android_frame | Jcme丶Ls's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?d7d361c0f3d98e8853892f70f34dec16";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jcme丶Ls's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">木讷、后知后觉geek一枚</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'YSSN1fQLbwNSRfnEkpao','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android_frame
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-10T17:41:02+08:00" content="2016-05-10">
+              2016-05-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android开发/" itemprop="url" rel="index">
+                    <span itemprop="name">Android开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/10/android-frame/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/10/android-frame/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近在写创业项目的Android APP，由于是快速开发，所以会用到一些现成的开源库，这里做一下汇总，方便大家和自己，免得下次用的时候还要到处找。<br><a id="more"></a></p>
+<h1 id="系统框架"><a href="#系统框架" class="headerlink" title="系统框架"></a>系统框架</h1><hr>
+<h2 id="1-网络请求"><a href="#1-网络请求" class="headerlink" title="1. 网络请求"></a>1. 网络请求</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/loopj/android-async-http" title="Android Async HTTP" target="_blank" rel="external">Android Async HTTP</a></td>
+<td style="text-align:center">Android异步HTTP库</td>
+</tr>
+<tr>
+<td><a href="https://github.com/koush/AndroidAsync" title="AndroidAsync" target="_blank" rel="external">AndroidAsync</a></td>
+<td style="text-align:center">异步Socket，HTTP(客户端+服务器)，WebSocket，和socket.io库。基于NIO而不是线程。</td>
+</tr>
+<tr>
+<td><a href="https://github.com/square/okhttp" title="Okhttp" target="_blank" rel="external">Okhttp</a></td>
+<td style="text-align:center">Http与Http/2的客户端</td>
+</tr>
+<tr>
+<td><a href="https://github.com/square/retrofit" title="Retrofit" target="_blank" rel="external">Retrofit</a></td>
+<td style="text-align:center">类型安全的Http客户端</td>
+</tr>
+<tr>
+<td><a href="https://android.googlesource.com/platform/frameworks/volley" title="Volley" target="_blank" rel="external">Volley</a></td>
+<td style="text-align:center">Google推出的Android异步网络请求框架和图片加载框架</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-网络解析"><a href="#2-网络解析" class="headerlink" title="2. 网络解析"></a>2. 网络解析</h2><ul>
+<li>JSON解析</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/google/gson" title="Gson" target="_blank" rel="external">Gson</a></td>
+<td style="text-align:center">一个Java序列化/反序列化库，可以将JSON和java对象互相转换</td>
+</tr>
+<tr>
+<td><a href="https://github.com/codehaus/jackson" title="Jackson" target="_blank" rel="external">Jackson</a></td>
+<td style="text-align:center">Jackson可以轻松地将Java对象转换成json对象和xml文档，同样也可以将json、xml转换成Java对象</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>HTML解析</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://sourceforge.net/projects/htmlparser/" title="Htmlparser" target="_blank" rel="external">Htmlparser</a></td>
+<td style="text-align:center">解析单个独立html或嵌套html</td>
+</tr>
+<tr>
+<td><a href="https://github.com/jhy/jsoup" title="Jsoup" target="_blank" rel="external">Jsoup</a></td>
+<td style="text-align:center">一个以最好的DOM，CSS和jQuery解析html的库</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-图片加载"><a href="#3-图片加载" class="headerlink" title="3.图片加载"></a>3.图片加载</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/nostra13/Android-Universal-Image-Loader" title="Android-Universal-Image-Loader" target="_blank" rel="external">Android-Universal-Image-Loader</a></td>
+<td style="text-align:center">强大的加载，缓存，展示图片的库</td>
+</tr>
+<tr>
+<td><a href="https://github.com/square/picasso" title="Picasso" target="_blank" rel="external">Picasso</a></td>
+<td style="text-align:center">强大的图片下载与缓存的库</td>
+</tr>
+<tr>
+<td><a href="https://github.com/facebook/fresco" title="Fresco" target="_blank" rel="external">Fresco</a></td>
+<td style="text-align:center">管理图像和使用的内存的库</td>
+</tr>
+<tr>
+<td><a href="https://github.com/bumptech/glide" title="Glide" target="_blank" rel="external">Glide</a></td>
+<td style="text-align:center">图片加载和缓存的库</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-数据处理"><a href="#4-数据处理" class="headerlink" title="4.数据处理"></a>4.数据处理</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://sourceforge.net/projects/ormlite/files/releases/com/j256/ormlite/" title="Ormlite" target="_blank" rel="external">Ormlite</a></td>
+<td style="text-align:center">JDBC和Android的轻量级ORM java包</td>
+</tr>
+<tr>
+<td><a href="https://github.com/greenrobot/greenDAO" title="GreenDAO" target="_blank" rel="external">GreenDAO</a></td>
+<td style="text-align:center">轻松将对象映射到SQLite数据库的ORM解决方案</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-图表处理"><a href="#5-图表处理" class="headerlink" title="5.图表处理"></a>5.图表处理</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/diogobernardino/WilliamChart" title="WilliamChart" target="_blank" rel="external">WilliamChart</a></td>
+<td style="text-align:center">创建图表的Android库</td>
+</tr>
+<tr>
+<td><a href="https://github.com/lecho/hellocharts-android" title="HelloCharts" target="_blank" rel="external">HelloCharts</a></td>
+<td style="text-align:center">兼容性超高的Android图表库</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-后台处理"><a href="#6-后台处理" class="headerlink" title="6.后台处理"></a>6.后台处理</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/yigit/android-priority-jobqueue" title="Android Priority Job Queue" target="_blank" rel="external">Android Priority Job Queue</a></td>
+<td style="text-align:center">专门为Android轻松调度任务的工作队列</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-响应式编程"><a href="#7-响应式编程" class="headerlink" title="7.响应式编程"></a>7.响应式编程</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/ReactiveX/RxAndroid" title="RxAndroid" target="_blank" rel="external">RxAndroid</a></td>
+<td style="text-align:center">Android上的响应式扩展，在RxJava基础上添加了Android线程调度</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ReactiveX/RxJava" title="RxJava" target="_blank" rel="external">RxJava</a></td>
+<td style="text-align:center">JVM上的响应式扩展</td>
+</tr>
+<tr>
+<td><a href="https://github.com/JakeWharton/RxBinding" title="RxBinding" target="_blank" rel="external">RxBinding</a></td>
+<td style="text-align:center">提供用RxJava绑定Android UI的API</td>
+</tr>
+</tbody>
+</table>
+<h1 id="控件库"><a href="#控件库" class="headerlink" title="控件库"></a>控件库</h1><hr>
+<h2 id="1-下拉刷新、下拉加载"><a href="#1-下拉刷新、下拉加载" class="headerlink" title="1.下拉刷新、下拉加载"></a>1.下拉刷新、下拉加载</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/chrisbanes/Android-PullToRefresh" title="Android PullToRefresh" target="_blank" rel="external">Android PullToRefresh</a></td>
+<td style="text-align:center">最经典、最多人用的下拉刷新、加载更多。</td>
+<td style="text-align:center"><img src="https://github.com/chrisbanes/Android-PullToRefresh/raw/master/header_graphic.png" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh" title="Android Ultra Pull To Refresh" target="_blank" rel="external">Android Ultra Pull To Refresh</a></td>
+<td style="text-align:center">非常方便自定义的下拉刷新框架，继承于ViewGroup可以包含任何View，使用起来非常简单，如果想要自定义样式，就像给ListView加一个HeaderView一样简</td>
+<td style="text-align:center"><img src="https://camo.githubusercontent.com/588a2ef2cdcfb6c71e88437df486226dd15605b3/687474703a2f2f737261696e2d6769746875622e71696e6975646e2e636f6d2f756c7472612d7074722f73746f72652d686f7573652d737472696e672d61727261792e676966" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Yalantis/Phoenix" title="Phoenix" target="_blank" rel="external">Phoenix</a></td>
+<td style="text-align:center">漂亮的动态刷新库</td>
+<td style="text-align:center"><img src="http://static.open-open.com/lib/uploadImg/20150604/20150604144436_710.jpg" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/alienjun/AJWaveRefreshForAndroid" title="AJWaveRefreshForAndroid" target="_blank" rel="external">AJWaveRefreshForAndroid</a></td>
+<td style="text-align:center">便捷的水波纹加载效果</td>
+<td style="text-align:center"><img src="https://github.com/alienjun/WaveRefreshForAndroid/raw/master/Sceenshots/screenshot1.gif" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-底部导航栏"><a href="#2-底部导航栏" class="headerlink" title="2.底部导航栏"></a>2.底部导航栏</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/armcha/LuseenBottomNavigation" title="LuseenBottomNavigation" target="_blank" rel="external">LuseenBottomNavigation</a></td>
+<td style="text-align:center">很方便的遵循MD设计的底栏</td>
+<td style="text-align:center"><img src="https://github.com/armcha/LuseenBottomNavigation/raw/master/ScreenShots/gifView2.gif" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/aurelhubert/ahbottomnavigation" title="ahbottomnavigation" target="_blank" rel="external">ahbottomnavigation</a></td>
+<td style="text-align:center">遵循谷歌设计规范的底栏库</td>
+<td style="text-align:center"><img src="https://raw.githubusercontent.com/aurelhubert/ahbottomnavigation/master/demo1.gif" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/roughike/BottomBar" title="BottomBar" target="_blank" rel="external">BottomBar</a></td>
+<td style="text-align:center">另一个遵循谷歌设计规范的底栏库（PS：之前我使用的时候有点小BUG现在不清楚）</td>
+<td style="text-align:center"><img src="https://raw.githubusercontent.com/roughike/BottomBar/master/demo_shifting.gif" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-二维码"><a href="#3-二维码" class="headerlink" title="3.二维码"></a>3.二维码</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/zxing/zxing" target="_blank" rel="external">Zxing</a></td>
+<td style="text-align:center">谷歌开发的二维码处理库，质量没的说！一维码二维码都能扫！</td>
+<td style="text-align:center"><img src="http://ww3.sinaimg.cn/large/6faa9679gw1f3qm0ne4uqj20hj0mjwg6.jpg" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-侧滑菜单"><a href="#4-侧滑菜单" class="headerlink" title="4.侧滑菜单"></a>4.侧滑菜单</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/rudsonlive/NavigationDrawer-MaterialDesign" title="NavigationDrawer" target="_blank" rel="external">NavigationDrawer</a></td>
+<td style="text-align:center">Material Design的抽屉模板库，快速搭建侧滑菜单。</td>
+<td style="text-align:center"><img src="https://raw.githubusercontent.com/rudsonlive/NavigationDrawer-MaterialDesign/master/Screenshot/Screenshot_01.png" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/jfeinstein10/SlidingMenu" title="SlidingMenu" target="_blank" rel="external">SlidingMenu</a></td>
+<td style="text-align:center">之前也是个很优秀的侧滑库直到谷歌来搅局。。</td>
+<td style="text-align:center"><img src="http://ww2.sinaimg.cn/large/6faa9679gw1f3qlsuhmdnj208e0cr74c.jpg" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/mxn21/FlowingDrawer" title="FlowingDrawer" target="_blank" rel="external">FlowingDrawer</a></td>
+<td style="text-align:center">超帅的侧滑菜单</td>
+<td style="text-align:center"><img src="https://camo.githubusercontent.com/a7131784a75e6f07646108b8304b0a0d4efd306b/687474703a2f2f62616f62616f6c6f7665796f752e636f6d2f666c6f77696e676472617765722e676966" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-侧滑返回"><a href="#5-侧滑返回" class="headerlink" title="5.侧滑返回"></a>5.侧滑返回</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/bushijie/ParallaxSwipeBack" title="ParallaxSwipeBack" target="_blank" rel="external">ParallaxSwipeBack</a></td>
+<td style="text-align:center">带视觉差的侧滑返回，类似于新版微信和lofter的侧滑返回效果。引入方便，核心代码只需几十行！</td>
+<td style="text-align:center"><img src="https://github.com/bushijie/ParallaxSwipeBack/raw/master/show.gif" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-文本输入框"><a href="#6-文本输入框" class="headerlink" title="6.文本输入框"></a>6.文本输入框</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/rengwuxian/MaterialEditText" title="MaterialEditText" target="_blank" rel="external">MaterialEditText</a></td>
+<td style="text-align:center">方便自定义的EditText控件库</td>
+<td style="text-align:center"><img src="http://ww4.sinaimg.cn/large/6faa9679gw1f3qlt8eo9mj208c0dvwew.jpg" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-侧贴标签"><a href="#7-侧贴标签" class="headerlink" title="7.侧贴标签"></a>7.侧贴标签</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/linger1216/labelview" title="labelview" target="_blank" rel="external">labelview</a></td>
+<td style="text-align:center">类似淘宝的侧贴标签库</td>
+<td style="text-align:center"><img src="http://ww3.sinaimg.cn/large/6faa9679gw1f3qlvwi5txj20k00zkjz9.jpg" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/H07000223/FlycoLabelView" title="FlycoLabelView" target="_blank" rel="external">FlycoLabelView</a></td>
+<td style="text-align:center">轻量级侧贴标签</td>
+<td style="text-align:center"><img src="http://ww1.sinaimg.cn/large/6faa9679gw1f3qmq5do7ij20u01hck1o.jpg" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-侧滑功能项"><a href="#8-侧滑功能项" class="headerlink" title="8.侧滑功能项"></a>8.侧滑功能项</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/daimajia/AndroidSwipeLayout" title="AndroidSwipeLayout" target="_blank" rel="external">AndroidSwipeLayout</a></td>
+<td style="text-align:center">类似QQ的侧滑删除</td>
+<td style="text-align:center"><img src="https://camo.githubusercontent.com/183f464b177ffa9d0b35f396796ec64f37ce87db/687474703a2f2f7777312e73696e61696d672e636e2f6d773639302f36313064633033346a7731656a6f7175696476767367323038693036333075342e676966" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h2 id="9-动画库"><a href="#9-动画库" class="headerlink" title="9.动画库"></a>9.动画库</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/hitherejoe/animate" title="animate" target="_blank" rel="external">animate</a></td>
+<td style="text-align:center">几乎涵盖所有MD动画</td>
+<td style="text-align:center"><img src="https://github.com/JcmeLs/animate/raw/master/images/explode_window_transition.gif" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/lgvalle/Material-Animations" title="Material-Animations" target="_blank" rel="external">Material-Animations</a></td>
+<td style="text-align:center">MD动画库</td>
+<td style="text-align:center"><img src="https://raw.githubusercontent.com/lgvalle/Material-Animations/master/screenshots/transition_explode.gif" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/tyrantgit/ExplosionField" title="ExplosionField" target="_blank" rel="external">ExplosionField</a></td>
+<td style="text-align:center">爆破效果的删除动画库</td>
+<td style="text-align:center"><img src="https://github.com/tyrantgit/ExplosionField/raw/master/explosionfield.gif" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/dinuscxj/LoadingDrawable" title="LoadingDrawable" target="_blank" rel="external">LoadingDrawable</a></td>
+<td style="text-align:center">小清新的加载动画</td>
+<td style="text-align:center"><img src="https://raw.githubusercontent.com/dinuscxj/LoadingDrawable/master/Preview/SceneryDrawable.gif?width=300" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h2 id="10-搜索框"><a href="#10-搜索框" class="headerlink" title="10.搜索框"></a>10.搜索框</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/arimorty/floatingsearchview" title="floatingsearchview" target="_blank" rel="external">floatingsearchview</a></td>
+<td style="text-align:center">自带动画与动态加载数据的搜索框控件</td>
+<td style="text-align:center"><img src="https://github.com/arimorty/floatingsearchview/raw/master/images/vf353.gif" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h2 id="11-快捷选择"><a href="#11-快捷选择" class="headerlink" title="11.快捷选择"></a>11.快捷选择</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/afollestad/drag-select-recyclerview" title="drag-select-recyclerview" target="_blank" rel="external">drag-select-recyclerview</a></td>
+<td style="text-align:center">一直觉得魅族的快捷选择很有用，终于找到一个类似功能的还支持recycleView</td>
+<td style="text-align:center"><img src="https://github.com/afollestad/drag-select-recyclerview/raw/master/art/showcase.gif" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h2 id="12-引导页"><a href="#12-引导页" class="headerlink" title="12.引导页"></a>12.引导页</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/HeinrichReimer/material-intro" title="material-intro" target="_blank" rel="external">material-intro</a></td>
+<td style="text-align:center">MD风格的引导页</td>
+<td style="text-align:center"><img src="https://camo.githubusercontent.com/0ac94850f861178a7e72def63efc75cedabb7314/687474703a2f2f692e696d6775722e636f6d2f316c6e653279732e706e67" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Cleveroad/SlidingTutorial-Android" title="SlidingTutorial-Android" target="_blank" rel="external">SlidingTutorial</a></td>
+<td style="text-align:center">很顺滑的引导页</td>
+<td style="text-align:center"><img src="https://github.com/Cleveroad/SlidingTutorial-Android/raw/master/images/demo.gif" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/iammert/MaterialIntroView" title="MaterialIntroView" target="_blank" rel="external">MaterialIntroView</a></td>
+<td style="text-align:center">MD式的高亮引导页</td>
+<td style="text-align:center"><img src="https://raw.githubusercontent.com/iammert/MaterialIntroView/master/art/materialintroviewgif.gif" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/hanks-zyh/HTextView" title="HTextView" target="_blank" rel="external">HTextView</a></td>
+<td style="text-align:center">其实这是个帅炸的文字展示库，可是我用过做引导页而且逼格不错！</td>
+<td style="text-align:center"><img src="https://github.com/hanks-zyh/HTextView/raw/master/screenshot/demo2.gif" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h2 id="13-菜单（高能）"><a href="#13-菜单（高能）" class="headerlink" title="13.菜单（高能）"></a>13.菜单（高能）</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/xmuSistone/android-snake-menu" title="android-snake-menu" target="_blank" rel="external">android-snake-menu</a></td>
+<td style="text-align:center">类似Tumblr的蛇形菜单</td>
+<td style="text-align:center"><img src="https://github.com/xmuSistone/android-snake-menu/raw/master/capture1.gif" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/DxTT/coolMenu" title="coolMenu" target="_blank" rel="external">coolMenu</a></td>
+<td style="text-align:center">帅炸的视窗菜单</td>
+<td style="text-align:center"><img src="http://ww4.sinaimg.cn/large/6faa9679gw1f3qn29qv8aj207x0dgwer.jpg" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Nightonke/BoomMenu" title="BoomMenu" target="_blank" rel="external">BoomMenu</a></td>
+<td style="text-align:center">爆炸式的弹出菜单</td>
+<td style="text-align:center"><img src="https://github.com/Nightonke/BoomMenu/raw/master/Pictures/show_share.gif?raw=true" alt=""></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="这次把我觉得可以的库全放了上来，这些库都是我再Github上Fork来的，github上优秀的开源库很多，经常找些优秀的库可以缩短开发时间，多看些开源项目也有利于开发与代码规范，特别是国外的库，里面的示例代码框架超级好！"><a href="#这次把我觉得可以的库全放了上来，这些库都是我再Github上Fork来的，github上优秀的开源库很多，经常找些优秀的库可以缩短开发时间，多看些开源项目也有利于开发与代码规范，特别是国外的库，里面的示例代码框架超级好！" class="headerlink" title="这次把我觉得可以的库全放了上来，这些库都是我再Github上Fork来的，github上优秀的开源库很多，经常找些优秀的库可以缩短开发时间，多看些开源项目也有利于开发与代码规范，特别是国外的库，里面的示例代码框架超级好！"></a>这次把我觉得可以的库全放了上来，这些库都是我再Github上Fork来的，github上优秀的开源库很多，经常找些优秀的库可以缩短开发时间，多看些开源项目也有利于开发与代码规范，特别是国外的库，里面的示例代码框架超级好！</h2><p>PS：本文长期更新，敬请期待！排版很乱。。。轻轻喷</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android从入门到转行/" rel="tag">#Android从入门到转行</a>
+          
+            <a href="/tags/框架/" rel="tag">#框架</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/02/factory-pattern2/" rel="next" title="工厂方法模式">
+                <i class="fa fa-chevron-left"></i> 工厂方法模式
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/10/android-frame/"
+           data-title="Android_frame" data-url="http://jcmels.github.io/2016/05/10/android-frame/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/logo.png"
+               alt="Jcme丶Ls" />
+          <p class="site-author-name" itemprop="name">Jcme丶Ls</p>
+          <p class="site-description motion-element" itemprop="description">coding live</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/1873450617" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#系统框架"><span class="nav-number">1.</span> <span class="nav-text">系统框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-网络请求"><span class="nav-number">1.1.</span> <span class="nav-text">1. 网络请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-网络解析"><span class="nav-number">1.2.</span> <span class="nav-text">2. 网络解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-图片加载"><span class="nav-number">1.3.</span> <span class="nav-text">3.图片加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-数据处理"><span class="nav-number">1.4.</span> <span class="nav-text">4.数据处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-图表处理"><span class="nav-number">1.5.</span> <span class="nav-text">5.图表处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-后台处理"><span class="nav-number">1.6.</span> <span class="nav-text">6.后台处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-响应式编程"><span class="nav-number">1.7.</span> <span class="nav-text">7.响应式编程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#控件库"><span class="nav-number">2.</span> <span class="nav-text">控件库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-下拉刷新、下拉加载"><span class="nav-number">2.1.</span> <span class="nav-text">1.下拉刷新、下拉加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-底部导航栏"><span class="nav-number">2.2.</span> <span class="nav-text">2.底部导航栏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-二维码"><span class="nav-number">2.3.</span> <span class="nav-text">3.二维码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-侧滑菜单"><span class="nav-number">2.4.</span> <span class="nav-text">4.侧滑菜单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-侧滑返回"><span class="nav-number">2.5.</span> <span class="nav-text">5.侧滑返回</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-文本输入框"><span class="nav-number">2.6.</span> <span class="nav-text">6.文本输入框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-侧贴标签"><span class="nav-number">2.7.</span> <span class="nav-text">7.侧贴标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-侧滑功能项"><span class="nav-number">2.8.</span> <span class="nav-text">8.侧滑功能项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-动画库"><span class="nav-number">2.9.</span> <span class="nav-text">9.动画库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-搜索框"><span class="nav-number">2.10.</span> <span class="nav-text">10.搜索框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-快捷选择"><span class="nav-number">2.11.</span> <span class="nav-text">11.快捷选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-引导页"><span class="nav-number">2.12.</span> <span class="nav-text">12.引导页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-菜单（高能）"><span class="nav-number">2.13.</span> <span class="nav-text">13.菜单（高能）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#这次把我觉得可以的库全放了上来，这些库都是我再Github上Fork来的，github上优秀的开源库很多，经常找些优秀的库可以缩短开发时间，多看些开源项目也有利于开发与代码规范，特别是国外的库，里面的示例代码框架超级好！"><span class="nav-number">3.1.</span> <span class="nav-text">这次把我觉得可以的库全放了上来，这些库都是我再Github上Fork来的，github上优秀的开源库很多，经常找些优秀的库可以缩短开发时间，多看些开源项目也有利于开发与代码规范，特别是国外的库，里面的示例代码框架超级好！</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jcme丶Ls</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jcmels"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
