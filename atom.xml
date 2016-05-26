@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jcmels.github.io/"/>
-  <updated>2016-05-10T14:21:59.759Z</updated>
+  <updated>2016-05-26T09:02:11.000Z</updated>
   <id>http://jcmels.github.io/</id>
   
   <author>
@@ -14,6 +14,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>&lt;转&gt;IDEA注册码</title>
+    <link href="http://jcmels.github.io/2016/05/26/IDEA/"/>
+    <id>http://jcmels.github.io/2016/05/26/IDEA/</id>
+    <published>2016-05-26T08:50:55.000Z</published>
+    <updated>2016-05-26T09:02:11.000Z</updated>
+    
+    <content type="html">&lt;p&gt;IntelliJ IDEA是JetBrains公司的一款IDE，主要用于java。&lt;br&gt;同系列有用于Ruby的RubyMine、Python的PyCharm、JavaScript的WebStorm、PHP的PhpStorm等，而且都非常优秀，如果你打算采用的话可以给个小提示：idea+php插件即可变为PhpStorm、+python插件即可变为PyCharm等，装一个idea，在把需要的插件装上，可以在一个项目中同时支持多种开发语言。&lt;br&gt;这款IDE收费有点小贵，这里提供一下注册码（推荐正版）&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;IDEA-2016-1&quot;&gt;&lt;a href=&quot;#IDEA-2016-1&quot; class=&quot;headerlink&quot; title=&quot;IDEA 2016.1&quot;&gt;&lt;/a&gt;IDEA 2016.1&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://idea.qinxi1992.cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://idea.qinxi1992.cn&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;English-Version&quot;&gt;&lt;a href=&quot;#English-Version&quot; class=&quot;headerlink&quot; title=&quot;English Version&quot;&gt;&lt;/a&gt;English Version&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://us.idea.lanyus.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://us.idea.lanyus.com&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;IDEA-15-0-2&quot;&gt;&lt;a href=&quot;#IDEA-15-0-2&quot; class=&quot;headerlink&quot; title=&quot;IDEA 15.0.2&quot;&gt;&lt;/a&gt;IDEA 15.0.2&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://idea.lanyus.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://idea.lanyus.com/&lt;/a&gt;（网友赞助服务器）&lt;br&gt;&lt;a href=&quot;http://0.idea.lanyus.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://0.idea.lanyus.com&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://1.idea.lanyus.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://1.idea.lanyus.com&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://2.idea.lanyus.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://2.idea.lanyus.com&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://3.idea.lanyus.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://3.idea.lanyus.com&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://4.idea.lanyus.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://4.idea.lanyus.com&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;IDEA-15&quot;&gt;&lt;a href=&quot;#IDEA-15&quot; class=&quot;headerlink&quot; title=&quot;IDEA 15&quot;&gt;&lt;/a&gt;IDEA 15&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://15.idea.lanyus.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://15.idea.lanyus.com&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;IDEA-14&quot;&gt;&lt;a href=&quot;#IDEA-14&quot; class=&quot;headerlink&quot; title=&quot;IDEA 14&quot;&gt;&lt;/a&gt;IDEA 14&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://5.idea.lanyus.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://5.idea.lanyus.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;注册码在线计算采用了rover12421大牛的方法。&lt;br&gt;另外我提供了License server注册方法，在注册时选择License server，填写&lt;a href=&quot;http://idea.lanyus.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://idea.lanyus.com&lt;/a&gt;，点击OK，也可以成功注册，但是这样会在每次启动idea时都连接到&lt;a href=&quot;http://idea.lanyus.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://idea.lanyus.com&lt;/a&gt;检查是否激活，不过这种方法不会因idea版本升级而出现无法获得注册码的问题。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;PS:本文为转载，原贴地址&lt;a href=&quot;http://blog.lanyus.com/6.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.lanyus.com/6.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;IntelliJ IDEA是JetBrains公司的一款IDE，主要用于java。&lt;br&gt;同系列有用于Ruby的RubyMine、Python的PyCharm、JavaScript的WebStorm、PHP的PhpStorm等，而且都非常优秀，如果你打算采用的话可以给个小提示：idea+php插件即可变为PhpStorm、+python插件即可变为PyCharm等，装一个idea，在把需要的插件装上，可以在一个项目中同时支持多种开发语言。&lt;br&gt;这款IDE收费有点小贵，这里提供一下注册码（推荐正版）&lt;br&gt;
+    
+    </summary>
+    
+      <category term="IDE" scheme="http://jcmels.github.io/categories/IDE/"/>
+    
+    
+      <category term="福利" scheme="http://jcmels.github.io/tags/%E7%A6%8F%E5%88%A9/"/>
+    
+  </entry>
   
   <entry>
     <title>Android常用库整理</title>
