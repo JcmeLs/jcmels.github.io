@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jcmels.github.io/"/>
-  <updated>2016-05-26T09:02:11.000Z</updated>
+  <updated>2016-06-06T16:57:56.763Z</updated>
   <id>http://jcmels.github.io/</id>
   
   <author>
@@ -14,6 +14,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>S:action标签向action传值</title>
+    <link href="http://jcmels.github.io/2016/06/07/java-web-SSH-jspToaction/"/>
+    <id>http://jcmels.github.io/2016/06/07/java-web-SSH-jspToaction/</id>
+    <published>2016-06-06T16:16:29.000Z</published>
+    <updated>2016-06-06T16:57:56.763Z</updated>
+    
+    <content type="html">&lt;p&gt;最近在写悠行的web端程序，我们选用的是SSH框架，从JSP传值到Action中是经常要干的事，常用的方法就是通过href调用action传值，当然也有种情况就是直接通过 &lt;code&gt;&amp;lt;s:action&amp;gt;&lt;/code&gt;标签来传值，最近就使用它来传值，并遇到了问题。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;传值最大的问题就是传过去的获取不到，这里我使用的是&lt;code&gt;&amp;lt;s:param&amp;gt;&lt;/code&gt;标签，然后传值过去发现获取不到。&lt;/p&gt;
+&lt;h2 id=&quot;解决方法&quot;&gt;&lt;a href=&quot;#解决方法&quot; class=&quot;headerlink&quot; title=&quot;解决方法&quot;&gt;&lt;/a&gt;解决方法&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;s:param &amp;gt;&amp;lt;/s:param&amp;gt;&lt;/code&gt;是以request方式的值的,而不是以参数传值 。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;所以request.getParameter(“”);会取不到值，我们需要通过request.getAttribute(“”)方式可以获取，而在action中要调用request.getAttribute的方法是&lt;code&gt;ServletActionContext.getRequest().getAttribute(&amp;quot;&amp;quot;).toString()&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在jsp页面中当我们想要通过&lt;code&gt;&amp;lt;s:action&amp;gt;&lt;/code&gt;标签传值的时候只需要在&lt;code&gt;&amp;lt;s:action&amp;gt;&lt;/code&gt;标签内加个&lt;code&gt;&amp;lt;s:param&amp;gt;&lt;/code&gt;标签，name为等下在getAttribute方法中的参数如，value为所需要传的值：  &lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;jsp&quot;&gt;&amp;lt;s:action name=&quot;loadPropertyAction&quot;&amp;gt;
+     &amp;lt;s:param name=&quot;catalogName&quot; value=&quot;#catalog.bikeTypeName&quot;&amp;gt;&amp;lt;/s:param&amp;gt;
+&amp;lt;/s:action&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;我这里是动态传值，用上面的迭代器获取到的值再传到另一个action中，在action中获取值的代码是  &lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;catalogName= ServletActionContext.getRequest().getAttribute(&lt;span class=&quot;string&quot;&gt;&quot;catalogName&quot;&lt;/span&gt;).toString();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意用于接收传值的对象需要在action中添加get，set方法！&lt;br&gt;然后就可以做接下来的数据操作了，比如继续进行另一个查询。  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;博主最近好忙，也没什么时间更新博客，这篇短文也是因为bug找的烦躁才想起来记录的一个小技巧，暑假应该时间挺多的，到时候争取每天一更，目测大部分Android，小部分设计模式，小部分SSH，小部分PHP吧&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在写悠行的web端程序，我们选用的是SSH框架，从JSP传值到Action中是经常要干的事，常用的方法就是通过href调用action传值，当然也有种情况就是直接通过 &lt;code&gt;&amp;lt;s:action&amp;gt;&lt;/code&gt;标签来传值，最近就使用它来传值，并遇到了问题。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="blog" scheme="http://jcmels.github.io/categories/blog/"/>
+    
+    
+      <category term="java web" scheme="http://jcmels.github.io/tags/java-web/"/>
+    
+      <category term="struts2" scheme="http://jcmels.github.io/tags/struts2/"/>
+    
+  </entry>
   
   <entry>
     <title>&lt;转&gt;IDEA注册码</title>
