@@ -66,15 +66,15 @@
     <link href="http://jcmels.github.io/2016/07/11/hexo3/"/>
     <id>http://jcmels.github.io/2016/07/11/hexo3/</id>
     <published>2016-07-10T17:02:14.000Z</published>
-    <updated>2016-07-15T15:28:54.302Z</updated>
+    <updated>2016-07-15T16:02:49.374Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;一个漂亮的博客是每个技术宅的梦想，所以选择了高定制的独立博客之路。可是landscape主题还是有点简单，所以需要更换主题，hexo目前有大量的优秀主题，比如jacman、NexT的三套等等。本次教程交大家替换主题，具体主题配置可以根据文档调试。后期也会根据NexT的展开，不过基本上也是照搬文档。&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;一个漂亮的博客是每个技术宅的梦想，所以选择了高定制的独立博客之路。可是landscape主题还是有点简单，所以需要更换主题，hexo目前有大量的优秀主题，比如jacman、NexT的三套等等。本次教程交大家替换主题，具体主题配置可以根据文档调试。后期也会根据NexT的展开，不过基本上也是照搬文档。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;实操&quot;&gt;&lt;a href=&quot;#实操&quot; class=&quot;headerlink&quot; title=&quot;实操&quot;&gt;&lt;/a&gt;实操&lt;/h1&gt;&lt;p&gt;打开git bash。&lt;br&gt;输入&lt;code&gt;git clone&lt;/code&gt; 你想要的主题的GITHUB地址&lt;br&gt;如&lt;code&gt;git clone https://github.com/wuchong/jacman.git themes/jacman&lt;/code&gt;&lt;br&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/6faa9679gw1f5v0a0wicwj20fm03cabd.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;然后用atom打开_config.yml文件找到theme属性设为jacman&lt;br&gt;更新主题&lt;br&gt;&lt;code&gt;cd themes/jacman&lt;/code&gt;&lt;br&gt;&lt;code&gt;git pull&lt;/code&gt;&lt;br&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/6faa9679gw1f5v0a6rif0j20ax02caaa.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;现在可以预览一下了&lt;br&gt;&lt;code&gt;hexo server -g&lt;/code&gt;&lt;br&gt;地址栏输入&lt;code&gt;http://localhost:4000/&lt;/code&gt;是不是变样子了&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;一个漂亮的博客是每个技术宅的梦想，所以选择了高定制的独立博客之路。可是landscape主题还是有点简单，所以需要更换主题，hexo目前有大
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;一个漂亮的博客是每个技术宅的梦想，所以选择了高定制的独立博客之路。可是landscape主题还是有点简单，所以需要更换主题，hexo目前有大量的优秀主题，比如jacman、NexT的三套等等。本次教程交大家替换主题，具体主题配置可以根据文档调试。后期也会根据NexT的展开，不过基本上也是照搬文档。&lt;br&gt;
     
     </summary>
     
