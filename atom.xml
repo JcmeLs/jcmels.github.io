@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jcmels.github.io/"/>
-  <updated>2016-07-15T16:00:53.775Z</updated>
+  <updated>2016-07-15T16:04:06.366Z</updated>
   <id>http://jcmels.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jcmels.github.io/2016/07/11/hexo4/"/>
     <id>http://jcmels.github.io/2016/07/11/hexo4/</id>
     <published>2016-07-10T17:05:11.000Z</published>
-    <updated>2016-07-15T16:00:53.775Z</updated>
+    <updated>2016-07-15T16:04:06.366Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;经过前几篇教程的学习，我们已经可以在本地搭建起hexo的环境了，可怎么把它放进互联网中让所有人都可以看到呢？这里我提供一个简单、免费的方法！–Github！&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;新建代码仓库&quot;&gt;&lt;a href=&quot;#新建代码仓库&quot; class=&quot;headerlink&quot; title=&quot;新建代码仓库&quot;&gt;&lt;/a&gt;新建代码仓库&lt;/h1&gt;&lt;p&gt;首先如果没注册github账号的话需要注册一个账号，因为需要把hexo部署到github的仓库里，这样就不需要自己租服务器了。(已有账号的跳过)&lt;/p&gt;
@@ -45,7 +45,7 @@
 &lt;p&gt;hexo g&lt;br&gt;hexo d&lt;br&gt;把网站部署到Github&lt;br&gt;如果报错则&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;pre&gt;&lt;code&gt;npm install hexo-deployer-git --save
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;再&lt;code&gt;hexo d&lt;/code&gt;&lt;br&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/6faa9679gw1f5v17nf0jaj20gi0cl0vr.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;看到这个你就成功了&lt;br&gt;快去你刚刚填写的域名访问吧！比如&lt;a href=&quot;jcmels.github.io&quot;&gt;jcmels.github.io&lt;/a&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;再&lt;code&gt;hexo d&lt;/code&gt;&lt;br&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/6faa9679gw1f5v17nf0jaj20gi0cl0vr.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;看到这个你就成功了&lt;br&gt;快去你刚刚填写的域名访问吧！比如&lt;a href=&quot;http://jcmels.github.io&quot;&gt;jcmels.github.io&lt;/a&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
