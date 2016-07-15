@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jcmels.github.io/"/>
-  <updated>2016-06-30T16:12:07.386Z</updated>
+  <updated>2016-07-15T16:00:53.775Z</updated>
   <id>http://jcmels.github.io/</id>
   
   <author>
@@ -16,26 +16,72 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>预告</title>
-    <link href="http://jcmels.github.io/2016/07/01/jotting3/"/>
-    <id>http://jcmels.github.io/2016/07/01/jotting3/</id>
-    <published>2016-06-30T16:09:54.000Z</published>
-    <updated>2016-06-30T16:12:07.386Z</updated>
+    <title>Hexo+github搭个人博客第二章--部署到Github</title>
+    <link href="http://jcmels.github.io/2016/07/11/hexo4/"/>
+    <id>http://jcmels.github.io/2016/07/11/hexo4/</id>
+    <published>2016-07-10T17:05:11.000Z</published>
+    <updated>2016-07-15T16:00:53.775Z</updated>
     
-    <content type="html">&lt;p&gt;这次只是个预告，等忙完这段时间之后，会更新我去面试的一些经历，关于着装啊，基础问题啊，专业问题等等，然后接下来的一段时间都会在实习中抽空写些博客，主要是实习中遇到的问题和学到的新技术。&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;经过前几篇教程的学习，我们已经可以在本地搭建起hexo的环境了，可怎么把它放进互联网中让所有人都可以看到呢？这里我提供一个简单、免费的方法！–Github！&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;新建代码仓库&quot;&gt;&lt;a href=&quot;#新建代码仓库&quot; class=&quot;headerlink&quot; title=&quot;新建代码仓库&quot;&gt;&lt;/a&gt;新建代码仓库&lt;/h1&gt;&lt;p&gt;首先如果没注册github账号的话需要注册一个账号，因为需要把hexo部署到github的仓库里，这样就不需要自己租服务器了。(已有账号的跳过)&lt;/p&gt;
+&lt;h2 id=&quot;注册Github&quot;&gt;&lt;a href=&quot;#注册Github&quot; class=&quot;headerlink&quot; title=&quot;注册Github&quot;&gt;&lt;/a&gt;注册Github&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/&lt;/a&gt;先注册，然后登陆github。  &lt;/p&gt;
+&lt;h2 id=&quot;建代码仓库&quot;&gt;&lt;a href=&quot;#建代码仓库&quot; class=&quot;headerlink&quot; title=&quot;建代码仓库&quot;&gt;&lt;/a&gt;建代码仓库&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/6faa9679gw1f5v0iqdafcj208n016aa0.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;找到这个，new一个repository&lt;br&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/large/6faa9679gw1f5v0jpha2jj20l30fz418.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;创建的时候只需要填写repository 那么就行了，但格式必须为XXXXX.github.io。&lt;br&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/large/6faa9679gw1f5v0kc1olyj20oq0jntdr.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;这样表示你创建成功了。  &lt;/p&gt;
+&lt;h1 id=&quot;配置hexo&quot;&gt;&lt;a href=&quot;#配置hexo&quot; class=&quot;headerlink&quot; title=&quot;配置hexo&quot;&gt;&lt;/a&gt;配置hexo&lt;/h1&gt;&lt;p&gt;接下来我们需要改一下配置文件，找到你的hexo文件夹，打开_config.yml文件，建议使用ATOM打开，一个很方便的文本编译器。&lt;br&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/6faa9679gw1f5v0lzj7lfj20r60kl783.jpg&quot; alt=&quot;&quot;&gt;在最下面添加&lt;br&gt;&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;deploy:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    type: git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    repository: https://github.com/JcmeLs/jcmels.github.io.git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    branch: master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;font color=&quot;#FF4500&quot; size=&quot;5&quot; face=&quot;黑体&quot;&gt;如果hexo是3.0之后的直接在type那填git，之前的版本type填你的github用户名，repository填你刚刚建立的仓库地址。&lt;/font&gt;&lt;br&gt;保存。&lt;/p&gt;
+&lt;h1 id=&quot;配置SSH&quot;&gt;&lt;a href=&quot;#配置SSH&quot; class=&quot;headerlink&quot; title=&quot;配置SSH&quot;&gt;&lt;/a&gt;配置SSH&lt;/h1&gt;&lt;p&gt;然后我们会用到SSH，如果没有配置过的话需要先进行配置，如何查询是否配置了？还是打开我们的git bash here输入&lt;code&gt;ls -al ~/.ssh&lt;/code&gt;&lt;br&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/6faa9679gw1f5v0r8wnfjj20gj095js8.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;如果出现这个就是没配置。&lt;/p&gt;
+&lt;h2 id=&quot;获取key&quot;&gt;&lt;a href=&quot;#获取key&quot; class=&quot;headerlink&quot; title=&quot;获取key&quot;&gt;&lt;/a&gt;获取key&lt;/h2&gt;&lt;p&gt;在git bash输入&lt;code&gt;ssh-keygen -t rsa -C &amp;quot;243276652@qq.com&amp;quot;&lt;/code&gt;邮箱写你注册github时填的邮箱，然后会要你按三次回车。&lt;br&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/6faa9679gw1f5v0scdlhgj20dg083gnu.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;接着输入&lt;code&gt;ssh-agent -s&lt;/code&gt;&lt;br&gt;&lt;img src=&quot;http://ww1.sinaimg.cn/large/6faa9679gw1f5v0t389hbj20dt01xdga.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;继续输入&lt;code&gt;ssh-add ~/.ssh/id_rsa&lt;/code&gt;&lt;br&gt;如果报错&lt;img src=&quot;http://ww1.sinaimg.cn/large/6faa9679gw1f5v0u59ga6j20cb01ewem.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;输入&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;eval `ssh-agent -s&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;ssh-add
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/6faa9679gw1f5v0wqo5cxj20di02oq3e.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;这样你就可以添加SSH 可以进你的github里了&lt;br&gt;通过&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;clip &amp;lt; ~/.ssh/id_rsa.pub&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;获取key&lt;/p&gt;
+&lt;h2 id=&quot;填写key&quot;&gt;&lt;a href=&quot;#填写key&quot; class=&quot;headerlink&quot; title=&quot;填写key&quot;&gt;&lt;/a&gt;填写key&lt;/h2&gt;&lt;p&gt;获取到的key存在剪切板，在Github里面，点击右上角的设置图标Settings,&lt;br&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/6faa9679gw1f5v0xilzyqj207i095jro.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/6faa9679gw1f5v0ybj4wqj206x0d53z5.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;找到SSH keys,&lt;br&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/6faa9679gw1f5v0z3kvyej20kz0a6q5o.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;Ttile随便你命名，Key就黏贴上你刚才复制的key,然后点Add SSH key，&lt;br&gt;最后会让你重新输入下gitHub的密码&lt;br&gt;让我们测试下SSH有没有配置成功在git bash里输入&lt;code&gt;ssh -T git@github.com&lt;/code&gt;，会出现警告，没关系输入yes，&lt;br&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/6faa9679gw1f5v10f29kij20fo02zdh7.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;出现这个证明你成功了&lt;/p&gt;
+&lt;h1 id=&quot;部署&quot;&gt;&lt;a href=&quot;#部署&quot; class=&quot;headerlink&quot; title=&quot;部署&quot;&gt;&lt;/a&gt;部署&lt;/h1&gt;&lt;p&gt;输入&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;hexo g&lt;br&gt;hexo d&lt;br&gt;把网站部署到Github&lt;br&gt;如果报错则&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;npm install hexo-deployer-git --save
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;再&lt;code&gt;hexo d&lt;/code&gt;&lt;br&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/6faa9679gw1f5v17nf0jaj20gi0cl0vr.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;看到这个你就成功了&lt;br&gt;快去你刚刚填写的域名访问吧！比如&lt;a href=&quot;jcmels.github.io&quot;&gt;jcmels.github.io&lt;/a&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;这次只是个预告，等忙完这段时间之后，会更新我去面试的一些经历，关于着装啊，基础问题啊，专业问题等等，然后接下来的一段时间都会在实习中抽空写些博客，主要是实习中遇到的问题和学到的新技术。&lt;/p&gt;
-
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;经过前几篇教程的学习，我们已经可以在本地搭建起hexo的环境了，可怎么把它放进互联网中让所有人都可以看到呢？这里我提供一个简单、免费的方法！–Github！&lt;br&gt;
     
     </summary>
     
-      <category term="闲谈" scheme="http://jcmels.github.io/categories/%E9%97%B2%E8%B0%88/"/>
+      <category term="blog" scheme="http://jcmels.github.io/categories/blog/"/>
     
     
-      <category term="随笔" scheme="http://jcmels.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="hexo" scheme="http://jcmels.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo+github搭个人博客第一章--更换主题</title>
+    <link href="http://jcmels.github.io/2016/07/11/hexo3/"/>
+    <id>http://jcmels.github.io/2016/07/11/hexo3/</id>
+    <published>2016-07-10T17:02:14.000Z</published>
+    <updated>2016-07-15T15:28:54.302Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;一个漂亮的博客是每个技术宅的梦想，所以选择了高定制的独立博客之路。可是landscape主题还是有点简单，所以需要更换主题，hexo目前有大量的优秀主题，比如jacman、NexT的三套等等。本次教程交大家替换主题，具体主题配置可以根据文档调试。后期也会根据NexT的展开，不过基本上也是照搬文档。&lt;/p&gt;
+&lt;h1 id=&quot;实操&quot;&gt;&lt;a href=&quot;#实操&quot; class=&quot;headerlink&quot; title=&quot;实操&quot;&gt;&lt;/a&gt;实操&lt;/h1&gt;&lt;p&gt;打开git bash。&lt;br&gt;输入&lt;code&gt;git clone&lt;/code&gt; 你想要的主题的GITHUB地址&lt;br&gt;如&lt;code&gt;git clone https://github.com/wuchong/jacman.git themes/jacman&lt;/code&gt;&lt;br&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/6faa9679gw1f5v0a0wicwj20fm03cabd.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;然后用atom打开_config.yml文件找到theme属性设为jacman&lt;br&gt;更新主题&lt;br&gt;&lt;code&gt;cd themes/jacman&lt;/code&gt;&lt;br&gt;&lt;code&gt;git pull&lt;/code&gt;&lt;br&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/6faa9679gw1f5v0a6rif0j20ax02caaa.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;现在可以预览一下了&lt;br&gt;&lt;code&gt;hexo server -g&lt;/code&gt;&lt;br&gt;地址栏输入&lt;code&gt;http://localhost:4000/&lt;/code&gt;是不是变样子了&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;一个漂亮的博客是每个技术宅的梦想，所以选择了高定制的独立博客之路。可是landscape主题还是有点简单，所以需要更换主题，hexo目前有大
+    
+    </summary>
+    
+      <category term="blog" scheme="http://jcmels.github.io/categories/blog/"/>
+    
+    
+      <category term="hexo" scheme="http://jcmels.github.io/tags/hexo/"/>
     
   </entry>
   
