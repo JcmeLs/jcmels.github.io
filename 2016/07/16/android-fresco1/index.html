@@ -1,0 +1,799 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="YpFWcb4DZeHSjgCAKBeQVz6MAUVqRK0claCiklXZoQ0" />
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android从入门到转行,控件," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jcme丶Ls's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="前言之前一直用的是Android-Universal-Image-Loader或者Picasso的库，很好用，不过有时候也会出现OOM，这次做的一个小项目要求我们使用Fresco，这个库之前听过是Facebook公司开发的，但一直没去使用，这次有机会使用了一下，咦还挺好用的，虽然官方翻译的文档很清晰明了，不过还是做一下记录，大部分搬自Fresco 中文文档。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图片加载利器-Fresco入门篇">
+<meta property="og:url" content="http://jcmels.github.io/2016/07/16/android-fresco1/index.html">
+<meta property="og:site_name" content="Jcme丶Ls's Blog">
+<meta property="og:description" content="前言之前一直用的是Android-Universal-Image-Loader或者Picasso的库，很好用，不过有时候也会出现OOM，这次做的一个小项目要求我们使用Fresco，这个库之前听过是Facebook公司开发的，但一直没去使用，这次有机会使用了一下，咦还挺好用的，虽然官方翻译的文档很清晰明了，不过还是做一下记录，大部分搬自Fresco 中文文档。">
+<meta property="og:updated_time" content="2016-07-16T13:18:00.435Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="图片加载利器-Fresco入门篇">
+<meta name="twitter:description" content="前言之前一直用的是Android-Universal-Image-Loader或者Picasso的库，很好用，不过有时候也会出现OOM，这次做的一个小项目要求我们使用Fresco，这个库之前听过是Facebook公司开发的，但一直没去使用，这次有机会使用了一下，咦还挺好用的，虽然官方翻译的文档很清晰明了，不过还是做一下记录，大部分搬自Fresco 中文文档。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 图片加载利器-Fresco入门篇 | Jcme丶Ls's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?d7d361c0f3d98e8853892f70f34dec16";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jcme丶Ls's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">木讷、后知后觉geek一枚</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'YSSN1fQLbwNSRfnEkpao','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                图片加载利器-Fresco入门篇
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-16T21:12:19+08:00" content="2016-07-16">
+              2016-07-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android开发/" itemprop="url" rel="index">
+                    <span itemprop="name">Android开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/16/android-fresco1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/16/android-fresco1/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前一直用的是Android-Universal-Image-Loader或者Picasso的库，很好用，不过有时候也会出现OOM，这次做的一个小项目要求我们使用Fresco，这个库之前听过是Facebook公司开发的，但一直没去使用，这次有机会使用了一下，咦还挺好用的，虽然官方翻译的文档很清晰明了，不过还是做一下记录，大部分搬自<a href="http://www.fresco-cn.org/docs/" target="_blank" rel="external">Fresco 中文文档</a>。<br><a id="more"></a></p>
+<h1 id="Fresco简介"><a href="#Fresco简介" class="headerlink" title="Fresco简介"></a>Fresco简介</h1><p>Fresco是Facebook公司开发的一款强大的图片加载组件，是现今为止我用过最方便的图片加载组件没有之一。<br>要知道手机内存十分有限，特别是安卓手机，各种流氓APP占用着RAM导致可用内存十分有限，图片不进行管理很容易OOM，所以图片的内存管理十分重要，于是有了各种各样的图片缓存组件，Facebook公司开发了Fresco库来解决这个问题。</p>
+<h1 id="Fresco特性"><a href="#Fresco特性" class="headerlink" title="Fresco特性"></a>Fresco特性</h1><h2 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h2><blockquote>
+<p>解压后的图片，即Android中的Bitmap，占用大量的内存。大的内存占用势必引发更加频繁的GC。在5.0以下，GC将会显著地引发界面卡顿。</p>
+<p>在5.0以下系统，Fresco将图片放到一个特别的内存区域。当然，在图片不显示的时候，占用的内存会自动被释放。这会使得APP更加流畅，减少因图片内存占用而引发的OOM。</p>
+<p>Fresco 在低端机器上表现一样出色，你再也不用因图片内存占用而思前想后。</p>
+</blockquote>
+<h2 id="图片的渐进式呈现"><a href="#图片的渐进式呈现" class="headerlink" title="图片的渐进式呈现"></a>图片的渐进式呈现</h2><blockquote>
+<p>渐进式的JPEG图片格式已经流行数年了，渐进式图片格式先呈现大致的图片轮廓，然后随着图片下载的继续，呈现逐渐清晰的图片，这对于移动设备，尤其是慢网络有极大的利好，可带来更好的用户体验。</p>
+<p>Android 本身的图片库不支持此格式，但是Fresco支持。使用时，和往常一样，仅仅需要提供一个图片的URI即可，剩下的事情，Fresco会处理。</p>
+</blockquote>
+<h2 id="Gif图和WebP格式"><a href="#Gif图和WebP格式" class="headerlink" title="Gif图和WebP格式"></a>Gif图和WebP格式</h2><blockquote>
+<p>是的，支持加载Gif图，支持WebP格式。</p>
+</blockquote>
+<h2 id="图像的呈现"><a href="#图像的呈现" class="headerlink" title="图像的呈现"></a>图像的呈现</h2><blockquote>
+<p>Fresco 的 Drawees 设计，带来一些有用的特性：</p>
+<ul>
+<li>自定义居中焦点(对人脸等图片显示非常有帮助)</li>
+<li>圆角图，当然圆圈也行。</li>
+<li>下载失败之后，点击重现下载</li>
+<li>自定义占位图，自定义overlay, 或者进度条</li>
+<li>指定用户按压时的overlay</li>
+</ul>
+</blockquote>
+<h2 id="图像的加载"><a href="#图像的加载" class="headerlink" title="图像的加载"></a>图像的加载</h2><blockquote>
+<p>Fresco 的 image pipeline 设计，允许用户在多方面控制图片的加载：</p>
+</blockquote>
+<ul>
+<li>为同一个图片指定不同的远程路径，或者使用已经存在本地缓存中的图片</li>
+<li>先显示一个低解析度的图片，等高清图下载完之后再显示高清图</li>
+<li>加载完成回调通知</li>
+<li>对于本地图，如有EXIF缩略图，在大图加载完成之前，可先显示缩略图</li>
+<li>缩放或者旋转图片</li>
+<li>处理已下载的图片</li>
+<li>WebP 支持<h1 id="引入Fresco"><a href="#引入Fresco" class="headerlink" title="引入Fresco"></a>引入Fresco</h1><h2 id="Android-Studio"><a href="#Android-Studio" class="headerlink" title="Android Studio"></a>Android Studio</h2>目前大多数开发者应该都转战Android Studio（下文简称AS），在AS中引入库十分的方便只需要在Gradle中添加dependencies就行  </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">     compile &apos;com.facebook.fresco:fresco:0.9.0+&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="ADT"><a href="#ADT" class="headerlink" title="ADT"></a>ADT</h2><p>在ADT中引入比较麻烦，首先，下载<a href="https://github.com/facebook/fresco/releases/download/v0.9.0/frescolib-v0.9.0.zip" target="_blank" rel="external">这个文件</a>.</p>
+<p>解压后，你会看到一个目录：frescolib，注意这个目录。</p>
+<ol>
+<li>从菜单 “文件(File)”，选择导入(Import)</li>
+<li>展开 Android, 选择 “Existing Android Code into Workspace”， 下一步。</li>
+<li>浏览，选中刚才解压的的文件中的 frescolib 目录。</li>
+<li>这5个项目应该都会被添加到工程： drawee， fbcore， fresco， imagepipeline， imagepipeline-okhttp。请确认前4个项目一定是被选中的。点击完成。</li>
+<li>右键，项目，选择属性，然后选择 Android。</li>
+<li>点击右下角的 Add 按钮，选择 fresco，点击 OK，再点击 OK。</li>
+</ol>
+<p>现在，fresco 就导入到项目中了，你可以开始编译了。如果编译不通过，可以尝试清理资源，或者重启 Eclipse。</p>
+<p>如果 support-v4 包重复了，删掉 frescolib/imagepipeline/libs 下的即可。</p>
+<p>==建议尽早使用 Android Studio。==</p>
+<h1 id="hello-SimpleDraweeView"><a href="#hello-SimpleDraweeView" class="headerlink" title="hello SimpleDraweeView"></a>hello SimpleDraweeView</h1><p>在我们学习编程的时候，一般第一个程序都是hello world，这是一句神奇的话，代表你写出了第一个程序。在Fresco中，第一个简单的成品是用SimpleDraweeView来显示一张网络图片，并在下载完成前显示一张占位图。</p>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>Fresco最基础的功能：从网上下载一幅图并显示出来，而从网上获取图片，必要的一个权限就是网络权限。<br>在AndroidManifest.xml中添加</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.INTERNET"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在应用初始化时，在调用setContentView() 之前，进行初始化：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Fresco.initialize(context);</span><br></pre></td></tr></table></figure>
+<h2 id="添加布局控件"><a href="#添加布局控件" class="headerlink" title="添加布局控件"></a>添加布局控件</h2><p>在xml布局文件中, 加入命名空间：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 其他元素 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> </span><br><span class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attr">xmlns:fresco</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>加入SimpleDraweeView:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">com.facebook.drawee.view.SimpleDraweeView</span></span><br><span class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/my_image_view"</span></span><br><span class="line">    <span class="attr">android:layout_width</span>=<span class="string">"20dp"</span></span><br><span class="line">    <span class="attr">android:layout_height</span>=<span class="string">"20dp"</span></span><br><span class="line">    <span class="attr">fresco:placeholderImage</span>=<span class="string">"@drawable/my_drawable"</span> //占位图</span><br><span class="line">  /&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="加载图片"><a href="#加载图片" class="headerlink" title="加载图片"></a>加载图片</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Uri uri = Uri.parse(<span class="string">"https://raw.githubusercontent.com/rudsonlive/NavigationDrawer-MaterialDesign/master/Screenshot/Screenshot_01.png"</span>);</span><br><span class="line">SimpleDraweeView draweeView = (SimpleDraweeView) findViewById(R.id.my_image_view);</span><br><span class="line">draweeView.setImageURI(uri);</span><br></pre></td></tr></table></figure>
+<p>剩下的下载图片啊、缓存图片啊、内存管理啊都交给fresco就对了！</p>
+<h1 id="概念说明"><a href="#概念说明" class="headerlink" title="概念说明"></a>概念说明</h1><h2 id="Drawees"><a href="#Drawees" class="headerlink" title="Drawees"></a>Drawees</h2><blockquote>
+<p>Drawees 负责图片的呈现，包含几个组件，有点像MVC模式。</p>
+</blockquote>
+<h2 id="DraweeView"><a href="#DraweeView" class="headerlink" title="DraweeView"></a>DraweeView</h2><blockquote>
+<p>继承于 View, 负责图片的显示。<br>一般情况下，使用SimpleDraweeView即可.</p>
+</blockquote>
+<h2 id="DraweeHierarchy"><a href="#DraweeHierarchy" class="headerlink" title="DraweeHierarchy"></a>DraweeHierarchy</h2><blockquote>
+<p>DraweeHierarchy 用于组织和维护最终绘制和呈现的Drawable对象，相当于MVC中的M。</p>
+</blockquote>
+<p>如果你想在Java代码中自定义图片的展示，可以通过这类实现,后续会讲。</p>
+<h2 id="DraweeController"><a href="#DraweeController" class="headerlink" title="DraweeController"></a>DraweeController</h2><blockquote>
+<p>DraweeController 负责和 image loader 交互（默认是Fresco中 image pipeline），可以创建一个这个类的实例，来实现对所要显示的图片做更多的控制。</p>
+</blockquote>
+<h2 id="DraweeControllerBuilder"><a href="#DraweeControllerBuilder" class="headerlink" title="DraweeControllerBuilder"></a>DraweeControllerBuilder</h2><blockquote>
+<p>DraweeControllers 由 DraweeControllerBuilder 采用 Builder 模式创建，创建之后，不可修改。</p>
+</blockquote>
+<h2 id="Listeners"><a href="#Listeners" class="headerlink" title="Listeners"></a>Listeners</h2><blockquote>
+<p>使用 ControllerListener 的一个场景就是设置一个 Listener监听图片的下载。</p>
+</blockquote>
+<h2 id="Image-Pipeline"><a href="#Image-Pipeline" class="headerlink" title="Image Pipeline"></a>Image Pipeline</h2><blockquote>
+<p>Fresco 的 Image Pipeline 负责图片的获取和管理。图片可以来自远程服务器，本地文件，或者Content Provider，本地资源。压缩后的文件缓存在本地存储中，Bitmap数据缓存在内存中。</p>
+</blockquote>
+<h2 id="ImageRequest"><a href="#ImageRequest" class="headerlink" title="ImageRequest"></a>ImageRequest</h2><blockquote>
+<p>ImageRequest存储着Image Pipeline处理被请求图片所需要的有用信息(Uri、是否渐进式图片、是否返回缩略图、缩放、是否自动旋转等)。  </p>
+</blockquote>
+<h1 id="支持的URI"><a href="#支持的URI" class="headerlink" title="支持的URI"></a>支持的URI</h1><p>Fresco 不支持 相对路径的URI. 所有的URI都必须是绝对路径，并且带上该URI的scheme。</p>
+<table>
+<thead>
+<tr>
+<th>图片类型</th>
+<th>Scheme</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>远程图片</td>
+<td>http:// OR https://</td>
+</tr>
+<tr>
+<td>本地文件</td>
+<td>file://</td>
+</tr>
+<tr>
+<td>Content provider</td>
+<td>content://</td>
+</tr>
+<tr>
+<td>asset</td>
+<td>asset://</td>
+</tr>
+<tr>
+<td>res</td>
+<td>res://</td>
+</tr>
+</tbody>
+</table>
+<p>PS:ShapeDrawable这样声明在XML中的drawable可能引起困惑。毕竟它不是图片，如果想把这样的drawable作为图像显示。那么把这个drawable设置为占位图，然后把URI设置为null。</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android从入门到转行/" rel="tag">#Android从入门到转行</a>
+          
+            <a href="/tags/控件/" rel="tag">#控件</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/16/android-recycleview-tips/" rel="next" title="获取RecyclerView中的控件之踩坑篇">
+                <i class="fa fa-chevron-left"></i> 获取RecyclerView中的控件之踩坑篇
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/16/android-fresco1/"
+           data-title="图片加载利器-Fresco入门篇" data-url="http://jcmels.github.io/2016/07/16/android-fresco1/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/logo.png"
+               alt="Jcme丶Ls" />
+          <p class="site-author-name" itemprop="name">Jcme丶Ls</p>
+          <p class="site-description motion-element" itemprop="description">coding live</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/1873450617" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fresco简介"><span class="nav-number">2.</span> <span class="nav-text">Fresco简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fresco特性"><span class="nav-number">3.</span> <span class="nav-text">Fresco特性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#内存管理"><span class="nav-number">3.1.</span> <span class="nav-text">内存管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片的渐进式呈现"><span class="nav-number">3.2.</span> <span class="nav-text">图片的渐进式呈现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gif图和WebP格式"><span class="nav-number">3.3.</span> <span class="nav-text">Gif图和WebP格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图像的呈现"><span class="nav-number">3.4.</span> <span class="nav-text">图像的呈现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图像的加载"><span class="nav-number">3.5.</span> <span class="nav-text">图像的加载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引入Fresco"><span class="nav-number">4.</span> <span class="nav-text">引入Fresco</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android-Studio"><span class="nav-number">4.1.</span> <span class="nav-text">Android Studio</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ADT"><span class="nav-number">4.2.</span> <span class="nav-text">ADT</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hello-SimpleDraweeView"><span class="nav-number">5.</span> <span class="nav-text">hello SimpleDraweeView</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化"><span class="nav-number">5.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加布局控件"><span class="nav-number">5.2.</span> <span class="nav-text">添加布局控件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加载图片"><span class="nav-number">5.3.</span> <span class="nav-text">加载图片</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概念说明"><span class="nav-number">6.</span> <span class="nav-text">概念说明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Drawees"><span class="nav-number">6.1.</span> <span class="nav-text">Drawees</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DraweeView"><span class="nav-number">6.2.</span> <span class="nav-text">DraweeView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DraweeHierarchy"><span class="nav-number">6.3.</span> <span class="nav-text">DraweeHierarchy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DraweeController"><span class="nav-number">6.4.</span> <span class="nav-text">DraweeController</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DraweeControllerBuilder"><span class="nav-number">6.5.</span> <span class="nav-text">DraweeControllerBuilder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Listeners"><span class="nav-number">6.6.</span> <span class="nav-text">Listeners</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Image-Pipeline"><span class="nav-number">6.7.</span> <span class="nav-text">Image Pipeline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ImageRequest"><span class="nav-number">6.8.</span> <span class="nav-text">ImageRequest</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#支持的URI"><span class="nav-number">7.</span> <span class="nav-text">支持的URI</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jcme丶Ls</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jcmels"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
