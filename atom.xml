@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jcmels.github.io/"/>
-  <updated>2016-07-15T17:27:16.145Z</updated>
+  <updated>2016-07-16T01:00:34.813Z</updated>
   <id>http://jcmels.github.io/</id>
   
   <author>
@@ -20,11 +20,11 @@
     <link href="http://jcmels.github.io/2016/07/16/android-recycleview-tips/"/>
     <id>http://jcmels.github.io/2016/07/16/android-recycleview-tips/</id>
     <published>2016-07-15T16:06:52.000Z</published>
-    <updated>2016-07-15T17:27:16.145Z</updated>
+    <updated>2016-07-16T01:00:34.813Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;RecyclerView跟随Android5.0发布已久了，几乎从RecyclerView问世之初，我就抛弃ListView和GridView转投RecyclerView的怀抱了！没啥原因，只因为方便、省心。如它名字所示Recycler+View，代表着它拥有良好的回收机制以及良好的复用能力，而且强制使用了ViewHolder所以性能不用担心。当我们想要添加增删动画时，只需要通过ItemAnimator，一条语句就能解决。ListView？GridView？瀑布流？一条语句快速切换。叫我怎能不爱。然而。。。谷歌这次没赋予它点击事件，这意味着需要自己写点击事件，不过也不难，通过adapter提供回调就行，事件监听器从recyclerview换成了Adapter而已。一切都那么美好，直到今天下午。。。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h1&gt;&lt;p&gt;最近在做一个小项目，在点击item时更新item的UI，这个一般来讲就是获取到View然后在绑定控件，做相应的修改就行，也就一、两条语句的事嘛。好了怎么获取对应的View呢，根据ListView的经验，恩，&lt;code&gt;recycleview.getChildAt(position)&lt;/code&gt;就行了吧！刚开始只有4条数据的时候确实就这样就行了，当数据多了，屏幕显示不完，拉下去点击之前未显示的就Crash了。&lt;/p&gt;
-&lt;h1 id=&quot;解决方案&quot;&gt;&lt;a href=&quot;#解决方案&quot; class=&quot;headerlink&quot; title=&quot;解决方案&quot;&gt;&lt;/a&gt;解决方案&lt;/h1&gt;&lt;p&gt;前言说了RecyclerView有良好的回收机制，所以只加载屏幕显示的View，未显示部分将回收。由于&lt;code&gt;getChildAt()&lt;/code&gt;这个方法只能get到屏幕显示的部分，也就是说：假如屏幕上只能显示6个View，当往下滑动到第7、8个View的时候，他们的position虽然还是6，7但是由于&lt;code&gt;getChildAt（）&lt;/code&gt;只能get到屏幕上显示的View，所以它实际的position其实是4、5。想要get到第7个View不能用getChildAt（6）而要用getChildAt（5）.其实这问题之前在ListView中也出现过，不过只需要用当前的position减去屏幕显示的第一个View的position（&lt;code&gt;getFirstVisiblePosition()&lt;/code&gt;）就行。然而recyclerview中并没有获取第一个View的方法。好了百度、谷歌找了一大圈，最后在stackoverflow找到了相关描述，据说只需要这样&lt;code&gt;((LinearLayoutManager)LayoutManager).findFirstVisibleItemPosition()&lt;/code&gt;或者这样&lt;code&gt;(（GridLayoutManager）LayoutManager).findFirstVisibleItemPosition()&lt;/code&gt;就行了。然而。。。我用的瀑布流&lt;code&gt;StaggeredGridLayoutManager&lt;/code&gt;。StaggeredGridLayoutManager中的这个方法需要传入一个int[]，然后懵逼，然后又是一大圈的趴文，然后依然是在stackoverflow中找到了相关描述，据说这是谷歌的bug，只能绕一绕，结果真的只是绕一绕，废话太多了直接上代码吧。。。&lt;/p&gt;
+&lt;h1 id=&quot;解决方案&quot;&gt;&lt;a href=&quot;#解决方案&quot; class=&quot;headerlink&quot; title=&quot;解决方案&quot;&gt;&lt;/a&gt;解决方案&lt;/h1&gt;&lt;p&gt;前言说了RecyclerView有良好的回收机制，所以只加载屏幕显示的View，未显示部分将回收。由于&lt;code&gt;getChildAt()&lt;/code&gt;这个方法只能get到屏幕显示的部分，也就是说：假如屏幕上只能显示6个View，当往下滑动到第7、8个View的时候，他们的position虽然还是6，7但是由于&lt;code&gt;getChildAt（）&lt;/code&gt;只能get到屏幕上显示的View，所以它实际的position其实是4、5。想要get到第7个View不能用getChildAt（6）而要用getChildAt（4）.其实这问题之前在ListView中也出现过，不过只需要用当前的position减去屏幕显示的第一个View的position（&lt;code&gt;getFirstVisiblePosition()&lt;/code&gt;）就行。然而recyclerview中并没有获取第一个View的方法。好了百度、谷歌找了一大圈，最后在stackoverflow找到了相关描述，据说只需要这样&lt;code&gt;((LinearLayoutManager)LayoutManager).findFirstVisibleItemPosition()&lt;/code&gt;或者这样&lt;code&gt;(（GridLayoutManager）LayoutManager).findFirstVisibleItemPosition()&lt;/code&gt;就行了。然而。。。我用的瀑布流&lt;code&gt;StaggeredGridLayoutManager&lt;/code&gt;。StaggeredGridLayoutManager中的这个方法需要传入一个int[]，然后懵逼，然后又是一大圈的趴文，然后依然是在stackoverflow中找到了相关描述，据说这是谷歌的bug，只能绕一绕，结果真的只是绕一绕，废话太多了直接上代码吧。。。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;java&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;[] firstVisibleItems = &lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt;;
 
 firstVisibleItems=  ((StaggeredGridLayoutManager)recycleview.getLayoutManager()).findFirstVisibleItemPositions(firstVisibleItems);
