@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jcmels.github.io/"/>
-  <updated>2016-07-22T14:52:46.276Z</updated>
+  <updated>2016-07-22T14:56:59.378Z</updated>
   <id>http://jcmels.github.io/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <link href="http://jcmels.github.io/2016/07/22/android-NavigationView-addMenu/"/>
     <id>http://jcmels.github.io/2016/07/22/android-NavigationView-addMenu/</id>
     <published>2016-07-22T13:51:00.000Z</published>
-    <updated>2016-07-22T14:52:46.276Z</updated>
+    <updated>2016-07-22T14:56:59.378Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;NavigationView是一个侧滑菜单的官方库，没记错的话它跟recyclerview一样自从Android5.0退出之后就诞生了。所以教程有很多，这里贴一个我觉得很好的一篇教程，毕竟刚刚给了我思路动态添加item：&lt;a href=&quot;http://blog.30sparks.com/material-design-1-navigation-drawer/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Material Design Patterns 教學 (1) - Navigation Drawer&lt;/a&gt;。博主好像是香港人，不过繁中也能看懂。国内能搜索到的教程几乎都是在XML里绑定了menu.xml，&lt;br&gt;&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;app:menu=&quot;@menu/activity_main_drawer&quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;不过这也正常毕竟侧滑菜单不会经常更新，所以一般都不会写个专门的教程去动态添加item。&lt;/p&gt;
+&lt;p&gt;不过这也正常毕竟侧滑菜单不会经常更新，所以一般都不会写个专门的教程去动态添加item。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h1&gt;&lt;p&gt;最近在做小项目，需要动态更新NavigationView的MenuItem，按照一般的思路就是get到它的View之后再进行操作，可是一直没找到getView的方法，直到Google看了&lt;a href=&quot;http://blog.30sparks.com/material-design-1-navigation-drawer/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Material Design Patterns 教學 (1) - Navigation Drawer&lt;/a&gt;的评论，想起来看Android的API文档，结果就找到解决方法了。&lt;/p&gt;
 &lt;h1 id=&quot;解决方案&quot;&gt;&lt;a href=&quot;#解决方案&quot; class=&quot;headerlink&quot; title=&quot;解决方案&quot;&gt;&lt;/a&gt;解决方案&lt;/h1&gt;&lt;p&gt;遇到问题还是Google吧。。。废话太多。。上解决方法！&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;java&quot;&gt;navigationView.setNavigationItemSelectedListener(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;);
@@ -43,7 +43,8 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;NavigationView是一个侧滑菜单的官方库，没记错的话它跟recyclerview一样自从Android5.0退出之后就诞生了。所以
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;NavigationView是一个侧滑菜单的官方库，没记错的话它跟recyclerview一样自从Android5.0退出之后就诞生了。所以教程有很多，这里贴一个我觉得很好的一篇教程，毕竟刚刚给了我思路动态添加item：&lt;a href=&quot;http://blog.30sparks.com/material-design-1-navigation-drawer/&quot;&gt;Material Design Patterns 教學 (1) - Navigation Drawer&lt;/a&gt;。博主好像是香港人，不过繁中也能看懂。国内能搜索到的教程几乎都是在XML里绑定了menu.xml，&lt;br&gt;&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;app:menu=&quot;@menu/activity_main_drawer&quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;不过这也正常毕竟侧滑菜单不会经常更新，所以一般都不会写个专门的教程去动态添加item。&lt;br&gt;
     
     </summary>
     
