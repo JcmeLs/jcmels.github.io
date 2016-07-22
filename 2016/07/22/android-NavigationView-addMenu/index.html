@@ -66,7 +66,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="Android从入门到转行,控件," />
 
 
 
@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="前言一个漂亮的博客是每个技术宅的梦想，所以选择了高定制的独立博客之路。可是landscape主题还是有点简单，所以需要更换主题，hexo目前有大量的优秀主题，比如jacman、NexT的三套等等。本次教程交大家替换主题，具体主题配置可以根据文档调试。后期也会根据NexT的展开，不过基本上也是照搬文档。">
+<meta name="description" content="前言NavigationView是一个侧滑菜单的官方库，没记错的话它跟recyclerview一样自从Android5.0退出之后就诞生了。所以教程有很多，这里贴一个我觉得很好的一篇教程，毕竟刚刚给了我思路动态添加item：Material Design Patterns 教學 (1) - Navigation Drawer。博主好像是香港人，不过繁中也能看懂。国内能搜索到的教程几乎都是在XML里">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo+github搭个人博客第一章--更换主题">
-<meta property="og:url" content="http://jcmels.github.io/2016/07/11/hexo3/index.html">
+<meta property="og:title" content="NavigationView之动态添加MenuItem">
+<meta property="og:url" content="http://jcmels.github.io/2016/07/22/android-NavigationView-addMenu/index.html">
 <meta property="og:site_name" content="Jcme丶Ls's Blog">
-<meta property="og:description" content="前言一个漂亮的博客是每个技术宅的梦想，所以选择了高定制的独立博客之路。可是landscape主题还是有点简单，所以需要更换主题，hexo目前有大量的优秀主题，比如jacman、NexT的三套等等。本次教程交大家替换主题，具体主题配置可以根据文档调试。后期也会根据NexT的展开，不过基本上也是照搬文档。">
-<meta property="og:image" content="http://ww3.sinaimg.cn/large/6faa9679gw1f5v0a0wicwj20fm03cabd.jpg">
-<meta property="og:image" content="http://ww3.sinaimg.cn/large/6faa9679gw1f5v0a6rif0j20ax02caaa.jpg">
-<meta property="og:updated_time" content="2016-07-15T16:02:49.374Z">
+<meta property="og:description" content="前言NavigationView是一个侧滑菜单的官方库，没记错的话它跟recyclerview一样自从Android5.0退出之后就诞生了。所以教程有很多，这里贴一个我觉得很好的一篇教程，毕竟刚刚给了我思路动态添加item：Material Design Patterns 教學 (1) - Navigation Drawer。博主好像是香港人，不过繁中也能看懂。国内能搜索到的教程几乎都是在XML里">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/6faa9679gw1f632cnuj7rj20r505twey.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/6faa9679gw1f632oup2gnj20a10gpmxv.jpg">
+<meta property="og:updated_time" content="2016-07-22T14:52:46.276Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo+github搭个人博客第一章--更换主题">
-<meta name="twitter:description" content="前言一个漂亮的博客是每个技术宅的梦想，所以选择了高定制的独立博客之路。可是landscape主题还是有点简单，所以需要更换主题，hexo目前有大量的优秀主题，比如jacman、NexT的三套等等。本次教程交大家替换主题，具体主题配置可以根据文档调试。后期也会根据NexT的展开，不过基本上也是照搬文档。">
-<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/6faa9679gw1f5v0a0wicwj20fm03cabd.jpg">
+<meta name="twitter:title" content="NavigationView之动态添加MenuItem">
+<meta name="twitter:description" content="前言NavigationView是一个侧滑菜单的官方库，没记错的话它跟recyclerview一样自从Android5.0退出之后就诞生了。所以教程有很多，这里贴一个我觉得很好的一篇教程，毕竟刚刚给了我思路动态添加item：Material Design Patterns 教學 (1) - Navigation Drawer。博主好像是香港人，不过繁中也能看懂。国内能搜索到的教程几乎都是在XML里">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/6faa9679gw1f632cnuj7rj20r505twey.jpg">
 
 
 
@@ -114,7 +114,7 @@
   };
 </script>
 
-  <title> Hexo+github搭个人博客第一章--更换主题 | Jcme丶Ls's Blog </title>
+  <title> NavigationView之动态添加MenuItem | Jcme丶Ls's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -284,7 +284,7 @@
             
             
               
-                Hexo+github搭个人博客第一章--更换主题
+                NavigationView之动态添加MenuItem
               
             
           </h1>
@@ -296,8 +296,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-11T01:02:14+08:00" content="2016-07-11">
-              2016-07-11
+            <time itemprop="dateCreated" datetime="2016-07-22T21:51:00+08:00" content="2016-07-22">
+              2016-07-22
             </time>
           </span>
 
@@ -310,8 +310,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/blog/" itemprop="url" rel="index">
-                    <span itemprop="name">blog</span>
+                  <a href="/categories/Android开发/" itemprop="url" rel="index">
+                    <span itemprop="name">Android开发</span>
                   </a>
                 </span>
 
@@ -326,8 +326,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/11/hexo3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/11/hexo3/" itemprop="commentsCount"></span>
+                <a href="/2016/07/22/android-NavigationView-addMenu/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/22/android-NavigationView-addMenu/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -350,8 +350,23 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>一个漂亮的博客是每个技术宅的梦想，所以选择了高定制的独立博客之路。可是landscape主题还是有点简单，所以需要更换主题，hexo目前有大量的优秀主题，比如jacman、NexT的三套等等。本次教程交大家替换主题，具体主题配置可以根据文档调试。后期也会根据NexT的展开，不过基本上也是照搬文档。<br><a id="more"></a></p>
-<h1 id="实操"><a href="#实操" class="headerlink" title="实操"></a>实操</h1><p>打开git bash。<br>输入<code>git clone</code> 你想要的主题的GITHUB地址<br>如<code>git clone https://github.com/wuchong/jacman.git themes/jacman</code><br><img src="http://ww3.sinaimg.cn/large/6faa9679gw1f5v0a0wicwj20fm03cabd.jpg" alt=""><br>然后用atom打开_config.yml文件找到theme属性设为jacman<br>更新主题<br><code>cd themes/jacman</code><br><code>git pull</code><br><img src="http://ww3.sinaimg.cn/large/6faa9679gw1f5v0a6rif0j20ax02caaa.jpg" alt=""><br>现在可以预览一下了<br><code>hexo server -g</code><br>地址栏输入<code>http://localhost:4000/</code>是不是变样子了</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>NavigationView是一个侧滑菜单的官方库，没记错的话它跟recyclerview一样自从Android5.0退出之后就诞生了。所以教程有很多，这里贴一个我觉得很好的一篇教程，毕竟刚刚给了我思路动态添加item：<a href="http://blog.30sparks.com/material-design-1-navigation-drawer/" target="_blank" rel="external">Material Design Patterns 教學 (1) - Navigation Drawer</a>。博主好像是香港人，不过繁中也能看懂。国内能搜索到的教程几乎都是在XML里绑定了menu.xml，<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app:menu="@menu/activity_main_drawer"</span><br></pre></td></tr></table></figure></p>
+<p>不过这也正常毕竟侧滑菜单不会经常更新，所以一般都不会写个专门的教程去动态添加item。</p>
+<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>最近在做小项目，需要动态更新NavigationView的MenuItem，按照一般的思路就是get到它的View之后再进行操作，可是一直没找到getView的方法，直到Google看了<a href="http://blog.30sparks.com/material-design-1-navigation-drawer/" target="_blank" rel="external">Material Design Patterns 教學 (1) - Navigation Drawer</a>的评论，想起来看Android的API文档，结果就找到解决方法了。</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>遇到问题还是Google吧。。。废话太多。。上解决方法！</p>
+<pre><code class="java">navigationView.setNavigationItemSelectedListener(<span class="keyword">this</span>);
+      navigationView.getMenu().add(<span class="string">"我是后加的"</span>).setOnMenuItemClickListener(<span class="keyword">new</span> MenuItem.OnMenuItemClickListener() {
+          <span class="meta">@Override</span>
+          <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onMenuItemClick</span><span class="params">(MenuItem item)</span> </span>{
+              Toast.makeText(MainActivity.<span class="keyword">this</span>,<span class="string">"你点击我了"</span>,Toast.LENGTH_SHORT).show();
+                   <span class="comment">//在这写点击之后的处理</span>
+              <span class="keyword">return</span> <span class="keyword">true</span>;
+          }
+      });
+</code></pre>
+<p>我们看一下官方的API文档是怎么说的<br><img src="http://ww3.sinaimg.cn/large/6faa9679gw1f632cnuj7rj20r505twey.jpg" alt=""><br>就是说<code>navigationView.getMenu()</code>获取到Menu这个View实例，再add MenuItem就行了，<code>setOnMenuItemClickListener</code>就是对这个item设监听事件。<br>成果图：<img src="http://ww4.sinaimg.cn/large/6faa9679gw1f632oup2gnj20a10gpmxv.jpg" alt=""><br>不过目前还有一点有问题的就是不能动态给MenuItem添加icon，等项目做完了再研究下怎么动态加icon。</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>由于项目的server也要我们自己完成，然后我就开始了疯狂查资料模式，毕竟之前一直没接触node.js（hexo是例外）,很多东西百度都很少资料，而且都是好几年前的，仗着有点SSH的基础（虽然跟node.js一点关系都没）和对MVC的了解，大概把server给搭了起来，期间Google帮了好多忙！所以能Google的就别Baidu了。。。  </p>
+<p>PS:后期若找到动态更新icon的话会第一时间更新Blog！</p>
 
       
     </div>
@@ -372,7 +387,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag">#hexo</a>
+            <a href="/tags/Android从入门到转行/" rel="tag">#Android从入门到转行</a>
+          
+            <a href="/tags/控件/" rel="tag">#控件</a>
           
         </div>
       
@@ -381,17 +398,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/07/java-web-SSH-jspToaction/" rel="next" title="S:action标签向action传值">
-                <i class="fa fa-chevron-left"></i> S:action标签向action传值
+              <a href="/2016/07/16/android-fresco1/" rel="next" title="图片加载利器-Fresco入门篇">
+                <i class="fa fa-chevron-left"></i> 图片加载利器-Fresco入门篇
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/11/hexo4/" rel="prev" title="Hexo+github搭个人博客第二章--部署到Github">
-                Hexo+github搭个人博客第二章--部署到Github <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -420,8 +433,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/11/hexo3/"
-           data-title="Hexo+github搭个人博客第一章--更换主题" data-url="http://jcmels.github.io/2016/07/11/hexo3/">
+      <div class="ds-thread" data-thread-key="2016/07/22/android-NavigationView-addMenu/"
+           data-title="NavigationView之动态添加MenuItem" data-url="http://jcmels.github.io/2016/07/22/android-NavigationView-addMenu/">
       </div>
     
   </div>
@@ -530,7 +543,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实操"><span class="nav-number">2.</span> <span class="nav-text">实操</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题描述"><span class="nav-number">2.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方案"><span class="nav-number">3.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后记"><span class="nav-number">4.</span> <span class="nav-text">后记</span></a></li></ol></div>
             
           </div>
         </section>
