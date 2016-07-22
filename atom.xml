@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jcmels.github.io/"/>
-  <updated>2016-07-22T14:56:59.378Z</updated>
+  <updated>2016-07-22T15:26:52.724Z</updated>
   <id>http://jcmels.github.io/</id>
   
   <author>
@@ -20,14 +20,14 @@
     <link href="http://jcmels.github.io/2016/07/22/android-NavigationView-addMenu/"/>
     <id>http://jcmels.github.io/2016/07/22/android-NavigationView-addMenu/</id>
     <published>2016-07-22T13:51:00.000Z</published>
-    <updated>2016-07-22T14:56:59.378Z</updated>
+    <updated>2016-07-22T15:26:52.724Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;NavigationView是一个侧滑菜单的官方库，没记错的话它跟recyclerview一样自从Android5.0退出之后就诞生了。所以教程有很多，这里贴一个我觉得很好的一篇教程，毕竟刚刚给了我思路动态添加item：&lt;a href=&quot;http://blog.30sparks.com/material-design-1-navigation-drawer/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Material Design Patterns 教學 (1) - Navigation Drawer&lt;/a&gt;。博主好像是香港人，不过繁中也能看懂。国内能搜索到的教程几乎都是在XML里绑定了menu.xml，&lt;br&gt;&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;app:menu=&quot;@menu/activity_main_drawer&quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;不过这也正常毕竟侧滑菜单不会经常更新，所以一般都不会写个专门的教程去动态添加item。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h1&gt;&lt;p&gt;最近在做小项目，需要动态更新NavigationView的MenuItem，按照一般的思路就是get到它的View之后再进行操作，可是一直没找到getView的方法，直到Google看了&lt;a href=&quot;http://blog.30sparks.com/material-design-1-navigation-drawer/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Material Design Patterns 教學 (1) - Navigation Drawer&lt;/a&gt;的评论，想起来看Android的API文档，结果就找到解决方法了。&lt;/p&gt;
 &lt;h1 id=&quot;解决方案&quot;&gt;&lt;a href=&quot;#解决方案&quot; class=&quot;headerlink&quot; title=&quot;解决方案&quot;&gt;&lt;/a&gt;解决方案&lt;/h1&gt;&lt;p&gt;遇到问题还是Google吧。。。废话太多。。上解决方法！&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;java&quot;&gt;navigationView.setNavigationItemSelectedListener(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;);
-      navigationView.getMenu().add(&lt;span class=&quot;string&quot;&gt;&quot;我是后加的&quot;&lt;/span&gt;).setOnMenuItemClickListener(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; MenuItem.OnMenuItemClickListener() {
+      navigationView.getMenu().add(&lt;span class=&quot;string&quot;&gt;&quot;我是后加的&quot;&lt;/span&gt;).setIcon(R.drawable.collect).setOnMenuItemClickListener(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; MenuItem.OnMenuItemClickListener() {
           &lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt;
           &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;onMenuItemClick&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(MenuItem item)&lt;/span&gt; &lt;/span&gt;{
               Toast.makeText(MainActivity.&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;你点击我了&quot;&lt;/span&gt;,Toast.LENGTH_SHORT).show();
@@ -36,7 +36,9 @@
           }
       });
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;我们看一下官方的API文档是怎么说的&lt;br&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/6faa9679gw1f632cnuj7rj20r505twey.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;就是说&lt;code&gt;navigationView.getMenu()&lt;/code&gt;获取到Menu这个View实例，再add MenuItem就行了，&lt;code&gt;setOnMenuItemClickListener&lt;/code&gt;就是对这个item设监听事件。&lt;br&gt;成果图：&lt;img src=&quot;http://ww4.sinaimg.cn/large/6faa9679gw1f632oup2gnj20a10gpmxv.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;不过目前还有一点有问题的就是不能动态给MenuItem添加icon，等项目做完了再研究下怎么动态加icon。&lt;/p&gt;
+&lt;p&gt;我们看一下官方的API文档是怎么说的&lt;br&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/6faa9679gw1f632cnuj7rj20r505twey.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;就是说&lt;code&gt;navigationView.getMenu()&lt;/code&gt;获取到Menu这个View实例，再add MenuItem就行了，&lt;code&gt;setOnMenuItemClickListener&lt;/code&gt;就是对这个item设监听事件。&lt;br&gt;成果图：&lt;img src=&quot;http://ww4.sinaimg.cn/large/6faa9679gw1f632oup2gnj20a10gpmxv.jpg&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;不过目前还有一点有问题的就是不能动态给MenuItem添加icon，等项目做完了再研究下怎么动态加icon。&lt;/p&gt;
+&lt;p&gt;&lt;font color=&quot;#FF4500&quot; size=&quot;5&quot; face=&quot;黑体&quot;&gt;更新：给MenuItem添加Icon只需要在add之后setIcon就行，代码已更新！&lt;/font&gt;&lt;/p&gt;
 &lt;h1 id=&quot;后记&quot;&gt;&lt;a href=&quot;#后记&quot; class=&quot;headerlink&quot; title=&quot;后记&quot;&gt;&lt;/a&gt;后记&lt;/h1&gt;&lt;p&gt;由于项目的server也要我们自己完成，然后我就开始了疯狂查资料模式，毕竟之前一直没接触node.js（hexo是例外）,很多东西百度都很少资料，而且都是好几年前的，仗着有点SSH的基础（虽然跟node.js一点关系都没）和对MVC的了解，大概把server给搭了起来，期间Google帮了好多忙！所以能Google的就别Baidu了。。。  &lt;/p&gt;
 &lt;p&gt;PS:后期若找到动态更新icon的话会第一时间更新Blog！&lt;/p&gt;
 </content>
