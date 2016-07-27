@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jcmels.github.io/"/>
-  <updated>2016-07-27T14:59:54.853Z</updated>
+  <updated>2016-07-27T15:05:12.780Z</updated>
   <id>http://jcmels.github.io/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://jcmels.github.io/2016/07/27/android-BRVAH-section/"/>
     <id>http://jcmels.github.io/2016/07/27/android-BRVAH-section/</id>
     <published>2016-07-27T13:50:40.000Z</published>
-    <updated>2016-07-27T14:59:54.853Z</updated>
+    <updated>2016-07-27T15:05:12.780Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;最近在公司做小项目，需要用到分组功能，一般来讲，可以使用listview嵌套gridview来实现，也可以用recyclerview来实现。博主试过使用listview嵌套gridview，实现是实现了，就是优化不到位，会掉帧。然后使用recyclerview，想了大半天做了出来，可是效果也不好。于是问了下能不能用第三方库，毕竟前段时间发现了&lt;a href=&quot;www.recyclerview.org&quot;&gt;BaseRecyclerViewAdapterHelper&lt;/a&gt;（下文简称BRVAH）这个优秀的RecyclerViewAdapter高度定制开源库。结果得到了肯定，并且公司鼓励使用优秀的第三方开源库！然后！跟着我一起用吧！&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;最近在公司做小项目，需要用到分组功能，一般来讲，可以使用listview嵌套gridview来实现，也可以用recyclerview来实现。博主试过使用listview嵌套gridview，实现是实现了，就是优化不到位，会掉帧。然后使用recyclerview，想了大半天做了出来，可是效果也不好。于是问了下能不能用第三方库，毕竟前段时间发现了&lt;a href=&quot;www.recyclerview.org&quot;&gt;BaseRecyclerViewAdapterHelper&lt;/a&gt;（下文简称BRVAH）这个优秀的RecyclerViewAdapter高度定制开源库。结果得到了肯定，并且公司鼓励使用优秀的第三方开源库！然后！跟着我一起用吧！&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;why&quot;&gt;&lt;a href=&quot;#why&quot; class=&quot;headerlink&quot; title=&quot;why&quot;&gt;&lt;/a&gt;why&lt;/h1&gt;&lt;p&gt;依旧这个套路，这里先说下为什么要用BRVAH。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;节省大量代码（减少70%）&lt;/p&gt;
@@ -90,7 +90,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;最近在公司做小项目，需要用到分组功能，一般来讲，可以使用listview嵌套gridview来实现，也可以用recyclerview来实现。
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;最近在公司做小项目，需要用到分组功能，一般来讲，可以使用listview嵌套gridview来实现，也可以用recyclerview来实现。博主试过使用listview嵌套gridview，实现是实现了，就是优化不到位，会掉帧。然后使用recyclerview，想了大半天做了出来，可是效果也不好。于是问了下能不能用第三方库，毕竟前段时间发现了&lt;a href=&quot;www.recyclerview.org&quot;&gt;BaseRecyclerViewAdapterHelper&lt;/a&gt;（下文简称BRVAH）这个优秀的RecyclerViewAdapter高度定制开源库。结果得到了肯定，并且公司鼓励使用优秀的第三方开源库！然后！跟着我一起用吧！&lt;br&gt;
     
     </summary>
     
