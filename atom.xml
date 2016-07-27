@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jcmels.github.io/"/>
-  <updated>2016-07-27T15:05:12.780Z</updated>
+  <updated>2016-07-27T15:35:36.190Z</updated>
   <id>http://jcmels.github.io/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mongoose更新数据小技巧</title>
+    <link href="http://jcmels.github.io/2016/07/27/server-nodejs-mongoose-updatetips/"/>
+    <id>http://jcmels.github.io/2016/07/27/server-nodejs-mongoose-updatetips/</id>
+    <published>2016-07-27T15:17:16.000Z</published>
+    <updated>2016-07-27T15:35:36.190Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;博主之前使用的数据库一直都是SQL Server或者MySQL，最近接触了传说中的nosql–mongodb。咋一用觉得比起关系型数据库进行关联查询是麻烦，可是当看了mongoose api之后发现有个ref的东西的存在，建立关系骨架也不是太难。&lt;br&gt;然后跌跌撞撞基本的server都搭起来了，下午发现下载接口的更新下载量这个小功能没实现，按一般来讲下载一次是读取当前下载量，然后加1，可是因为懒，我就想有没有一种方法可以直接update的时候就加1，然后谷歌、看API。&lt;/p&gt;
+&lt;h1 id=&quot;解决方法&quot;&gt;&lt;a href=&quot;#解决方法&quot; class=&quot;headerlink&quot; title=&quot;解决方法&quot;&gt;&lt;/a&gt;解决方法&lt;/h1&gt;&lt;p&gt;传说中的mongodb修改器–&lt;code&gt;$inc&lt;/code&gt;&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bookinfo.update(&amp;#123;&lt;span class=&quot;string&quot;&gt;&quot;_id&quot;&lt;/span&gt;:id&amp;#125;,&amp;#123;$inc:&amp;#123;downloads:&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&amp;#125;&amp;#125;,&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;err&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(err) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.dir(err);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;这段代码的意思是根据_id去修改downloads（数字型）数据，1为每次调用加1，若为﹣1，则每次调用减1。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;博主之前使用的数据库一直都是SQL Server或者MySQL，最近接触了传说中的nosql–mongodb。咋一用觉得比起关系型数据库进行
+    
+    </summary>
+    
+      <category term="Server开发" scheme="http://jcmels.github.io/categories/Server%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="node.js从入门到精分" scheme="http://jcmels.github.io/tags/node-js%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%B2%BE%E5%88%86/"/>
+    
+      <category term="小技巧" scheme="http://jcmels.github.io/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
   
   <entry>
     <title>BRVAH小白笔记之分组篇</title>
