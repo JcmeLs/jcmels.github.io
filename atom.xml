@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jcmels.github.io/"/>
-  <updated>2016-07-27T15:35:36.190Z</updated>
+  <updated>2016-08-11T13:48:58.382Z</updated>
   <id>http://jcmels.github.io/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Library从0到1024</title>
+    <link href="http://jcmels.github.io/2016/08/11/android-publish-library/"/>
+    <id>http://jcmels.github.io/2016/08/11/android-publish-library/</id>
+    <published>2016-08-11T12:54:18.000Z</published>
+    <updated>2016-08-11T13:48:58.382Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;自从有了gradle之后，Android想要使用库只需要简单的&lt;code&gt;compile&lt;/code&gt;一下，当用多了别人的库之后会不会也有一种冲动自己去做一个库，并上传到jitpack？封装成库方便别人更方便自己。一起来看看该怎么做吧！&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;Library&quot;&gt;&lt;a href=&quot;#Library&quot; class=&quot;headerlink&quot; title=&quot;Library&quot;&gt;&lt;/a&gt;Library&lt;/h1&gt;&lt;p&gt;其实原本我是准备找一个MD5的库的，结果找来找去没找到好的，因为java本身的message digest就提供了MD5跟SHA的加密功能，但还是需要写一些代码的，为了复用（懒），我就想可不可以写一次，在不同的工程里使用，于是想到了想干好久的Library。&lt;br&gt;来看下怎么操作吧！&lt;/p&gt;
+&lt;h2 id=&quot;新建项目&quot;&gt;&lt;a href=&quot;#新建项目&quot; class=&quot;headerlink&quot; title=&quot;新建项目&quot;&gt;&lt;/a&gt;新建项目&lt;/h2&gt;&lt;p&gt;打开AS新建工程，填好相应的信息，比如我要写的是MD5加密库&lt;img src=&quot;http://ww2.sinaimg.cn/large/6faa9679gw1f6q4kvjyxoj20tk0l2tal.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;然后一直点击next直到Finish。&lt;/p&gt;
+&lt;h2 id=&quot;新建模块&quot;&gt;&lt;a href=&quot;#新建模块&quot; class=&quot;headerlink&quot; title=&quot;新建模块&quot;&gt;&lt;/a&gt;新建模块&lt;/h2&gt;&lt;p&gt;依次点击File–&amp;gt;New–&amp;gt;New Module&lt;br&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/6faa9679gw1f6q4n8saywj20df05bjsi.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/large/6faa9679gw1f6q4p5vnkaj20u00kfdix.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;在弹出的窗口中选择Android Library;Next;&lt;br&gt;&lt;img src=&quot;http://ww1.sinaimg.cn/large/6faa9679gw1f6q4rtm8jyj20u00kfmz1.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;填写信息，Finish(这里SDK版本尽量写低点)。&lt;br&gt;完成后我们的项目结构变成这样了&lt;img src=&quot;http://ww2.sinaimg.cn/large/6faa9679gw1f6q4u603fej208j08ggmf.jpg&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;h2 id=&quot;编写代码&quot;&gt;&lt;a href=&quot;#编写代码&quot; class=&quot;headerlink&quot; title=&quot;编写代码&quot;&gt;&lt;/a&gt;编写代码&lt;/h2&gt;&lt;p&gt;在Library我们可以编写代码，包括java还有各种xml。比如这里我写的是MD5加密，于是新建了一个MD5类并编写代码&lt;br&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/6faa9679gw1f6q4y7r72wj20z60k8qa3.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;写完后，让我们本地测试下这个Library能不能使用。在build.gradle中添加dependencies&lt;br&gt;&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;compile project(&#39;:刚刚创建的Library名&#39;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/large/6faa9679gw1f6q53vuta9j20da035dg4.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;添加成功后你会发现动态提示里会有你的类了！&lt;br&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/6faa9679gw1f6q566cy8bj20i906dgmr.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;并且成功调用，恭喜你Library创建成功！&lt;/p&gt;
+&lt;h2 id=&quot;上传Github&quot;&gt;&lt;a href=&quot;#上传Github&quot; class=&quot;headerlink&quot; title=&quot;上传Github&quot;&gt;&lt;/a&gt;上传Github&lt;/h2&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;自从有了gradle之后，Android想要使用库只需要简单的&lt;code&gt;compile&lt;/code&gt;一下，当用多了别人的库之后会不会也有一种冲动自己去做一个库，并上传到jitpack？封装成库方便别人更方便自己。一起来看看该怎么做吧！&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Android开发" scheme="http://jcmels.github.io/categories/Android%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Android从入门到转行" scheme="http://jcmels.github.io/tags/Android%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E8%BD%AC%E8%A1%8C/"/>
+    
+      <category term="库" scheme="http://jcmels.github.io/tags/%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>Mongoose更新数据小技巧</title>

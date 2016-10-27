@@ -66,7 +66,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="Android从入门到转行,库," />
 
 
 
@@ -84,18 +84,25 @@
 
 
 
-<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;程序员博客会经常贴代码,而直接用tab或者``来复制代码是不会显示高亮的，查了一下hexo官网，hexo对这个问题也有解决方案：">
+<meta name="description" content="前言自从有了gradle之后，Android想要使用库只需要简单的compile一下，当用多了别人的库之后会不会也有一种冲动自己去做一个库，并上传到jitpack？封装成库方便别人更方便自己。一起来看看该怎么做吧！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo代码高亮">
-<meta property="og:url" content="http://jcmels.github.io/2016/04/11/code-highlight/index.html">
+<meta property="og:title" content="Library从0到1024">
+<meta property="og:url" content="http://jcmels.github.io/2016/08/11/android-publish-library/index.html">
 <meta property="og:site_name" content="Jcme丶Ls's Blog">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;程序员博客会经常贴代码,而直接用tab或者``来复制代码是不会显示高亮的，查了一下hexo官网，hexo对这个问题也有解决方案：">
-<meta property="og:image" content="http://i.imgur.com/hmr5EHB.png">
-<meta property="og:updated_time" content="2016-04-11T12:33:28.221Z">
+<meta property="og:description" content="前言自从有了gradle之后，Android想要使用库只需要简单的compile一下，当用多了别人的库之后会不会也有一种冲动自己去做一个库，并上传到jitpack？封装成库方便别人更方便自己。一起来看看该怎么做吧！">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/6faa9679gw1f6q4kvjyxoj20tk0l2tal.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/6faa9679gw1f6q4n8saywj20df05bjsi.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/6faa9679gw1f6q4p5vnkaj20u00kfdix.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/6faa9679gw1f6q4rtm8jyj20u00kfmz1.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/6faa9679gw1f6q4u603fej208j08ggmf.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/6faa9679gw1f6q4y7r72wj20z60k8qa3.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/6faa9679gw1f6q53vuta9j20da035dg4.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/6faa9679gw1f6q566cy8bj20i906dgmr.jpg">
+<meta property="og:updated_time" content="2016-08-11T13:48:58.382Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo代码高亮">
-<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;程序员博客会经常贴代码,而直接用tab或者``来复制代码是不会显示高亮的，查了一下hexo官网，hexo对这个问题也有解决方案：">
-<meta name="twitter:image" content="http://i.imgur.com/hmr5EHB.png">
+<meta name="twitter:title" content="Library从0到1024">
+<meta name="twitter:description" content="前言自从有了gradle之后，Android想要使用库只需要简单的compile一下，当用多了别人的库之后会不会也有一种冲动自己去做一个库，并上传到jitpack？封装成库方便别人更方便自己。一起来看看该怎么做吧！">
+<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/6faa9679gw1f6q4kvjyxoj20tk0l2tal.jpg">
 
 
 
@@ -113,7 +120,7 @@
   };
 </script>
 
-  <title> Hexo代码高亮 | Jcme丶Ls's Blog </title>
+  <title> Library从0到1024 | Jcme丶Ls's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -283,7 +290,7 @@
             
             
               
-                Hexo代码高亮
+                Library从0到1024
               
             
           </h1>
@@ -295,8 +302,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-11T19:59:50+08:00" content="2016-04-11">
-              2016-04-11
+            <time itemprop="dateCreated" datetime="2016-08-11T20:54:18+08:00" content="2016-08-11">
+              2016-08-11
             </time>
           </span>
 
@@ -309,8 +316,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/blog/" itemprop="url" rel="index">
-                    <span itemprop="name">blog</span>
+                  <a href="/categories/Android开发/" itemprop="url" rel="index">
+                    <span itemprop="name">Android开发</span>
                   </a>
                 </span>
 
@@ -325,8 +332,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/11/code-highlight/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/11/code-highlight/" itemprop="commentsCount"></span>
+                <a href="/2016/08/11/android-publish-library/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/11/android-publish-library/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -349,650 +356,13 @@
       
 
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;程序员博客会经常贴代码,而直接用tab或者``来复制代码是不会显示高亮的，查了一下hexo官网，hexo对这个问题也有解决方案：<br><img src="http://i.imgur.com/hmr5EHB.png" alt=""><br><a id="more"></a></p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>{
-
-    <span class="meta">@Override</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>{
-        <span class="keyword">super</span>.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
-}
-</code></pre>
-<p>具体高亮是什么颜色还是要看你的主题了。</p>
-<h2 id="常用语言对应表"><a href="#常用语言对应表" class="headerlink" title="常用语言对应表"></a>常用语言对应表</h2><table>
-<thead>
-<tr>
-<th>语言</th>
-<th>对应代码</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Bash</td>
-<td>bash, sh, zsh</td>
-</tr>
-<tr>
-<td>C#</td>
-<td>cs, csharp</td>
-</tr>
-<tr>
-<td>C++</td>
-<td>cpp, c, cc, h, c++, h++, hpp</td>
-</tr>
-<tr>
-<td>CSS</td>
-<td>css</td>
-</tr>
-<tr>
-<td>DOS</td>
-<td>dos, bat, cmd</td>
-</tr>
-<tr>
-<td>HTML, XML</td>
-<td>xml, html, xhtml, rss, atom, xjb, xsd, xsl, plist</td>
-</tr>
-<tr>
-<td>JSON</td>
-<td>json</td>
-</tr>
-<tr>
-<td>Java</td>
-<td>java, jsp</td>
-</tr>
-<tr>
-<td>JavaScript</td>
-<td>javascript, js, jsx</td>
-</tr>
-<tr>
-<td>Objective C</td>
-<td>objectivec, mm, objc, obj-c</td>
-</tr>
-<tr>
-<td>PHP</td>
-<td>php, php3, php4, php5, php6</td>
-</tr>
-<tr>
-<td>Ruby</td>
-<td>ruby, rb, gemspec, podspec, thor, irb</td>
-</tr>
-<tr>
-<td>SQL</td>
-<td>sql</td>
-</tr>
-<tr>
-<td>Swift</td>
-<td>swift</td>
-</tr>
-<tr>
-<td>VB.Net</td>
-<td>vbnet, vb</td>
-</tr>
-</tbody>
-</table>
-<h2 id="所有语言对应表"><a href="#所有语言对应表" class="headerlink" title="所有语言对应表"></a>所有语言对应表</h2><table>
-<thead>
-<tr>
-<th>语言</th>
-<th>对应代码</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Zephir</td>
-<td>Zephir</td>
-</tr>
-<tr>
-<td>XQuery</td>
-<td>xpath, xq </td>
-</tr>
-<tr>
-<td>1C</td>
-<td>1c</td>
-</tr>
-<tr>
-<td>Access logs</td>
-<td>accesslog</td>
-</tr>
-<tr>
-<td>ARM assembler</td>
-<td>armasm, arm</td>
-</tr>
-<tr>
-<td>AVR assembler</td>
-<td>avrasm</td>
-</tr>
-<tr>
-<td>ActionScript</td>
-<td>actionscript, as</td>
-</tr>
-<tr>
-<td>Apache</td>
-<td>apache, apacheconf</td>
-</tr>
-<tr>
-<td>AppleScript</td>
-<td>applescript, osascript</td>
-</tr>
-<tr>
-<td>AsciiDoc</td>
-<td>asciidoc, adoc</td>
-</tr>
-<tr>
-<td>AspectJ</td>
-<td>aspectj</td>
-</tr>
-<tr>
-<td>AutoHotkey</td>
-<td>autohotkey</td>
-</tr>
-<tr>
-<td>AutoIt</td>
-<td>autoit</td>
-</tr>
-<tr>
-<td>Axapta</td>
-<td>axapta</td>
-</tr>
-<tr>
-<td>Bash</td>
-<td>bash, sh, zsh</td>
-</tr>
-<tr>
-<td>Basic</td>
-<td>basic</td>
-</tr>
-<tr>
-<td>Brainfuck</td>
-<td>brainfuck, bf</td>
-</tr>
-<tr>
-<td>C#</td>
-<td>cs, csharp</td>
-</tr>
-<tr>
-<td>C++</td>
-<td>cpp, c, cc, h, c++, h++, hpp</td>
-</tr>
-<tr>
-<td>C/AL</td>
-<td>cal</td>
-</tr>
-<tr>
-<td>Cache Object Script</td>
-<td>cos, cls</td>
-</tr>
-<tr>
-<td>CMake</td>
-<td>cmake, cmake.in</td>
-</tr>
-<tr>
-<td>CSP</td>
-<td>csp</td>
-</tr>
-<tr>
-<td>CSS</td>
-<td>css</td>
-</tr>
-<tr>
-<td>Cap’n Proto</td>
-<td>capnproto, capnp</td>
-</tr>
-<tr>
-<td>Clojure</td>
-<td>clojure, clj</td>
-</tr>
-<tr>
-<td>CoffeeScript</td>
-<td>coffeescript, coffee, cson, iced</td>
-</tr>
-<tr>
-<td>Crmsh</td>
-<td>crmsh, crm, pcmk</td>
-</tr>
-<tr>
-<td>Crystal</td>
-<td>crystal, cr</td>
-</tr>
-<tr>
-<td>D</td>
-<td>d</td>
-</tr>
-<tr>
-<td>DNS Zone file</td>
-<td>dns, zone, bind</td>
-</tr>
-<tr>
-<td>DOS</td>
-<td>dos, bat, cmd</td>
-</tr>
-<tr>
-<td>Dart</td>
-<td>dart</td>
-</tr>
-<tr>
-<td>Delphi</td>
-<td>delphi, dpr, dfm, pas, pascal, freepascal, lazarus, lpr, lfm</td>
-</tr>
-<tr>
-<td>Diff</td>
-<td>diff, patch</td>
-</tr>
-<tr>
-<td>Django</td>
-<td>django, jinja</td>
-</tr>
-<tr>
-<td>Dockerfile</td>
-<td>dockerfile, docker</td>
-</tr>
-<tr>
-<td>DTS (Device Tree)</td>
-<td>dts</td>
-</tr>
-<tr>
-<td>Dust</td>
-<td>dust, dst</td>
-</tr>
-<tr>
-<td>Elixir</td>
-<td>elixir</td>
-</tr>
-<tr>
-<td>Elm</td>
-<td>elm</td>
-</tr>
-<tr>
-<td>Erlang</td>
-<td>erlang, erl</td>
-</tr>
-<tr>
-<td>F#</td>
-<td>fsharp, fs</td>
-</tr>
-<tr>
-<td>FIX</td>
-<td>fix</td>
-</tr>
-<tr>
-<td>Fortran</td>
-<td>fortran, f90, f95</td>
-</tr>
-<tr>
-<td>G-Code</td>
-<td>gcode, nc</td>
-</tr>
-<tr>
-<td>Gams</td>
-<td>gams, gms</td>
-</tr>
-<tr>
-<td>GAUSS</td>
-<td>gauss, gss</td>
-</tr>
-<tr>
-<td>Gherkin</td>
-<td>gherkin</td>
-</tr>
-<tr>
-<td>Go</td>
-<td>go, golang</td>
-</tr>
-<tr>
-<td>Golo</td>
-<td>golo, gololang</td>
-</tr>
-<tr>
-<td>Gradle</td>
-<td>gradle</td>
-</tr>
-<tr>
-<td>Groovy</td>
-<td>groovy</td>
-</tr>
-<tr>
-<td>HTML, XML</td>
-<td>xml, html, xhtml, rss, atom, xjb, xsd, xsl, plist</td>
-</tr>
-<tr>
-<td>HTTP</td>
-<td>http, https</td>
-</tr>
-<tr>
-<td>Haml</td>
-<td>haml</td>
-</tr>
-<tr>
-<td>Handlebars</td>
-<td>handlebars, hbs, html.hbs, html.handlebars</td>
-</tr>
-<tr>
-<td>Haskell</td>
-<td>haskell, hs</td>
-</tr>
-<tr>
-<td>Haxe</td>
-<td>haxe, hx</td>
-</tr>
-<tr>
-<td>Ini</td>
-<td>ini</td>
-</tr>
-<tr>
-<td>Inform7</td>
-<td>inform7, i7</td>
-</tr>
-<tr>
-<td>IRPF90</td>
-<td>irpf90</td>
-</tr>
-<tr>
-<td>JSON</td>
-<td>json</td>
-</tr>
-<tr>
-<td>Java</td>
-<td>java, jsp</td>
-</tr>
-<tr>
-<td>JavaScript</td>
-<td>javascript, js, jsx</td>
-</tr>
-<tr>
-<td>Lasso</td>
-<td>lasso, ls, lassoscript</td>
-</tr>
-<tr>
-<td>Less</td>
-<td>less</td>
-</tr>
-<tr>
-<td>Lisp</td>
-<td>lisp</td>
-</tr>
-<tr>
-<td>LiveCode Server</td>
-<td>livecodeserver</td>
-</tr>
-<tr>
-<td>LiveScript</td>
-<td>livescript, ls</td>
-</tr>
-<tr>
-<td>Lua</td>
-<td>lua</td>
-</tr>
-<tr>
-<td>Makefile</td>
-<td>makefile, mk, mak</td>
-</tr>
-<tr>
-<td>Markdown</td>
-<td>markdown, md, mkdown, mkd</td>
-</tr>
-<tr>
-<td>Mathematica</td>
-<td>mathematica, mma</td>
-</tr>
-<tr>
-<td>Matlab</td>
-<td>matlab</td>
-</tr>
-<tr>
-<td>Maxima</td>
-<td>maxima</td>
-</tr>
-<tr>
-<td>Maya Embedded Language</td>
-<td>mel</td>
-</tr>
-<tr>
-<td>Mercury</td>
-<td>mercury</td>
-</tr>
-<tr>
-<td>Mizar</td>
-<td>mizar</td>
-</tr>
-<tr>
-<td>Mojolicious</td>
-<td>mojolicious</td>
-</tr>
-<tr>
-<td>Monkey</td>
-<td>monkey</td>
-</tr>
-<tr>
-<td>Moonscript</td>
-<td>moonscript, moon</td>
-</tr>
-<tr>
-<td>NSIS</td>
-<td>nsis</td>
-</tr>
-<tr>
-<td>Nginx</td>
-<td>nginx, nginxconf</td>
-</tr>
-<tr>
-<td>Nimrod</td>
-<td>nimrod, nim</td>
-</tr>
-<tr>
-<td>Nix</td>
-<td>nix</td>
-</tr>
-<tr>
-<td>OCaml</td>
-<td>ocaml, ml</td>
-</tr>
-<tr>
-<td>Objective C</td>
-<td>objectivec, mm, objc, obj-c</td>
-</tr>
-<tr>
-<td>OpenGL Shading Language</td>
-<td>glsl</td>
-</tr>
-<tr>
-<td>OpenSCAD</td>
-<td>openscad, scad</td>
-</tr>
-<tr>
-<td>Oracle Rules Language</td>
-<td>ruleslanguage</td>
-</tr>
-<tr>
-<td>Oxygene</td>
-<td>oxygene</td>
-</tr>
-<tr>
-<td>PF</td>
-<td>pf, pf.conf</td>
-</tr>
-<tr>
-<td>PHP</td>
-<td>php, php3, php4, php5, php6</td>
-</tr>
-<tr>
-<td>Parser3</td>
-<td>parser3</td>
-</tr>
-<tr>
-<td>Perl</td>
-<td>perl, pl, pm</td>
-</tr>
-<tr>
-<td>PowerShell</td>
-<td>powershell, ps</td>
-</tr>
-<tr>
-<td>Processing</td>
-<td>processing</td>
-</tr>
-<tr>
-<td>Prolog</td>
-<td>prolog</td>
-</tr>
-<tr>
-<td>Protocol Buffers</td>
-<td>protobuf</td>
-</tr>
-<tr>
-<td>Puppet</td>
-<td>puppet, pp</td>
-</tr>
-<tr>
-<td>Python</td>
-<td>python, py, gyp</td>
-</tr>
-<tr>
-<td>Q</td>
-<td>k, kdb</td>
-</tr>
-<tr>
-<td>QML</td>
-<td>qml</td>
-</tr>
-<tr>
-<td>R</td>
-<td>r</td>
-</tr>
-<tr>
-<td>RenderMan RIB</td>
-<td>rib</td>
-</tr>
-<tr>
-<td>RenderMan RSL</td>
-<td>rsl</td>
-</tr>
-<tr>
-<td>Roboconf</td>
-<td>graph, instances</td>
-</tr>
-<tr>
-<td>Ruby</td>
-<td>ruby, rb, gemspec, podspec, thor, irb</td>
-</tr>
-<tr>
-<td>Rust</td>
-<td>rust, rs</td>
-</tr>
-<tr>
-<td>SCSS</td>
-<td>scss</td>
-</tr>
-<tr>
-<td>SQL</td>
-<td>sql</td>
-</tr>
-<tr>
-<td>STEP Part 21</td>
-<td>p21, step, stp</td>
-</tr>
-<tr>
-<td>Scala</td>
-<td>scala</td>
-</tr>
-<tr>
-<td>Scheme</td>
-<td>scheme</td>
-</tr>
-<tr>
-<td>Scilab</td>
-<td>scilab, sci</td>
-</tr>
-<tr>
-<td>Smali</td>
-<td>smali</td>
-</tr>
-<tr>
-<td>Smalltalk</td>
-<td>smalltalk, st</td>
-</tr>
-<tr>
-<td>Stan</td>
-<td>stan</td>
-</tr>
-<tr>
-<td>Stata</td>
-<td>stata</td>
-</tr>
-<tr>
-<td>Stylus</td>
-<td>stylus, styl</td>
-</tr>
-<tr>
-<td>Swift</td>
-<td>swift</td>
-</tr>
-<tr>
-<td>Tcl</td>
-<td>tcl, tk</td>
-</tr>
-<tr>
-<td>TeX</td>
-<td>tex</td>
-</tr>
-<tr>
-<td>Thrift</td>
-<td>thrift</td>
-</tr>
-<tr>
-<td>TP</td>
-<td>tp</td>
-</tr>
-<tr>
-<td>Twig</td>
-<td>twig, craftcms</td>
-</tr>
-<tr>
-<td>TypeScript</td>
-<td>typescript, ts</td>
-</tr>
-<tr>
-<td>VB.Net</td>
-<td>vbnet, vb</td>
-</tr>
-<tr>
-<td>VBScript</td>
-<td>vbscript, vbs</td>
-</tr>
-<tr>
-<td>VHDL</td>
-<td>vhdl</td>
-</tr>
-<tr>
-<td>Vala</td>
-<td>vala</td>
-</tr>
-<tr>
-<td>Verilog</td>
-<td>verilog, v</td>
-</tr>
-<tr>
-<td>Vim Script</td>
-<td>vim</td>
-</tr>
-<tr>
-<td>x86 Assembly</td>
-<td>x86asm</td>
-</tr>
-<tr>
-<td>XL</td>
-<td>xl, tao</td>
-</tr>
-<tr>
-<td>XQuery</td>
-<td>xpath, xq</td>
-</tr>
-<tr>
-<td>Zephir</td>
-<td>zephir, zep</td>
-</tr>
-</tbody>
-</table>
-
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>自从有了gradle之后，Android想要使用库只需要简单的<code>compile</code>一下，当用多了别人的库之后会不会也有一种冲动自己去做一个库，并上传到jitpack？封装成库方便别人更方便自己。一起来看看该怎么做吧！<br><a id="more"></a></p>
+<h1 id="Library"><a href="#Library" class="headerlink" title="Library"></a>Library</h1><p>其实原本我是准备找一个MD5的库的，结果找来找去没找到好的，因为java本身的message digest就提供了MD5跟SHA的加密功能，但还是需要写一些代码的，为了复用（懒），我就想可不可以写一次，在不同的工程里使用，于是想到了想干好久的Library。<br>来看下怎么操作吧！</p>
+<h2 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h2><p>打开AS新建工程，填好相应的信息，比如我要写的是MD5加密库<img src="http://ww2.sinaimg.cn/large/6faa9679gw1f6q4kvjyxoj20tk0l2tal.jpg" alt=""><br>然后一直点击next直到Finish。</p>
+<h2 id="新建模块"><a href="#新建模块" class="headerlink" title="新建模块"></a>新建模块</h2><p>依次点击File–&gt;New–&gt;New Module<br><img src="http://ww3.sinaimg.cn/large/6faa9679gw1f6q4n8saywj20df05bjsi.jpg" alt=""><br><img src="http://ww4.sinaimg.cn/large/6faa9679gw1f6q4p5vnkaj20u00kfdix.jpg" alt=""><br>在弹出的窗口中选择Android Library;Next;<br><img src="http://ww1.sinaimg.cn/large/6faa9679gw1f6q4rtm8jyj20u00kfmz1.jpg" alt=""><br>填写信息，Finish(这里SDK版本尽量写低点)。<br>完成后我们的项目结构变成这样了<img src="http://ww2.sinaimg.cn/large/6faa9679gw1f6q4u603fej208j08ggmf.jpg" alt="">  </p>
+<h2 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h2><p>在Library我们可以编写代码，包括java还有各种xml。比如这里我写的是MD5加密，于是新建了一个MD5类并编写代码<br><img src="http://ww2.sinaimg.cn/large/6faa9679gw1f6q4y7r72wj20z60k8qa3.jpg" alt=""><br>写完后，让我们本地测试下这个Library能不能使用。在build.gradle中添加dependencies<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile project(':刚刚创建的Library名')</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://ww4.sinaimg.cn/large/6faa9679gw1f6q53vuta9j20da035dg4.jpg" alt=""><br>添加成功后你会发现动态提示里会有你的类了！<br><img src="http://ww3.sinaimg.cn/large/6faa9679gw1f6q566cy8bj20i906dgmr.jpg" alt=""><br>并且成功调用，恭喜你Library创建成功！</p>
+<h2 id="上传Github"><a href="#上传Github" class="headerlink" title="上传Github"></a>上传Github</h2>
       
     </div>
     
@@ -1012,7 +382,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag">#hexo</a>
+            <a href="/tags/Android从入门到转行/" rel="tag">#Android从入门到转行</a>
+          
+            <a href="/tags/库/" rel="tag">#库</a>
           
         </div>
       
@@ -1021,17 +393,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/10/hexo1/" rel="next" title="Hexo+github搭个人博客第一章--安装Hexo">
-                <i class="fa fa-chevron-left"></i> Hexo+github搭个人博客第一章--安装Hexo
+              <a href="/2016/07/27/server-nodejs-mongoose-updatetips/" rel="next" title="Mongoose更新数据小技巧">
+                <i class="fa fa-chevron-left"></i> Mongoose更新数据小技巧
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/11/hexo2/" rel="prev" title="Hexo+github搭个人博客第一章--发布第一篇文章">
-                Hexo+github搭个人博客第一章--发布第一篇文章 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -1060,8 +428,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/11/code-highlight/"
-           data-title="Hexo代码高亮" data-url="http://jcmels.github.io/2016/04/11/code-highlight/">
+      <div class="ds-thread" data-thread-key="2016/08/11/android-publish-library/"
+           data-title="Library从0到1024" data-url="http://jcmels.github.io/2016/08/11/android-publish-library/">
       </div>
     
   </div>
@@ -1170,7 +538,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">1.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用语言对应表"><span class="nav-number">2.</span> <span class="nav-text">常用语言对应表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#所有语言对应表"><span class="nav-number">3.</span> <span class="nav-text">所有语言对应表</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Library"><span class="nav-number">2.</span> <span class="nav-text">Library</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#新建项目"><span class="nav-number">2.1.</span> <span class="nav-text">新建项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建模块"><span class="nav-number">2.2.</span> <span class="nav-text">新建模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写代码"><span class="nav-number">2.3.</span> <span class="nav-text">编写代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传Github"><span class="nav-number">2.4.</span> <span class="nav-text">上传Github</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
