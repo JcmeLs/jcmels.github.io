@@ -1032,12 +1032,6 @@ firstVisibleItems=  ((StaggeredGridLayoutManager)recycleview.getLayoutManager())
     </entry>
     
     <entry>
-      <title></title>
-      <url>http://jcmels.github.io/2016/04/12/phototest/</url>
-      <content type="html"><![CDATA[<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 100%;"><img src="http://i.imgur.com/VvK2XY2.png" alt=""></div></div><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="http://i.imgur.com/bApVfrK.png" alt=""></div><div class="group-picture-column" style="width: 50%;"><img src="http://i.imgur.com/6Ylb81A.png" alt=""></div></div></div></div>]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[Hexo+github搭个人博客第一章--发布第一篇文章]]></title>
       <url>http://jcmels.github.io/2016/04/11/hexo2/</url>
       <content type="html"><![CDATA[<p><img src="http://i.imgur.com/GDP5bNB.jpg" alt=""><br>&nbsp;&nbsp;我们建立独立博客都是为了发（装）博（X）文，那如何发呢？或者说如何编辑和发布呢？接下来我们将会学习发布第一篇文章。<br><a id="more"></a></p>

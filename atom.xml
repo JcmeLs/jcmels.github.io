@@ -1331,26 +1331,6 @@ firstVisibleItems=  ((StaggeredGridLayoutManager)recycleview.getLayoutManager())
   </entry>
   
   <entry>
-    <title></title>
-    <link href="http://jcmels.github.io/2016/04/12/phototest/"/>
-    <id>http://jcmels.github.io/2016/04/12/phototest/</id>
-    <published>2016-04-12T07:05:07.772Z</published>
-    <updated>2016-04-12T07:16:49.686Z</updated>
-    
-    <content type="html">&lt;div class=&quot;group-picture&quot;&gt;&lt;div class=&quot;group-picture-container&quot;&gt;&lt;div class=&quot;group-picture-row&quot;&gt;&lt;div class=&quot;group-picture-column&quot; style=&quot;width: 100%;&quot;&gt;&lt;img src=&quot;http://i.imgur.com/VvK2XY2.png&quot; alt=&quot;&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;group-picture-row&quot;&gt;&lt;div class=&quot;group-picture-column&quot; style=&quot;width: 50%;&quot;&gt;&lt;img src=&quot;http://i.imgur.com/bApVfrK.png&quot; alt=&quot;&quot;&gt;&lt;/div&gt;&lt;div class=&quot;group-picture-column&quot; style=&quot;width: 50%;&quot;&gt;&lt;img src=&quot;http://i.imgur.com/6Ylb81A.png&quot; alt=&quot;&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;div class=&quot;group-picture&quot;&gt;&lt;div class=&quot;group-picture-container&quot;&gt;&lt;div class=&quot;group-picture-row&quot;&gt;&lt;div class=&quot;group-picture-column&quot; style=&quot;widt
-    
-    </summary>
-    
-      <category term="photo" scheme="http://jcmels.github.io/categories/photo/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Hexo+github搭个人博客第一章--发布第一篇文章</title>
     <link href="http://jcmels.github.io/2016/04/11/hexo2/"/>
     <id>http://jcmels.github.io/2016/04/11/hexo2/</id>
