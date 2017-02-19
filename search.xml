@@ -1,0 +1,1723 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+    
+    <entry>
+      <title><![CDATA[Library从0到1024]]></title>
+      <url>http://jcmels.github.io/2016/08/11/android-publish-library/</url>
+      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>自从有了gradle之后，Android想要使用库只需要简单的<code>compile</code>一下，当用多了别人的库之后会不会也有一种冲动自己去做一个库，并上传到jitpack？封装成库方便别人更方便自己。一起来看看该怎么做吧！<br><a id="more"></a></p>
+<h1 id="Library"><a href="#Library" class="headerlink" title="Library"></a>Library</h1><p>其实原本我是准备找一个MD5的库的，结果找来找去没找到好的，因为java本身的message digest就提供了MD5跟SHA的加密功能，但还是需要写一些代码的，为了复用（懒），我就想可不可以写一次，在不同的工程里使用，于是想到了想干好久的Library。<br>来看下怎么操作吧！</p>
+<h2 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h2><p>打开AS新建工程，填好相应的信息，比如我要写的是MD5加密库<img src="http://ww2.sinaimg.cn/large/6faa9679gw1f6q4kvjyxoj20tk0l2tal.jpg" alt=""><br>然后一直点击next直到Finish。</p>
+<h2 id="新建模块"><a href="#新建模块" class="headerlink" title="新建模块"></a>新建模块</h2><p>依次点击File–&gt;New–&gt;New Module<br><img src="http://ww3.sinaimg.cn/large/6faa9679gw1f6q4n8saywj20df05bjsi.jpg" alt=""><br><img src="http://ww4.sinaimg.cn/large/6faa9679gw1f6q4p5vnkaj20u00kfdix.jpg" alt=""><br>在弹出的窗口中选择Android Library;Next;<br><img src="http://ww1.sinaimg.cn/large/6faa9679gw1f6q4rtm8jyj20u00kfmz1.jpg" alt=""><br>填写信息，Finish(这里SDK版本尽量写低点)。<br>完成后我们的项目结构变成这样了<img src="http://ww2.sinaimg.cn/large/6faa9679gw1f6q4u603fej208j08ggmf.jpg" alt="">  </p>
+<h2 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h2><p>在Library我们可以编写代码，包括java还有各种xml。比如这里我写的是MD5加密，于是新建了一个MD5类并编写代码<br><img src="http://ww2.sinaimg.cn/large/6faa9679gw1f6q4y7r72wj20z60k8qa3.jpg" alt=""><br>写完后，让我们本地测试下这个Library能不能使用。在build.gradle中添加dependencies<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile project(':刚刚创建的Library名')</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://ww4.sinaimg.cn/large/6faa9679gw1f6q53vuta9j20da035dg4.jpg" alt=""><br>添加成功后你会发现动态提示里会有你的类了！<br><img src="http://ww3.sinaimg.cn/large/6faa9679gw1f6q566cy8bj20i906dgmr.jpg" alt=""><br>并且成功调用，恭喜你Library创建成功！</p>
+<h2 id="上传Github"><a href="#上传Github" class="headerlink" title="上传Github"></a>上传Github</h2>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Mongoose更新数据小技巧]]></title>
+      <url>http://jcmels.github.io/2016/07/27/server-nodejs-mongoose-updatetips/</url>
+      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>博主之前使用的数据库一直都是SQL Server或者MySQL，最近接触了传说中的nosql–mongodb。咋一用觉得比起关系型数据库进行关联查询是麻烦，可是当看了mongoose api之后发现有个ref的东西的存在，建立关系骨架也不是太难。<br>然后跌跌撞撞基本的server都搭起来了，下午发现下载接口的更新下载量这个小功能没实现，按一般来讲下载一次是读取当前下载量，然后加1，可是因为懒，我就想有没有一种方法可以直接update的时候就加1，然后谷歌、看API。</p>
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>传说中的mongodb修改器–<code>$inc</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bookinfo.update(&#123;<span class="string">"_id"</span>:id&#125;,&#123;$inc:&#123;downloads:<span class="number">1</span>&#125;&#125;,<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">       <span class="keyword">if</span>(err) &#123;</span><br><span class="line">           <span class="built_in">console</span>.dir(err);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;);</span><br></pre></td></tr></table></figure></p>
+<p>这段代码的意思是根据_id去修改downloads（数字型）数据，1为每次调用加1，若为﹣1，则每次调用减1。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[BRVAH小白笔记之分组篇]]></title>
+      <url>http://jcmels.github.io/2016/07/27/android-BRVAH-section/</url>
+      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在公司做小项目，需要用到分组功能，一般来讲，可以使用listview嵌套gridview来实现，也可以用recyclerview来实现。博主试过使用listview嵌套gridview，实现是实现了，就是优化不到位，会掉帧。然后使用recyclerview，想了大半天做了出来，可是效果也不好。于是问了下能不能用第三方库，毕竟前段时间发现了<a href="www.recyclerview.org">BaseRecyclerViewAdapterHelper</a>（下文简称BRVAH）这个优秀的RecyclerViewAdapter高度定制开源库。结果得到了肯定，并且公司鼓励使用优秀的第三方开源库！然后！跟着我一起用吧！<br><a id="more"></a></p>
+<h1 id="why"><a href="#why" class="headerlink" title="why"></a>why</h1><p>依旧这个套路，这里先说下为什么要用BRVAH。</p>
+<ol>
+<li><p>节省大量代码（减少70%）</p>
+<blockquote>
+<p>重复代码，抽取到基类，非重复代码用抽象方法代替，具体让子类实现。</p>
+</blockquote>
+</li>
+<li><p>添加了点击事件</p>
+<blockquote>
+<p>item点击、长按事件以及item子控件点击事件</p>
+</blockquote>
+</li>
+<li><p>添加了加载动画</p>
+<blockquote>
+<p>一行代码轻松切换5种默认动画，采用策略模式，使你在添加自定义动画时随心应手。</p>
+</blockquote>
+</li>
+<li><p>方便添加头部、尾部、下拉刷新、上拉加载</p>
+<blockquote>
+<p>简单到让你感觉回到Listview时代</p>
+</blockquote>
+</li>
+<li><p>添加分组功能（本节讲解）</p>
+<blockquote>
+<p>随心定义分组头部</p>
+</blockquote>
+</li>
+<li><p>方便自定义不同的item类型</p>
+<blockquote>
+<p>简单配置、无需重写额外方法</p>
+</blockquote>
+</li>
+<li><p>方便设置空布局</p>
+<blockquote>
+<p>比Listview的setEmptyView还要好用！</p>
+</blockquote>
+</li>
+<li><p>可以拖拽item并附带动画</p>
+</li>
+<li>滑动删除item</li>
+</ol>
+<h1 id="how"><a href="#how" class="headerlink" title="how"></a>how</h1><p>说了那么多，那么如何使用呢？  </p>
+<h2 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h2><p>第三方库第一件事情肯定就是添加依赖了<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:v1.9.3'</span><br></pre></td></tr></table></figure></p>
+<h2 id="添加布局"><a href="#添加布局" class="headerlink" title="添加布局"></a>添加布局</h2><p>分组所需要两种item，一种是显示分组信息的，另一组是显示普通item的，所以创建两个layout。<br>分组信息Item(item_title.xml):<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">android.support.v7.widget.CardView</span></span><br><span class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attr">xmlns:card_view</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></span><br><span class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/card_view"</span></span><br><span class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">    <span class="attr">android:layout_height</span>=<span class="string">"50dip"</span></span><br><span class="line">    <span class="attr">android:layout_gravity</span>=<span class="string">"center"</span></span><br><span class="line">    <span class="attr">android:foreground</span>=<span class="string">"?android:attr/selectableItemBackground"</span></span><br><span class="line">    <span class="attr">card_view:cardBackgroundColor</span>=<span class="string">"#ffffff"</span></span><br><span class="line">    <span class="attr">card_view:cardCornerRadius</span>=<span class="string">"4dp"</span></span><br><span class="line">    <span class="attr">card_view:cardElevation</span>=<span class="string">"2dp"</span></span><br><span class="line">    <span class="attr">card_view:cardUseCompatPadding</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span><br><span class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/tv_item_title"</span></span><br><span class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span><br><span class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span><br><span class="line">        <span class="attr">android:layout_marginLeft</span>=<span class="string">"8dp"</span></span><br><span class="line">        <span class="attr">android:text</span>=<span class="string">"java初级"</span></span><br><span class="line">        <span class="attr">android:layout_gravity</span>=<span class="string">"center_vertical"</span></span><br><span class="line">        <span class="attr">android:textAppearance</span>=<span class="string">"?android:attr/textAppearanceMedium"</span></span><br><span class="line">        <span class="attr">android:textSize</span>=<span class="string">"20dp"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">android.support.v7.widget.CardView</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>非常简单的布局，就一个cardview包裹了一个textview调整下布局就行。<br>普通Item（item_cardview.xml）：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">android.support.v7.widget.CardView</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></span><br><span class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span><br><span class="line">    <span class="attr">android:layout_marginBottom</span>=<span class="string">"4dp"</span></span><br><span class="line">    <span class="attr">android:layout_marginLeft</span>=<span class="string">"4dp"</span></span><br><span class="line">    <span class="attr">android:layout_marginRight</span>=<span class="string">"4dp"</span></span><br><span class="line">    <span class="attr">android:layout_marginTop</span>=<span class="string">"4dp"</span></span><br><span class="line">    <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></span><br><span class="line">    <span class="attr">android:clickable</span>=<span class="string">"true"</span></span><br><span class="line">    <span class="attr">android:foreground</span>=<span class="string">"?android:attr/selectableItemBackground"</span></span><br><span class="line">    &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span><br><span class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span><br><span class="line">        <span class="attr">android:layout_margin</span>=<span class="string">"1dp"</span></span><br><span class="line">        <span class="attr">android:background</span>=<span class="string">"#ffffff"</span></span><br><span class="line">        <span class="attr">android:gravity</span>=<span class="string">"center"</span></span><br><span class="line">        <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">com.facebook.drawee.view.SimpleDraweeView</span></span><br><span class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/cv_img"</span></span><br><span class="line">            <span class="attr">android:layout_width</span>=<span class="string">"150dp"</span></span><br><span class="line">            <span class="attr">android:layout_height</span>=<span class="string">"150dp"</span></span><br><span class="line">            <span class="attr">android:layout_gravity</span>=<span class="string">"center"</span></span><br><span class="line">            <span class="attr">android:padding</span>=<span class="string">"8dp"</span></span><br><span class="line">            <span class="attr">app:actualImageScaleType</span>=<span class="string">"centerCrop"</span></span><br><span class="line">            <span class="attr">app:placeholderImage</span>=<span class="string">"@drawable/book"</span></span><br><span class="line">            /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">TextView</span></span><br><span class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/cv_nameTv"</span></span><br><span class="line">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span><br><span class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span><br><span class="line">            <span class="attr">android:layout_gravity</span>=<span class="string">"center"</span></span><br><span class="line">            <span class="attr">android:ellipsize</span>=<span class="string">"end"</span></span><br><span class="line">            <span class="attr">android:maxEms</span>=<span class="string">"8"</span></span><br><span class="line">            <span class="attr">android:paddingBottom</span>=<span class="string">"4dp"</span></span><br><span class="line">            <span class="attr">android:singleLine</span>=<span class="string">"true"</span></span><br><span class="line">            <span class="attr">android:text</span>=<span class="string">"疯狂android"</span></span><br><span class="line">            <span class="attr">android:textSize</span>=<span class="string">"18sp"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">android.support.v7.widget.CardView</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>同样是简单的布局，cardview包裹了一个线性布局，里面有放图片的simpleDraweeView(fresco)和一个textview。<br>PS:这里有个小技巧，调整布局的时候可以先放图片进去试试。</p>
+<h2 id="添加实体类"><a href="#添加实体类" class="headerlink" title="添加实体类"></a>添加实体类</h2><p>这里需要有两个类，一个是存放普通item数据的，另一个是存放分组信息的。<br>普通item实体类（BookInfo）：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BookInfo</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String bookname;</span><br><span class="line">    <span class="keyword">private</span> String author;</span><br><span class="line">    <span class="keyword">private</span> String booktype;</span><br><span class="line">    <span class="keyword">private</span> String summary;</span><br><span class="line">    <span class="keyword">private</span> String imageurl;</span><br><span class="line">    <span class="keyword">private</span> String zipurl;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> downloads;</span><br><span class="line">    <span class="keyword">private</span> String subject;</span><br><span class="line">    <span class="keyword">private</span> String grade;</span><br><span class="line"><span class="comment">//这里省略get、set方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>分组item实体类（MySection）:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MySection</span> <span class="keyword">extends</span> <span class="title">SectionEntity</span>&lt;<span class="title">BookInfo</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MySection</span><span class="params">(BookInfo bookInfo)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(bookInfo);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MySection</span><span class="params">(<span class="keyword">boolean</span> isHeader, String header)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(isHeader, header);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="添加Adapter"><a href="#添加Adapter" class="headerlink" title="添加Adapter"></a>添加Adapter</h2><p>分组功能的实现靠的就是Adapter根据不同的type使用不同的item布局来实现的，但由于BaseSectionQuickAdapter写了这部分的方法，我们不需要写，只需要继承就可以了。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SectionAdapter</span> <span class="keyword">extends</span> <span class="title">BaseSectionQuickAdapter</span>&lt;<span class="title">MySection</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SectionAdapter</span><span class="params">(<span class="keyword">int</span> layoutResId, <span class="keyword">int</span> sectionHeadResId, List&lt;MySection&gt; data)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(layoutResId, sectionHeadResId, data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">convertHead</span><span class="params">(BaseViewHolder baseViewHolder, MySection mySection)</span> </span>&#123;</span><br><span class="line">        baseViewHolder.setText(R.id.tv_item_title, mySection.header);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">convert</span><span class="params">(BaseViewHolder baseViewHolder, MySection mySection)</span> </span>&#123;</span><br><span class="line">        BookInfo bookInfo = mySection.t;</span><br><span class="line">        SimpleDraweeView simpleDraweeView = baseViewHolder.getView(R.id.cv_img);</span><br><span class="line">        Uri uri = Uri.parse(bookInfo.getImageurl());</span><br><span class="line">        Log.i(<span class="string">"test"</span>, <span class="string">"adapter"</span>);</span><br><span class="line">        simpleDraweeView.setImageURI(uri);</span><br><span class="line">        baseViewHolder.setText(R.id.cv_nameTv, bookInfo.getBookname());</span><br><span class="line">		<span class="comment">//这里可以对你的普通item进行set资源</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="创建数据服务类"><a href="#创建数据服务类" class="headerlink" title="创建数据服务类"></a>创建数据服务类</h2><p>为什么要创建数据服务类，为了管理方便，需要修改数据获取方式的时候直接修改这个类就行了。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DataServer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> JSONArray jsonArray = <span class="keyword">new</span> JSONArray();</span><br><span class="line">    <span class="keyword">public</span> List&lt;BookSubject&gt; SubjectList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">public</span> String title = <span class="string">"null"</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DataServer</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//根据subject获取数据  这里博主是在fragment中传了个值过来获取固定科目的书数据</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;MySection&gt; <span class="title">getSectionData</span><span class="params">(String subject)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">final</span> List&lt;MySection&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        AsyncHttpClient client = <span class="keyword">new</span> AsyncHttpClient();</span><br><span class="line">        client.get(<span class="string">"http://192.168.199.152:8088/getbookinterface/"</span>+subject, <span class="keyword">new</span> AsyncHttpResponseHandler() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSuccess</span><span class="params">(<span class="keyword">int</span> statusCode, Header[] headers, <span class="keyword">byte</span>[] responseBody)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">byte</span>[] data = responseBody;</span><br><span class="line">                String s = <span class="keyword">new</span> String(data);</span><br><span class="line">                jsonArray = JSON.parseArray(s);</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; jsonArray.size(); i++) &#123;</span><br><span class="line">                    BookInfo bookInfo = <span class="keyword">new</span> BookInfo();</span><br><span class="line">                    JSONObject jsonObject = jsonArray.getJSONObject(i);</span><br><span class="line">                    bookInfo = JSON.toJavaObject(jsonObject, BookInfo.class);</span><br><span class="line">                    System.out.println(bookInfo.getBookname());</span><br><span class="line">                    <span class="keyword">if</span> (!bookInfo.getGrade().equals(title)) &#123;</span><br><span class="line">                        title = bookInfo.getGrade();</span><br><span class="line">                        list.add(<span class="keyword">new</span> MySection(<span class="keyword">true</span>, bookInfo.getGrade()));</span><br><span class="line">                        list.add(<span class="keyword">new</span> MySection(bookInfo));</span><br><span class="line">                    &#125; <span class="keyword">else</span> list.add(<span class="keyword">new</span> MySection(bookInfo));</span><br><span class="line">                &#125;</span><br><span class="line">                EventBus.getDefault().post(<span class="keyword">new</span> BookBus(list));</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(<span class="keyword">int</span> statusCode, Header[] headers, <span class="keyword">byte</span>[] responseBody, Throwable error)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>由于是异步获取服务器数据，所以return List肯定是获取不到数据的，因为还没dataserver还没获取完数据就已经被返回了。这里博主用了EventBus（线程通讯神器）把获取完成后的数据传到了fragment中（EventBus使用方法网上也有，或者可以看我稍后的博客）。</p>
+<h2 id="绑定Adapter"><a href="#绑定Adapter" class="headerlink" title="绑定Adapter"></a>绑定Adapter</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">SectionList = dataServer.getSectionData(subject);<span class="comment">//获取数据</span></span><br><span class="line">sectionAdapter = <span class="keyword">new</span> SectionAdapter(R.layout.item_cardview, R.layout.item_title, SectionList);</span><br><span class="line">        sectionAdapter.setOnRecyclerViewItemClickListener(<span class="keyword">this</span>);</span><br><span class="line">        sectionAdapter.setOnRecyclerViewItemChildClickListener(<span class="keyword">new</span> BaseQuickAdapter.OnRecyclerViewItemChildClickListener() &#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onItemChildClick</span><span class="params">(BaseQuickAdapter baseQuickAdapter, View view, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">                Toast.makeText(getActivity(), <span class="string">"你点击了child"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        sectionAdapter.openLoadAnimation();</span><br><span class="line">recyclerview.setLayoutManager(<span class="keyword">new</span> StaggeredGridLayoutManager(<span class="number">2</span>, StaggeredGridLayoutManager.VERTICAL));</span><br><span class="line">        recyclerview.setAdapter(sectionAdapter);</span><br></pre></td></tr></table></figure>
+<p>由于数据是通过EventBus坐Bus过来的，所以可能慢一点，当数据到达时，刷新一次就行。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SectionList = bookBus.getBookInfoList();</span><br><span class="line">      sectionAdapter.setNewData(SectionList);</span><br></pre></td></tr></table></figure></p>
+<p>好了打完收工！<br>成功图：<br><img src="http://ww4.sinaimg.cn/large/6faa9679gw1f68uw0zum1j20c80m3tau.jpg" alt=""></p>
+<h1 id="原理分析"><a href="#原理分析" class="headerlink" title="原理分析"></a>原理分析</h1><p>这一趴直接转作者（陈哥）的博客，当然也可以看原文–<a href="http://www.jianshu.com/p/87a49f732724" target="_blank" rel="external">http://www.jianshu.com/p/87a49f732724</a><br>其实头部和内容部分就是通过不同的type来实现的，我们可以查看BaseSectionQuickAdapter源码。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">int</span> <span class="title">getDefItemViewType</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ((SectionEntity) mData.get(position)).isHeader ? SECTION_HEADER_VIEW : <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>它是通过<code>SectionEntity</code>的<code>isHeader</code>属性来区别是否是头部的<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">SectionEntity</span>&lt;<span class="title">T</span>&gt; </span>&#123;    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">boolean</span> isHeader;    </span><br><span class="line">    <span class="keyword">public</span> T t;    </span><br><span class="line">    <span class="keyword">public</span> String header;    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SectionEntity</span><span class="params">(<span class="keyword">boolean</span> isHeader, String header)</span> </span>&#123;        </span><br><span class="line">        <span class="keyword">this</span>.isHeader = isHeader;        </span><br><span class="line">        <span class="keyword">this</span>.header = header;        </span><br><span class="line">        <span class="keyword">this</span>.t = <span class="keyword">null</span>;    </span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SectionEntity</span><span class="params">(T t)</span> </span>&#123;        </span><br><span class="line">        <span class="keyword">this</span>.isHeader = <span class="keyword">false</span>;        </span><br><span class="line">        <span class="keyword">this</span>.header = <span class="keyword">null</span>;        </span><br><span class="line">        <span class="keyword">this</span>.t = t;    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这就是为什么要求开发者的实体类必须继承<code>SectionEntity</code>的原因了，因为需要通过它的<code>isHeader</code>这个属性来改变<code>type</code>，<code>onCreateViewHolder</code>通过不同的<code>type</code>来加载不同的布局。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> BaseViewHolder <span class="title">onCreateDefViewHolder</span><span class="params">(ViewGroup parent, <span class="keyword">int</span> viewType)</span> </span>&#123;    </span><br><span class="line">    <span class="keyword">if</span> (viewType == SECTION_HEADER_VIEW)        </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> BaseViewHolder(getItemView(mSectionHeadResId, parent));    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.onCreateDefViewHolder(parent, viewType);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后在<code>onBindViewHolder</code>里面通过type来区分头部和内容部分调用不同的方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">convert</span><span class="params">(BaseViewHolder holder, Object item)</span> </span>&#123;    </span><br><span class="line">    <span class="keyword">switch</span> (holder.getItemViewType()) &#123;        </span><br><span class="line">        <span class="keyword">case</span> SECTION_HEADER_VIEW:            </span><br><span class="line">        setFullSpan(holder);            </span><br><span class="line">        convertHead(holder, (T) item);            </span><br><span class="line">        <span class="keyword">break</span>;        </span><br><span class="line">        <span class="keyword">default</span>:            </span><br><span class="line">        convert(holder, (T) item);            </span><br><span class="line">        <span class="keyword">break</span>;    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">convertHead</span><span class="params">(BaseViewHolder helper, T item)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">convert</span><span class="params">(BaseViewHolder helper, T item)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p><code>setFullSpan</code>是填充一行的方法，因为要考虑到多种LayoutManager的情况。</p>
+<blockquote>
+<p>如果还什么疑问都可以在这里进行提问 <a href="http://www.diycode.cc/topics/197" target="_blank" rel="external">因为开源项目和技术分享收到 Google 的面试邀请，大家有什么想要讨论的么？</a></p>
+</blockquote>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>陈哥真的是个很nice的人，技术好，人更好，问问题都会回答，还会在群里和我们交流。BRVAH也是个超级方便的recyclerviewAdapter开源库！陈哥拿到谷歌的面试邀请，在此祝陈哥面试成功。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[NavigationView之动态添加MenuItem]]></title>
+      <url>http://jcmels.github.io/2016/07/22/android-NavigationView-addMenu/</url>
+      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>NavigationView是一个侧滑菜单的官方库，没记错的话它跟recyclerview一样自从Android5.0退出之后就诞生了。所以教程有很多，这里贴一个我觉得很好的一篇教程，毕竟刚刚给了我思路动态添加item：<a href="http://blog.30sparks.com/material-design-1-navigation-drawer/" target="_blank" rel="external">Material Design Patterns 教學 (1) - Navigation Drawer</a>。博主好像是香港人，不过繁中也能看懂。国内能搜索到的教程几乎都是在XML里绑定了menu.xml，<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app:menu="@menu/activity_main_drawer"</span><br></pre></td></tr></table></figure></p>
+<p>不过这也正常毕竟侧滑菜单不会经常更新，所以一般都不会写个专门的教程去动态添加item。<br><a id="more"></a></p>
+<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>最近在做小项目，需要动态更新NavigationView的MenuItem，按照一般的思路就是get到它的View之后再进行操作，可是一直没找到getView的方法，直到Google看了<a href="http://blog.30sparks.com/material-design-1-navigation-drawer/" target="_blank" rel="external">Material Design Patterns 教學 (1) - Navigation Drawer</a>的评论，想起来看Android的API文档，结果就找到解决方法了。</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>遇到问题还是Google吧。。。废话太多。。上解决方法！</p>
+<pre><code class="java">navigationView.setNavigationItemSelectedListener(<span class="keyword">this</span>);
+      navigationView.getMenu().add(<span class="string">"我是后加的"</span>).setIcon(R.drawable.collect).setOnMenuItemClickListener(<span class="keyword">new</span> MenuItem.OnMenuItemClickListener() {
+          <span class="meta">@Override</span>
+          <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onMenuItemClick</span><span class="params">(MenuItem item)</span> </span>{
+              Toast.makeText(MainActivity.<span class="keyword">this</span>,<span class="string">"你点击我了"</span>,Toast.LENGTH_SHORT).show();
+                   <span class="comment">//在这写点击之后的处理</span>
+              <span class="keyword">return</span> <span class="keyword">true</span>;
+          }
+      });
+</code></pre>
+<p>我们看一下官方的API文档是怎么说的<br><img src="http://ww3.sinaimg.cn/large/6faa9679gw1f632cnuj7rj20r505twey.jpg" alt=""><br>就是说<code>navigationView.getMenu()</code>获取到Menu这个View实例，再add MenuItem就行了，<code>setOnMenuItemClickListener</code>就是对这个item设监听事件。<br>成果图：<img src="http://ww4.sinaimg.cn/large/6faa9679gw1f632oup2gnj20a10gpmxv.jpg" alt="">  </p>
+<p>不过目前还有一点有问题的就是不能动态给MenuItem添加icon，等项目做完了再研究下怎么动态加icon。</p>
+<p><font color="#FF4500" size="5" face="黑体">更新：给MenuItem添加Icon只需要在add之后setIcon就行，代码已更新！</font></p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>由于项目的server也要我们自己完成，然后我就开始了疯狂查资料模式，毕竟之前一直没接触node.js（hexo是例外）,很多东西百度都很少资料，而且都是好几年前的，仗着有点SSH的基础（虽然跟node.js一点关系都没）和对MVC的了解，大概把server给搭了起来，期间Google帮了好多忙！所以能Google的就别Baidu了。。。  </p>
+<p>PS:后期若找到动态更新icon的话会第一时间更新Blog！</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[图片加载利器-Fresco入门篇]]></title>
+      <url>http://jcmels.github.io/2016/07/16/android-fresco1/</url>
+      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前一直用的是Android-Universal-Image-Loader或者Picasso的库，很好用，不过有时候也会出现OOM，这次做的一个小项目要求我们使用Fresco，这个库之前听过是Facebook公司开发的，但一直没去使用，这次有机会使用了一下，咦还挺好用的，虽然官方翻译的文档很清晰明了，不过还是做一下记录，大部分搬自<a href="http://www.fresco-cn.org/docs/" target="_blank" rel="external">Fresco 中文文档</a>。<br><a id="more"></a></p>
+<h1 id="Fresco简介"><a href="#Fresco简介" class="headerlink" title="Fresco简介"></a>Fresco简介</h1><p>Fresco是Facebook公司开发的一款强大的图片加载组件，是现今为止我用过最方便的图片加载组件没有之一。<br>要知道手机内存十分有限，特别是安卓手机，各种流氓APP占用着RAM导致可用内存十分有限，图片不进行管理很容易OOM，所以图片的内存管理十分重要，于是有了各种各样的图片缓存组件，Facebook公司开发了Fresco库来解决这个问题。</p>
+<h1 id="Fresco特性"><a href="#Fresco特性" class="headerlink" title="Fresco特性"></a>Fresco特性</h1><h2 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h2><blockquote>
+<p>解压后的图片，即Android中的Bitmap，占用大量的内存。大的内存占用势必引发更加频繁的GC。在5.0以下，GC将会显著地引发界面卡顿。</p>
+<p>在5.0以下系统，Fresco将图片放到一个特别的内存区域。当然，在图片不显示的时候，占用的内存会自动被释放。这会使得APP更加流畅，减少因图片内存占用而引发的OOM。</p>
+<p>Fresco 在低端机器上表现一样出色，你再也不用因图片内存占用而思前想后。</p>
+</blockquote>
+<h2 id="图片的渐进式呈现"><a href="#图片的渐进式呈现" class="headerlink" title="图片的渐进式呈现"></a>图片的渐进式呈现</h2><blockquote>
+<p>渐进式的JPEG图片格式已经流行数年了，渐进式图片格式先呈现大致的图片轮廓，然后随着图片下载的继续，呈现逐渐清晰的图片，这对于移动设备，尤其是慢网络有极大的利好，可带来更好的用户体验。</p>
+<p>Android 本身的图片库不支持此格式，但是Fresco支持。使用时，和往常一样，仅仅需要提供一个图片的URI即可，剩下的事情，Fresco会处理。</p>
+</blockquote>
+<h2 id="Gif图和WebP格式"><a href="#Gif图和WebP格式" class="headerlink" title="Gif图和WebP格式"></a>Gif图和WebP格式</h2><blockquote>
+<p>是的，支持加载Gif图，支持WebP格式。</p>
+</blockquote>
+<h2 id="图像的呈现"><a href="#图像的呈现" class="headerlink" title="图像的呈现"></a>图像的呈现</h2><blockquote>
+<p>Fresco 的 Drawees 设计，带来一些有用的特性：</p>
+<ul>
+<li>自定义居中焦点(对人脸等图片显示非常有帮助)</li>
+<li>圆角图，当然圆圈也行。</li>
+<li>下载失败之后，点击重现下载</li>
+<li>自定义占位图，自定义overlay, 或者进度条</li>
+<li>指定用户按压时的overlay</li>
+</ul>
+</blockquote>
+<h2 id="图像的加载"><a href="#图像的加载" class="headerlink" title="图像的加载"></a>图像的加载</h2><blockquote>
+<p>Fresco 的 image pipeline 设计，允许用户在多方面控制图片的加载：</p>
+</blockquote>
+<ul>
+<li>为同一个图片指定不同的远程路径，或者使用已经存在本地缓存中的图片</li>
+<li>先显示一个低解析度的图片，等高清图下载完之后再显示高清图</li>
+<li>加载完成回调通知</li>
+<li>对于本地图，如有EXIF缩略图，在大图加载完成之前，可先显示缩略图</li>
+<li>缩放或者旋转图片</li>
+<li>处理已下载的图片</li>
+<li>WebP 支持<h1 id="引入Fresco"><a href="#引入Fresco" class="headerlink" title="引入Fresco"></a>引入Fresco</h1><h2 id="Android-Studio"><a href="#Android-Studio" class="headerlink" title="Android Studio"></a>Android Studio</h2>目前大多数开发者应该都转战Android Studio（下文简称AS），在AS中引入库十分的方便只需要在Gradle中添加dependencies就行  </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">     compile &apos;com.facebook.fresco:fresco:0.9.0+&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="ADT"><a href="#ADT" class="headerlink" title="ADT"></a>ADT</h2><p>在ADT中引入比较麻烦，首先，下载<a href="https://github.com/facebook/fresco/releases/download/v0.9.0/frescolib-v0.9.0.zip" target="_blank" rel="external">这个文件</a>.</p>
+<p>解压后，你会看到一个目录：frescolib，注意这个目录。</p>
+<ol>
+<li>从菜单 “文件(File)”，选择导入(Import)</li>
+<li>展开 Android, 选择 “Existing Android Code into Workspace”， 下一步。</li>
+<li>浏览，选中刚才解压的的文件中的 frescolib 目录。</li>
+<li>这5个项目应该都会被添加到工程： drawee， fbcore， fresco， imagepipeline， imagepipeline-okhttp。请确认前4个项目一定是被选中的。点击完成。</li>
+<li>右键，项目，选择属性，然后选择 Android。</li>
+<li>点击右下角的 Add 按钮，选择 fresco，点击 OK，再点击 OK。</li>
+</ol>
+<p>现在，fresco 就导入到项目中了，你可以开始编译了。如果编译不通过，可以尝试清理资源，或者重启 Eclipse。</p>
+<p>如果 support-v4 包重复了，删掉 frescolib/imagepipeline/libs 下的即可。</p>
+<p>==建议尽早使用 Android Studio。==</p>
+<h1 id="hello-SimpleDraweeView"><a href="#hello-SimpleDraweeView" class="headerlink" title="hello SimpleDraweeView"></a>hello SimpleDraweeView</h1><p>在我们学习编程的时候，一般第一个程序都是hello world，这是一句神奇的话，代表你写出了第一个程序。在Fresco中，第一个简单的成品是用SimpleDraweeView来显示一张网络图片，并在下载完成前显示一张占位图。</p>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>Fresco最基础的功能：从网上下载一幅图并显示出来，而从网上获取图片，必要的一个权限就是网络权限。<br>在AndroidManifest.xml中添加</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.INTERNET"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在应用初始化时，在调用setContentView() 之前，进行初始化：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Fresco.initialize(context);</span><br></pre></td></tr></table></figure>
+<h2 id="添加布局控件"><a href="#添加布局控件" class="headerlink" title="添加布局控件"></a>添加布局控件</h2><p>在xml布局文件中, 加入命名空间：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 其他元素 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> </span><br><span class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attr">xmlns:fresco</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>加入SimpleDraweeView:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">com.facebook.drawee.view.SimpleDraweeView</span></span><br><span class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/my_image_view"</span></span><br><span class="line">    <span class="attr">android:layout_width</span>=<span class="string">"20dp"</span></span><br><span class="line">    <span class="attr">android:layout_height</span>=<span class="string">"20dp"</span></span><br><span class="line">    <span class="attr">fresco:placeholderImage</span>=<span class="string">"@drawable/my_drawable"</span> //占位图</span><br><span class="line">  /&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="加载图片"><a href="#加载图片" class="headerlink" title="加载图片"></a>加载图片</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Uri uri = Uri.parse(<span class="string">"https://raw.githubusercontent.com/rudsonlive/NavigationDrawer-MaterialDesign/master/Screenshot/Screenshot_01.png"</span>);</span><br><span class="line">SimpleDraweeView draweeView = (SimpleDraweeView) findViewById(R.id.my_image_view);</span><br><span class="line">draweeView.setImageURI(uri);</span><br></pre></td></tr></table></figure>
+<p>剩下的下载图片啊、缓存图片啊、内存管理啊都交给fresco就对了！</p>
+<h1 id="概念说明"><a href="#概念说明" class="headerlink" title="概念说明"></a>概念说明</h1><h2 id="Drawees"><a href="#Drawees" class="headerlink" title="Drawees"></a>Drawees</h2><blockquote>
+<p>Drawees 负责图片的呈现，包含几个组件，有点像MVC模式。</p>
+</blockquote>
+<h2 id="DraweeView"><a href="#DraweeView" class="headerlink" title="DraweeView"></a>DraweeView</h2><blockquote>
+<p>继承于 View, 负责图片的显示。<br>一般情况下，使用SimpleDraweeView即可.</p>
+</blockquote>
+<h2 id="DraweeHierarchy"><a href="#DraweeHierarchy" class="headerlink" title="DraweeHierarchy"></a>DraweeHierarchy</h2><blockquote>
+<p>DraweeHierarchy 用于组织和维护最终绘制和呈现的Drawable对象，相当于MVC中的M。</p>
+</blockquote>
+<p>如果你想在Java代码中自定义图片的展示，可以通过这类实现,后续会讲。</p>
+<h2 id="DraweeController"><a href="#DraweeController" class="headerlink" title="DraweeController"></a>DraweeController</h2><blockquote>
+<p>DraweeController 负责和 image loader 交互（默认是Fresco中 image pipeline），可以创建一个这个类的实例，来实现对所要显示的图片做更多的控制。</p>
+</blockquote>
+<h2 id="DraweeControllerBuilder"><a href="#DraweeControllerBuilder" class="headerlink" title="DraweeControllerBuilder"></a>DraweeControllerBuilder</h2><blockquote>
+<p>DraweeControllers 由 DraweeControllerBuilder 采用 Builder 模式创建，创建之后，不可修改。</p>
+</blockquote>
+<h2 id="Listeners"><a href="#Listeners" class="headerlink" title="Listeners"></a>Listeners</h2><blockquote>
+<p>使用 ControllerListener 的一个场景就是设置一个 Listener监听图片的下载。</p>
+</blockquote>
+<h2 id="Image-Pipeline"><a href="#Image-Pipeline" class="headerlink" title="Image Pipeline"></a>Image Pipeline</h2><blockquote>
+<p>Fresco 的 Image Pipeline 负责图片的获取和管理。图片可以来自远程服务器，本地文件，或者Content Provider，本地资源。压缩后的文件缓存在本地存储中，Bitmap数据缓存在内存中。</p>
+</blockquote>
+<h2 id="ImageRequest"><a href="#ImageRequest" class="headerlink" title="ImageRequest"></a>ImageRequest</h2><blockquote>
+<p>ImageRequest存储着Image Pipeline处理被请求图片所需要的有用信息(Uri、是否渐进式图片、是否返回缩略图、缩放、是否自动旋转等)。  </p>
+</blockquote>
+<h1 id="支持的URI"><a href="#支持的URI" class="headerlink" title="支持的URI"></a>支持的URI</h1><p>Fresco 不支持 相对路径的URI. 所有的URI都必须是绝对路径，并且带上该URI的scheme。</p>
+<table>
+<thead>
+<tr>
+<th>图片类型</th>
+<th>Scheme</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>远程图片</td>
+<td>http:// OR https://</td>
+</tr>
+<tr>
+<td>本地文件</td>
+<td>file://</td>
+</tr>
+<tr>
+<td>Content provider</td>
+<td>content://</td>
+</tr>
+<tr>
+<td>asset</td>
+<td>asset://</td>
+</tr>
+<tr>
+<td>res</td>
+<td>res://</td>
+</tr>
+</tbody>
+</table>
+<p>PS:ShapeDrawable这样声明在XML中的drawable可能引起困惑。毕竟它不是图片，如果想把这样的drawable作为图像显示。那么把这个drawable设置为占位图，然后把URI设置为null。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[获取RecyclerView中的控件之踩坑篇]]></title>
+      <url>http://jcmels.github.io/2016/07/16/android-recycleview-tips/</url>
+      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>RecyclerView跟随Android5.0发布已久了，几乎从RecyclerView问世之初，我就抛弃ListView和GridView转投RecyclerView的怀抱了！没啥原因，只因为方便、省心。如它名字所示Recycler+View，代表着它拥有良好的回收机制以及良好的复用能力，而且强制使用了ViewHolder所以性能不用担心。当我们想要添加增删动画时，只需要通过ItemAnimator，一条语句就能解决。ListView？GridView？瀑布流？一条语句快速切换。叫我怎能不爱。然而。。。谷歌这次没赋予它点击事件，这意味着需要自己写点击事件，不过也不难，通过adapter提供回调就行，事件监听器从recyclerview换成了Adapter而已。一切都那么美好，直到今天下午。。。<br><a id="more"></a></p>
+<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>最近在做一个小项目，在点击item时更新item的UI，这个一般来讲就是获取到View然后在绑定控件，做相应的修改就行，也就一、两条语句的事嘛。好了怎么获取对应的View呢，根据ListView的经验，恩，<code>recycleview.getChildAt(position)</code>就行了吧！刚开始只有4条数据的时候确实就这样就行了，当数据多了，屏幕显示不完，拉下去点击之前未显示的就Crash了。</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>前言说了RecyclerView有良好的回收机制，所以只加载屏幕显示的View，未显示部分将回收。由于<code>getChildAt()</code>这个方法只能get到屏幕显示的部分，也就是说：假如屏幕上只能显示6个View，当往下滑动到第7、8个View的时候，他们的position虽然还是6，7但是由于<code>getChildAt（）</code>只能get到屏幕上显示的View，所以它实际的position其实是4、5。想要get到第7个View不能用getChildAt（6）而要用getChildAt（4）.其实这问题之前在ListView中也出现过，不过只需要用当前的position减去屏幕显示的第一个View的position（<code>getFirstVisiblePosition()</code>）就行。然而recyclerview中并没有获取第一个View的方法。好了百度、谷歌找了一大圈，最后在stackoverflow找到了相关描述，据说只需要这样<code>((LinearLayoutManager)LayoutManager).findFirstVisibleItemPosition()</code>或者这样<code>(（GridLayoutManager）LayoutManager).findFirstVisibleItemPosition()</code>就行了。然而。。。我用的瀑布流<code>StaggeredGridLayoutManager</code>。StaggeredGridLayoutManager中的这个方法需要传入一个int[]，然后懵逼，然后又是一大圈的趴文，然后依然是在stackoverflow中找到了相关描述，据说这是谷歌的bug，只能绕一绕，结果真的只是绕一绕，废话太多了直接上代码吧。。。</p>
+<pre><code class="java"><span class="keyword">int</span>[] firstVisibleItems = <span class="keyword">null</span>;
+
+firstVisibleItems=  ((StaggeredGridLayoutManager)recycleview.getLayoutManager()).findFirstVisibleItemPositions(firstVisibleItems);
+</code></pre>
+<p>真的是很绕对吧？最终数组中第1个元素就是所要的第一个position，下标0.所以获取当前view的真实Position就是position - firstVisibleItems[0]。<br>好了此贴终结。。。</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>真的强烈安利stackoverflow，几乎所有神奇的问题都可以从这趴到解决方案，虽然全英，不过技术问答看懂不难。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hexo+github搭个人博客第二章--部署到Github]]></title>
+      <url>http://jcmels.github.io/2016/07/11/hexo4/</url>
+      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>经过前几篇教程的学习，我们已经可以在本地搭建起hexo的环境了，可怎么把它放进互联网中让所有人都可以看到呢？这里我提供一个简单、免费的方法！–Github！<br><a id="more"></a></p>
+<h1 id="新建代码仓库"><a href="#新建代码仓库" class="headerlink" title="新建代码仓库"></a>新建代码仓库</h1><p>首先如果没注册github账号的话需要注册一个账号，因为需要把hexo部署到github的仓库里，这样就不需要自己租服务器了。(已有账号的跳过)</p>
+<h2 id="注册Github"><a href="#注册Github" class="headerlink" title="注册Github"></a>注册Github</h2><p><a href="https://github.com/" target="_blank" rel="external">https://github.com/</a>先注册，然后登陆github。  </p>
+<h2 id="建代码仓库"><a href="#建代码仓库" class="headerlink" title="建代码仓库"></a>建代码仓库</h2><p><img src="http://ww3.sinaimg.cn/large/6faa9679gw1f5v0iqdafcj208n016aa0.jpg" alt=""><br>找到这个，new一个repository<br><img src="http://ww4.sinaimg.cn/large/6faa9679gw1f5v0jpha2jj20l30fz418.jpg" alt=""><br>创建的时候只需要填写repository 那么就行了，但格式必须为XXXXX.github.io。<br><img src="http://ww4.sinaimg.cn/large/6faa9679gw1f5v0kc1olyj20oq0jntdr.jpg" alt=""><br>这样表示你创建成功了。  </p>
+<h1 id="配置hexo"><a href="#配置hexo" class="headerlink" title="配置hexo"></a>配置hexo</h1><p>接下来我们需要改一下配置文件，找到你的hexo文件夹，打开_config.yml文件，建议使用ATOM打开，一个很方便的文本编译器。<br><img src="http://ww2.sinaimg.cn/large/6faa9679gw1f5v0lzj7lfj20r60kl783.jpg" alt="">在最下面添加<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">    type: git</span><br><span class="line">    repository: https://github.com/JcmeLs/jcmels.github.io.git</span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure></p>
+<p><font color="#FF4500" size="5" face="黑体">如果hexo是3.0之后的直接在type那填git，之前的版本type填你的github用户名，repository填你刚刚建立的仓库地址。</font><br>保存。</p>
+<h1 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h1><p>然后我们会用到SSH，如果没有配置过的话需要先进行配置，如何查询是否配置了？还是打开我们的git bash here输入<code>ls -al ~/.ssh</code><br><img src="http://ww2.sinaimg.cn/large/6faa9679gw1f5v0r8wnfjj20gj095js8.jpg" alt=""><br>如果出现这个就是没配置。</p>
+<h2 id="获取key"><a href="#获取key" class="headerlink" title="获取key"></a>获取key</h2><p>在git bash输入<code>ssh-keygen -t rsa -C &quot;243276652@qq.com&quot;</code>邮箱写你注册github时填的邮箱，然后会要你按三次回车。<br><img src="http://ww2.sinaimg.cn/large/6faa9679gw1f5v0scdlhgj20dg083gnu.jpg" alt=""><br>接着输入<code>ssh-agent -s</code><br><img src="http://ww1.sinaimg.cn/large/6faa9679gw1f5v0t389hbj20dt01xdga.jpg" alt=""><br>继续输入<code>ssh-add ~/.ssh/id_rsa</code><br>如果报错<img src="http://ww1.sinaimg.cn/large/6faa9679gw1f5v0u59ga6j20cb01ewem.jpg" alt=""><br>输入</p>
+<blockquote>
+<p>eval `ssh-agent -s</p>
+</blockquote>
+<pre><code>ssh-add
+</code></pre><p><img src="http://ww3.sinaimg.cn/large/6faa9679gw1f5v0wqo5cxj20di02oq3e.jpg" alt=""><br>这样你就可以添加SSH 可以进你的github里了<br>通过</p>
+<blockquote>
+<p>clip &lt; ~/.ssh/id_rsa.pub</p>
+</blockquote>
+<p>获取key</p>
+<h2 id="填写key"><a href="#填写key" class="headerlink" title="填写key"></a>填写key</h2><p>获取到的key存在剪切板，在Github里面，点击右上角的设置图标Settings,<br><img src="http://ww3.sinaimg.cn/large/6faa9679gw1f5v0xilzyqj207i095jro.jpg" alt=""><br><img src="http://ww2.sinaimg.cn/large/6faa9679gw1f5v0ybj4wqj206x0d53z5.jpg" alt=""><br>找到SSH keys,<br><img src="http://ww3.sinaimg.cn/large/6faa9679gw1f5v0z3kvyej20kz0a6q5o.jpg" alt=""><br>Ttile随便你命名，Key就黏贴上你刚才复制的key,然后点Add SSH key，<br>最后会让你重新输入下gitHub的密码<br>让我们测试下SSH有没有配置成功在git bash里输入<code>ssh -T git@github.com</code>，会出现警告，没关系输入yes，<br><img src="http://ww2.sinaimg.cn/large/6faa9679gw1f5v10f29kij20fo02zdh7.jpg" alt=""><br>出现这个证明你成功了</p>
+<h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1><p>输入</p>
+<blockquote>
+<p>hexo g<br>hexo d<br>把网站部署到Github<br>如果报错则</p>
+</blockquote>
+<pre><code>npm install hexo-deployer-git --save
+</code></pre><p>再<code>hexo d</code><br><img src="http://ww2.sinaimg.cn/large/6faa9679gw1f5v17nf0jaj20gi0cl0vr.jpg" alt=""><br>看到这个你就成功了<br>快去你刚刚填写的域名访问吧！比如<a href="http://jcmels.github.io">jcmels.github.io</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hexo+github搭个人博客第一章--更换主题]]></title>
+      <url>http://jcmels.github.io/2016/07/11/hexo3/</url>
+      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>一个漂亮的博客是每个技术宅的梦想，所以选择了高定制的独立博客之路。可是landscape主题还是有点简单，所以需要更换主题，hexo目前有大量的优秀主题，比如jacman、NexT的三套等等。本次教程交大家替换主题，具体主题配置可以根据文档调试。后期也会根据NexT的展开，不过基本上也是照搬文档。<br><a id="more"></a></p>
+<h1 id="实操"><a href="#实操" class="headerlink" title="实操"></a>实操</h1><p>打开git bash。<br>输入<code>git clone</code> 你想要的主题的GITHUB地址<br>如<code>git clone https://github.com/wuchong/jacman.git themes/jacman</code><br><img src="http://ww3.sinaimg.cn/large/6faa9679gw1f5v0a0wicwj20fm03cabd.jpg" alt=""><br>然后用atom打开_config.yml文件找到theme属性设为jacman<br>更新主题<br><code>cd themes/jacman</code><br><code>git pull</code><br><img src="http://ww3.sinaimg.cn/large/6faa9679gw1f5v0a6rif0j20ax02caaa.jpg" alt=""><br>现在可以预览一下了<br><code>hexo server -g</code><br>地址栏输入<code>http://localhost:4000/</code>是不是变样子了</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[S:action标签向action传值]]></title>
+      <url>http://jcmels.github.io/2016/06/07/java-web-SSH-jspToaction/</url>
+      <content type="html"><![CDATA[<p>最近在写悠行的web端程序，我们选用的是SSH框架，从JSP传值到Action中是经常要干的事，常用的方法就是通过href调用action传值，当然也有种情况就是直接通过 <code>&lt;s:action&gt;</code>标签来传值，最近就使用它来传值，并遇到了问题。<br><a id="more"></a></p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>传值最大的问题就是传过去的获取不到，这里我使用的是<code>&lt;s:param&gt;</code>标签，然后传值过去发现获取不到。</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><blockquote>
+<p><code>&lt;s:param &gt;&lt;/s:param&gt;</code>是以request方式的值的,而不是以参数传值 。</p>
+</blockquote>
+<p>所以request.getParameter(“”);会取不到值，我们需要通过request.getAttribute(“”)方式可以获取，而在action中要调用request.getAttribute的方法是<code>ServletActionContext.getRequest().getAttribute(&quot;&quot;).toString()</code></p>
+<p>在jsp页面中当我们想要通过<code>&lt;s:action&gt;</code>标签传值的时候只需要在<code>&lt;s:action&gt;</code>标签内加个<code>&lt;s:param&gt;</code>标签，name为等下在getAttribute方法中的参数如，value为所需要传的值：  </p>
+<pre><code class="jsp">&lt;s:action name="loadPropertyAction"&gt;
+     &lt;s:param name="catalogName" value="#catalog.bikeTypeName"&gt;&lt;/s:param&gt;
+&lt;/s:action&gt;
+</code></pre>
+<p>我这里是动态传值，用上面的迭代器获取到的值再传到另一个action中，在action中获取值的代码是  </p>
+<pre><code class="java">catalogName= ServletActionContext.getRequest().getAttribute(<span class="string">"catalogName"</span>).toString();
+</code></pre>
+<blockquote>
+<p>注意用于接收传值的对象需要在action中添加get，set方法！</p>
+</blockquote>
+<p>然后就可以做接下来的数据操作了，比如继续进行另一个查询。  </p>
+<hr>
+<p>博主最近好忙，也没什么时间更新博客，这篇短文也是因为bug找的烦躁才想起来记录的一个小技巧，暑假应该时间挺多的，到时候争取每天一更，目测大部分Android，小部分设计模式，小部分SSH，小部分PHP吧</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[<转>IDEA注册码]]></title>
+      <url>http://jcmels.github.io/2016/05/26/IDEA/</url>
+      <content type="html"><![CDATA[<p>IntelliJ IDEA是JetBrains公司的一款IDE，主要用于java。<br>同系列有用于Ruby的RubyMine、Python的PyCharm、JavaScript的WebStorm、PHP的PhpStorm等，而且都非常优秀，如果你打算采用的话可以给个小提示：idea+php插件即可变为PhpStorm、+python插件即可变为PyCharm等，装一个idea，在把需要的插件装上，可以在一个项目中同时支持多种开发语言。<br>这款IDE收费有点小贵，这里提供一下注册码（推荐正版）<br><a id="more"></a></p>
+<h2 id="IDEA-2016-1"><a href="#IDEA-2016-1" class="headerlink" title="IDEA 2016.1"></a>IDEA 2016.1</h2><p><a href="http://idea.qinxi1992.cn" target="_blank" rel="external">http://idea.qinxi1992.cn</a></p>
+<h2 id="English-Version"><a href="#English-Version" class="headerlink" title="English Version"></a>English Version</h2><p><a href="http://us.idea.lanyus.com" target="_blank" rel="external">http://us.idea.lanyus.com</a></p>
+<h2 id="IDEA-15-0-2"><a href="#IDEA-15-0-2" class="headerlink" title="IDEA 15.0.2"></a>IDEA 15.0.2</h2><p><a href="http://idea.lanyus.com/" target="_blank" rel="external">http://idea.lanyus.com/</a>（网友赞助服务器）<br><a href="http://0.idea.lanyus.com" target="_blank" rel="external">http://0.idea.lanyus.com</a><br><a href="http://1.idea.lanyus.com" target="_blank" rel="external">http://1.idea.lanyus.com</a><br><a href="http://2.idea.lanyus.com" target="_blank" rel="external">http://2.idea.lanyus.com</a><br><a href="http://3.idea.lanyus.com" target="_blank" rel="external">http://3.idea.lanyus.com</a><br><a href="http://4.idea.lanyus.com" target="_blank" rel="external">http://4.idea.lanyus.com</a></p>
+<h2 id="IDEA-15"><a href="#IDEA-15" class="headerlink" title="IDEA 15"></a>IDEA 15</h2><p><a href="http://15.idea.lanyus.com" target="_blank" rel="external">http://15.idea.lanyus.com</a></p>
+<h2 id="IDEA-14"><a href="#IDEA-14" class="headerlink" title="IDEA 14"></a>IDEA 14</h2><p><a href="http://5.idea.lanyus.com" target="_blank" rel="external">http://5.idea.lanyus.com</a></p>
+<p>注册码在线计算采用了rover12421大牛的方法。<br>另外我提供了License server注册方法，在注册时选择License server，填写<a href="http://idea.lanyus.com" target="_blank" rel="external">http://idea.lanyus.com</a>，点击OK，也可以成功注册，但是这样会在每次启动idea时都连接到<a href="http://idea.lanyus.com" target="_blank" rel="external">http://idea.lanyus.com</a>检查是否激活，不过这种方法不会因idea版本升级而出现无法获得注册码的问题。</p>
+<blockquote>
+<p>PS:本文为转载，原贴地址<a href="http://blog.lanyus.com/6.html" target="_blank" rel="external">http://blog.lanyus.com/6.html</a></p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Android常用库整理]]></title>
+      <url>http://jcmels.github.io/2016/05/10/android-frame/</url>
+      <content type="html"><![CDATA[<p>最近在写创业项目的Android APP，由于是快速开发，所以会用到一些现成的开源库，这里做一下汇总，方便大家和自己，免得下次用的时候还要到处找。<br><a id="more"></a></p>
+<h1 id="系统框架"><a href="#系统框架" class="headerlink" title="系统框架"></a>系统框架</h1><hr>
+<h2 id="1-网络请求"><a href="#1-网络请求" class="headerlink" title="1. 网络请求"></a>1. 网络请求</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/loopj/android-async-http" title="Android Async HTTP" target="_blank" rel="external">Android Async HTTP</a></td>
+<td style="text-align:center">Android异步HTTP库</td>
+</tr>
+<tr>
+<td><a href="https://github.com/koush/AndroidAsync" title="AndroidAsync" target="_blank" rel="external">AndroidAsync</a></td>
+<td style="text-align:center">异步Socket，HTTP(客户端+服务器)，WebSocket，和socket.io库。基于NIO而不是线程。</td>
+</tr>
+<tr>
+<td><a href="https://github.com/square/okhttp" title="Okhttp" target="_blank" rel="external">Okhttp</a></td>
+<td style="text-align:center">Http与Http/2的客户端</td>
+</tr>
+<tr>
+<td><a href="https://github.com/square/retrofit" title="Retrofit" target="_blank" rel="external">Retrofit</a></td>
+<td style="text-align:center">类型安全的Http客户端</td>
+</tr>
+<tr>
+<td><a href="https://android.googlesource.com/platform/frameworks/volley" title="Volley" target="_blank" rel="external">Volley</a></td>
+<td style="text-align:center">Google推出的Android异步网络请求框架和图片加载框架</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-网络解析"><a href="#2-网络解析" class="headerlink" title="2. 网络解析"></a>2. 网络解析</h2><ul>
+<li>JSON解析</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/google/gson" title="Gson" target="_blank" rel="external">Gson</a></td>
+<td style="text-align:center">一个Java序列化/反序列化库，可以将JSON和java对象互相转换</td>
+</tr>
+<tr>
+<td><a href="https://github.com/codehaus/jackson" title="Jackson" target="_blank" rel="external">Jackson</a></td>
+<td style="text-align:center">Jackson可以轻松地将Java对象转换成json对象和xml文档，同样也可以将json、xml转换成Java对象</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>HTML解析</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://sourceforge.net/projects/htmlparser/" title="Htmlparser" target="_blank" rel="external">Htmlparser</a></td>
+<td style="text-align:center">解析单个独立html或嵌套html</td>
+</tr>
+<tr>
+<td><a href="https://github.com/jhy/jsoup" title="Jsoup" target="_blank" rel="external">Jsoup</a></td>
+<td style="text-align:center">一个以最好的DOM，CSS和jQuery解析html的库</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-图片加载"><a href="#3-图片加载" class="headerlink" title="3.图片加载"></a>3.图片加载</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/nostra13/Android-Universal-Image-Loader" title="Android-Universal-Image-Loader" target="_blank" rel="external">Android-Universal-Image-Loader</a></td>
+<td style="text-align:center">强大的加载，缓存，展示图片的库</td>
+</tr>
+<tr>
+<td><a href="https://github.com/square/picasso" title="Picasso" target="_blank" rel="external">Picasso</a></td>
+<td style="text-align:center">强大的图片下载与缓存的库</td>
+</tr>
+<tr>
+<td><a href="https://github.com/facebook/fresco" title="Fresco" target="_blank" rel="external">Fresco</a></td>
+<td style="text-align:center">管理图像和使用的内存的库</td>
+</tr>
+<tr>
+<td><a href="https://github.com/bumptech/glide" title="Glide" target="_blank" rel="external">Glide</a></td>
+<td style="text-align:center">图片加载和缓存的库</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-数据处理"><a href="#4-数据处理" class="headerlink" title="4.数据处理"></a>4.数据处理</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://sourceforge.net/projects/ormlite/files/releases/com/j256/ormlite/" title="Ormlite" target="_blank" rel="external">Ormlite</a></td>
+<td style="text-align:center">JDBC和Android的轻量级ORM java包</td>
+</tr>
+<tr>
+<td><a href="https://github.com/greenrobot/greenDAO" title="GreenDAO" target="_blank" rel="external">GreenDAO</a></td>
+<td style="text-align:center">轻松将对象映射到SQLite数据库的ORM解决方案</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-图表处理"><a href="#5-图表处理" class="headerlink" title="5.图表处理"></a>5.图表处理</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/diogobernardino/WilliamChart" title="WilliamChart" target="_blank" rel="external">WilliamChart</a></td>
+<td style="text-align:center">创建图表的Android库</td>
+</tr>
+<tr>
+<td><a href="https://github.com/lecho/hellocharts-android" title="HelloCharts" target="_blank" rel="external">HelloCharts</a></td>
+<td style="text-align:center">兼容性超高的Android图表库</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-后台处理"><a href="#6-后台处理" class="headerlink" title="6.后台处理"></a>6.后台处理</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/yigit/android-priority-jobqueue" title="Android Priority Job Queue" target="_blank" rel="external">Android Priority Job Queue</a></td>
+<td style="text-align:center">专门为Android轻松调度任务的工作队列</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-响应式编程"><a href="#7-响应式编程" class="headerlink" title="7.响应式编程"></a>7.响应式编程</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/ReactiveX/RxAndroid" title="RxAndroid" target="_blank" rel="external">RxAndroid</a></td>
+<td style="text-align:center">Android上的响应式扩展，在RxJava基础上添加了Android线程调度</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ReactiveX/RxJava" title="RxJava" target="_blank" rel="external">RxJava</a></td>
+<td style="text-align:center">JVM上的响应式扩展</td>
+</tr>
+<tr>
+<td><a href="https://github.com/JakeWharton/RxBinding" title="RxBinding" target="_blank" rel="external">RxBinding</a></td>
+<td style="text-align:center">提供用RxJava绑定Android UI的API</td>
+</tr>
+</tbody>
+</table>
+<h1 id="控件库"><a href="#控件库" class="headerlink" title="控件库"></a>控件库</h1><hr>
+<h2 id="1-下拉刷新、下拉加载"><a href="#1-下拉刷新、下拉加载" class="headerlink" title="1.下拉刷新、下拉加载"></a>1.下拉刷新、下拉加载</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/chrisbanes/Android-PullToRefresh" title="Android PullToRefresh" target="_blank" rel="external">Android PullToRefresh</a></td>
+<td style="text-align:center">最经典、最多人用的下拉刷新、加载更多。</td>
+<td style="text-align:center"><img src="https://github.com/chrisbanes/Android-PullToRefresh/raw/master/header_graphic.png" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh" title="Android Ultra Pull To Refresh" target="_blank" rel="external">Android Ultra Pull To Refresh</a></td>
+<td style="text-align:center">非常方便自定义的下拉刷新框架，继承于ViewGroup可以包含任何View，使用起来非常简单，如果想要自定义样式，就像给ListView加一个HeaderView一样简</td>
+<td style="text-align:center"><img src="https://camo.githubusercontent.com/588a2ef2cdcfb6c71e88437df486226dd15605b3/687474703a2f2f737261696e2d6769746875622e71696e6975646e2e636f6d2f756c7472612d7074722f73746f72652d686f7573652d737472696e672d61727261792e676966" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Yalantis/Phoenix" title="Phoenix" target="_blank" rel="external">Phoenix</a></td>
+<td style="text-align:center">漂亮的动态刷新库</td>
+<td style="text-align:center"><img src="http://static.open-open.com/lib/uploadImg/20150604/20150604144436_710.jpg" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/alienjun/AJWaveRefreshForAndroid" title="AJWaveRefreshForAndroid" target="_blank" rel="external">AJWaveRefreshForAndroid</a></td>
+<td style="text-align:center">便捷的水波纹加载效果</td>
+<td style="text-align:center"><img src="https://github.com/alienjun/WaveRefreshForAndroid/raw/master/Sceenshots/screenshot1.gif" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-底部导航栏"><a href="#2-底部导航栏" class="headerlink" title="2.底部导航栏"></a>2.底部导航栏</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/armcha/LuseenBottomNavigation" title="LuseenBottomNavigation" target="_blank" rel="external">LuseenBottomNavigation</a></td>
+<td style="text-align:center">很方便的遵循MD设计的底栏</td>
+<td style="text-align:center"><img src="https://github.com/armcha/LuseenBottomNavigation/raw/master/ScreenShots/gifView2.gif" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/aurelhubert/ahbottomnavigation" title="ahbottomnavigation" target="_blank" rel="external">ahbottomnavigation</a></td>
+<td style="text-align:center">遵循谷歌设计规范的底栏库</td>
+<td style="text-align:center"><img src="https://raw.githubusercontent.com/aurelhubert/ahbottomnavigation/master/demo1.gif" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/roughike/BottomBar" title="BottomBar" target="_blank" rel="external">BottomBar</a></td>
+<td style="text-align:center">另一个遵循谷歌设计规范的底栏库（PS：之前我使用的时候有点小BUG现在不清楚）</td>
+<td style="text-align:center"><img src="https://raw.githubusercontent.com/roughike/BottomBar/master/demo_shifting.gif" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-二维码"><a href="#3-二维码" class="headerlink" title="3.二维码"></a>3.二维码</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/zxing/zxing" target="_blank" rel="external">Zxing</a></td>
+<td style="text-align:center">谷歌开发的二维码处理库，质量没的说！一维码二维码都能扫！</td>
+<td style="text-align:center"><img src="http://ww3.sinaimg.cn/large/6faa9679gw1f3qm0ne4uqj20hj0mjwg6.jpg" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-侧滑菜单"><a href="#4-侧滑菜单" class="headerlink" title="4.侧滑菜单"></a>4.侧滑菜单</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/rudsonlive/NavigationDrawer-MaterialDesign" title="NavigationDrawer" target="_blank" rel="external">NavigationDrawer</a></td>
+<td style="text-align:center">Material Design的抽屉模板库，快速搭建侧滑菜单。</td>
+<td style="text-align:center"><img src="https://raw.githubusercontent.com/rudsonlive/NavigationDrawer-MaterialDesign/master/Screenshot/Screenshot_01.png" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/jfeinstein10/SlidingMenu" title="SlidingMenu" target="_blank" rel="external">SlidingMenu</a></td>
+<td style="text-align:center">之前也是个很优秀的侧滑库直到谷歌来搅局。。</td>
+<td style="text-align:center"><img src="http://ww2.sinaimg.cn/large/6faa9679gw1f3qlsuhmdnj208e0cr74c.jpg" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/mxn21/FlowingDrawer" title="FlowingDrawer" target="_blank" rel="external">FlowingDrawer</a></td>
+<td style="text-align:center">超帅的侧滑菜单</td>
+<td style="text-align:center"><img src="https://camo.githubusercontent.com/a7131784a75e6f07646108b8304b0a0d4efd306b/687474703a2f2f62616f62616f6c6f7665796f752e636f6d2f666c6f77696e676472617765722e676966" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-侧滑返回"><a href="#5-侧滑返回" class="headerlink" title="5.侧滑返回"></a>5.侧滑返回</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/bushijie/ParallaxSwipeBack" title="ParallaxSwipeBack" target="_blank" rel="external">ParallaxSwipeBack</a></td>
+<td style="text-align:center">带视觉差的侧滑返回，类似于新版微信和lofter的侧滑返回效果。引入方便，核心代码只需几十行！</td>
+<td style="text-align:center"><img src="https://github.com/bushijie/ParallaxSwipeBack/raw/master/show.gif" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-文本输入框"><a href="#6-文本输入框" class="headerlink" title="6.文本输入框"></a>6.文本输入框</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/rengwuxian/MaterialEditText" title="MaterialEditText" target="_blank" rel="external">MaterialEditText</a></td>
+<td style="text-align:center">方便自定义的EditText控件库</td>
+<td style="text-align:center"><img src="http://ww4.sinaimg.cn/large/6faa9679gw1f3qlt8eo9mj208c0dvwew.jpg" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-侧贴标签"><a href="#7-侧贴标签" class="headerlink" title="7.侧贴标签"></a>7.侧贴标签</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/linger1216/labelview" title="labelview" target="_blank" rel="external">labelview</a></td>
+<td style="text-align:center">类似淘宝的侧贴标签库</td>
+<td style="text-align:center"><img src="http://ww3.sinaimg.cn/large/6faa9679gw1f3qlvwi5txj20k00zkjz9.jpg" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/H07000223/FlycoLabelView" title="FlycoLabelView" target="_blank" rel="external">FlycoLabelView</a></td>
+<td style="text-align:center">轻量级侧贴标签</td>
+<td style="text-align:center"><img src="http://ww1.sinaimg.cn/large/6faa9679gw1f3qmq5do7ij20u01hck1o.jpg" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-侧滑功能项"><a href="#8-侧滑功能项" class="headerlink" title="8.侧滑功能项"></a>8.侧滑功能项</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/daimajia/AndroidSwipeLayout" title="AndroidSwipeLayout" target="_blank" rel="external">AndroidSwipeLayout</a></td>
+<td style="text-align:center">类似QQ的侧滑删除</td>
+<td style="text-align:center"><img src="https://camo.githubusercontent.com/183f464b177ffa9d0b35f396796ec64f37ce87db/687474703a2f2f7777312e73696e61696d672e636e2f6d773639302f36313064633033346a7731656a6f7175696476767367323038693036333075342e676966" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h2 id="9-动画库"><a href="#9-动画库" class="headerlink" title="9.动画库"></a>9.动画库</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/hitherejoe/animate" title="animate" target="_blank" rel="external">animate</a></td>
+<td style="text-align:center">几乎涵盖所有MD动画</td>
+<td style="text-align:center"><img src="https://github.com/JcmeLs/animate/raw/master/images/explode_window_transition.gif" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/lgvalle/Material-Animations" title="Material-Animations" target="_blank" rel="external">Material-Animations</a></td>
+<td style="text-align:center">MD动画库</td>
+<td style="text-align:center"><img src="https://raw.githubusercontent.com/lgvalle/Material-Animations/master/screenshots/transition_explode.gif" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/tyrantgit/ExplosionField" title="ExplosionField" target="_blank" rel="external">ExplosionField</a></td>
+<td style="text-align:center">爆破效果的删除动画库</td>
+<td style="text-align:center"><img src="https://github.com/tyrantgit/ExplosionField/raw/master/explosionfield.gif" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/dinuscxj/LoadingDrawable" title="LoadingDrawable" target="_blank" rel="external">LoadingDrawable</a></td>
+<td style="text-align:center">小清新的加载动画</td>
+<td style="text-align:center"><img src="https://raw.githubusercontent.com/dinuscxj/LoadingDrawable/master/Preview/SceneryDrawable.gif?width=300" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h2 id="10-搜索框"><a href="#10-搜索框" class="headerlink" title="10.搜索框"></a>10.搜索框</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/arimorty/floatingsearchview" title="floatingsearchview" target="_blank" rel="external">floatingsearchview</a></td>
+<td style="text-align:center">自带动画与动态加载数据的搜索框控件</td>
+<td style="text-align:center"><img src="https://github.com/arimorty/floatingsearchview/raw/master/images/vf353.gif" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h2 id="11-快捷选择"><a href="#11-快捷选择" class="headerlink" title="11.快捷选择"></a>11.快捷选择</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/afollestad/drag-select-recyclerview" title="drag-select-recyclerview" target="_blank" rel="external">drag-select-recyclerview</a></td>
+<td style="text-align:center">一直觉得魅族的快捷选择很有用，终于找到一个类似功能的还支持recycleView</td>
+<td style="text-align:center"><img src="https://github.com/afollestad/drag-select-recyclerview/raw/master/art/showcase.gif" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h2 id="12-引导页"><a href="#12-引导页" class="headerlink" title="12.引导页"></a>12.引导页</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/HeinrichReimer/material-intro" title="material-intro" target="_blank" rel="external">material-intro</a></td>
+<td style="text-align:center">MD风格的引导页</td>
+<td style="text-align:center"><img src="https://camo.githubusercontent.com/0ac94850f861178a7e72def63efc75cedabb7314/687474703a2f2f692e696d6775722e636f6d2f316c6e653279732e706e67" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Cleveroad/SlidingTutorial-Android" title="SlidingTutorial-Android" target="_blank" rel="external">SlidingTutorial</a></td>
+<td style="text-align:center">很顺滑的引导页</td>
+<td style="text-align:center"><img src="https://github.com/Cleveroad/SlidingTutorial-Android/raw/master/images/demo.gif" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/iammert/MaterialIntroView" title="MaterialIntroView" target="_blank" rel="external">MaterialIntroView</a></td>
+<td style="text-align:center">MD式的高亮引导页</td>
+<td style="text-align:center"><img src="https://raw.githubusercontent.com/iammert/MaterialIntroView/master/art/materialintroviewgif.gif" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/hanks-zyh/HTextView" title="HTextView" target="_blank" rel="external">HTextView</a></td>
+<td style="text-align:center">其实这是个帅炸的文字展示库，可是我用过做引导页而且逼格不错！</td>
+<td style="text-align:center"><img src="https://github.com/hanks-zyh/HTextView/raw/master/screenshot/demo2.gif" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h2 id="13-菜单（高能）"><a href="#13-菜单（高能）" class="headerlink" title="13.菜单（高能）"></a>13.菜单（高能）</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">展示图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/xmuSistone/android-snake-menu" title="android-snake-menu" target="_blank" rel="external">android-snake-menu</a></td>
+<td style="text-align:center">类似Tumblr的蛇形菜单</td>
+<td style="text-align:center"><img src="https://github.com/xmuSistone/android-snake-menu/raw/master/capture1.gif" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/DxTT/coolMenu" title="coolMenu" target="_blank" rel="external">coolMenu</a></td>
+<td style="text-align:center">帅炸的视窗菜单</td>
+<td style="text-align:center"><img src="http://ww4.sinaimg.cn/large/6faa9679gw1f3qn29qv8aj207x0dgwer.jpg" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Nightonke/BoomMenu" title="BoomMenu" target="_blank" rel="external">BoomMenu</a></td>
+<td style="text-align:center">爆炸式的弹出菜单</td>
+<td style="text-align:center"><img src="https://github.com/Nightonke/BoomMenu/raw/master/Pictures/show_share.gif?raw=true" alt=""></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="这次把我觉得可以的库全放了上来，这些库都是我再Github上Fork来的，github上优秀的开源库很多，经常找些优秀的库可以缩短开发时间，多看些开源项目也有利于开发与代码规范，特别是国外的库，里面的示例代码框架超级好！"><a href="#这次把我觉得可以的库全放了上来，这些库都是我再Github上Fork来的，github上优秀的开源库很多，经常找些优秀的库可以缩短开发时间，多看些开源项目也有利于开发与代码规范，特别是国外的库，里面的示例代码框架超级好！" class="headerlink" title="这次把我觉得可以的库全放了上来，这些库都是我再Github上Fork来的，github上优秀的开源库很多，经常找些优秀的库可以缩短开发时间，多看些开源项目也有利于开发与代码规范，特别是国外的库，里面的示例代码框架超级好！"></a>这次把我觉得可以的库全放了上来，这些库都是我再Github上Fork来的，github上优秀的开源库很多，经常找些优秀的库可以缩短开发时间，多看些开源项目也有利于开发与代码规范，特别是国外的库，里面的示例代码框架超级好！</h2><p>PS：本文长期更新，敬请期待！排版很乱。。。轻轻喷</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[工厂方法模式]]></title>
+      <url>http://jcmels.github.io/2016/05/02/factory-pattern2/</url>
+      <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上一期简单工厂模式在缺点中，我提到了违背了<code>开闭原则</code>，那么什么是开闭原则？一句话解释就是<strong>对于扩展是开放的，对修改是关闭的。</strong>当我们需要添加新产品的时候需要修改工厂类，所以这就违反了对修改是关闭的这个原则。那么有什么设计模式既有简单工厂模式的优点，又不违反开闭原则呢？答案是——工厂方法模式。<br><a id="more"></a></p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>工厂方法模式又叫做虚拟构造子(Cirtual Constructor)模式或者多态工厂（Polymorphic Factory）模式。  </p>
+<p>工厂方法模式的用意是定义一个创建产品对象的工厂接口，将实际创建工作推迟到子类中。  </p>
+<p>首先，在工厂方法模式中，核心的工厂类不再负责所以产品的创建，而是将具体创建的工作交给子类去做.这个核心类则摇身一变，成为了一个抽象工厂角色，仅负责给出具体工厂子类必须实现的接口，而不接触哪一个产品类应当被实例化这种细节。  </p>
+<p>这种进一步抽象化的结果，使这种工厂方法模式可以用来予许系统在不修改具体工厂角色的情况下引进新的产品，也就遵循了开闭原则。</p>
+<p>工厂方法模式是一种创建型设计模式，他是一个结构简单的模式，其实我们不知不觉中就用过工厂方法模式，只是可能你还没意识到，比如Android开发中的Activity中的<code>onCreate</code>方法就是一个工厂方法。<br>既然它那么常用，那么它有什么优缺点呢？上文提到过它有简单工厂模式的优点，所以它的优点有：  </p>
+<ul>
+<li>可维护性高</li>
+<li>可复用性高</li>
+<li>拓展性好</li>
+<li>灵活好用</li>
+</ul>
+<p>缺点：  </p>
+<ul>
+<li>每次有新产品都需要添加一个产品类</li>
+<li>需要引入抽象层，导致类结构复杂化</li>
+</ul>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>工厂方法模式结构图如下：<br><img src="http://ww2.sinaimg.cn/large/6faa9679gw1f3gyocxdn4j20bu07n3yw.jpg" alt=""><br>从上图可以看出，工厂方法模式涉及到抽象工厂的角色，具体工厂角色，抽象产品以及具体产品等四个角色，他们分别有什么作用？  </p>
+<ul>
+<li>抽象工厂角色是工厂方法模式的核心，它是与应用程序无关的。任何在模式中创建对象的工厂类必须实现这个接口。</li>
+<li>具体工厂角色是实现了抽象工厂接口的具体Java类，具体工厂角色含有与应用密切相关的逻辑，并且受到应用程序的调用以创建产品对象。</li>
+<li>抽象产品角色是工厂方法模式所创建的对象的超类型，也就是产品对象的共同父类或共同拥有的接口。</li>
+<li>具体产品角色实现了抽象产品角色所申明的接口。工厂方法模式所创建的每一个对象都是某个具体产品角色的实例。</li>
+</ul>
+<p>结合披萨系统，用白话文来说就是之前厨师（工厂类）负责所有的烤披萨任务，太累了。于是招了两个厨师分别负责烤 <code>GreekPizza</code>披萨和 <code>CheesePizza</code>披萨，之前的厨师升级为厨师长（抽象工厂类），负责教那两位厨师（具体工厂类）烤披萨，自己则不用亲自动手烤披萨了。<br>附上代码前先来看看完整的类图：<br><img src="http://ww1.sinaimg.cn/large/6faa9679gw1f3gz3fgx7gj20vo0d340u.jpg" alt="">  </p>
+<h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h2><p><strong>抽象产品pizza</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Pizza</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">prepare</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">bake</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">cut</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">box</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>具体产品</strong><br><em>CheesePizza</em><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CheesePizza</span> <span class="keyword">extends</span> <span class="title">Pizza</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">prepare</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"准备CheesePizza~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bake</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"正在烤CheesePizza~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cut</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"正在切CheesePizza~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">box</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"正在打包CheesePizza~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><em>GreekPizza</em><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GreekPizza</span>  <span class="keyword">extends</span> <span class="title">Pizza</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">prepare</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"准备GreekPizza~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bake</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"正在烤GreekPizza~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cut</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"正在切GreekPizza~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">box</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"正在打包GreekPizza~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>抽象工厂PizzaFactory</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">PizzaFactory</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 工厂方法</span><br><span class="line">     * <span class="doctag">@return</span></span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Pizza <span class="title">createPizza</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>具体工厂</strong><br><em>CheesePizza</em><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CheesePizzaFactory</span> <span class="keyword">implements</span> <span class="title">PizzaFactory</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Pizza <span class="title">createPizza</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> CheesePizza();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><em>GreekPizza</em><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GreekPizzaFactory</span>  <span class="keyword">implements</span> <span class="title">PizzaFactory</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Pizza <span class="title">createPizza</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> GreekPizza();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>客户端调用</strong>  </p>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OrderPizza</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>{
+        PizzaFactory factory=<span class="keyword">new</span> CheesePizzaFactory();
+        Pizza pizza=factory.createPizza();
+        pizza.prepare();
+        pizza.bake();
+        pizza.cut();
+        pizza.box();
+        factory=<span class="keyword">new</span> GreekPizzaFactory();
+        pizza=factory.createPizza();
+        pizza.prepare();
+        pizza.bake();
+        pizza.cut();
+        pizza.box();
+    }
+}
+</code></pre>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>工厂方法模式与简单工厂模式对比</strong><br>工厂方法模式跟简单工厂模式在结构上的不同是很明显的，工厂方法模式的核心是一个抽象工厂类，而简单工厂模式的核心在一个具体类。显而易见工厂方法模式这种结构更好扩展，权力下发，分布式比集中式更具优势。<br>如果系统需要加入一个新的产品，那么所需要的就是向系统中加入一个这个产品类以及它所对应的工厂类。没有必要修改客户端，也没有必要修改抽象工厂角色或者其他已有的具体工厂角色。对于增加新的产品类而言，这个系统完全支持开闭原则。<br>总的来说，工厂方法模式是个很好的设计模式，那我们什么时候该使用它呢？</p>
+<blockquote>
+<p>在任何需要生成复杂对象的地方，都可以使用工厂方法模式，不过在设计模式是个灵活的东西，具体什么时候用还需要设计者权衡利弊了。  </p>
+</blockquote>
+<hr>
+<blockquote>
+<p>下期将讲解抽象工厂模式，时间不定，敬请期待。</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[简单工厂模式]]></title>
+      <url>http://jcmels.github.io/2016/04/28/factory-pattern/</url>
+      <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最近上系统分析与设计课的时候，老师提到了程序员进阶必备之–设计模式，第一个讲的就是简单工厂模式，但由于课时紧张，没有细讲，然后我又觉得很有用，于是下课后参考《大话设计模式》这本书来学习设计模式，正好第一章也是简单工厂模式，那今天就讲讲这个简单工厂模式吧！<br><a id="more"></a></p>
+</blockquote>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>工厂模式网上很多都是以披萨店为栗子，那我也用披萨店来做栗子吧！<br>先说说工厂模式的优点吧  </p>
+<ul>
+<li>可维护性高</li>
+<li>可复用性高</li>
+<li>拓展性好</li>
+<li>灵活好用</li>
+</ul>
+<p>再来看看它有什么缺点：</p>
+<ul>
+<li>违背了开闭原则</li>
+<li>所有业务逻辑都在工厂类实现，一旦工厂类出bug，整个系统不能用。</li>
+</ul>
+<h2 id="项目描述"><a href="#项目描述" class="headerlink" title="项目描述"></a>项目描述</h2><p>披萨店里有一名店长，目前卖两种口味披萨，<code>GreekPizza</code>和<code>CheesePizza</code>，每个披萨都有<code>prePare()</code>,<code>bake()</code>,<code>cut()</code>,<code>box()</code>这4种步骤，原料，烘培，切割，打包，最后给用户吃。<br><img src="http://i.imgur.com/7vhkJPv.png" alt=""></p>
+<h2 id="传统方式"><a href="#传统方式" class="headerlink" title="传统方式"></a>传统方式</h2><p>在我们没学设计模式前，我们可能会这样写这个代码。<br><strong>pizza抽象类</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Pizza</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">prepare</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">bake</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">cut</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">box</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>GreekPizza类</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GreekPizza</span>  <span class="keyword">extends</span> <span class="title">Pizza</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">prepare</span><span class="params">()</span></span>&#123;</span><br><span class="line">       System.out.println(<span class="string">"准备GreekPizza~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bake</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"正在烤GreekPizza~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cut</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"正在切GreekPizza~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">box</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"正在打包GreekPizza~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>CheesePizza类</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CheesePizza</span> <span class="keyword">extends</span> <span class="title">Pizza</span></span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">prepare</span><span class="params">()</span></span>&#123;</span><br><span class="line">       System.out.println(<span class="string">"准备CheesePizza~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bake</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"正在烤CheesePizza~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cut</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"正在切CheesePizza~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">box</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"正在打包CheesePizza~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>店长根据客户点的餐生成不同的披萨</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">Pizza pizza;</span><br><span class="line"><span class="keyword">if</span>(<span class="string">"cheese"</span>.equal(orderType)) pizza = <span class="keyword">new</span> CheesePizza();</span><br><span class="line"><span class="keyword">if</span>(<span class="string">"greek"</span>.equal(orderType)) pizza = <span class="keyword">new</span> GreekPizza();</span><br><span class="line">&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>业务很简答，根据用户想买的披萨，生成不同的披萨。<br>传统的设置这样也没错，如果业务发展，会造成什么问题呢？<br>现在如果多了一种口味 chocolatePizza，正常办法是生成一个ChocolatePizza类，继承于Pizza，然后在OrderPizza中，添加<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="string">"chocolate"</span>.equal(orderType)) pizza = <span class="keyword">new</span> ChocolatePizza();</span><br></pre></td></tr></table></figure></p>
+<p>可是后来披萨口味越来越多，负责点餐的店长会很不开心的，既要点餐又要做披萨，一个人忙不够来，希望请一个厨师来专门做披萨，那样他才会轻松点。而他所想的解决方案，简单工厂模式就可以做到。</p>
+<h2 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h2><p>简单工厂模式是类的创建模式，又叫做静态工厂方法<code>Static Factory Method</code>模式。简单工厂模式是由一个工厂对象决定创建出哪一种产品类的实例。<br>简单工厂模式的结构如下：<br><img src="http://i.imgur.com/9hTl6Rp.png" alt=""><br>从图中可以看出，简单工厂模式涉及到工厂角色，抽象产品以及具体产品，他们分别的作用是：  </p>
+<ul>
+<li>工厂：是工厂方法的核心，含有与应用紧密相关的商业逻辑。</li>
+<li>抽象产品：是由工厂方法创建的对象的父类，或者他们共同拥有的接口，这里指的是pizza类。</li>
+<li>具体产品：工厂方法所创建的任务对象，这里指的是GreekPizza和CheesePizza。</li>
+</ul>
+<p>把上面的披萨项目用简单工厂模式来实现的话，就是创建一个工厂类，相当于厨师，来“做pizza”，而店长只需要告诉他需要哪种pizza就可以了。<br><strong>工厂类</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimplePizzaFactory</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Pizza <span class="title">CreatePizza</span><span class="params">(String orderType)</span></span>&#123;</span><br><span class="line">        Pizza pizza = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (orderType.equals(<span class="string">"cheese"</span>)) &#123;</span><br><span class="line">            pizza = <span class="keyword">new</span> CheesePizza();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (orderType.equals(<span class="string">"greek"</span>)) &#123;</span><br><span class="line">            pizza = <span class="keyword">new</span> GreekPizza();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pizza;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在使用的时候，店长只需要调用工厂类的<code>CreatePizza()</code>，静态方法就可以了：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">Pizza pizza;</span><br><span class="line">pizza=SimplePizzaFactory.CreatePizza(<span class="string">"cheese"</span>);</span><br><span class="line">pizza=SimplePizzaFactory.CreatePizza(<span class="string">"greek"</span>);</span><br><span class="line">&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样设计后，店长就轻松多了，只要负责告诉工厂类（厨师）需要什么类型的披萨就可以，终于不要担心搞错了而负责任。<br>而且当我们想添加品种时，只需要再新建一个类ChocolatePizza，然后在工厂类中加入：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (orderType.equals(<span class="string">"chocolate"</span>)) &#123;</span><br><span class="line">            pizza = <span class="keyword">new</span> ChocolatePizza();</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后调用的时候传入chocolate，即可生产Chocolatepizza了。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>既然简单工厂模式有着可维护性高，可复用性高，拓展性好，灵活好用这些个有点，那我们什么时候该用它呢？</p>
+<ol>
+<li>工厂类负责创建的对象比较少时</li>
+<li>客户端只知道传入工厂类的参数，对如何创建对象不关心时。</li>
+</ol>
+<hr>
+<blockquote>
+<p>下期将讲解工厂模式，时间不定，敬请期待。</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[闲聊--没更新的日子在干什么]]></title>
+      <url>http://jcmels.github.io/2016/04/21/jotting2/</url>
+      <content type="html"><![CDATA[<p>首先，博主是个学生，最近老师在讲SSH，64个学时，4周讲完，然后每天几乎都满课每晚还要练习SSH，还要练习我的主业–Android。其次博主最近参加的比赛进了省赛，APP要完善，所以更没时间更新了。不过等博主有空的时候就会更新，而且更新的全是干货比如设计模式，比如Android开发小技巧，还有就是之前说过博主是个不更新就死星人，所以我还会更新些github上的Android库教程，当然Google开发的新功能我也会尽量更新的！<br>另外目前更新的设计模式都是理论知识，等有空了博主会研究下在安卓里设计模式的实践，到时候会同步更新博客的，敬请期待！</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[自我打脸。。。]]></title>
+      <url>http://jcmels.github.io/2016/04/14/jotting/</url>
+      <content type="html"><![CDATA[<p>说好了一天一更，还有这星期把hexo的完善教程放上来，可是太忙了没时间码字。。。真是自我打脸。。。后续教程会慢慢放上来的</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Markdown入门]]></title>
+      <url>http://jcmels.github.io/2016/04/12/markdown/</url>
+      <content type="html"><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;现如今，移动办公越来越多了，有时候需要在手机上写文章应急，可是排版很麻烦，直到有一天，朋友推荐给我一种全新的标记语言——Markdown，我刚开始听说标记语言的时候就在想标记语言在手机上排版不是更麻烦吗？后来经过了解才发现markdown是一种轻量级的标记语言，语法非常简单，常用的标记符号也就十来个，所以学习成本非常的低，而且用过一次就回不去了！<a id="more"></a>  </p>
+<h1 id="what"><a href="#what" class="headerlink" title="what"></a>what</h1><h2 id="宗旨"><a href="#宗旨" class="headerlink" title="宗旨"></a>宗旨</h2><blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Markdown 的目标是实现「易读易写」。<br>&nbsp;&nbsp;&nbsp;&nbsp;可读性，无论如何，都是最重要的。一份使用 Markdown 格式撰写的文件应该可以直接以纯文本发布，并且看起来不会像是由许多标签或 是格式指令所构成。Markdown 语法受到一些既有 text-to-HTML 格式的影响，包括 Setext、atx、Textile、reStructuredText、Grutatext 和 EtText，而最大灵感来源其实是纯文本电子邮件的格式。</p>
+</blockquote>
+<h2 id="兼容"><a href="#兼容" class="headerlink" title="兼容"></a>兼容</h2><blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Markdown 语法的目标是：成为一种适用于网络的书写语言。<br>&nbsp;&nbsp;&nbsp;&nbsp;Markdown 不是想要取代 HTML，甚至也没有要和它相近，它的语法种类很少，只对应 HTML 标记的一小部分。Markdown 的构想不是要使得 HTML 文档更容易书写。在我看来， HTML 已经很容易写了。Markdown 的理念是，能让文档更容易读、写和随意改。HTML 是一种发布的格式，Markdown 是一种书写的格式。就这样，Markdown 的格式语法只涵盖纯文本可以涵盖的范围。  </p>
+</blockquote>
+<p>以上内容全是官方文档翻译而来的。</p>
+<h1 id="why"><a href="#why" class="headerlink" title="why"></a>why</h1><ol>
+<li>轻量级的标记语言</li>
+<li>简洁的语法代替了排版</li>
+<li>越来越多网站支持markdown</li>
+<li>到处格式随心所欲</li>
+<li>hexo框架发布文章用的是markdown=。=</li>
+</ol>
+<h1 id="how"><a href="#how" class="headerlink" title="how"></a>how</h1><blockquote>
+<p><a href="http://www.markdown.cn/" title="markdown中文网" target="_blank" rel="external">Markdown官方中文文档</a>，这里有完整版的语法，我只挑常用语法与个别扩展语法进行说明。  </p>
+</blockquote>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;每篇文章都需要标题，在Markdown中，想定义标题只需要在文字前加<code>#</code>就行了，记得后面空个空格  </p>
+<blockquote>
+<p><code># 一级标题</code></p>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><p><code>## 二级标题</code></p>
+<h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><p><code>### 三级标题</code></p>
+<h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3></blockquote>
+<p>四级五级六级就以此类推。。。</p>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;写文章时我们也经常需要列举些东西，这时候就需要列表了，列表还是分为有序列表和无序列表。</p>
+<h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><p>在markdown中我们只需要在文字前加<code>1. 2. 3.</code>就可以生成有序列表，文字与标签之间必须要有空格 。</p>
+<ol>
+<li>列表1</li>
+<li>列表2</li>
+<li>列表3  </li>
+</ol>
+<h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><p>在markdown中我们只需要在文字前加<code>-</code>、<code>+</code>、<code>*</code>中的其中一个标签就可以生成无序列表，文字与标签之间必须要有空格  。  </p>
+<ul>
+<li>列表</li>
+</ul>
+<ul>
+<li>列表</li>
+</ul>
+<ul>
+<li>列表</li>
+</ul>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>写文章时难免会要引用别人的句子，那就需要使用引用标签了，而markdown中引用标签只是一个<code>&gt;</code>大于号空格后面跟句子就行了</p>
+<blockquote>
+<p>举个栗子，我要吃栗子。</p>
+</blockquote>
+<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><p>写文章跳转也是常事，markdown中<code>[显示名称](链接)</code>就可以添加超链接了如<code>[baidu](http://www.baidu.com)</code><br><a href="http://www.baidu.com" target="_blank" rel="external">baidu</a></p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>markdown中插图片是插URL的，当然放文件夹里也可以通过路径访问，markdownpad可以自动生成URL不过也可以使用CloudApp生成URL。图片代码为<code>![图片名](URL)</code><br><img src="http://i.imgur.com/6Ylb81A.png" alt="悠行"></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>作为程序员，我们的博客会经常分享些代码，那么就需要代码框了！在markdown下很简单，只需要两个反引号`把代码放在中间就行了。当然hexo有代码高亮机制，详情可以看之前的博文。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       	<span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">      	 	setContentView(R.layout.activity_main);</span><br><span class="line">  	 	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>有时候我们需要用分割线来划分区域，那么在markdown中我们只需要打三个<code>***</code>或者三个<code>---</code>来添加分割线  </p>
+<hr>
+<h2 id="表格（扩展）"><a href="#表格（扩展）" class="headerlink" title="表格（扩展）"></a>表格（扩展）</h2><p>表格在markdown中就比较麻烦了，它属于扩展语法<br>格式为<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">| 表头<span class="number">1</span> | 表头<span class="number">2</span> | 表头<span class="number">3</span> |</span><br><span class="line">| ----|:----:| ----: |</span><br><span class="line">| 内容 | 内容 | 内容 |</span><br><span class="line">| 内容 | 内容 | 内容 |</span><br><span class="line">| 内容 | 内容 | 内容 |</span><br></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th>表头1</th>
+<th style="text-align:center">表头2</th>
+<th style="text-align:right">表头3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>内容</td>
+<td style="text-align:center">内容</td>
+<td style="text-align:right">内容</td>
+</tr>
+<tr>
+<td>内容</td>
+<td style="text-align:center">内容</td>
+<td style="text-align:right">内容</td>
+</tr>
+<tr>
+<td>内容</td>
+<td style="text-align:center">内容</td>
+<td style="text-align:right">内容</td>
+</tr>
+</tbody>
+</table>
+<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><p>markdown提供了粗体跟斜体，而且很方便。<br>粗体：<code>** 中间文字 **</code>  <strong>粗体</strong><br>斜体：<code>* 中间文字*</code>  <em>斜体</em></p>
+<h2 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h2><p>在markdown中特殊字符如*、+、-这些一般都不会显示出来，这时候就需要转义了，在字符前加\就可以了</p>
+<h1 id="tool"><a href="#tool" class="headerlink" title="tool"></a>tool</h1><h2 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h2><ul>
+<li>ATOM</li>
+<li>sublime</li>
+<li>markdownpad</li>
+<li>Mou (mac)</li>
+<li>Ulysses (mac)</li>
+<li>简书（web）</li>
+<li>为知笔记</li>
+</ul>
+<h2 id="图片转URL"><a href="#图片转URL" class="headerlink" title="图片转URL"></a>图片转URL</h2><ul>
+<li><a href="http://www.getcloudapp.com/" title="Cloudapp" target="_blank" rel="external">Cloudapp</a></li>
+<li><a href="http://weibotuchuang.sinaapp.com/" target="_blank" rel="external">围脖床图修复计划</a></li>
+<li>markdownpad自带</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>http://jcmels.github.io/2016/04/12/phototest/</url>
+      <content type="html"><![CDATA[<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 100%;"><img src="http://i.imgur.com/VvK2XY2.png" alt=""></div></div><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="http://i.imgur.com/bApVfrK.png" alt=""></div><div class="group-picture-column" style="width: 50%;"><img src="http://i.imgur.com/6Ylb81A.png" alt=""></div></div></div></div>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hexo+github搭个人博客第一章--发布第一篇文章]]></title>
+      <url>http://jcmels.github.io/2016/04/11/hexo2/</url>
+      <content type="html"><![CDATA[<p><img src="http://i.imgur.com/GDP5bNB.jpg" alt=""><br>&nbsp;&nbsp;我们建立独立博客都是为了发（装）博（X）文，那如何发呢？或者说如何编辑和发布呢？接下来我们将会学习发布第一篇文章。<br><a id="more"></a></p>
+<h2 id="新建文档"><a href="#新建文档" class="headerlink" title="新建文档"></a>新建文档</h2><p>打开你的hexo文件夹，右键git bash，输入命令：<br><code>hexo new &quot;my new post&quot;</code></p>
+<h2 id="编辑文档"><a href="#编辑文档" class="headerlink" title="编辑文档"></a>编辑文档</h2><p>在hexo文件夹下找到source_post文件夹，再从source_post中找到我们刚新建的my-new-post.md文件，使用文本编辑器如（ATOM）或者专门的markdownpad。markdown语法可以百度，也可以等明天的教程。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">--- </span><br><span class="line">title: my new post #可以改成中文的，如“新文章”</span><br><span class="line">date: 2016-02-21 16:04:09 #发表日期，一般不改动</span><br><span class="line">categories: blog #文章文类</span><br><span class="line">tags: blog #文章标签</span><br><span class="line">---</span><br><span class="line">#这里是正文，用markdown写，你可以选择写一段显示在首页的简介后，加上</span><br><span class="line">&lt;!--more--&gt;，在&lt;!--more--&gt;之前的内容会显示在首页，之后的内容会被隐藏，当游客点击Read more才能看到。</span><br></pre></td></tr></table></figure></p>
+<h2 id="发布博文"><a href="#发布博文" class="headerlink" title="发布博文"></a>发布博文</h2><p>写完文章后，你可以使用以下命令生成静态文件。<br><code>hexo g</code><br>现在可以在本地预览效果，输入以下命令。<br><code>hexo s</code><br>觉得排版OK了，内容也完善了，输入以下命令发布。<br><code>hexo d</code><br>然后就可以通过你的域名访问了，比如<a href="http://jcmels.github.io">http://jcmels.github.io</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hexo代码高亮]]></title>
+      <url>http://jcmels.github.io/2016/04/11/code-highlight/</url>
+      <content type="html"><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;程序员博客会经常贴代码,而直接用tab或者``来复制代码是不会显示高亮的，查了一下hexo官网，hexo对这个问题也有解决方案：<br><img src="http://i.imgur.com/hmr5EHB.png" alt=""><br><a id="more"></a></p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>{
+
+    <span class="meta">@Override</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>{
+        <span class="keyword">super</span>.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+}
+</code></pre>
+<p>具体高亮是什么颜色还是要看你的主题了。</p>
+<h2 id="常用语言对应表"><a href="#常用语言对应表" class="headerlink" title="常用语言对应表"></a>常用语言对应表</h2><table>
+<thead>
+<tr>
+<th>语言</th>
+<th>对应代码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bash</td>
+<td>bash, sh, zsh</td>
+</tr>
+<tr>
+<td>C#</td>
+<td>cs, csharp</td>
+</tr>
+<tr>
+<td>C++</td>
+<td>cpp, c, cc, h, c++, h++, hpp</td>
+</tr>
+<tr>
+<td>CSS</td>
+<td>css</td>
+</tr>
+<tr>
+<td>DOS</td>
+<td>dos, bat, cmd</td>
+</tr>
+<tr>
+<td>HTML, XML</td>
+<td>xml, html, xhtml, rss, atom, xjb, xsd, xsl, plist</td>
+</tr>
+<tr>
+<td>JSON</td>
+<td>json</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>java, jsp</td>
+</tr>
+<tr>
+<td>JavaScript</td>
+<td>javascript, js, jsx</td>
+</tr>
+<tr>
+<td>Objective C</td>
+<td>objectivec, mm, objc, obj-c</td>
+</tr>
+<tr>
+<td>PHP</td>
+<td>php, php3, php4, php5, php6</td>
+</tr>
+<tr>
+<td>Ruby</td>
+<td>ruby, rb, gemspec, podspec, thor, irb</td>
+</tr>
+<tr>
+<td>SQL</td>
+<td>sql</td>
+</tr>
+<tr>
+<td>Swift</td>
+<td>swift</td>
+</tr>
+<tr>
+<td>VB.Net</td>
+<td>vbnet, vb</td>
+</tr>
+</tbody>
+</table>
+<h2 id="所有语言对应表"><a href="#所有语言对应表" class="headerlink" title="所有语言对应表"></a>所有语言对应表</h2><table>
+<thead>
+<tr>
+<th>语言</th>
+<th>对应代码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zephir</td>
+<td>Zephir</td>
+</tr>
+<tr>
+<td>XQuery</td>
+<td>xpath, xq </td>
+</tr>
+<tr>
+<td>1C</td>
+<td>1c</td>
+</tr>
+<tr>
+<td>Access logs</td>
+<td>accesslog</td>
+</tr>
+<tr>
+<td>ARM assembler</td>
+<td>armasm, arm</td>
+</tr>
+<tr>
+<td>AVR assembler</td>
+<td>avrasm</td>
+</tr>
+<tr>
+<td>ActionScript</td>
+<td>actionscript, as</td>
+</tr>
+<tr>
+<td>Apache</td>
+<td>apache, apacheconf</td>
+</tr>
+<tr>
+<td>AppleScript</td>
+<td>applescript, osascript</td>
+</tr>
+<tr>
+<td>AsciiDoc</td>
+<td>asciidoc, adoc</td>
+</tr>
+<tr>
+<td>AspectJ</td>
+<td>aspectj</td>
+</tr>
+<tr>
+<td>AutoHotkey</td>
+<td>autohotkey</td>
+</tr>
+<tr>
+<td>AutoIt</td>
+<td>autoit</td>
+</tr>
+<tr>
+<td>Axapta</td>
+<td>axapta</td>
+</tr>
+<tr>
+<td>Bash</td>
+<td>bash, sh, zsh</td>
+</tr>
+<tr>
+<td>Basic</td>
+<td>basic</td>
+</tr>
+<tr>
+<td>Brainfuck</td>
+<td>brainfuck, bf</td>
+</tr>
+<tr>
+<td>C#</td>
+<td>cs, csharp</td>
+</tr>
+<tr>
+<td>C++</td>
+<td>cpp, c, cc, h, c++, h++, hpp</td>
+</tr>
+<tr>
+<td>C/AL</td>
+<td>cal</td>
+</tr>
+<tr>
+<td>Cache Object Script</td>
+<td>cos, cls</td>
+</tr>
+<tr>
+<td>CMake</td>
+<td>cmake, cmake.in</td>
+</tr>
+<tr>
+<td>CSP</td>
+<td>csp</td>
+</tr>
+<tr>
+<td>CSS</td>
+<td>css</td>
+</tr>
+<tr>
+<td>Cap’n Proto</td>
+<td>capnproto, capnp</td>
+</tr>
+<tr>
+<td>Clojure</td>
+<td>clojure, clj</td>
+</tr>
+<tr>
+<td>CoffeeScript</td>
+<td>coffeescript, coffee, cson, iced</td>
+</tr>
+<tr>
+<td>Crmsh</td>
+<td>crmsh, crm, pcmk</td>
+</tr>
+<tr>
+<td>Crystal</td>
+<td>crystal, cr</td>
+</tr>
+<tr>
+<td>D</td>
+<td>d</td>
+</tr>
+<tr>
+<td>DNS Zone file</td>
+<td>dns, zone, bind</td>
+</tr>
+<tr>
+<td>DOS</td>
+<td>dos, bat, cmd</td>
+</tr>
+<tr>
+<td>Dart</td>
+<td>dart</td>
+</tr>
+<tr>
+<td>Delphi</td>
+<td>delphi, dpr, dfm, pas, pascal, freepascal, lazarus, lpr, lfm</td>
+</tr>
+<tr>
+<td>Diff</td>
+<td>diff, patch</td>
+</tr>
+<tr>
+<td>Django</td>
+<td>django, jinja</td>
+</tr>
+<tr>
+<td>Dockerfile</td>
+<td>dockerfile, docker</td>
+</tr>
+<tr>
+<td>DTS (Device Tree)</td>
+<td>dts</td>
+</tr>
+<tr>
+<td>Dust</td>
+<td>dust, dst</td>
+</tr>
+<tr>
+<td>Elixir</td>
+<td>elixir</td>
+</tr>
+<tr>
+<td>Elm</td>
+<td>elm</td>
+</tr>
+<tr>
+<td>Erlang</td>
+<td>erlang, erl</td>
+</tr>
+<tr>
+<td>F#</td>
+<td>fsharp, fs</td>
+</tr>
+<tr>
+<td>FIX</td>
+<td>fix</td>
+</tr>
+<tr>
+<td>Fortran</td>
+<td>fortran, f90, f95</td>
+</tr>
+<tr>
+<td>G-Code</td>
+<td>gcode, nc</td>
+</tr>
+<tr>
+<td>Gams</td>
+<td>gams, gms</td>
+</tr>
+<tr>
+<td>GAUSS</td>
+<td>gauss, gss</td>
+</tr>
+<tr>
+<td>Gherkin</td>
+<td>gherkin</td>
+</tr>
+<tr>
+<td>Go</td>
+<td>go, golang</td>
+</tr>
+<tr>
+<td>Golo</td>
+<td>golo, gololang</td>
+</tr>
+<tr>
+<td>Gradle</td>
+<td>gradle</td>
+</tr>
+<tr>
+<td>Groovy</td>
+<td>groovy</td>
+</tr>
+<tr>
+<td>HTML, XML</td>
+<td>xml, html, xhtml, rss, atom, xjb, xsd, xsl, plist</td>
+</tr>
+<tr>
+<td>HTTP</td>
+<td>http, https</td>
+</tr>
+<tr>
+<td>Haml</td>
+<td>haml</td>
+</tr>
+<tr>
+<td>Handlebars</td>
+<td>handlebars, hbs, html.hbs, html.handlebars</td>
+</tr>
+<tr>
+<td>Haskell</td>
+<td>haskell, hs</td>
+</tr>
+<tr>
+<td>Haxe</td>
+<td>haxe, hx</td>
+</tr>
+<tr>
+<td>Ini</td>
+<td>ini</td>
+</tr>
+<tr>
+<td>Inform7</td>
+<td>inform7, i7</td>
+</tr>
+<tr>
+<td>IRPF90</td>
+<td>irpf90</td>
+</tr>
+<tr>
+<td>JSON</td>
+<td>json</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>java, jsp</td>
+</tr>
+<tr>
+<td>JavaScript</td>
+<td>javascript, js, jsx</td>
+</tr>
+<tr>
+<td>Lasso</td>
+<td>lasso, ls, lassoscript</td>
+</tr>
+<tr>
+<td>Less</td>
+<td>less</td>
+</tr>
+<tr>
+<td>Lisp</td>
+<td>lisp</td>
+</tr>
+<tr>
+<td>LiveCode Server</td>
+<td>livecodeserver</td>
+</tr>
+<tr>
+<td>LiveScript</td>
+<td>livescript, ls</td>
+</tr>
+<tr>
+<td>Lua</td>
+<td>lua</td>
+</tr>
+<tr>
+<td>Makefile</td>
+<td>makefile, mk, mak</td>
+</tr>
+<tr>
+<td>Markdown</td>
+<td>markdown, md, mkdown, mkd</td>
+</tr>
+<tr>
+<td>Mathematica</td>
+<td>mathematica, mma</td>
+</tr>
+<tr>
+<td>Matlab</td>
+<td>matlab</td>
+</tr>
+<tr>
+<td>Maxima</td>
+<td>maxima</td>
+</tr>
+<tr>
+<td>Maya Embedded Language</td>
+<td>mel</td>
+</tr>
+<tr>
+<td>Mercury</td>
+<td>mercury</td>
+</tr>
+<tr>
+<td>Mizar</td>
+<td>mizar</td>
+</tr>
+<tr>
+<td>Mojolicious</td>
+<td>mojolicious</td>
+</tr>
+<tr>
+<td>Monkey</td>
+<td>monkey</td>
+</tr>
+<tr>
+<td>Moonscript</td>
+<td>moonscript, moon</td>
+</tr>
+<tr>
+<td>NSIS</td>
+<td>nsis</td>
+</tr>
+<tr>
+<td>Nginx</td>
+<td>nginx, nginxconf</td>
+</tr>
+<tr>
+<td>Nimrod</td>
+<td>nimrod, nim</td>
+</tr>
+<tr>
+<td>Nix</td>
+<td>nix</td>
+</tr>
+<tr>
+<td>OCaml</td>
+<td>ocaml, ml</td>
+</tr>
+<tr>
+<td>Objective C</td>
+<td>objectivec, mm, objc, obj-c</td>
+</tr>
+<tr>
+<td>OpenGL Shading Language</td>
+<td>glsl</td>
+</tr>
+<tr>
+<td>OpenSCAD</td>
+<td>openscad, scad</td>
+</tr>
+<tr>
+<td>Oracle Rules Language</td>
+<td>ruleslanguage</td>
+</tr>
+<tr>
+<td>Oxygene</td>
+<td>oxygene</td>
+</tr>
+<tr>
+<td>PF</td>
+<td>pf, pf.conf</td>
+</tr>
+<tr>
+<td>PHP</td>
+<td>php, php3, php4, php5, php6</td>
+</tr>
+<tr>
+<td>Parser3</td>
+<td>parser3</td>
+</tr>
+<tr>
+<td>Perl</td>
+<td>perl, pl, pm</td>
+</tr>
+<tr>
+<td>PowerShell</td>
+<td>powershell, ps</td>
+</tr>
+<tr>
+<td>Processing</td>
+<td>processing</td>
+</tr>
+<tr>
+<td>Prolog</td>
+<td>prolog</td>
+</tr>
+<tr>
+<td>Protocol Buffers</td>
+<td>protobuf</td>
+</tr>
+<tr>
+<td>Puppet</td>
+<td>puppet, pp</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>python, py, gyp</td>
+</tr>
+<tr>
+<td>Q</td>
+<td>k, kdb</td>
+</tr>
+<tr>
+<td>QML</td>
+<td>qml</td>
+</tr>
+<tr>
+<td>R</td>
+<td>r</td>
+</tr>
+<tr>
+<td>RenderMan RIB</td>
+<td>rib</td>
+</tr>
+<tr>
+<td>RenderMan RSL</td>
+<td>rsl</td>
+</tr>
+<tr>
+<td>Roboconf</td>
+<td>graph, instances</td>
+</tr>
+<tr>
+<td>Ruby</td>
+<td>ruby, rb, gemspec, podspec, thor, irb</td>
+</tr>
+<tr>
+<td>Rust</td>
+<td>rust, rs</td>
+</tr>
+<tr>
+<td>SCSS</td>
+<td>scss</td>
+</tr>
+<tr>
+<td>SQL</td>
+<td>sql</td>
+</tr>
+<tr>
+<td>STEP Part 21</td>
+<td>p21, step, stp</td>
+</tr>
+<tr>
+<td>Scala</td>
+<td>scala</td>
+</tr>
+<tr>
+<td>Scheme</td>
+<td>scheme</td>
+</tr>
+<tr>
+<td>Scilab</td>
+<td>scilab, sci</td>
+</tr>
+<tr>
+<td>Smali</td>
+<td>smali</td>
+</tr>
+<tr>
+<td>Smalltalk</td>
+<td>smalltalk, st</td>
+</tr>
+<tr>
+<td>Stan</td>
+<td>stan</td>
+</tr>
+<tr>
+<td>Stata</td>
+<td>stata</td>
+</tr>
+<tr>
+<td>Stylus</td>
+<td>stylus, styl</td>
+</tr>
+<tr>
+<td>Swift</td>
+<td>swift</td>
+</tr>
+<tr>
+<td>Tcl</td>
+<td>tcl, tk</td>
+</tr>
+<tr>
+<td>TeX</td>
+<td>tex</td>
+</tr>
+<tr>
+<td>Thrift</td>
+<td>thrift</td>
+</tr>
+<tr>
+<td>TP</td>
+<td>tp</td>
+</tr>
+<tr>
+<td>Twig</td>
+<td>twig, craftcms</td>
+</tr>
+<tr>
+<td>TypeScript</td>
+<td>typescript, ts</td>
+</tr>
+<tr>
+<td>VB.Net</td>
+<td>vbnet, vb</td>
+</tr>
+<tr>
+<td>VBScript</td>
+<td>vbscript, vbs</td>
+</tr>
+<tr>
+<td>VHDL</td>
+<td>vhdl</td>
+</tr>
+<tr>
+<td>Vala</td>
+<td>vala</td>
+</tr>
+<tr>
+<td>Verilog</td>
+<td>verilog, v</td>
+</tr>
+<tr>
+<td>Vim Script</td>
+<td>vim</td>
+</tr>
+<tr>
+<td>x86 Assembly</td>
+<td>x86asm</td>
+</tr>
+<tr>
+<td>XL</td>
+<td>xl, tao</td>
+</tr>
+<tr>
+<td>XQuery</td>
+<td>xpath, xq</td>
+</tr>
+<tr>
+<td>Zephir</td>
+<td>zephir, zep</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hexo+github搭个人博客第一章--安装Hexo]]></title>
+      <url>http://jcmels.github.io/2016/04/10/hexo1/</url>
+      <content type="html"><![CDATA[<p>作为一个程序员，有一个自己的博客是很必要的，目前市面上有好多博客给我们选择，比如CSDN或者新浪的，可是这都不是我想要的，无意中我发现了hexo，一秒钟爱上它！美好的东西可是好多刺的比如玫瑰，所以在搭建hexo的时候我也踩了好多坑，本系列教材帮你填坑，让你搭hexo时顺风顺水！<a id="more"></a></p>
+<h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><ol>
+<li>必要且充分条件——fq</li>
+<li>下载<a href="https://nodejs.org/en/" title="node.js" target="_blank" rel="external">node.js</a></li>
+<li>下载<a href="http://git-scm.com/download" title="git" target="_blank" rel="external">Git</a></li>
+<li>拥有<a href="https://github.com/" title="github" target="_blank" rel="external">github</a>账号</li>
+<li>了解node、Git基本命令</li>
+<li>markdowmpad！！强烈推荐</li>
+</ol>
+<h1 id="正式安装"><a href="#正式安装" class="headerlink" title="正式安装"></a>正式安装</h1><p>安装git和node.js步骤就在这里省略了，毕竟都是下一步下一步的操作。  </p>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><hr>
+<p>环境安装好了，现在需要安装主角hexo！在任意位置右键鼠标选择  git bash here  </p>
+<p><img src="http://i.imgur.com/kV3YEmv.png" alt=""><br>输入安装hexo的命令<br><code>npm install -g hexo</code><br><img src="http://i.imgur.com/eb7TyEz.png" alt=""><br>当你看到下图所示的代码就代表你安装成功了<br><img src="http://i.imgur.com/9PKJjeD.png" alt="">  </p>
+<h2 id="配置hexo"><a href="#配置hexo" class="headerlink" title="配置hexo"></a>配置hexo</h2><p>在你喜欢的位置新建文件夹比如E：/hexo，右键还是选git bash here，输入代码：<code>hexo init</code>他会从github下载文件并初始化你的hexo文件夹<br>安装依赖包，输入代码：<br><code>npm install</code>  </p>
+<p><img src="http://i.imgur.com/VNbOwno.png" alt="">  </p>
+<h2 id="部署在本地"><a href="#部署在本地" class="headerlink" title="部署在本地"></a>部署在本地</h2><p>然后让我们看下刚刚下载了什么东西，还是在E：/hexo中右键选git bash here，输入代码：<br><code>hexo g</code><br><img src="http://i.imgur.com/nqdVkxq.png" alt=""><br><code>hexo d</code><br><img src="http://i.imgur.com/8gpCItr.png" alt=""><br>这样我们就把网页部署在本地，可以通过<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a>访问，是不是好帅！当然我们目前只是在本地预览，别人想要访问的话还需要部署到服务器。</p>
+]]></content>
+    </entry>
+    
+  
+  
+</search>
