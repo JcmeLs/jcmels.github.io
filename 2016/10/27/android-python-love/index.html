@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.2.6 -->
+
+    <!-- Title -->
+    
+    <title>
+        
+            Android与Python爱之初体验 | 
+        
+        Jcme丶Ls&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Meta & Info -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Jcme丶Ls">
+    <meta name="description" content="coding live">
+    <meta name="keywords" content="null">
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Jcme丶Ls&#39;s Blog">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://jcmels.github.io">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Android与Python爱之初体验 | Jcme丶Ls&#39;s Blog">
+    <meta property="og:description" content="coding live">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="/css/material.min.css">
+    <link rel="stylesheet" href="/css/style.min.css">
+    <!-- Config CSS -->
+
+
+<!-- Other Styles -->
+<style>
+    body, html {
+        font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    }
+
+    a {
+        color: #00838F;
+    }
+
+    .mdl-card__media,
+    #search-label,
+    #search-form-label:after,
+    #scheme-Paradox .hot_tags-count,
+    #scheme-Paradox .sidebar_archives-count,
+    #scheme-Paradox .sidebar-colored .sidebar-header,
+    #scheme-Paradox .sidebar-colored .sidebar-badge{
+        background-color: #0097A7 !important;
+    }
+
+    /* Sidebar User Drop Down Menu Text Color */
+    #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+    #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+        color: #0097A7 !important;
+    }
+
+    #post_entry-right-info,
+    .sidebar-colored .sidebar-nav li:hover > a,
+    .sidebar-colored .sidebar-nav li:hover > a i,
+    .sidebar-colored .sidebar-nav li > a:hover,
+    .sidebar-colored .sidebar-nav li > a:hover i,
+    .sidebar-colored .sidebar-nav li > a:focus i,
+    .sidebar-colored .sidebar-nav > .open > a,
+    .sidebar-colored .sidebar-nav > .open > a:hover,
+    .sidebar-colored .sidebar-nav > .open > a:focus,
+    #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+        color: #0097A7 !important;
+    }
+
+    .toTop {
+        background: #757575 !important;
+    }
+
+    .material-layout .material-post>.material-nav,
+    .material-layout .material-index>.material-nav,
+    .material-nav a {
+        color: #757575;
+    }
+
+    #scheme-Paradox .MD-burger-layer {
+        background-color: #757575;
+    }
+
+    #scheme-Paradox #post-toc-trigger-btn {
+        color: #757575;
+    }
+
+    .post-toc a:hover {
+        color: #00838F;
+        text-decoration: underline;
+    }
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+        body {
+            background-color: #F5F5F5;
+        }
+
+        /* blog_info bottom background */
+        #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
+            background-color: #fff;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            setTimeout(function () {
+                document.body.background="https://api.i-meto.com/bing?type=T";
+            }, 2000);
+        }
+    </script>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+        .fade {
+            transition: all 800ms linear;
+            -webkit-transform: translate3d(0,0,0);
+            -moz-transform: translate3d(0,0,0);
+            -ms-transform: translate3d(0,0,0);
+            -o-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+            opacity: 1;
+        }
+
+        .fade.out{
+            opacity: 0;
+        }
+    </style>
+
+
+    <script src="/js/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="/css/highlight/atom-one-dark.css">
+
+    <!-- UC Browser Compatible-->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write('<link rel="stylesheet" href="/css/uc.css">');
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
+    <!-- Custom Head -->
+    
+</head>
+
+
+    
+        <body id="scheme-Paradox">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#想法"><span class="post-toc-number">2.</span> <span class="post-toc-text">想法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#为什么要用python"><span class="post-toc-number">3.</span> <span class="post-toc-text">为什么要用python</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Python-C"><span class="post-toc-number">4.</span> <span class="post-toc-text">Python C</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Python-C开发步骤"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">Python C开发步骤</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JNI-Python-C"><span class="post-toc-number">5.</span> <span class="post-toc-text">JNI Python C</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#头文件找不到（Python-h）"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">头文件找不到（Python.h）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#没有移动平台的python-so"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">没有移动平台的python.so</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#兼容性"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">兼容性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#找不到-py文件"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">找不到.py文件</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#优化"><span class="post-toc-number">6.</span> <span class="post-toc-text">优化</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#后记"><span class="post-toc-number">7.</span> <span class="post-toc-text">后记</span></a></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script>
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                Android与Python爱之初体验
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Jcme丶Ls</strong>
+        <span>10月 27, 2016</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC0ElEQVR42u3aW27kMAwEwLn/pXcPkI3dJD0Lgyp9BY4fKgUIoaY+f44cH2xsbGxsbGxsbOxXsj/x+PnU9Rt+u/O3p35er37xZs7Y2NjYq9k3//qDSUzun3y98BQ2Njb2AexqEcrfcF0y5/O5vgcbGxsbO4ddby2SRfnG0mBjY2NjVzce13deX88DKWxsbGzsXkCTTDpfsuR6Qvp6loaNjY39enbeNH3Pz/+1v42NjY39YnZ15PFQEgl9rz38j/djY2NjL2X3ovzk0ORTByjzzc9NywEbGxt7KTs/ajPH5HHSV44KYWNjYy9lV4OkZ7cZSQnMv3LzFDY2NvZqdrW0PBUGVe9MFmXU38bGxsZewe4xkhgoL2nVMCuaAzY2NvZS9vXDeemqRvm9hsSk9GJjY2NvZfdCnKRsVEvRpEkQKbCxsbGXsvMIKWke9ApV3mAeNSSwsbGxV7OfDYmqR22SL+ahEjY2NvZp7N6Lmh8ulrp8ns1QCRsbG3spu4rpNQMmDeC8EGJjY2OfwM4j+7yJm28n8jip+iw2Njb2OezJAcdJgektR7WdjI2NjX0Cu7qR6G1OeoFR9c2FUAkbGxt7HbsX2eQNgPLxmtYoh0rY2NjY69h5kUieTX47uR8bGxsbex4J5Ucz86B/0iq+aRhgY2Njr2ZPQqVqgakWyPy3za4INjY29jr2U43VJDbqtX7zxjM2Njb2mezehKpthkmTuHqsBxsbG/s09rM/V68kC5oXNmxsbOwT2NWRf2YSVFVbDuVQCRsbG3sRu1oY8k1LNa6qNomrfwZsbGzs3ew83O81XJPrvUZvvnzY2NjYJ7DzDUP+1FMNgN7AxsbGxu6xk6ISHbIZNJKxsbGxsatTHG0S4iXotS6wsbGxz2HngU61tFRLXbWBEc0ZGxsbezU7f3XeiO2FTXn5fCBUwsbGxl7BPmdgY2NjY2NjY2Njv2b8BRe+UyVG1rNgAAAAAElFTkSuQmCC">
+        </ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Android从入门到转行/">Android从入门到转行</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Python从入门到自崩/">Python从入门到自崩</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Android与Python爱之初体验&url=http://jcmels.github.io//2016/10/27/android-python-love/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Android与Python爱之初体验&url=http://jcmels.github.io//2016/10/27/android-python-love/index.html&via=Jcme丶Ls" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://jcmels.github.io//2016/10/27/android-python-love/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://jcmels.github.io//2016/10/27/android-python-love/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>看到这个标题，大家可能会认为就是Android运行python脚本，或者用python写app，这些用QPython和P4A就可以实现了。我在想既然C可以调用Python，那么Android能不能通过JNI去调用C里的方法，C再去调用Python方法，实现Android与Python交互呢？用最近很热的一个概念来说JNI就是个壳。（本文假设大家有JNI开发基础）<br><a id="more"></a></p>
+<h1 id="想法"><a href="#想法" class="headerlink" title="想法"></a>想法</h1><p>由于需求很明确了，所以整体流程大概就是这样。<br><img src="http://upload-images.jianshu.io/upload_images/536961-bc9ff83771af4c47.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="交互流程"></p>
+<h1 id="为什么要用python"><a href="#为什么要用python" class="headerlink" title="为什么要用python"></a>为什么要用python</h1><p>首先看下我们为什么要在Android里需要使用Python，我认为主要有一下几个优点</p>
+<ol>
+<li>代码简洁，这个真的是极度简洁的语言，比如我们想要print一个hello world，Java要这样做<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Hello world"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>而Python只需要一句话就可以print出来<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> (<span class="string">"hello world"</span>)</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>上手快，按网友所说，只需要读完Python API就可以成为大神，实际体验确实如此，十分好上手，如果现在让我推荐一个没有学过编程的人学习一款脚本语言，我会推荐他学一下python。</li>
+<li>前期开发效率高，正如前两个优点所说，代码简洁、上手快而且由于属于超高级语言，很多东西都封装好了，决定了他前期开发效率很高。</li>
+<li>可移植性强，由于是解释性语言，只需要有解释器，他可以运行在任何平台。</li>
+<li>拓展性强，C/JAVA都有接口可以调用到Python，Python也可以调用到C，对Python进项拓展。</li>
+<li>丰富的库，由于超高级语言，封装了很多方法，而且好多大牛对其开发了库。</li>
+</ol>
+<p>当然还有几个缺点必须要强调一下。</p>
+<ol>
+<li>强制缩进，代码简洁是把双刃剑，由于缩进所以简洁，而又由于缩进导致无法自动格式化代码，而且代码块的分割都是靠缩进，这时可能会造成混乱。</li>
+<li>运行速度相对较慢，当然这个对相对C这种接近底层的语言来说的，Python在运行时先解析，再运行，而且由于高层语言相比底层语言都会慢那么一点。</li>
+<li>版本兼容性较差，这个体现最明显的就是Python3和Python2，Python3不向下兼容  </li>
+</ol>
+<h1 id="Python-C"><a href="#Python-C" class="headerlink" title="Python C"></a>Python C</h1><p>Python C是C语言调用Python的一组API，通过它我们可以调用到Python方法。</p>
+<h2 id="Python-C开发步骤"><a href="#Python-C开发步骤" class="headerlink" title="Python C开发步骤"></a>Python C开发步骤</h2><ol>
+<li>引入头文件Python.h;</li>
+<li>初始化python（Py_Initialize();）</li>
+<li>引入模块（pModule = PyImport_Import(“pythoncode”);）</li>
+<li>获取模块中的函数（PyObject_GetAttrString(pModule, “hello”);<br>）</li>
+<li>调用获取的函数（PyEval_CallObject(pFunction, NULL);<br>）</li>
+<li>释放python（Py_Finalize();）  </li>
+</ol>
+<p>对应的代码如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="string">"Python.h"</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	Py_Initialize();</span><br><span class="line">	PyObject *pModule;</span><br><span class="line">	PyObject *pFunction;</span><br><span class="line">	pModule = PyImport_Import(<span class="string">"pythoncode"</span>);</span><br><span class="line">	pFunction = PyObject_GetAttrString(pModule, <span class="string">"hello"</span>);</span><br><span class="line">	PyEval_CallObject(pFunction, <span class="literal">NULL</span>);</span><br><span class="line">	Py_Finalize();</span><br><span class="line">	return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当然，直接运行这段代码会报错，因为Python.h找不到还有相应的lib找不到，这里强烈建议使用mac或者Linux开发！！！填坑效率会比Windows高好多。具体怎么样处理这里先不说，如果实在需要，留言给我，我会另开一篇博文，毕竟这里是讲Android调用python的，而这个是在桌面环境下C调用Python的，而且百度也很多。</p>
+<h1 id="JNI-Python-C"><a href="#JNI-Python-C" class="headerlink" title="JNI Python C"></a>JNI Python C</h1><p>当我成功使用C语言调用Python之后，我着手在JNI开发里调用Python，Python文件放在assets中 。<br>但是在开发过程中遇到了以下几个问题：</p>
+<ol>
+<li>头文件找不到（Python.h）</li>
+<li>没有移动平台的python.so</li>
+<li>兼容性</li>
+<li>找不到.py文件  </li>
+</ol>
+<p>接下来一个一个填坑。</p>
+<h2 id="头文件找不到（Python-h）"><a href="#头文件找不到（Python-h）" class="headerlink" title="头文件找不到（Python.h）"></a>头文件找不到（Python.h）</h2><p>在MK文件中添加引用，<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">include $(CLEAR_VARS)</span><br><span class="line">LOCAL_MODULE    := pybridge</span><br><span class="line">LOCAL_SRC_FILES := pybridge.c</span><br><span class="line">LOCAL_LDLIBS := -llog</span><br><span class="line">LOCAL_SHARED_LIBRARIES := python3.5m</span><br><span class="line">APP_STL := gnustl_static</span><br><span class="line">include $(BUILD_SHARED_LIBRARY)</span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line">LOCAL_MODULE    := python3.5m</span><br><span class="line">LOCAL_SRC_FILES := $(CRYSTAX_PATH)/sources/python/<span class="number">3.5</span>/libs/$(TARGET_ARCH_ABI)/libpython3.5m.so</span><br><span class="line">LOCAL_EXPORT_CFLAGS := -I $(CRYSTAX_PATH)/sources/python/<span class="number">3.5</span>/include/python/</span><br><span class="line">APP_STL := gnustl_static</span><br><span class="line">include $(PREBUILT_SHARED_LIBRARY)</span><br></pre></td></tr></table></figure></p>
+<p>这段代码其实也把下一个问题解决了。  </p>
+<p>另外我们刚项目开始的时候可能为了开发方便，会在gradle中配置JNI资源文件夹路径，可是这导致了run project的时候AS也会对其中的C文件进行语法检查，这样由于没有外部头文件依赖，编译不会通过，所以我们需要在gradle中把JNI资源文件夹删了，用<code>[]</code>代替<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sourceSets.main &#123;   </span><br><span class="line">   jni.srcDirs = []   </span><br><span class="line">   jniLibs.srcDir 'src/main/libs'</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当我们编译成功SO库之后，C文件在运行中并不会被调用，而是调用编译为.so的文件中的方法。</p>
+<h2 id="没有移动平台的python-so"><a href="#没有移动平台的python-so" class="headerlink" title="没有移动平台的python.so"></a>没有移动平台的python.so</h2><p>想要运行Python必须要有解释器，Android本身没有带，所以我们需要在程序中内嵌一个解释器，可是苦于找不到合适的so库，曾把P4A的python编译了一次，可是版本兼容性差，可用性不高。直到找到了Crystax NDK，它在10.3之后已经开始支持python for Android了，而且这个NDK资源包还填了几乎所有Android调用python的坑，包括第一个找不到头文件的问题，兼容的问题。在MK文件中，我们还需要加一段代码，编译crystax so库。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">include $(CLEAR_VARS)</span><br><span class="line">LOCAL_MODULE    := crystax</span><br><span class="line">LOCAL_SRC_FILES := $(CRYSTAX_PATH)/sources/crystax/libs/$(TARGET_ARCH_ABI)/libcrystax.so</span><br><span class="line">LOCAL_EXPORT_CFLAGS := -I $(CRYSTAX_PATH)/sources/crystax/include/crystax/</span><br><span class="line">APP_STL := gnustl_static</span><br><span class="line">include $(PREBUILT_SHARED_LIBRARY)</span><br></pre></td></tr></table></figure></p>
+<h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><p>Android目前有7个常见平台需要适配，其余的都没问题，只有X86和X86_64的有问题，推测crystax NDK Windows还没完善，因为mac下是可以直接编译的，所以有关编译的东西最好用Linux和Mac，Windows下我删了一个头文件，就可以运行了，没有发现异常。具体哪个我忘了，不过运行时报错哪个就去相应的文件里把头文件依赖删了就行，就一个。<br>然后生成7个平台的so库只需要在Application.mk中添加以下代码即可(APP_PLATFORM看个人调节)：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">APP_PLATFORM := android-<span class="number">19</span></span><br><span class="line">APP_ABI := armeabi-v7a armeabi mips mips64 arm64-v8a x86 x86_64</span><br></pre></td></tr></table></figure></p>
+<h2 id="找不到-py文件"><a href="#找不到-py文件" class="headerlink" title="找不到.py文件"></a>找不到.py文件</h2><p>不知道什么原因，assets文件夹里的py文件获取不到，似乎是不能识别asset路径？求大神告知。解决方法就是把assets文件夹里的文件复制到设备的data文件夹里，再进行初始化。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//遍历</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">listAssets</span><span class="params">(String path)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; assets = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            String assetList[] = mAssetManager.list(path);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (assetList.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">for</span> (String asset : assetList) &#123;</span><br><span class="line">                    List&lt;String&gt; subAssets = listAssets(path + <span class="string">'/'</span> + asset);</span><br><span class="line">                    assets.addAll(subAssets);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                assets.add(path);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> assets;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//复制</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">copyAssetFile</span><span class="params">(String src, String dst)</span> </span>&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(dst);</span><br><span class="line">        Log.i(LOGTAG, String.format(<span class="string">"Copying %s -&gt; %s"</span>, src, dst));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            File dir = file.getParentFile();</span><br><span class="line">            <span class="keyword">if</span> (!dir.exists()) &#123;</span><br><span class="line">                dir.mkdirs();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            InputStream in = mAssetManager.open(src);</span><br><span class="line">            OutputStream out = <span class="keyword">new</span> FileOutputStream(file);</span><br><span class="line">            <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">            <span class="keyword">int</span> read = in.read(buffer);</span><br><span class="line">            <span class="keyword">while</span> (read != -<span class="number">1</span>) &#123;</span><br><span class="line">                out.write(buffer, <span class="number">0</span>, read);</span><br><span class="line">                read = in.read(buffer);</span><br><span class="line">            &#125;</span><br><span class="line">            out.close();</span><br><span class="line">            in.close();</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//获取asset目录</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">getAssetsDataDir</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String appDataDir = mContext.getApplicationInfo().dataDir;</span><br><span class="line">        <span class="keyword">return</span> appDataDir + <span class="string">"/assets/"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//调用复制代码</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">copyAssets</span><span class="params">(String path)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (String asset : listAssets(path)) &#123;</span><br><span class="line">            copyAssetFile(asset, getAssetsDataDir() + asset);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p> JNI C代码：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化</span></span><br><span class="line">   <span class="function">JNIEXPORT jint JNICALL <span class="title">Java_com_jcmels_liba_pybridge_PyBridge_start</span></span><br><span class="line">        <span class="params">(JNIEnv *env, jclass jc, jstring path)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *pypath = (*env)-&gt;GetStringUTFChars(env, path, NULL);</span><br><span class="line">    <span class="keyword">char</span> paths[<span class="number">512</span>];</span><br><span class="line">    <span class="built_in">snprintf</span>(paths, <span class="keyword">sizeof</span>(paths), <span class="string">"%s:%s/stdlib.zip"</span>, pypath, pypath);</span><br><span class="line">    <span class="keyword">wchar_t</span> *wchar_paths = Py_DecodeLocale(paths, NULL);</span><br><span class="line">    Py_SetPath(wchar_paths);</span><br><span class="line">    Py_Initialize();</span><br><span class="line">    PyRun_SimpleString(<span class="string">"import helloPy"</span>);</span><br><span class="line">    PyRun_SimpleString(<span class="string">"from ctypes import *"</span>);<span class="comment">//这个为了引入库，若不需要引入可以不用</span></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//释放</span></span><br><span class="line"><span class="function">JNIEXPORT jint JNICALL <span class="title">Java_com_jcmels_liba_pybridge_PyBridge_stop</span></span><br><span class="line">        <span class="params">(JNIEnv *env, jclass jc)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    Py_Finalize();</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用</span></span><br><span class="line"></span><br><span class="line"><span class="function">JNIEXPORT jstring JNICALL <span class="title">Java_com_jcmels_liba_pysayhello_PyBridge_call</span>      </span><br><span class="line">  <span class="params">(JNIEnv *env, jclass jc)</span></span>&#123;</span><br><span class="line">PyObject* myModuleString = PyUnicode_FromString((char*)<span class="string">"helloPy"</span>); </span><br><span class="line">PyObject* myModule = PyImport_Import(myModuleString);    </span><br><span class="line">PyObject* myFunction = PyObject_GetAttrString(myModule, (char*)<span class="string">"hello"</span>);</span><br><span class="line">jstring result = PyObject_CallObject(myFunction, NULL);</span><br><span class="line">return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Python方面就是个简单的hello函数，返回“hello”字符串。</p>
+<h1 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h1><p>当我把上述问题一一解决之后，终于见到之前写的python代码里返回的hello语句了。可由此也出现了一个问题，当我调用Python方法的时候，必须先引入模块，再引入方法，而且当我们需要添加Python方法的时候，我们还要去写重复的调用方法，只是换个方法名，而且需要再次编译各平台so库，我就想有没有一种方法可以只修改Python方法和java调用方法，而不去动C方法呢。<br>修改后的流程图如下：<br><img src="http://upload-images.jianshu.io/upload_images/536961-5b5e96d996cefb98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="优化后流程"><br>Python端增加一个路由方法，再写一个函数字典，把所有方法都加到字典里，C里调用的就是这个路由方法，java端调用的时候传入json里面包含了所需python方法，当json传入python中路由方法之后，自动匹配到相应的方法，每次添加新的方法只需要在python中添加字典已经方法，java调用时传入新的方法即可。<br>Python路由方法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">router</span><span class="params">(args)</span>:</span></span><br><span class="line">	values = json.loads(args)</span><br><span class="line">	<span class="keyword">try</span>:</span><br><span class="line">		function = routes[values.get(<span class="string">'function'</span>)]</span><br><span class="line">		status = <span class="string">'ok'</span></span><br><span class="line">		res = function(values)</span><br><span class="line">	<span class="keyword">except</span> KeyError:</span><br><span class="line">		status = <span class="string">'fail'</span></span><br><span class="line">		res = <span class="keyword">None</span></span><br><span class="line">	<span class="keyword">return</span> json.dumps(&#123;</span><br><span class="line">		<span class="string">'status'</span>: status,</span><br><span class="line">		<span class="string">'result'</span>: res,</span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>Python函数字典：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">routes = &#123;</span><br><span class="line">	<span class="string">'hello'</span>: hello,</span><br><span class="line">	<span class="string">'add'</span>: add,</span><br><span class="line">	<span class="string">'mul'</span>: mul,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>JNI C调用python方法：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">JNIEXPORT jstring JNICALL <span class="title">Java_com_jcmels_liba_pysayhello_PyBridge_call</span></span><br><span class="line">	<span class="params">(JNIEnv *env, jclass jc, jstring payload)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	jboolean iscopy;</span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">char</span> *payload_utf = (*env)-&gt;GetStringUTFChars(env, payload, &amp;iscopy);</span><br><span class="line">	PyObject* myModuleString = PyUnicode_FromString((char*)<span class="string">"helloPy"</span>);</span><br><span class="line">	PyObject* myModule = PyImport_Import(myModuleString);</span><br><span class="line">	PyObject* myFunction = PyObject_GetAttrString(myModule, (char*)<span class="string">"router"</span>);</span><br><span class="line">	PyObject* args = PyTuple_Pack(<span class="number">1</span>, PyUnicode_FromString(payload_utf));</span><br><span class="line">	PyObject* myResult = PyObject_CallObject(myFunction, args);</span><br><span class="line">	<span class="keyword">char</span> *myResultChar = PyUnicode_AsUTF8(myResult);</span><br><span class="line">	<span class="keyword">char</span> *res = <span class="built_in">malloc</span>(sizeof(char) * strlen(myResultChar) + <span class="number">1</span>);</span><br><span class="line">	<span class="built_in">strcpy</span>(res, myResultChar);</span><br><span class="line">	jstring result = (*env)-&gt;NewStringUTF(env, res);</span><br><span class="line">	return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>java调用：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">json.put(<span class="string">"function"</span>, <span class="string">"hello"</span>);</span><br><span class="line">PyBridge.call(json);</span><br></pre></td></tr></table></figure></p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>到此，Android call Python就基本完成了，调用第三方库的话只需要把ctype文件（Crystax文件夹中的sources\python\3.5\libs\对应平台\modules_ctypes.so）放到assets文件夹中就可以通过<code>cdll.LoadLibrary</code>来调用第三方库了。<br>在此感谢joaoventura大神的指导！</p>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用多说评论 -->
+    <link rel="stylesheet" href="/css/duoshuo.min.css">
+<style>
+    #ds-thread #ds-reset .ds-post-button{
+        background-color: #0097A7 !important;
+    }
+    #ds-wrapper #ds-reset .ds-icons-32{
+        background-color: #0097A7 !important;
+    }
+    #ds-reset .ds-highlight {
+        color: #0097A7 !important;
+    }
+</style>
+<div id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread"
+        data-thread-key=""
+        data-url="http://jcmels.github.io/2016/10/27/android-python-love/"
+        data-title="Android与Python爱之初体验">
+    </div>
+    <!-- 多说评论框 end -->
+</div>
+
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2016/11/02/android-AS-plugins/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2016/10/27/android-eventbus-primer/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="Jcme丶Ls's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        jcmels1995@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    <li id="sidebar-first-li">
+        <a href="/" target="_self">
+            <i class="material-icons sidebar-material-icons">home</i>
+            主页
+        </a>
+    </li>
+
+    <!-- I'm Feeling Lucky -->
+    <!--
+    <li class="dropdown">
+        <a href="" target="_self">
+            <i class="material-icons sidebar-material-icons">explore</i>
+             sidebar.imlucky
+        </a>
+    </li>
+    -->
+
+    <!-- Archives  -->
+    <li class="dropdown">
+        <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+            <i class="material-icons sidebar-material-icons">inbox</i>
+             归档
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+            <a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/11/">十一月 2016<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/10/">十月 2016<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/06/">六月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/05/">五月 2016<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/04/">四月 2016<span class="sidebar_archives-count">7</span></a>
+        </ul>
+    </li>
+
+    <!-- Categories  -->
+    
+
+    <!-- Divider -->
+    <li class="divider"></li>
+
+
+    <!-- Pages  -->
+  	
+
+    <!-- Article Numebr  -->
+    <li>
+        <a href="/archives">
+            文章总数
+            <span class="sidebar-badge">25</span>
+        </a>
+    </li>
+</ul>
+
+
+        <!-- Sidebar Divider -->
+        <div class="sidebar-divider"></div>
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Theme Material -->
+<a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+    <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        主题 - Material
+        <span class="sidebar-badge badge-circle">i</span>
+    </div>
+</a>
+
+<!-- Help & Support -->
+<!--
+<a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+    <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+    sidebar.help
+    <span class="mdl-button__ripple-container">
+      <span class="mdl-ripple"></span>
+    </span>
+  </div>
+</a>
+-->
+
+<!-- Feedback -->
+<!--
+<a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" class="sidebar-footer-text-a">
+    <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+         sidebar.feedback
+                    <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+</a>
+-->
+
+<!-- Abount Theme -->
+<!--
+<a href="https://blog.viosey.com/index.php/Material.html" target="_blank" class="sidebar-footer-text-a">
+    <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+         sidebar.about_theme
+        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+</a>-->
+
+    </div>
+
+    <!-- Sidebar Sponsor -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-twitter.png);">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-facebook.png);">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-gplus.png);">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;
+            <script type="text/javascript">
+                var fd = new Date();
+                document.write(fd.getFullYear());
+            </script>
+            &nbsp;|&nbsp;<a href="http://www.miitbeian.gov.cn/">粤ICP备16100394号-1</a>
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+<script src="/js/highlight.min.js"></script>
+<script src="/js/js.min.js"></script>
+<script src="/js/nprogress.js"></script>
+
+<script type="text/javascript">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+
+    $('#nprogress .bar').css({
+        'background': '#FF4081'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #FF4081, 0 0 15px #FF4081'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#FF4081',
+        'border-left-color': '#FF4081'
+    });
+
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    <script src="/js/smoothscroll.js"></script>
+
+
+
+
+
+
+
+    <!-- 多说公共 js 代码 start -->
+    <script type="text/javascript">
+        var duoshuoQuery = {
+            short_name: 'jcmels'
+        };
+        (function() {
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';
+            ds.async = true;
+            ds.src = 'https://static.duoshuo.com/embed.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0]
+             || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+    </script>
+    <!-- 多说公共 js 代码 end -->
+
+
+
+
+
+<!-- Swiftye -->
+
+
+<!-- Local Search-->
+
+    <script>
+    var searchFunc = function(path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: 'xml',
+            success: function( xmlResponse ) {
+                // get the contents from search data
+                var datas = $( 'entry', xmlResponse ).map(function() {
+                    return {
+                        title: $( 'title', this ).text(),
+                        content: $('content',this).text(),
+                        url: $( 'url' , this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function() {
+                    var str='<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function(data) {
+                        var isMatch = true;
+                        var content_index = [];
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                        var data_url = data.url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if(data_title != '' && data_content != '') {
+                            keywords.forEach(function(keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if( index_title < 0 && index_content < 0 ) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += '<li><a href="'+ data_url +'" class="search-result-title" target="_blank">'+ data_title;
+                            var content = data.content.trim().replace(/<[^>]+>/g, '');
+                            if (first_occur >= 0) {
+                                // cut out characters
+                                var start = first_occur - 6;
+                                var end = first_occur + 6;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 10;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, 'gi');
+                                    match_content = match_content.replace(regS, '<em class="search-keyword">'+keyword+'</em>');
+                                })
+                                str += '<p class="search-result">' + match_content +'...</p>' +'</a>';
+                            }
+                        }
+                    });
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    }
+</script>
+
+
+    <script>
+        var inputArea = document.querySelector('#search');
+        var getSearchFile = function() {
+            var path = 'search.xml';
+            searchFunc(path, 'search', 'local-search-result');
+        }
+
+        if(inputArea) {
+            inputArea.onfocus = function() {
+                getSearchFile();
+            }
+        }
+    </script>
+
+
+<!-- Window Load-->
+<script>
+    $(window).load(function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+
+                </main>
+            </div>
+        </body>
+    
+</html>
