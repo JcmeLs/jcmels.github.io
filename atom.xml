@@ -223,6 +223,59 @@
   </entry>
   
   <entry>
+    <title>Android Studio常用插件之行云流水coding</title>
+    <link href="http://jcmels.github.io/2016/11/02/android-AS-plugins/"/>
+    <id>http://jcmels.github.io/2016/11/02/android-AS-plugins/</id>
+    <published>2016-11-02T15:53:13.000Z</published>
+    <updated>2017-05-01T15:54:46.752Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;现如今，做Android开发的大部分都转移到AS了吧，从ADT转过来确实方便快捷很多，可作为程序员，典型的懒人，这还不够！我们都知道AS是基于IDEA开发的，IDEA的特点就是插件多，那么AS有没有什么插件能让我高（偷）效（懒）写代码呢？以下是我常用的几个插件，效率提升挺多的。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;如何装插件&quot;&gt;&lt;a href=&quot;#如何装插件&quot; class=&quot;headerlink&quot; title=&quot;如何装插件&quot;&gt;&lt;/a&gt;如何装插件&lt;/h1&gt;&lt;p&gt;IDEA有个在线插件库，所以AS也天生自带了。setting（mac   Preferences）-plugins-search-browse-install.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/536961-9f72dfbfc0b4ea59.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;Plugins.gif&quot;&gt;&lt;br&gt;好了，了解了怎么装插件之后该谈下我常用的插件了！快捷键默认Windows，括号里是mac的。&lt;/p&gt;
+&lt;h1 id=&quot;CodeGlance&quot;&gt;&lt;a href=&quot;#CodeGlance&quot; class=&quot;headerlink&quot; title=&quot;CodeGlance&quot;&gt;&lt;/a&gt;CodeGlance&lt;/h1&gt;&lt;p&gt;如果你是用惯Sublime Text的同学肯定会对Minimap印象深刻，对于代码快速定位，minimap有神效，所以我们期望AS或者IDEA中有那么一款插件可以实现这个功能。&lt;br&gt;多方找寻之后发现了CodeGlance，当然当代码量多了之后会有一定的卡顿，这个还要看电脑的配置，展示图是把activity所有的方法全部用上之后演示的，可以看出一般并不会卡。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/536961-b55ad0716243aee7.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;CodeGlance.gif&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;GsonFormat&quot;&gt;&lt;a href=&quot;#GsonFormat&quot; class=&quot;headerlink&quot; title=&quot;GsonFormat&quot;&gt;&lt;/a&gt;GsonFormat&lt;/h1&gt;&lt;p&gt;现如今有几个app不需要网络交互，与server交互用最多的就是JSON，毕竟连restful规范都推荐使用JSON了，在我们使用GSON去解析JSON的时候我们需要手写一个java bean。作为懒人，有没有一种插件可以帮助我们自动生成java bean。&lt;br&gt;有！如图所示&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Alt+S快捷呼出（mac Option+S）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/536961-d3f25bf407a44353.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;Gson_option_s.gif&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Alt+Insert呼出（mac Control+Enter）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/536961-829808eff9dd9d6e.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;Gson_control_enter.gif&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;Android-ButterKnife-Zelezny&quot;&gt;&lt;a href=&quot;#Android-ButterKnife-Zelezny&quot; class=&quot;headerlink&quot; title=&quot;Android ButterKnife Zelezny&quot;&gt;&lt;/a&gt;Android ButterKnife Zelezny&lt;/h1&gt;&lt;p&gt;作为一个懒人，没用过懒人库怎么能叫懒人呢，现阶段最火的懒人库非butterknife莫属，使用注解方式findbyid和onclick，这也就少写一些代码，怎么能算懒呢，使用Android_ButterKnife_Zelezny自动生成findbyid和onclick代码才叫懒嘛！效果如图！&lt;br&gt;光标选中引用layout资源文件那一行，Alt+Insert(mac control+enter)—Generate ButterKnife Injections&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/536961-02e9cedadbfbb8be.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;Android_ButterKnife_Zelezny.gif&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;RemoveButterKnife&quot;&gt;&lt;a href=&quot;#RemoveButterKnife&quot; class=&quot;headerlink&quot; title=&quot;RemoveButterKnife&quot;&gt;&lt;/a&gt;RemoveButterKnife&lt;/h1&gt;&lt;p&gt;使用ButterKnife之后代码确实少了好多可是可读性变差了，而且有的项目不能使用butterknife，这时候难道我们一行一行把注解删掉吗？然后再手写findbyid？当然不用，RemoveButterKnife可以帮我们删掉bind注解并生成findView代码，不过有个bug是删不了onclick注解。点击Edit–RemoveButterKnife,效果如图（录屏录不到状态栏）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/536961-0d0be9735d46aade.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;RemoveButterKnife.gif&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;Android-Studio-Prettify&quot;&gt;&lt;a href=&quot;#Android-Studio-Prettify&quot; class=&quot;headerlink&quot; title=&quot;Android Studio Prettify&quot;&gt;&lt;/a&gt;Android Studio Prettify&lt;/h1&gt;&lt;p&gt;如果不想用ButterKnife注解方式findview，还有一种选择，那就是Prettift，而且可以选择生成全局变量还是局部变量。光标选中引用layout资源那一行，全局变量&lt;br&gt;：Alt+Insert–View Fields(mac control+Enter–View Fields)局部变量：Alt+Insert–View Variables(mac control+Enter–View Variables).&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/536961-732e43f8677d3d96.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;Android_Studio_Prettify_findbyid.gif&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Prettift还有个附属功能，可以不用去string.xml文件里就可以生成字符串常量&lt;br&gt;,光标选中字符串，右键Extract String resource.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/536961-3f6e9b40a9a4e7d8.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;Android_Studio_Prettify.gif&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;Android-Postfix-Completion&quot;&gt;&lt;a href=&quot;#Android-Postfix-Completion&quot; class=&quot;headerlink&quot; title=&quot;Android Postfix Completion&quot;&gt;&lt;/a&gt;Android Postfix Completion&lt;/h1&gt;&lt;p&gt;Android Postfix Completion其实是对代码提醒的一个拓展，他能快捷生成for循环、toast、sout、log等，直接字符串或者返回字符串的方法后面打点，fori、toast、sout、log、not null回车即可。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/536961-80cbb325e04f5eb7.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;Android_Postfix_Completion.gif&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;JSONOnlineVewer&quot;&gt;&lt;a href=&quot;#JSONOnlineVewer&quot; class=&quot;headerlink&quot; title=&quot;JSONOnlineVewer&quot;&gt;&lt;/a&gt;JSONOnlineVewer&lt;/h1&gt;&lt;p&gt;如果在chrome用过postman插件的话，应该会期望IDE有个测试接口的功能，所以JSONOnlineVewer满足你~界面可能有点丑，不过功能还是很完善的！配合GsonFormat输出爆表。&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/536961-74b7b9d8dd9c7da9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;JSONView.png&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;Android-Drawable-Importer&quot;&gt;&lt;a href=&quot;#Android-Drawable-Importer&quot; class=&quot;headerlink&quot; title=&quot;Android  Drawable Importer&quot;&gt;&lt;/a&gt;Android  Drawable Importer&lt;/h1&gt;&lt;p&gt;做Android开发难免需要做屏幕适配，可是每个分辨率都导一次&lt;br&gt;图片还是挺麻烦的， Android  Drawable Importer可以解决这个问题，只需要导一次图片选择不同分辨率，就可以导入多个分辨率的图片了。&lt;br&gt;（额。。。这个不知道为什么AS升级之后用不了，图片下次补）&lt;/p&gt;
+&lt;h1 id=&quot;后记&quot;&gt;&lt;a href=&quot;#后记&quot; class=&quot;headerlink&quot; title=&quot;后记&quot;&gt;&lt;/a&gt;后记&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;工欲善其事必先利其器&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;当我们有一个快捷开发的编程环境之后，不仅代码效率提高，而且越写越开心。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;现如今，做Android开发的大部分都转移到AS了吧，从ADT转过来确实方便快捷很多，可作为程序员，典型的懒人，这还不够！我们都知道AS是基于IDEA开发的，IDEA的特点就是插件多，那么AS有没有什么插件能让我高（偷）效（懒）写代码呢？以下是我常用的几个插件，效率提升挺多的。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Android开发" scheme="http://jcmels.github.io/categories/Android%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Android从入门到转行" scheme="http://jcmels.github.io/tags/Android%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E8%BD%AC%E8%A1%8C/"/>
+    
+      <category term="技巧" scheme="http://jcmels.github.io/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
+  
+  <entry>
     <title>EventBus3.0入门笔记</title>
     <link href="http://jcmels.github.io/2016/10/27/android-eventbus-primer/"/>
     <id>http://jcmels.github.io/2016/10/27/android-eventbus-primer/</id>
@@ -1567,32 +1620,6 @@ firstVisibleItems=  ((StaggeredGridLayoutManager)recycleview.getLayoutManager())
     
     
       <category term="markdown" scheme="http://jcmels.github.io/tags/markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo+github搭个人博客第一章--发布第一篇文章</title>
-    <link href="http://jcmels.github.io/2016/04/11/hexo2/"/>
-    <id>http://jcmels.github.io/2016/04/11/hexo2/</id>
-    <published>2016-04-11T14:50:45.000Z</published>
-    <updated>2016-04-12T01:27:13.909Z</updated>
-    
-    <content type="html">&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/GDP5bNB.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;&amp;nbsp;&amp;nbsp;我们建立独立博客都是为了发（装）博（X）文，那如何发呢？或者说如何编辑和发布呢？接下来我们将会学习发布第一篇文章。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;新建文档&quot;&gt;&lt;a href=&quot;#新建文档&quot; class=&quot;headerlink&quot; title=&quot;新建文档&quot;&gt;&lt;/a&gt;新建文档&lt;/h2&gt;&lt;p&gt;打开你的hexo文件夹，右键git bash，输入命令：&lt;br&gt;&lt;code&gt;hexo new &amp;quot;my new post&amp;quot;&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&quot;编辑文档&quot;&gt;&lt;a href=&quot;#编辑文档&quot; class=&quot;headerlink&quot; title=&quot;编辑文档&quot;&gt;&lt;/a&gt;编辑文档&lt;/h2&gt;&lt;p&gt;在hexo文件夹下找到source_post文件夹，再从source_post中找到我们刚新建的my-new-post.md文件，使用文本编辑器如（ATOM）或者专门的markdownpad。markdown语法可以百度，也可以等明天的教程。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;--- &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;title: my new post #可以改成中文的，如“新文章”&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;date: 2016-02-21 16:04:09 #发表日期，一般不改动&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;categories: blog #文章文类&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;tags: blog #文章标签&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#这里是正文，用markdown写，你可以选择写一段显示在首页的简介后，加上&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!--more--&amp;gt;，在&amp;lt;!--more--&amp;gt;之前的内容会显示在首页，之后的内容会被隐藏，当游客点击Read more才能看到。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2 id=&quot;发布博文&quot;&gt;&lt;a href=&quot;#发布博文&quot; class=&quot;headerlink&quot; title=&quot;发布博文&quot;&gt;&lt;/a&gt;发布博文&lt;/h2&gt;&lt;p&gt;写完文章后，你可以使用以下命令生成静态文件。&lt;br&gt;&lt;code&gt;hexo g&lt;/code&gt;&lt;br&gt;现在可以在本地预览效果，输入以下命令。&lt;br&gt;&lt;code&gt;hexo s&lt;/code&gt;&lt;br&gt;觉得排版OK了，内容也完善了，输入以下命令发布。&lt;br&gt;&lt;code&gt;hexo d&lt;/code&gt;&lt;br&gt;然后就可以通过你的域名访问了，比如&lt;a href=&quot;http://jcmels.github.io&quot;&gt;http://jcmels.github.io&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://i.imgur.com/GDP5bNB.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;&amp;nbsp;&amp;nbsp;我们建立独立博客都是为了发（装）博（X）文，那如何发呢？或者说如何编辑和发布呢？接下来我们将会学习发布第一篇文章。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="blog" scheme="http://jcmels.github.io/categories/blog/"/>
-    
-    
-      <category term="hexo" scheme="http://jcmels.github.io/tags/hexo/"/>
     
   </entry>
   

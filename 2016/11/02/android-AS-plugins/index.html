@@ -10,7 +10,7 @@
     
     <title>
         
-            标签: 深度学习框架 | 
+            Android Studio常用插件之行云流水coding | 
         
         Jcme丶Ls&#39;s Blog
     </title>
@@ -48,7 +48,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://jcmels.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="标签: 深度学习框架 | Jcme丶Ls&#39;s Blog">
+    <meta property="og:title" content="Android Studio常用插件之行云流水coding | Jcme丶Ls&#39;s Blog">
     <meta property="og:description" content="coding live">
 
     <!--[if lte IE 9]>
@@ -207,95 +207,289 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
     
-        
-            <!-- Paradox Thumbnail -->
-            <div class="post_entry-module mdl-card mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#如何装插件"><span class="post-toc-number">2.</span> <span class="post-toc-text">如何装插件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CodeGlance"><span class="post-toc-number">3.</span> <span class="post-toc-text">CodeGlance</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GsonFormat"><span class="post-toc-number">4.</span> <span class="post-toc-text">GsonFormat</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android-ButterKnife-Zelezny"><span class="post-toc-number">5.</span> <span class="post-toc-text">Android ButterKnife Zelezny</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RemoveButterKnife"><span class="post-toc-number">6.</span> <span class="post-toc-text">RemoveButterKnife</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android-Studio-Prettify"><span class="post-toc-number">7.</span> <span class="post-toc-text">Android Studio Prettify</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android-Postfix-Completion"><span class="post-toc-number">8.</span> <span class="post-toc-text">Android Postfix Completion</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JSONOnlineVewer"><span class="post-toc-number">9.</span> <span class="post-toc-text">JSONOnlineVewer</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android-Drawable-Importer"><span class="post-toc-number">10.</span> <span class="post-toc-text">Android  Drawable Importer</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#后记"><span class="post-toc-number">11.</span> <span class="post-toc-text">后记</span></a></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script>
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/03/14/mac-tips-caffe/">Mac安装caffe！真的真的只看这个就够了！</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            前言问：其实网上已经有很多mac装caffe的文章了，为什么还要重复“造车”呢？  
-答：因为我自诩装软件从来不虚的人照着网上的教程装都跪了。。。坑挺多的。。。  
-由于项目需求，我需要使用caffe去做一个东西，然后我就跟caffe杠上了。。。
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/03/14/mac-tips-caffe/" target="_self">继续阅读</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Jcme丶Ls's avatar">
-            </div>
-            <div>
-                <strong>Jcme丶Ls</strong>
-                <span>3月 14, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/mac技巧/">mac技巧</a>
-            </span>
-
-            
-                <!-- Comment Number -->
-                &nbsp;|&nbsp;
-                <span class="post_entry-comment" >
-                        <span class="ds-thread-count" data-thread-key="" data-count-type="comments"></span>
-                </span>
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-        
-        
-    
-
-    
-
-    
-        <script>
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')')
-
-        locatePost = locatePost.next();
-    }
+    $('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')');
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                Android Studio常用插件之行云流水coding
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Jcme丶Ls</strong>
+        <span>11月 02, 2016</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC3ElEQVR42u3aS5YiMQwEQO5/6ZkDdENnyhSvsMMrFmAUxULo8/h35HlgY2NjY2NjY2Nj35L9iM8vF40+9fOG1zf/fOcsZmxsbOy92bPgkkCfhfJLWM/CDT6bxIyNjY19AjsJ8dn7c8Drb3+dIGcxY2NjY2O3yaMtLfJIsLGxsbGvSGCvk1Zyc9IYul3exsbGxr4lO2nQJAVD3gZaaVd9tJeGjY2NfXv2uxLJJ19/dL6NjY2NfWP2Fe2h5FNJ86hNdX/EgI2Njb0pO08MSRDtCmabuto4sbGxsU9gzxJJuyKZDAba9lM7isbGxsbemz0LJQlrZQFottxZN5WwsbGxv5w9Gwa0aakIrsXk92BjY2Mfw541bmbrkm1baiVObGxs7F3Z7WA1CSUZP7RDhdmIAhsbG/tMdtKInyWqlVHurBzCxsbGPoed/KHPR7DDBBMv9+RNKGxsbOwT2OsN+nYY3J6V1hU2Njb2Oey2rZM36K9LS3nqwsbGxt6bnQR0BaZoBpUD47dNRbCxsbG/hN0WGCvlQVKctGVMMeTAxsbG3pqdp66VQmLWcnrbI8bGxsbelJ386V9PYK+Hx+1CZzQMyCswbGxs7C9ntw2gJBXlya9NbO2jxMbGxj6HnePbR7NSWsx+DGxsbOwz2clF+cg2byflqz8ro19sbGzsM9ltgdE+muSe9v4/ShpsbGzsI9l5qfAITguY3blUimBjY2Nvwc5b//nDypdy2sFAEiE2Njb2Oez869+1xJM/lEd8sLGxsU9jtydPctcNEvLFIGxsbOwT2G1iKP76l82jldfDvI2NjY29EXuWhPJ20npqTBLYJU0lbGxs7K9it2PUfHw7G+KuH2xsbGzsdqy7ksySZtPSsiY2NjY2dlyKzMYGbYuqHUJgY2Njn8Cetf5zQLLck49y60UibGxs7K3Z7VJjPgwu2vfxbW1RhI2Njb03+5yDjY2NjY2NjY2NfZvzHwVR2Lu54440AAAAAElFTkSuQmCC">
+        </ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Android从入门到转行/">Android从入门到转行</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/技巧/">技巧</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Android Studio常用插件之行云流水coding&url=http://jcmels.github.io//2016/11/02/android-AS-plugins/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Android Studio常用插件之行云流水coding&url=http://jcmels.github.io//2016/11/02/android-AS-plugins/index.html&via=Jcme丶Ls" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://jcmels.github.io//2016/11/02/android-AS-plugins/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://jcmels.github.io//2016/11/02/android-AS-plugins/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>现如今，做Android开发的大部分都转移到AS了吧，从ADT转过来确实方便快捷很多，可作为程序员，典型的懒人，这还不够！我们都知道AS是基于IDEA开发的，IDEA的特点就是插件多，那么AS有没有什么插件能让我高（偷）效（懒）写代码呢？以下是我常用的几个插件，效率提升挺多的。<br><a id="more"></a></p>
+<h1 id="如何装插件"><a href="#如何装插件" class="headerlink" title="如何装插件"></a>如何装插件</h1><p>IDEA有个在线插件库，所以AS也天生自带了。setting（mac   Preferences）-plugins-search-browse-install.</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/536961-9f72dfbfc0b4ea59.gif?imageMogr2/auto-orient/strip" alt="Plugins.gif"><br>好了，了解了怎么装插件之后该谈下我常用的插件了！快捷键默认Windows，括号里是mac的。</p>
+<h1 id="CodeGlance"><a href="#CodeGlance" class="headerlink" title="CodeGlance"></a>CodeGlance</h1><p>如果你是用惯Sublime Text的同学肯定会对Minimap印象深刻，对于代码快速定位，minimap有神效，所以我们期望AS或者IDEA中有那么一款插件可以实现这个功能。<br>多方找寻之后发现了CodeGlance，当然当代码量多了之后会有一定的卡顿，这个还要看电脑的配置，展示图是把activity所有的方法全部用上之后演示的，可以看出一般并不会卡。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/536961-b55ad0716243aee7.gif?imageMogr2/auto-orient/strip" alt="CodeGlance.gif"></p>
+<h1 id="GsonFormat"><a href="#GsonFormat" class="headerlink" title="GsonFormat"></a>GsonFormat</h1><p>现如今有几个app不需要网络交互，与server交互用最多的就是JSON，毕竟连restful规范都推荐使用JSON了，在我们使用GSON去解析JSON的时候我们需要手写一个java bean。作为懒人，有没有一种插件可以帮助我们自动生成java bean。<br>有！如图所示</p>
+<blockquote>
+<p>Alt+S快捷呼出（mac Option+S）</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/536961-d3f25bf407a44353.gif?imageMogr2/auto-orient/strip" alt="Gson_option_s.gif"></p>
+<blockquote>
+<p>Alt+Insert呼出（mac Control+Enter）</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/536961-829808eff9dd9d6e.gif?imageMogr2/auto-orient/strip" alt="Gson_control_enter.gif"></p>
+<h1 id="Android-ButterKnife-Zelezny"><a href="#Android-ButterKnife-Zelezny" class="headerlink" title="Android ButterKnife Zelezny"></a>Android ButterKnife Zelezny</h1><p>作为一个懒人，没用过懒人库怎么能叫懒人呢，现阶段最火的懒人库非butterknife莫属，使用注解方式findbyid和onclick，这也就少写一些代码，怎么能算懒呢，使用Android_ButterKnife_Zelezny自动生成findbyid和onclick代码才叫懒嘛！效果如图！<br>光标选中引用layout资源文件那一行，Alt+Insert(mac control+enter)—Generate ButterKnife Injections</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/536961-02e9cedadbfbb8be.gif?imageMogr2/auto-orient/strip" alt="Android_ButterKnife_Zelezny.gif"></p>
+<h1 id="RemoveButterKnife"><a href="#RemoveButterKnife" class="headerlink" title="RemoveButterKnife"></a>RemoveButterKnife</h1><p>使用ButterKnife之后代码确实少了好多可是可读性变差了，而且有的项目不能使用butterknife，这时候难道我们一行一行把注解删掉吗？然后再手写findbyid？当然不用，RemoveButterKnife可以帮我们删掉bind注解并生成findView代码，不过有个bug是删不了onclick注解。点击Edit–RemoveButterKnife,效果如图（录屏录不到状态栏）</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/536961-0d0be9735d46aade.gif?imageMogr2/auto-orient/strip" alt="RemoveButterKnife.gif"></p>
+<h1 id="Android-Studio-Prettify"><a href="#Android-Studio-Prettify" class="headerlink" title="Android Studio Prettify"></a>Android Studio Prettify</h1><p>如果不想用ButterKnife注解方式findview，还有一种选择，那就是Prettift，而且可以选择生成全局变量还是局部变量。光标选中引用layout资源那一行，全局变量<br>：Alt+Insert–View Fields(mac control+Enter–View Fields)局部变量：Alt+Insert–View Variables(mac control+Enter–View Variables).<br><img src="http://upload-images.jianshu.io/upload_images/536961-732e43f8677d3d96.gif?imageMogr2/auto-orient/strip" alt="Android_Studio_Prettify_findbyid.gif"></p>
+<p>Prettift还有个附属功能，可以不用去string.xml文件里就可以生成字符串常量<br>,光标选中字符串，右键Extract String resource.</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/536961-3f6e9b40a9a4e7d8.gif?imageMogr2/auto-orient/strip" alt="Android_Studio_Prettify.gif"></p>
+<h1 id="Android-Postfix-Completion"><a href="#Android-Postfix-Completion" class="headerlink" title="Android Postfix Completion"></a>Android Postfix Completion</h1><p>Android Postfix Completion其实是对代码提醒的一个拓展，他能快捷生成for循环、toast、sout、log等，直接字符串或者返回字符串的方法后面打点，fori、toast、sout、log、not null回车即可。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/536961-80cbb325e04f5eb7.gif?imageMogr2/auto-orient/strip" alt="Android_Postfix_Completion.gif"></p>
+<h1 id="JSONOnlineVewer"><a href="#JSONOnlineVewer" class="headerlink" title="JSONOnlineVewer"></a>JSONOnlineVewer</h1><p>如果在chrome用过postman插件的话，应该会期望IDE有个测试接口的功能，所以JSONOnlineVewer满足你~界面可能有点丑，不过功能还是很完善的！配合GsonFormat输出爆表。<br><img src="http://upload-images.jianshu.io/upload_images/536961-74b7b9d8dd9c7da9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="JSONView.png"></p>
+<h1 id="Android-Drawable-Importer"><a href="#Android-Drawable-Importer" class="headerlink" title="Android  Drawable Importer"></a>Android  Drawable Importer</h1><p>做Android开发难免需要做屏幕适配，可是每个分辨率都导一次<br>图片还是挺麻烦的， Android  Drawable Importer可以解决这个问题，只需要导一次图片选择不同分辨率，就可以导入多个分辨率的图片了。<br>（额。。。这个不知道为什么AS升级之后用不了，图片下次补）</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><blockquote>
+<p>工欲善其事必先利其器</p>
+</blockquote>
+<p>当我们有一个快捷开发的编程环境之后，不仅代码效率提高，而且越写越开心。</p>
+
+    
+
     
 </div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用多说评论 -->
+    <link rel="stylesheet" href="/css/duoshuo.min.css">
+<style>
+    #ds-thread #ds-reset .ds-post-button{
+        background-color: #0097A7 !important;
+    }
+    #ds-wrapper #ds-reset .ds-icons-32{
+        background-color: #0097A7 !important;
+    }
+    #ds-reset .ds-highlight {
+        color: #0097A7 !important;
+    }
+</style>
+<div id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread"
+        data-thread-key=""
+        data-url="http://jcmels.github.io/2016/11/02/android-AS-plugins/"
+        data-title="Android Studio常用插件之行云流水coding">
+    </div>
+    <!-- 多说评论框 end -->
+</div>
+
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2016/11/10/android-qiniu-pili-fast/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2016/10/27/android-eventbus-primer/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -458,6 +652,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 

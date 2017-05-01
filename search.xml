@@ -155,6 +155,41 @@
     </entry>
     
     <entry>
+      <title><![CDATA[Android Studio常用插件之行云流水coding]]></title>
+      <url>http://jcmels.github.io/2016/11/02/android-AS-plugins/</url>
+      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>现如今，做Android开发的大部分都转移到AS了吧，从ADT转过来确实方便快捷很多，可作为程序员，典型的懒人，这还不够！我们都知道AS是基于IDEA开发的，IDEA的特点就是插件多，那么AS有没有什么插件能让我高（偷）效（懒）写代码呢？以下是我常用的几个插件，效率提升挺多的。<br><a id="more"></a></p>
+<h1 id="如何装插件"><a href="#如何装插件" class="headerlink" title="如何装插件"></a>如何装插件</h1><p>IDEA有个在线插件库，所以AS也天生自带了。setting（mac   Preferences）-plugins-search-browse-install.</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/536961-9f72dfbfc0b4ea59.gif?imageMogr2/auto-orient/strip" alt="Plugins.gif"><br>好了，了解了怎么装插件之后该谈下我常用的插件了！快捷键默认Windows，括号里是mac的。</p>
+<h1 id="CodeGlance"><a href="#CodeGlance" class="headerlink" title="CodeGlance"></a>CodeGlance</h1><p>如果你是用惯Sublime Text的同学肯定会对Minimap印象深刻，对于代码快速定位，minimap有神效，所以我们期望AS或者IDEA中有那么一款插件可以实现这个功能。<br>多方找寻之后发现了CodeGlance，当然当代码量多了之后会有一定的卡顿，这个还要看电脑的配置，展示图是把activity所有的方法全部用上之后演示的，可以看出一般并不会卡。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/536961-b55ad0716243aee7.gif?imageMogr2/auto-orient/strip" alt="CodeGlance.gif"></p>
+<h1 id="GsonFormat"><a href="#GsonFormat" class="headerlink" title="GsonFormat"></a>GsonFormat</h1><p>现如今有几个app不需要网络交互，与server交互用最多的就是JSON，毕竟连restful规范都推荐使用JSON了，在我们使用GSON去解析JSON的时候我们需要手写一个java bean。作为懒人，有没有一种插件可以帮助我们自动生成java bean。<br>有！如图所示</p>
+<blockquote>
+<p>Alt+S快捷呼出（mac Option+S）</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/536961-d3f25bf407a44353.gif?imageMogr2/auto-orient/strip" alt="Gson_option_s.gif"></p>
+<blockquote>
+<p>Alt+Insert呼出（mac Control+Enter）</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/536961-829808eff9dd9d6e.gif?imageMogr2/auto-orient/strip" alt="Gson_control_enter.gif"></p>
+<h1 id="Android-ButterKnife-Zelezny"><a href="#Android-ButterKnife-Zelezny" class="headerlink" title="Android ButterKnife Zelezny"></a>Android ButterKnife Zelezny</h1><p>作为一个懒人，没用过懒人库怎么能叫懒人呢，现阶段最火的懒人库非butterknife莫属，使用注解方式findbyid和onclick，这也就少写一些代码，怎么能算懒呢，使用Android_ButterKnife_Zelezny自动生成findbyid和onclick代码才叫懒嘛！效果如图！<br>光标选中引用layout资源文件那一行，Alt+Insert(mac control+enter)—Generate ButterKnife Injections</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/536961-02e9cedadbfbb8be.gif?imageMogr2/auto-orient/strip" alt="Android_ButterKnife_Zelezny.gif"></p>
+<h1 id="RemoveButterKnife"><a href="#RemoveButterKnife" class="headerlink" title="RemoveButterKnife"></a>RemoveButterKnife</h1><p>使用ButterKnife之后代码确实少了好多可是可读性变差了，而且有的项目不能使用butterknife，这时候难道我们一行一行把注解删掉吗？然后再手写findbyid？当然不用，RemoveButterKnife可以帮我们删掉bind注解并生成findView代码，不过有个bug是删不了onclick注解。点击Edit–RemoveButterKnife,效果如图（录屏录不到状态栏）</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/536961-0d0be9735d46aade.gif?imageMogr2/auto-orient/strip" alt="RemoveButterKnife.gif"></p>
+<h1 id="Android-Studio-Prettify"><a href="#Android-Studio-Prettify" class="headerlink" title="Android Studio Prettify"></a>Android Studio Prettify</h1><p>如果不想用ButterKnife注解方式findview，还有一种选择，那就是Prettift，而且可以选择生成全局变量还是局部变量。光标选中引用layout资源那一行，全局变量<br>：Alt+Insert–View Fields(mac control+Enter–View Fields)局部变量：Alt+Insert–View Variables(mac control+Enter–View Variables).<br><img src="http://upload-images.jianshu.io/upload_images/536961-732e43f8677d3d96.gif?imageMogr2/auto-orient/strip" alt="Android_Studio_Prettify_findbyid.gif"></p>
+<p>Prettift还有个附属功能，可以不用去string.xml文件里就可以生成字符串常量<br>,光标选中字符串，右键Extract String resource.</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/536961-3f6e9b40a9a4e7d8.gif?imageMogr2/auto-orient/strip" alt="Android_Studio_Prettify.gif"></p>
+<h1 id="Android-Postfix-Completion"><a href="#Android-Postfix-Completion" class="headerlink" title="Android Postfix Completion"></a>Android Postfix Completion</h1><p>Android Postfix Completion其实是对代码提醒的一个拓展，他能快捷生成for循环、toast、sout、log等，直接字符串或者返回字符串的方法后面打点，fori、toast、sout、log、not null回车即可。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/536961-80cbb325e04f5eb7.gif?imageMogr2/auto-orient/strip" alt="Android_Postfix_Completion.gif"></p>
+<h1 id="JSONOnlineVewer"><a href="#JSONOnlineVewer" class="headerlink" title="JSONOnlineVewer"></a>JSONOnlineVewer</h1><p>如果在chrome用过postman插件的话，应该会期望IDE有个测试接口的功能，所以JSONOnlineVewer满足你~界面可能有点丑，不过功能还是很完善的！配合GsonFormat输出爆表。<br><img src="http://upload-images.jianshu.io/upload_images/536961-74b7b9d8dd9c7da9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="JSONView.png"></p>
+<h1 id="Android-Drawable-Importer"><a href="#Android-Drawable-Importer" class="headerlink" title="Android  Drawable Importer"></a>Android  Drawable Importer</h1><p>做Android开发难免需要做屏幕适配，可是每个分辨率都导一次<br>图片还是挺麻烦的， Android  Drawable Importer可以解决这个问题，只需要导一次图片选择不同分辨率，就可以导入多个分辨率的图片了。<br>（额。。。这个不知道为什么AS升级之后用不了，图片下次补）</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><blockquote>
+<p>工欲善其事必先利其器</p>
+</blockquote>
+<p>当我们有一个快捷开发的编程环境之后，不仅代码效率提高，而且越写越开心。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[EventBus3.0入门笔记]]></title>
       <url>http://jcmels.github.io/2016/10/27/android-eventbus-primer/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
