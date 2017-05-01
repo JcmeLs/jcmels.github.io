@@ -10,6 +10,8 @@
     
     <title>
         
+            云直播概述 | 
+        
         Jcme丶Ls&#39;s Blog
     </title>
 
@@ -46,7 +48,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://jcmels.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Jcme丶Ls&#39;s Blog">
+    <meta property="og:title" content="云直播概述 | Jcme丶Ls&#39;s Blog">
     <meta property="og:description" content="coding live">
 
     <!--[if lte IE 9]>
@@ -207,6 +209,41 @@
 
                     <!-- Post TOC -->
 
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#名词解释"><span class="post-toc-number">2.</span> <span class="post-toc-text">名词解释</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#推流"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">推流</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#拉流"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">拉流</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RTMP"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">RTMP</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#整体流程"><span class="post-toc-number">3.</span> <span class="post-toc-text">整体流程</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#功能"><span class="post-toc-number">4.</span> <span class="post-toc-text">功能</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#业务服务器"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">业务服务器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#推流端"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">推流端</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#播放端"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">播放端</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#后记"><span class="post-toc-number">5.</span> <span class="post-toc-text">后记</span></a></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
 
 <!-- Layouts -->
 
@@ -232,7 +269,7 @@
         
     
             <p class="article-headline-p">
-                
+                云直播概述
             </p>
         </div>
 
@@ -251,7 +288,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>Jcme丶Ls</strong>
-        <span>4月 12, 2016</span>
+        <span>11月 07, 2016</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -272,7 +309,7 @@
         </button>
         <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
             <li class="mdl-menu__item">在其它设备中阅读本文章</li>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACZElEQVR42u3bQXKDMBAEQP//08kLjGdWILCrObkoCtQ6SJtZ5fX309cLDw8PDw8PDw/vYbxXfL17fva24zfPxoaHh4e3k/dhqT0cRHI/+f2Ol48NDw8Pbz8v/0xyp30+mZpobHh4eHgP4yULd1J2H5fReHh4eL/Ey4ODpBTGw8PD+3ZeXhCvPJ8X6zdkLXh4eHgxr21T7fx9Q38PDw8P75BXH2mKP5O0x1a2n+jQFR4eHt4FvPbY00pza9b0ykeLh4eHt4eXNKJWIoZZu6uNj/Hw8PB28oaLbxxYzO7M/jEADw8PbyevbfbPgonkfl5k4+Hh4d3FW2nwn7UZJG8rDhPg4eHhbeHNYtY20k22jSSw+PAePDw8vC28WRyQl7zt2/LpxsPDw7uLl5fI+UKfFMf5NlB8EQ8PD28jLy+FZ/FE0jzLI2M8PDy8u3izg1Cz8jpB1gcF2v4eHh4e3km8dvluA4V2mvKgJNoY8PDw8E7ltccF2mU6v1YCXzw8PLydvLZV3x6lWg+CLw8j8PDw8Ea8fHtog931aaq/i4eHh3cxr2075SXvLNhdiXrx8PDwdvKSYnfW7mrb//kYihgXDw8P71Te7CjVypbQTsFxEw4PDw9vP2+lTdUePpiFFHXgi4eHh3cxr/2Df7YNtFtC+048PDy8/bxkM1gZev78CXEwHh4e3kZeuxkcD+Ks6CEJRPDw8PCezEuOTK0g20nEw8PD+15eG/5GS3xwoKHu7+Hh4eGdyssL5SR+TYbeTkQ0Njw8PLwtvFkQkMey7aDbsAMPDw9vJ+/3Ljw8PDw8PDw8vAdc/yr6Al1R09bFAAAAAElFTkSuQmCC">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC10lEQVR42u3aMVbEMAwFwL3/paGlifdLykKwxxUvmDijAj1Jfn0duV7Y2NjY2NjY2NjYj2S/4nX1Vz+fXL0z2XP12/xv33wzNjY29tbsN//6L/ZchSPHR4mn9QZsbGzsM9l54lkfs96/TjNr8CS42NjY2Nh5GVDduQZjY2NjY386ga1T2rpV1DsXGxsbG3vSVErSTx6gvLD5414aNjY29uPZ1QLjCT//6nwbGxsb+8Hs6upd7slTY3XYXPhybGxs7E3ZeWJI8L1h8F2nvwkcNjY29qbs6mWavMHUe9u8RXV5FjY2Nvam7F5TqTowyD9xMnj+eC8NGxsb+8HsdfpZP580g/KR7fxcbGxs7F3Z1aIiKUjml3WqQW8OerGxsbE3Yk/a93njqTdsqAauOR7AxsbG3oKdhCBPPDmjeq2n1+TCxsbG3pWdJKFeiurtmYwKCgkMGxsbe1N2XkIUDitetclLnerIGRsbG/s09qREqV7HuWvk8OY5NjY29qbsPOVUGzr5/snphaBjY2NjH8Outpby0exdhUc+rsDGxsY+h11t9FQb95NR8dWeJPTY2NjY2NWd1UZSgqm2t7CxsbHPZCcfUT24OgBIglV9jo2NjX0Ou3c5sjeg7SXO6ndiY2Njn8OeNG6qzZ3ewGBy0QcbGxv7ZHZv9Js3+svN/WJqxMbGxj6TXW3fF45shbJ6uadZimBjY2NvxO4VHutRQbVsWJc3v9RUwsbGxv637DyB9Ya++SmT9cFSBBsbG/uR7OrqtX7ypDgvV7CxsbFPY08Sw6QJVQ1EdcAclSLY2NjYG7HzpJWXHHmA8gKm92ZsbGzsc9i9gqF3FTJJovNmEzY2NjZ2b0BbLT+SFDUZMGNjY2Nj31t+9N6ZJMIbruxgY2Nj/3N2PmRtXn+MB8B5GkvCio2NjX0CO2/Q5CVKLyjVtDdqKmFjY2NvwT5nYWNjY2NjY2NjYz9mfQOgU0lLYYEFcwAAAABJRU5ErkJggg==">
         </ul>
     
 
@@ -284,7 +321,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        
+        <a class="post_tag-link" href="/tags/Android从入门到转行，概述/">Android从入门到转行，概述</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/node-js从入门到精分/">node.js从入门到精分</a>
     </ul>
     
 
@@ -300,7 +337,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=&url=http://jcmels.github.io//baidu_verify_BUqm4iQePL.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=云直播概述&url=http://jcmels.github.io//2016/11/07/android-node-live-summarize/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -309,7 +346,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=&url=http://jcmels.github.io//baidu_verify_BUqm4iQePL.html&via=Jcme丶Ls" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=云直播概述&url=http://jcmels.github.io//2016/11/07/android-node-live-summarize/index.html&via=Jcme丶Ls" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -318,7 +355,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://jcmels.github.io//baidu_verify_BUqm4iQePL.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://jcmels.github.io//2016/11/07/android-node-live-summarize/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -327,7 +364,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://jcmels.github.io//baidu_verify_BUqm4iQePL.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://jcmels.github.io//2016/11/07/android-node-live-summarize/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -351,7 +388,29 @@
                 <!-- Post Content -->
                 <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        BUqm4iQePL
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>现在的直播平台琳琅满目：一直播、虎牙TV、斗鱼TV、熊猫TV等等。看着这么多直播平台，作为一个程序员难道不想知道这东西是怎么运行的吗？或者自己做一个出来？跟女朋友炫耀也好啊~所以最近在做一个基于七牛云直播平台的直播APP，坑其实也挺多的，我希望通过我的博文，可以尽可能减少掉入坑的几率。<br><a id="more"></a></p>
+<h1 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h1><h2 id="推流"><a href="#推流" class="headerlink" title="推流"></a>推流</h2><p>推流就是将摄像头采集到的素材通过RTMP协议将数据包发送至服务器的过程。</p>
+<h2 id="拉流"><a href="#拉流" class="headerlink" title="拉流"></a>拉流</h2><p>拉流就是根据指定的URL通过RTMP协议从服务器端获取到素材的过程。</p>
+<h2 id="RTMP"><a href="#RTMP" class="headerlink" title="RTMP"></a>RTMP</h2><p>RTMP是Real Time Messaging Protocol（实时消息传输协议）的首字母缩写。该协议基于TCP，是一个协议族，包括RTMP基本协议及RTMPT/RTMPS/RTMPE等多种变种。RTMP是一种设计用来进行实时数据通信的网络协议，主要用来在Flash/AIR平台和支持RTMP协议的流媒体/交互服务器之间进行音视频和数据通信。</p>
+<h1 id="整体流程"><a href="#整体流程" class="headerlink" title="整体流程"></a>整体流程</h1><p>当推流端发起推流请求之前，需要先向业务服务器发起流请求，业务服务器再向七牛云直播服务平台请求创建流，当流创建完成之后，七牛云会返回流信息给业务服务器，业务服务器根据流信息进行url拼接，再把URL返回给推流端，推流端根据相应的推流url进行推流，把采集到的数据推给七牛直播平台。七牛直播平台会把素材进行TS切片，并进行数据的持久化处理，保存在七牛的存储空间里。播放端点击一个直播间之后，首先向业务服务器发出请求播放url的请求，业务服务器与七牛云直播平台交互（这一步也可以在推流创建流的时候存到数据库中）获取到流信息，拼接URL，返回url，播放端根据url获取到素材并渲染出来。<br><img src="http://upload-images.jianshu.io/upload_images/536961-b5e082084527e0b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="直播框架图.png"></p>
+<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><h2 id="业务服务器"><a href="#业务服务器" class="headerlink" title="业务服务器"></a>业务服务器</h2><p>业务服务器主要是推流端和拉流端获取流信息的服务器，推流前需要通过业务服务器与七牛直播服务进行交互，返回流信息，业务服务器根据流信息拼接Url，形成对应关系，保存在本地数据库中；而拉流客户端也需要像业务服务器请求播放url。业务服务器只起到与七牛云直播服务交互的作用，真正的直播分流、切片、存储等功能还是在七牛云直播空间实现的。</p>
+<h2 id="推流端"><a href="#推流端" class="headerlink" title="推流端"></a>推流端</h2><p>推流端就是负责素材的采集，再通过RTMP协议发送到服务器。在采集端我们可以做些什么？</p>
+<ol>
+<li>滤镜处理</li>
+<li>手动、自动对焦</li>
+<li>美颜</li>
+<li>数码变焦</li>
+<li>水印<br>这些功能我们通过七牛提供的PLDroidMediaStreaming 就可以轻松实现，当然我们可以定制一些服务，比如评论弹幕、送礼物这些。</li>
+</ol>
+<h2 id="播放端"><a href="#播放端" class="headerlink" title="播放端"></a>播放端</h2><p>播放端就是负责从服务器获取到素材渲染出来。那么在播放端我们可以做些什么呢？</p>
+<ol>
+<li>画面旋转</li>
+<li>画面预览</li>
+<li>秒开直播</li>
+<li>手势操作<br>这些功能我们也可以通过七牛提供的PLDroidPlayer轻松实现，同时我们可以定制服务，比如评论、送礼物等。</li>
+</ol>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>当流程与功能大概梳理清楚了，我们可以进行编码操作了，下节将讲解如何快速创建一个直播空间以及快速搭建一个业务服务器。<br>PS：初次接触直播，如果东西解释得不清楚或者说错了，欢迎指正！！</p>
+
     
 
     
@@ -380,8 +439,8 @@
     <!-- 多说评论框 start -->
     <div class="ds-thread"
         data-thread-key=""
-        data-url="http://jcmels.github.io/baidu_verify_BUqm4iQePL.html"
-        data-title="">
+        data-url="http://jcmels.github.io/2016/11/07/android-node-live-summarize/"
+        data-title="云直播概述">
     </div>
     <!-- 多说评论框 end -->
 </div>
@@ -397,11 +456,27 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
+        <a href="/2016/11/10/android-qiniu-pili-fast/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
+    
+        <a href="/2016/11/02/android-AS-plugins/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
     
 </nav>
 
@@ -570,6 +645,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 

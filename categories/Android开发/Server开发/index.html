@@ -10,6 +10,8 @@
     
     <title>
         
+            分类: Server开发 | 
+        
         Jcme丶Ls&#39;s Blog
     </title>
 
@@ -46,7 +48,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://jcmels.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Jcme丶Ls&#39;s Blog">
+    <meta property="og:title" content="分类: Server开发 | Jcme丶Ls&#39;s Blog">
     <meta property="og:description" content="coding live">
 
     <!--[if lte IE 9]>
@@ -205,209 +207,93 @@
                         </button>
                     
 
-                    <!-- Post TOC -->
+                    <!-- Index Module -->
+<div class="material-index mdl-grid">
+    
+    <div class="locate-thumbnail-symbol"></div>
 
-
-<!-- Layouts -->
-
-    <!-- Post Module -->
-    <div class="material-post_container">
-
-        <div class="material-post mdl-grid">
-            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
-
-                <!-- Post Header(Thumbnail & Title) -->
-                
-    <!-- Paradox Post Header -->
+    
+        
+            <!-- Paradox Thumbnail -->
+            <div class="post_entry-module mdl-card mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-            <script>
-    var randomNum = Math.floor(Math.random() * 19 + 1);
+        
+    
 
-    $('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')');
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/2016/11/07/android-node-live-summarize/">云直播概述</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            前言现在的直播平台琳琅满目：一直播、虎牙TV、斗鱼TV、熊猫TV等等。看着这么多直播平台，作为一个程序员难道不想知道这东西是怎么运行的吗？或者自己做一个出来？跟女朋友炫耀也好啊~所以最近在做一个基于七牛云直播平台的直播APP，坑其实也挺多的，我希望通过我的博文，可以尽可能减少掉入坑的几率。
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/2016/11/07/android-node-live-summarize/" target="_self">继续阅读</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/avatar.png" width="44px" height="44px" alt="Jcme丶Ls's avatar">
+            </div>
+            <div>
+                <strong>Jcme丶Ls</strong>
+                <span>11月 07, 2016</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+            <!-- Category -->
+            <span class="post_entry-category">
+                <a class="post_category-link" href="/categories/Android开发/">Android开发</a>, <a class="post_category-link" href="/categories/Android开发/Server开发/">Server开发</a>
+            </span>
+
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span class="ds-thread-count" data-thread-key="" data-count-type="comments"></span>
+                </span>
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+        
+        
+    
+
+    
+
+    
+        <script>
+    var randomNum;
+
+    var locatePost = $('.locate-thumbnail-symbol').next();
+    for(var i = 0; i < 10; i++) {
+        randomNum = Math.floor(Math.random() * 19 + 1);
+
+        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
+        locatePost.children('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')')
+
+        locatePost = locatePost.next();
+    }
 </script>
 
-        
-    
-            <p class="article-headline-p">
-                
-            </p>
-        </div>
-
-
-
-
-
-                
-                    <!-- Paradox Post Info -->
-                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
-
-    <!-- Author Avatar -->
-    <div id="author-avatar">
-        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
-    </div>
-    <!-- Author Name & Date -->
-    <div>
-        <strong>Jcme丶Ls</strong>
-        <span>4月 12, 2016</span>
-    </div>
-
-    <div class="section-spacer"></div>
-
-    <!-- Favorite -->
-    <!--
-        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
-            <i class="material-icons" role="presentation">favorite</i>
-            <span class="visuallyhidden">favorites</span>
-        </button>
-    -->
-
-    <!-- Qrcode -->
-    
-        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-            <i class="material-icons" role="presentation">devices other</i>
-            <span class="visuallyhidden">devices other</span>
-        </button>
-        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
-            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACZElEQVR42u3bQXKDMBAEQP//08kLjGdWILCrObkoCtQ6SJtZ5fX309cLDw8PDw8PDw/vYbxXfL17fva24zfPxoaHh4e3k/dhqT0cRHI/+f2Ol48NDw8Pbz8v/0xyp30+mZpobHh4eHgP4yULd1J2H5fReHh4eL/Ey4ODpBTGw8PD+3ZeXhCvPJ8X6zdkLXh4eHgxr21T7fx9Q38PDw8P75BXH2mKP5O0x1a2n+jQFR4eHt4FvPbY00pza9b0ykeLh4eHt4eXNKJWIoZZu6uNj/Hw8PB28oaLbxxYzO7M/jEADw8PbyevbfbPgonkfl5k4+Hh4d3FW2nwn7UZJG8rDhPg4eHhbeHNYtY20k22jSSw+PAePDw8vC28WRyQl7zt2/LpxsPDw7uLl5fI+UKfFMf5NlB8EQ8PD28jLy+FZ/FE0jzLI2M8PDy8u3izg1Cz8jpB1gcF2v4eHh4e3km8dvluA4V2mvKgJNoY8PDw8E7ltccF2mU6v1YCXzw8PLydvLZV3x6lWg+CLw8j8PDw8Ea8fHtog931aaq/i4eHh3cxr2075SXvLNhdiXrx8PDwdvKSYnfW7mrb//kYihgXDw8P71Te7CjVypbQTsFxEw4PDw9vP2+lTdUePpiFFHXgi4eHh3cxr/2Df7YNtFtC+048PDy8/bxkM1gZev78CXEwHh4e3kZeuxkcD+Ks6CEJRPDw8PCezEuOTK0g20nEw8PD+15eG/5GS3xwoKHu7+Hh4eGdyssL5SR+TYbeTkQ0Njw8PLwtvFkQkMey7aDbsAMPDw9vJ+/3Ljw8PDw8PDw8vAdc/yr6Al1R09bFAAAAAElFTkSuQmCC">
-        </ul>
-    
-
-    <!-- Tags (bookmark) -->
-    
-    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-        <i class="material-icons" role="presentation">bookmark</i>
-        <span class="visuallyhidden">bookmark</span>
-    </button>
-    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
-        <li class="mdl-menu__item">
-        
-    </ul>
-    
-
-    <!-- Share -->
-    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-    <i class="material-icons" role="presentation">share</i>
-    <span class="visuallyhidden">share</span>
-</button>
-<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
-    
-
-    
-
-    <!-- Share Weibo -->
-    
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=&url=http://jcmels.github.io//baidu_verify_BUqm4iQePL.html&pic=&searchPic=false&style=simple" target="_blank">
-            <li class="mdl-menu__item">
-                分享到微博
-            </li>
-        </a>
-    
-
-    <!-- Share Twitter -->
-    
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=&url=http://jcmels.github.io//baidu_verify_BUqm4iQePL.html&via=Jcme丶Ls" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Twitter
-            </li>
-        </a>
-    
-
-    <!-- Share Facebook -->
-    
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://jcmels.github.io//baidu_verify_BUqm4iQePL.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Facebook
-            </li>
-        </a>
-    
-
-    <!-- Share Google+ -->
-    
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://jcmels.github.io//baidu_verify_BUqm4iQePL.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Google+
-            </li>
-        </a>
-    
-
-    <!-- Share LinkedIn -->
-    
-
-    <!-- Share QQ -->
-    
-
-    <!-- Share Telegram -->
-    
-</ul>
-
-</div>
-
-                
-
-                <!-- Post Content -->
-                <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
-    
-        BUqm4iQePL
-    
-
     
 </div>
-
-
-                
-
-                <!-- Post Comments -->
-                
-                    
-    <!-- 使用多说评论 -->
-    <link rel="stylesheet" href="/css/duoshuo.min.css">
-<style>
-    #ds-thread #ds-reset .ds-post-button{
-        background-color: #0097A7 !important;
-    }
-    #ds-wrapper #ds-reset .ds-icons-32{
-        background-color: #0097A7 !important;
-    }
-    #ds-reset .ds-highlight {
-        color: #0097A7 !important;
-    }
-</style>
-<div id="comments">
-    <!-- 多说评论框 start -->
-    <div class="ds-thread"
-        data-thread-key=""
-        data-url="http://jcmels.github.io/baidu_verify_BUqm4iQePL.html"
-        data-title="">
-    </div>
-    <!-- 多说评论框 end -->
-</div>
-
-
-
-
-
-                
-            </div>
-
-            <!-- Post Prev & Next Nav -->
-            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
-    <!-- Prev Nav -->
-    
-
-    <!-- Section Spacer -->
-    <div class="section-spacer"></div>
-
-    <!-- Next Nav -->
-    
-</nav>
-
-        </div>
-    </div>
-
 
 
                     
@@ -570,6 +456,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 

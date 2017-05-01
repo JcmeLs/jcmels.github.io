@@ -155,6 +155,34 @@
     </entry>
     
     <entry>
+      <title><![CDATA[云直播概述]]></title>
+      <url>http://jcmels.github.io/2016/11/07/android-node-live-summarize/</url>
+      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>现在的直播平台琳琅满目：一直播、虎牙TV、斗鱼TV、熊猫TV等等。看着这么多直播平台，作为一个程序员难道不想知道这东西是怎么运行的吗？或者自己做一个出来？跟女朋友炫耀也好啊~所以最近在做一个基于七牛云直播平台的直播APP，坑其实也挺多的，我希望通过我的博文，可以尽可能减少掉入坑的几率。<br><a id="more"></a></p>
+<h1 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h1><h2 id="推流"><a href="#推流" class="headerlink" title="推流"></a>推流</h2><p>推流就是将摄像头采集到的素材通过RTMP协议将数据包发送至服务器的过程。</p>
+<h2 id="拉流"><a href="#拉流" class="headerlink" title="拉流"></a>拉流</h2><p>拉流就是根据指定的URL通过RTMP协议从服务器端获取到素材的过程。</p>
+<h2 id="RTMP"><a href="#RTMP" class="headerlink" title="RTMP"></a>RTMP</h2><p>RTMP是Real Time Messaging Protocol（实时消息传输协议）的首字母缩写。该协议基于TCP，是一个协议族，包括RTMP基本协议及RTMPT/RTMPS/RTMPE等多种变种。RTMP是一种设计用来进行实时数据通信的网络协议，主要用来在Flash/AIR平台和支持RTMP协议的流媒体/交互服务器之间进行音视频和数据通信。</p>
+<h1 id="整体流程"><a href="#整体流程" class="headerlink" title="整体流程"></a>整体流程</h1><p>当推流端发起推流请求之前，需要先向业务服务器发起流请求，业务服务器再向七牛云直播服务平台请求创建流，当流创建完成之后，七牛云会返回流信息给业务服务器，业务服务器根据流信息进行url拼接，再把URL返回给推流端，推流端根据相应的推流url进行推流，把采集到的数据推给七牛直播平台。七牛直播平台会把素材进行TS切片，并进行数据的持久化处理，保存在七牛的存储空间里。播放端点击一个直播间之后，首先向业务服务器发出请求播放url的请求，业务服务器与七牛云直播平台交互（这一步也可以在推流创建流的时候存到数据库中）获取到流信息，拼接URL，返回url，播放端根据url获取到素材并渲染出来。<br><img src="http://upload-images.jianshu.io/upload_images/536961-b5e082084527e0b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="直播框架图.png"></p>
+<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><h2 id="业务服务器"><a href="#业务服务器" class="headerlink" title="业务服务器"></a>业务服务器</h2><p>业务服务器主要是推流端和拉流端获取流信息的服务器，推流前需要通过业务服务器与七牛直播服务进行交互，返回流信息，业务服务器根据流信息拼接Url，形成对应关系，保存在本地数据库中；而拉流客户端也需要像业务服务器请求播放url。业务服务器只起到与七牛云直播服务交互的作用，真正的直播分流、切片、存储等功能还是在七牛云直播空间实现的。</p>
+<h2 id="推流端"><a href="#推流端" class="headerlink" title="推流端"></a>推流端</h2><p>推流端就是负责素材的采集，再通过RTMP协议发送到服务器。在采集端我们可以做些什么？</p>
+<ol>
+<li>滤镜处理</li>
+<li>手动、自动对焦</li>
+<li>美颜</li>
+<li>数码变焦</li>
+<li>水印<br>这些功能我们通过七牛提供的PLDroidMediaStreaming 就可以轻松实现，当然我们可以定制一些服务，比如评论弹幕、送礼物这些。</li>
+</ol>
+<h2 id="播放端"><a href="#播放端" class="headerlink" title="播放端"></a>播放端</h2><p>播放端就是负责从服务器获取到素材渲染出来。那么在播放端我们可以做些什么呢？</p>
+<ol>
+<li>画面旋转</li>
+<li>画面预览</li>
+<li>秒开直播</li>
+<li>手势操作<br>这些功能我们也可以通过七牛提供的PLDroidPlayer轻松实现，同时我们可以定制服务，比如评论、送礼物等。</li>
+</ol>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>当流程与功能大概梳理清楚了，我们可以进行编码操作了，下节将讲解如何快速创建一个直播空间以及快速搭建一个业务服务器。<br>PS：初次接触直播，如果东西解释得不清楚或者说错了，欢迎指正！！</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android Studio常用插件之行云流水coding]]></title>
       <url>http://jcmels.github.io/2016/11/02/android-AS-plugins/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>现如今，做Android开发的大部分都转移到AS了吧，从ADT转过来确实方便快捷很多，可作为程序员，典型的懒人，这还不够！我们都知道AS是基于IDEA开发的，IDEA的特点就是插件多，那么AS有没有什么插件能让我高（偷）效（懒）写代码呢？以下是我常用的几个插件，效率提升挺多的。<br><a id="more"></a></p>

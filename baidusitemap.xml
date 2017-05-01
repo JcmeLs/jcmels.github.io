@@ -4,6 +4,31 @@
 
     
   <url>
+    <loc>http://jcmels.github.io/2016/11/07/android-node-live-summarize/</loc>
+    <lastmod>2017-05-01T15:58:07.358Z</lastmod>
+    <data>
+        <display>
+        <title>云直播概述</title>
+        <pubTime>2016-11-07T15:56:13.000Z</pubTime>
+        
+        <tag>node.js从入门到精分</tag>
+         
+        <tag>Android从入门到转行，概述</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android开发" url="http://jcmels.github.io/categories/Android%E5%BC%80%E5%8F%91/"/>
+          
+             
+              <breadCrumb title="Server开发" url="http://jcmels.github.io/categories/Android%E5%BC%80%E5%8F%91/Server%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jcmels.github.io/2016/11/02/android-AS-plugins/</loc>
     <lastmod>2017-05-01T15:54:46.752Z</lastmod>
     <data>
@@ -81,9 +106,9 @@
         <title>七牛云直播node.js业务服务器之快速开发</title>
         <pubTime>2016-12-01T04:37:10.000Z</pubTime>
         
-        <tag>快速开发</tag>
-         
         <tag>node.js从入门到精分</tag>
+         
+        <tag>快速开发</tag>
          
          
            
