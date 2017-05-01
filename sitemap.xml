@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://jcmels.github.io/2016/08/11/android-publish-library/</loc>
+    <loc>http://jcmels.github.io/2016/12/01/server-nodejs-qiniu-fast/</loc>
     
-    <lastmod>2016-08-11T13:48:58.382Z</lastmod>
+    <lastmod>2017-05-01T04:40:34.532Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://jcmels.github.io/2016/07/27/server-nodejs-mongoose-updatetips/</loc>
     
-    <lastmod>2016-07-27T15:35:36.190Z</lastmod>
+    <lastmod>2017-05-01T04:39:31.978Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jcmels.github.io/2017/03/14/mac-tips-caffe/</loc>
+    
+    <lastmod>2017-05-01T03:58:10.429Z</lastmod>
     
   </url>
   

@@ -4,21 +4,21 @@
 
     
   <url>
-    <loc>http://jcmels.github.io/2016/08/11/android-publish-library/</loc>
-    <lastmod>2016-08-11T13:48:58.382Z</lastmod>
+    <loc>http://jcmels.github.io/2016/12/01/server-nodejs-qiniu-fast/</loc>
+    <lastmod>2017-05-01T04:40:34.532Z</lastmod>
     <data>
         <display>
-        <title>Library从0到1024</title>
-        <pubTime>2016-08-11T12:54:18.000Z</pubTime>
+        <title>七牛云直播node.js业务服务器之快速开发</title>
+        <pubTime>2016-12-01T04:37:10.000Z</pubTime>
         
-        <tag>Android从入门到转行</tag>
+        <tag>node.js从入门到精分</tag>
          
-        <tag>库</tag>
+        <tag>快速开发</tag>
          
          
            
              
-              <breadCrumb title="Android开发" url="http://jcmels.github.io/categories/Android%E5%BC%80%E5%8F%91/"/>
+              <breadCrumb title="Server开发" url="http://jcmels.github.io/categories/Server%E5%BC%80%E5%8F%91/"/>
           
         </display>
     </data>
@@ -27,7 +27,7 @@
     
   <url>
     <loc>http://jcmels.github.io/2016/07/27/server-nodejs-mongoose-updatetips/</loc>
-    <lastmod>2016-07-27T15:35:36.190Z</lastmod>
+    <lastmod>2017-05-01T04:39:31.978Z</lastmod>
     <data>
         <display>
         <title>Mongoose更新数据小技巧</title>
@@ -41,6 +41,26 @@
            
              
               <breadCrumb title="Server开发" url="http://jcmels.github.io/categories/Server%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jcmels.github.io/2017/03/14/mac-tips-caffe/</loc>
+    <lastmod>2017-05-01T03:58:10.429Z</lastmod>
+    <data>
+        <display>
+        <title>Mac安装caffe！真的真的只看这个就够了！</title>
+        <pubTime>2017-03-14T03:54:25.000Z</pubTime>
+        
+        <tag>深度学习框架</tag>
+         
+         
+           
+             
+              <breadCrumb title="mac技巧" url="http://jcmels.github.io/categories/mac%E6%8A%80%E5%B7%A7/"/>
           
         </display>
     </data>
