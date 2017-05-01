@@ -80,10 +80,10 @@
     <link href="http://jcmels.github.io/2017/01/12/ML-tensorflow-primer/"/>
     <id>http://jcmels.github.io/2017/01/12/ML-tensorflow-primer/</id>
     <published>2017-01-11T16:04:21.000Z</published>
-    <updated>2017-05-01T16:10:06.016Z</updated>
+    <updated>2017-05-01T16:15:42.542Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;2016年，由于AlphaGo跟李世石的人机围棋大战让AI第一次如此震撼的登陆人们的脑海中，让人们不禁唏嘘，人工智能如今已经那么厉害了。那么我们想不想通过自己的努力实现一个简化版的阿法狗呢？当然这个过程有点漫长，不过一步一步来，我们先入门阿法狗的框架–TensorFlow。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;什么是TensorFlow&quot;&gt;&lt;a href=&quot;#什么是TensorFlow&quot; class=&quot;headerlink&quot; title=&quot;什么是TensorFlow&quot;&gt;&lt;/a&gt;什么是TensorFlow&lt;/h2&gt;&lt;p&gt;什么是TensorFlow，Google的人是这样说的  &lt;/p&gt;
+&lt;h2 id=&quot;什么是TensorFlow&quot;&gt;&lt;a href=&quot;#什么是TensorFlow&quot; class=&quot;headerlink&quot; title=&quot;什么是TensorFlow&quot;&gt;&lt;/a&gt;什么是TensorFlow&lt;/h2&gt;&lt;p&gt;什么是TensorFlow，Google的人是这样说的:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;TensorFlow™ 是一个采用数据流图（data flow graphs），用于数值计算的开源软件库。节点（Nodes）在图中表示数学操作，图中的线（edges）则表示在节点间相互联系的多维数据数组，即张量（tensor）。 它灵活的架构让你可以在多种平台上展开计算，例如台式计算机中的一个或多个CPU（或GPU），服务器，移动设备等等。TensorFlow 最初由Google大脑小组（隶属于Google机器智能研究机构）的研究员和工程师们开发出来，用于机器学习和深度神经网络方面的研究，但这个系统的通用性使其也可广泛用于其他计算领域。&lt;/p&gt;
 &lt;/blockquote&gt;
