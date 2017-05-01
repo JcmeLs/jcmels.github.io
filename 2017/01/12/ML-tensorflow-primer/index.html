@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.2.6 -->
+
+    <!-- Title -->
+    
+    <title>
+        
+            TensorFlow入门 | 
+        
+        Jcme丶Ls&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Meta & Info -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Jcme丶Ls">
+    <meta name="description" content="coding live">
+    <meta name="keywords" content="null">
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Jcme丶Ls&#39;s Blog">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://jcmels.github.io">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="TensorFlow入门 | Jcme丶Ls&#39;s Blog">
+    <meta property="og:description" content="coding live">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="/css/material.min.css">
+    <link rel="stylesheet" href="/css/style.min.css">
+    <!-- Config CSS -->
+
+
+<!-- Other Styles -->
+<style>
+    body, html {
+        font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    }
+
+    a {
+        color: #00838F;
+    }
+
+    .mdl-card__media,
+    #search-label,
+    #search-form-label:after,
+    #scheme-Paradox .hot_tags-count,
+    #scheme-Paradox .sidebar_archives-count,
+    #scheme-Paradox .sidebar-colored .sidebar-header,
+    #scheme-Paradox .sidebar-colored .sidebar-badge{
+        background-color: #0097A7 !important;
+    }
+
+    /* Sidebar User Drop Down Menu Text Color */
+    #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+    #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+        color: #0097A7 !important;
+    }
+
+    #post_entry-right-info,
+    .sidebar-colored .sidebar-nav li:hover > a,
+    .sidebar-colored .sidebar-nav li:hover > a i,
+    .sidebar-colored .sidebar-nav li > a:hover,
+    .sidebar-colored .sidebar-nav li > a:hover i,
+    .sidebar-colored .sidebar-nav li > a:focus i,
+    .sidebar-colored .sidebar-nav > .open > a,
+    .sidebar-colored .sidebar-nav > .open > a:hover,
+    .sidebar-colored .sidebar-nav > .open > a:focus,
+    #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+        color: #0097A7 !important;
+    }
+
+    .toTop {
+        background: #757575 !important;
+    }
+
+    .material-layout .material-post>.material-nav,
+    .material-layout .material-index>.material-nav,
+    .material-nav a {
+        color: #757575;
+    }
+
+    #scheme-Paradox .MD-burger-layer {
+        background-color: #757575;
+    }
+
+    #scheme-Paradox #post-toc-trigger-btn {
+        color: #757575;
+    }
+
+    .post-toc a:hover {
+        color: #00838F;
+        text-decoration: underline;
+    }
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+        body {
+            background-color: #F5F5F5;
+        }
+
+        /* blog_info bottom background */
+        #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
+            background-color: #fff;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            setTimeout(function () {
+                document.body.background="https://api.i-meto.com/bing?type=T";
+            }, 2000);
+        }
+    </script>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+        .fade {
+            transition: all 800ms linear;
+            -webkit-transform: translate3d(0,0,0);
+            -moz-transform: translate3d(0,0,0);
+            -ms-transform: translate3d(0,0,0);
+            -o-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+            opacity: 1;
+        }
+
+        .fade.out{
+            opacity: 0;
+        }
+    </style>
+
+
+    <script src="/js/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="/css/highlight/atom-one-dark.css">
+
+    <!-- UC Browser Compatible-->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write('<link rel="stylesheet" href="/css/uc.css">');
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
+    <!-- Custom Head -->
+    
+</head>
+
+
+    
+        <body id="scheme-Paradox">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是TensorFlow"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">什么是TensorFlow</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#为什么要用TensorFlow"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">为什么要用TensorFlow</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#hello-TensorFlow"><span class="post-toc-number">2.</span> <span class="post-toc-text">hello TensorFlow</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常量（constant）"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">常量（constant）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#变量（Variable）"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">变量（Variable）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#会话（Session）"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">会话（Session）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#占位符（placeholder）"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">占位符（placeholder）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#激励函数（activation-function）"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">激励函数（activation function）</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#拟合直线"><span class="post-toc-number">3.</span> <span class="post-toc-text">拟合直线</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#拟合曲线"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">拟合曲线</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#添加层-add-layer"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">添加层(add layer)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#后记"><span class="post-toc-number">4.</span> <span class="post-toc-text">后记</span></a></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script>
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                TensorFlow入门
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Jcme丶Ls</strong>
+        <span>1月 12, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC3UlEQVR42u3awY7cIBAE0Pn/n06ukaLxVgFObHicVvYs5nEp0c3n15Hjg42NjY2NjY2Njf1I9iceP0wa//Lv/0qe//lkbM3Y2NjYe7PbxV0jk9/ncyZPojVgY2NjH8D+FgDffpO8bWMpeduuGRsbGxs7/2T7NlnJ9fZhY2NjY9/Hvi5dtVvzmgDDxsbG/q/spEBzXQxKFpS3E3LS7bU0bGxs7Mez86bpc/7+p/1tbGxs7Aez29GGSh5jSZhNrRwbGxt7U3YeDMki2us1M19vL4liY2Njn8PO37bF+rGyfruhX59jY2NjH8bOA2xV+3am8TxYS8PGxsbelJ1cvrlu2Y5d3xlrMy/ob2NjY2NvxG6PDckM+WWdtpy0LMCwsbGxX85OJs0L/e2hZT44F/S3sbGxsV/OTko8q5rB7YbmV3mizcXGxsbemp1ff0kaA+1RZ1WroA4wbGxs7C3YbVG+bevmWzxz7TIKY2xsbOxN2W0zII+NsTi8IxqxsbGx92bni26jJZ//ju2bym1sbGzsF7LzxkBb0B9rD4/hfxBhY2NjH8bOSzktYO1X8u3AxsbGPoGdFN+TMlDePMi/1RaksLGxsc9hjzUD2muRM4G3asuwsbGxd2XnAZC3ZseaCjOHoqncxsbGxn45e2aipNXabmJ74MkPMNjY2NinsdsljhWk2vZtckCK2gPY2NjY27ETXhQS8fGjPd60haqoloaNjY29HXusxJPMkx978rZEG3vY2NjYp7HHDh5jxaB8a9ovYmNjY5/AbkceaXmwRYuOtykKMGxsbOyN2GNXbfLAy5fetnvb4w02Njb23uz2Ok5bALojGttCGDY2NvYJ7LHwyA8PeZnpMzEW19KwsbGxN2XPX9xpI6qOK2xsbGzsRaG19rpPMmddVMLGxsbeiD1f7hm7vpkHUtEMwMbGxj6M3RZr8hgrlnXD1UxsbGzsE9jnDGxsbGxsbGxsbOzHjN8n3eKVsYneKgAAAABJRU5ErkJggg==">
+        </ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/TensorFlow/">TensorFlow</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/机器学习从入门到奥创/">机器学习从入门到奥创</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=TensorFlow入门&url=http://jcmels.github.io//2017/01/12/ML-tensorflow-primer/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=TensorFlow入门&url=http://jcmels.github.io//2017/01/12/ML-tensorflow-primer/index.html&via=Jcme丶Ls" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://jcmels.github.io//2017/01/12/ML-tensorflow-primer/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://jcmels.github.io//2017/01/12/ML-tensorflow-primer/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>2016年，由于AlphaGo跟李世石的人机围棋大战让AI第一次如此震撼的登陆人们的脑海中，让人们不禁唏嘘，人工智能如今已经那么厉害了。那么我们想不想通过自己的努力实现一个简化版的阿法狗呢？当然这个过程有点漫长，不过一步一步来，我们先入门阿法狗的框架–TensorFlow。<br><a id="more"></a></p>
+<h2 id="什么是TensorFlow"><a href="#什么是TensorFlow" class="headerlink" title="什么是TensorFlow"></a>什么是TensorFlow</h2><p>什么是TensorFlow，Google的人是这样说的  </p>
+<blockquote>
+<p>TensorFlow™ 是一个采用数据流图（data flow graphs），用于数值计算的开源软件库。节点（Nodes）在图中表示数学操作，图中的线（edges）则表示在节点间相互联系的多维数据数组，即张量（tensor）。 它灵活的架构让你可以在多种平台上展开计算，例如台式计算机中的一个或多个CPU（或GPU），服务器，移动设备等等。TensorFlow 最初由Google大脑小组（隶属于Google机器智能研究机构）的研究员和工程师们开发出来，用于机器学习和深度神经网络方面的研究，但这个系统的通用性使其也可广泛用于其他计算领域。</p>
+</blockquote>
+<p>TensorFlow是由Google brain team打造的一个神经网络的包，可以说他是以数据流图来进行数值计算的开源库，毕竟从名字来看Tensor     Flow，张量  流动，代表着数据会流动。</p>
+<h2 id="为什么要用TensorFlow"><a href="#为什么要用TensorFlow" class="headerlink" title="为什么要用TensorFlow"></a>为什么要用TensorFlow</h2><p>TensorFlow出世以来被人们认为是最好的神经网络开源库之一，最大的优势就是可以让人们把它当成黑盒去构建我们的神经网络，使我们非常容易的构建出神经网络，降低了学习成本、开发成本、维护成本，而且由于开源，所以TensorFlow会进步的非常快。而且有着完整的移植性，那么什么是完整的移植性？TensorFlow可以跑在CPU上，GPU上；可以跑在Linux上、Mac上甚至Windows上；更激动的是移动平台也支持了Android、IOS；甚至目前物联网火热，连树莓派也支持了！ 而且TensorFlow可以用C++开发，也可以用Python开发甚至JAVA、Go。<br>现在，让我们一起来学习TensorFlow吧！</p>
+<h1 id="hello-TensorFlow"><a href="#hello-TensorFlow" class="headerlink" title="hello TensorFlow"></a>hello TensorFlow</h1><p>在码农的启蒙时代，我们学习新的语言的时候我们的第一行代码通常都是hello world，向世界招手。那我们先跟TensorFlow打个招呼吧~正好测试下我们的TensorFlow环境有没有搭好~（PS:本文使用的语言为Python2.7.13）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">hello=tf.constant(<span class="string">'hello TensorFlow'</span>)</span><br><span class="line">sess=tf.Session()</span><br><span class="line"><span class="keyword">print</span> sess.run(hello)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输出：</span><br><span class="line">      hello TensorFlow</span><br></pre></td></tr></table></figure>
+<p>看到输出hello TensorFlow，那我们的环境没有问题了，进入基础的学习吧！</p>
+<h2 id="常量（constant）"><a href="#常量（constant）" class="headerlink" title="常量（constant）"></a>常量（constant）</h2><p>在TensorFlow中，我们想要申请一个常量是非常简单的，直接使用constant去声明就好了,比如下面的一个加法小程序：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">a=tf.constant(<span class="number">2</span>)</span><br><span class="line">b=tf.constant(<span class="number">3</span>)</span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    <span class="keyword">print</span> sess.run(a)+sess.run(b)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输出：  </span><br><span class="line">      5</span><br></pre></td></tr></table></figure>
+<h2 id="变量（Variable）"><a href="#变量（Variable）" class="headerlink" title="变量（Variable）"></a>变量（Variable）</h2><p>在TensorFlow中，我们声明变量跟Python中直接声明变量有点不同，多了一个初始化的步骤，而且我们想要获取到值得时候需要用session.run（）方法来获取。如下面的小程序，每次运行加一</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">state=tf.Variable(<span class="number">0</span>,name=<span class="string">'counter'</span>)</span><br><span class="line">one=tf.constant(<span class="number">1</span>)</span><br><span class="line">new_value=tf.add(state,one)</span><br><span class="line">update=tf.assign(state,new_value)</span><br><span class="line">init=tf.global_variables_initializer()<span class="comment"># 初始化非常重要！！！！！</span></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    sess.run(init)<span class="comment"># 一定要运行这一句！！！！！！</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">        sess.run(update)</span><br><span class="line">        <span class="keyword">print</span> sess.run(state)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输出：</span><br><span class="line">      1</span><br><span class="line">      2</span><br><span class="line">      3</span><br></pre></td></tr></table></figure>
+<h2 id="会话（Session）"><a href="#会话（Session）" class="headerlink" title="会话（Session）"></a>会话（Session）</h2><p>我对session的理解就是一个tf的执行代码块，代码块之间互不影响。在tf中运算、获取变量值、输出文件都需要用到<code>session.run()</code>方法。<br>Session的写法有两种，一种是需要我们手动去关闭session的，另一种是借助Python的with，自身形成一个代码块，结束时自动关闭。代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">matrix1=tf.constant([[<span class="number">3</span>,<span class="number">3</span>]])</span><br><span class="line">matrix2=tf.constant([[<span class="number">2</span>],[<span class="number">2</span>]])</span><br><span class="line">product=tf.matmul(matrix1,matrix2)</span><br><span class="line"></span><br><span class="line">sess=tf.Session()<span class="comment"># 需要手动关闭session</span></span><br><span class="line"><span class="keyword">print</span> sess.run(product)</span><br><span class="line">sess.close()</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:<span class="comment"># 类似for循环代码块，不许要手动关闭session</span></span><br><span class="line">    <span class="keyword">print</span> sess.run(product)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[[12]]</span><br><span class="line">[[12]]</span><br></pre></td></tr></table></figure>
+<h2 id="占位符（placeholder）"><a href="#占位符（placeholder）" class="headerlink" title="占位符（placeholder）"></a>占位符（placeholder）</h2><p>在TensorFlow中，我们想要从外部传入数据到我们的神经网络中，我们需要先声明占位符变量，然后再运行时加入参数feed_dict={input1:[7.],input2:[2.]}，代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">input1=tf.placeholder(tf.float32)<span class="comment"># 由于TensorFlow的常用数据格式是float32，所以我们这里定它为float32</span></span><br><span class="line">input2=tf.placeholder(tf.float32)</span><br><span class="line"></span><br><span class="line">output=tf.mul(input1,input2)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    <span class="keyword">print</span> sess.run(output,feed_dict=&#123;input1:[<span class="number">7.</span>],input2:[<span class="number">2.</span>]&#125;)</span><br><span class="line">    <span class="keyword">print</span> sess.run(output,feed_dict=&#123;input1:[<span class="number">8.</span>],input2:[<span class="number">2.</span>]&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输出：</span><br><span class="line">      [ 14.]</span><br><span class="line">      [ 16.]</span><br></pre></td></tr></table></figure>
+<h2 id="激励函数（activation-function）"><a href="#激励函数（activation-function）" class="headerlink" title="激励函数（activation function）"></a>激励函数（activation function）</h2><p>激励函数运行时激活神经网络中某一部分神经元，将激活信息向后传入下一层的神经系统。激励函数的实质是非线性方程。 Tensorflow 的神经网络里面处理较为复杂的问题时都会需要运用激励函数<br>TensorFlow当黑盒使用的话，提供了那么几种activation function：  </p>
+<ul>
+<li>tf.nn.relu</li>
+<li>tf.nn.relu6</li>
+<li>tf.nn.crelu</li>
+<li>tf.nn.elu</li>
+<li>tf.nn.softplus</li>
+<li>tf.nn.softsign</li>
+<li>tf.nn.dropout</li>
+<li>tf.nn.bias_add</li>
+<li>tf.sigmoid</li>
+<li>tf.tanh  </li>
+</ul>
+<p>这里只列举TensorFlow内置的activation function列表，详情请看：<a href="https://www.tensorflow.org/api_docs/python/nn/activation_functions_" target="_blank" rel="external">https://www.tensorflow.org/api_docs/python/nn/activation_functions_</a></p>
+<h1 id="拟合直线"><a href="#拟合直线" class="headerlink" title="拟合直线"></a>拟合直线</h1><p>讲了那么多，我们用一个最基本的例子来拟合一条直线，看看效果吧。为了动态拟合，步数全显示，拟合效果要在本地运行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x_data=np.random.rand(<span class="number">100</span>).astype(np.float32)</span><br><span class="line">y_data=x_data*<span class="number">0.1</span>+<span class="number">0.3</span></span><br><span class="line"></span><br><span class="line">Weights=tf.Variable(tf.random_uniform([<span class="number">1</span>],<span class="number">-1.0</span>,<span class="number">1.0</span>))</span><br><span class="line">biases=tf.Variable(tf.zeros([<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line">y=Weights*x_data+biases</span><br><span class="line">loss=tf.reduce_mean(tf.square(y-y_data))</span><br><span class="line"></span><br><span class="line">optimizer=tf.train.GradientDescentOptimizer(<span class="number">0.5</span>)</span><br><span class="line">train=optimizer.minimize(loss)</span><br><span class="line"></span><br><span class="line">init=tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line">sess=tf.Session()</span><br><span class="line">sess.run(init)</span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax = fig.add_subplot(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">ax.scatter(x_data, y_data)</span><br><span class="line">plt.ion()</span><br><span class="line">plt.show()</span><br><span class="line"><span class="keyword">for</span> step <span class="keyword">in</span> range(<span class="number">201</span>):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        ax.lines.remove(lines[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">except</span> Exception:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    sess.run(train)</span><br><span class="line">    <span class="keyword">if</span> step%<span class="number">20</span>==<span class="number">0</span>:</span><br><span class="line">        print(step,sess.run(Weights),sess.run(biases))</span><br><span class="line">    predition_value = sess.run(Weights)*x_data+sess.run(biases)</span><br><span class="line">    lines = ax.plot(x_data, predition_value, <span class="string">'r-'</span>, lw=<span class="number">3</span>)</span><br><span class="line">    plt.pause(<span class="number">0.1</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/536961-a4371f05920897ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="output_13_0.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">输出：</span><br><span class="line">(0, array([-0.39641881], dtype=float32), array([ 0.86255205], dtype=float32))</span><br><span class="line">(20, array([-0.07684354], dtype=float32), array([ 0.4014357], dtype=float32))</span><br><span class="line">(40, array([ 0.04925749], dtype=float32), array([ 0.32910541], dtype=float32))</span><br><span class="line">(60, array([ 0.08544023], dtype=float32), array([ 0.30835137], dtype=float32))</span><br><span class="line">(80, array([ 0.09582227], dtype=float32), array([ 0.3023963], dtype=float32))</span><br><span class="line">(100, array([ 0.09880129], dtype=float32), array([ 0.30068758], dtype=float32))</span><br><span class="line">(120, array([ 0.09965606], dtype=float32), array([ 0.3001973], dtype=float32))</span><br><span class="line">(140, array([ 0.09990131], dtype=float32), array([ 0.30005661], dtype=float32))</span><br><span class="line">(160, array([ 0.09997168], dtype=float32), array([ 0.30001625], dtype=float32))</span><br><span class="line">(180, array([ 0.09999187], dtype=float32), array([ 0.30000466], dtype=float32))</span><br><span class="line">(200, array([ 0.09999766], dtype=float32), array([ 0.30000135], dtype=float32))</span><br></pre></td></tr></table></figure>
+<p>聪明的你应该会知道这是拟合一条y=Wx+b的直线，并通过不断减少loss得到最优解。  </p>
+<h2 id="拟合曲线"><a href="#拟合曲线" class="headerlink" title="拟合曲线"></a>拟合曲线</h2><p>拟合完直线之后我们来拟合曲线，咦代码好像有点不同，没错，他多了层的概念！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_layer</span><span class="params">(inputs,in_size,out_size,activatuib_funaction=None)</span>:</span></span><br><span class="line">    Weights=tf.Variable(tf.random_normal([in_size,out_size]))</span><br><span class="line">    biases=tf.Variable(tf.zeros([<span class="number">1</span>,out_size]))+<span class="number">0.1</span></span><br><span class="line">    Wx_plus_b=tf.matmul(inputs,Weights)+biases</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> activatuib_funaction <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">        outputs=Wx_plus_b</span><br><span class="line">    <span class="keyword">else</span> :</span><br><span class="line">        outputs=activatuib_funaction(Wx_plus_b)</span><br><span class="line">    <span class="keyword">return</span> outputs</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">x_data=np.linspace(<span class="number">-1</span>,<span class="number">1</span>,<span class="number">300</span>)[:,np.newaxis]</span><br><span class="line">noise=np.random.normal(<span class="number">0</span>,<span class="number">0.05</span>,x_data.shape)</span><br><span class="line">y_data=np.square(x_data)<span class="number">-0.5</span>+noise</span><br><span class="line"></span><br><span class="line">xs=tf.placeholder(tf.float32,[<span class="keyword">None</span>,<span class="number">1</span>])</span><br><span class="line">ys=tf.placeholder(tf.float32,[<span class="keyword">None</span>,<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">l1=add_layer(xs,<span class="number">1</span>,<span class="number">10</span>,activatuib_funaction=tf.nn.relu)</span><br><span class="line">predition=add_layer(l1,<span class="number">10</span>,<span class="number">1</span>,activatuib_funaction=<span class="keyword">None</span>)</span><br><span class="line"></span><br><span class="line">loss=tf.reduce_mean(tf.reduce_sum(tf.square(ys-predition),reduction_indices=[<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line">train_step=tf.train.GradientDescentOptimizer(<span class="number">0.1</span>).minimize(loss)</span><br><span class="line"></span><br><span class="line">init=tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    fig=plt.figure()</span><br><span class="line">    ax=fig.add_subplot(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">    ax.scatter(x_data,y_data)</span><br><span class="line">    plt.show(block=<span class="keyword">False</span>)</span><br><span class="line"></span><br><span class="line">    sess.run(init)</span><br><span class="line">    <span class="keyword">for</span> train <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line"></span><br><span class="line">        sess.run(train_step,feed_dict=&#123;xs:x_data,ys:y_data&#125;)</span><br><span class="line">        <span class="keyword">if</span> train%<span class="number">50</span>==<span class="number">0</span>:</span><br><span class="line"></span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                ax.lines.remove(lines[<span class="number">0</span>])</span><br><span class="line">            <span class="keyword">except</span> Exception:</span><br><span class="line">                  <span class="keyword">pass</span></span><br><span class="line">            <span class="keyword">print</span> train,sess.run(loss,feed_dict=&#123;xs:x_data,ys:y_data&#125;)</span><br><span class="line">            predition_value=sess.run(predition,feed_dict=&#123;xs:x_data&#125;)</span><br><span class="line">            lines=ax.plot(x_data,predition_value,<span class="string">'r-'</span>,lw=<span class="number">5</span>)</span><br><span class="line">            plt.pause(<span class="number">0.1</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/536961-77de622f0d600277.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="output_15_0.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">0 4.32185</span><br><span class="line">50 0.0105035</span><br><span class="line">100 0.00698409</span><br><span class="line">150 0.00597143</span><br><span class="line">200 0.00554833</span><br><span class="line">250 0.00528405</span><br><span class="line">300 0.00509511</span><br><span class="line">350 0.00494532</span><br><span class="line">400 0.00480955</span><br><span class="line">450 0.00467035</span><br><span class="line">500 0.00454288</span><br><span class="line">550 0.00441678</span><br><span class="line">600 0.00429541</span><br><span class="line">650 0.00417984</span><br><span class="line">700 0.00406591</span><br><span class="line">750 0.00395388</span><br><span class="line">800 0.00384926</span><br><span class="line">850 0.00374607</span><br><span class="line">900 0.00365008</span><br><span class="line">950 0.00356661</span><br></pre></td></tr></table></figure>
+<h2 id="添加层-add-layer"><a href="#添加层-add-layer" class="headerlink" title="添加层(add layer)"></a>添加层(add layer)</h2><p>刚刚的拟合效果还是挺好的吧，可以注意到代码里有个add_layer方法，而且被调用2次，多了2个层，那么我们的add_layer方法怎么去定义的呢</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_layer</span><span class="params">(inputs,in_size,out_size,activatuib_funaction=None)</span>:</span></span><br><span class="line">    Weights=tf.Variable(tf.random_normal([in_size,out_size]))</span><br><span class="line">    biases=tf.Variable(tf.zeros([<span class="number">1</span>,out_size]))+<span class="number">0.1</span></span><br><span class="line">    Wx_plus_b=tf.matmul(inputs,Weights)+biases</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> activatuib_funaction <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">        outputs=Wx_plus_b</span><br><span class="line">    <span class="keyword">else</span> :</span><br><span class="line">        outputs=activatuib_funaction(Wx_plus_b)</span><br><span class="line">    <span class="keyword">return</span> outputs</span><br></pre></td></tr></table></figure>
+<p>从函数定义来说起，我们调用这个函数的时候，需要给他的值有，输入值，输入值的数量，输出的数量，激活函数，这里给一个默认值，默认为空。</p>
+<p>在神经网络的计算中，我们一般都会有权重（Weights）和偏差值（biases）两个变量，所以我们定义了Weights和biases，一般我们会给出初始值，Weights用随机函数生成，biases初始为0再加个0.1，为什么要+0.1呢，因为机器学习中推荐biases不为0，所以加上0.1。<br>然后定义了一个函数W*x+b<br>然后我们看有没有传入激活函数，如果没有激活函数的话就直接输出刚刚的算出来的值，如果有激活函数的话我们只需要把刚算出来的值传进去激活函数就行。</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>TensorFlow的基本用法介绍到这里，下一节是对上面的拟合曲线进行讲解，更多高级的TensorFlow用法请继续关注~</p>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用多说评论 -->
+    <link rel="stylesheet" href="/css/duoshuo.min.css">
+<style>
+    #ds-thread #ds-reset .ds-post-button{
+        background-color: #0097A7 !important;
+    }
+    #ds-wrapper #ds-reset .ds-icons-32{
+        background-color: #0097A7 !important;
+    }
+    #ds-reset .ds-highlight {
+        color: #0097A7 !important;
+    }
+</style>
+<div id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread"
+        data-thread-key=""
+        data-url="http://jcmels.github.io/2017/01/12/ML-tensorflow-primer/"
+        data-title="TensorFlow入门">
+    </div>
+    <!-- 多说评论框 end -->
+</div>
+
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2017/03/14/mac-tips-caffe/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2016/12/01/server-nodejs-qiniu-fast/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="Jcme丶Ls's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        jcmels1995@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    <li id="sidebar-first-li">
+        <a href="/" target="_self">
+            <i class="material-icons sidebar-material-icons">home</i>
+            主页
+        </a>
+    </li>
+
+    <!-- I'm Feeling Lucky -->
+    <!--
+    <li class="dropdown">
+        <a href="" target="_self">
+            <i class="material-icons sidebar-material-icons">explore</i>
+             sidebar.imlucky
+        </a>
+    </li>
+    -->
+
+    <!-- Archives  -->
+    <li class="dropdown">
+        <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+            <i class="material-icons sidebar-material-icons">inbox</i>
+             归档
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+            <a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/11/">十一月 2016<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/10/">十月 2016<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/06/">六月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/05/">五月 2016<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/04/">四月 2016<span class="sidebar_archives-count">7</span></a>
+        </ul>
+    </li>
+
+    <!-- Categories  -->
+    
+
+    <!-- Divider -->
+    <li class="divider"></li>
+
+
+    <!-- Pages  -->
+  	
+
+    <!-- Article Numebr  -->
+    <li>
+        <a href="/archives">
+            文章总数
+            <span class="sidebar-badge">26</span>
+        </a>
+    </li>
+</ul>
+
+
+        <!-- Sidebar Divider -->
+        <div class="sidebar-divider"></div>
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Theme Material -->
+<a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+    <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        主题 - Material
+        <span class="sidebar-badge badge-circle">i</span>
+    </div>
+</a>
+
+<!-- Help & Support -->
+<!--
+<a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+    <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+    sidebar.help
+    <span class="mdl-button__ripple-container">
+      <span class="mdl-ripple"></span>
+    </span>
+  </div>
+</a>
+-->
+
+<!-- Feedback -->
+<!--
+<a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" class="sidebar-footer-text-a">
+    <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+         sidebar.feedback
+                    <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+</a>
+-->
+
+<!-- Abount Theme -->
+<!--
+<a href="https://blog.viosey.com/index.php/Material.html" target="_blank" class="sidebar-footer-text-a">
+    <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+         sidebar.about_theme
+        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+</a>-->
+
+    </div>
+
+    <!-- Sidebar Sponsor -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-twitter.png);">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-facebook.png);">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-gplus.png);">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;
+            <script type="text/javascript">
+                var fd = new Date();
+                document.write(fd.getFullYear());
+            </script>
+            &nbsp;|&nbsp;<a href="http://www.miitbeian.gov.cn/">粤ICP备16100394号-1</a>
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+<script src="/js/highlight.min.js"></script>
+<script src="/js/js.min.js"></script>
+<script src="/js/nprogress.js"></script>
+
+<script type="text/javascript">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+
+    $('#nprogress .bar').css({
+        'background': '#FF4081'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #FF4081, 0 0 15px #FF4081'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#FF4081',
+        'border-left-color': '#FF4081'
+    });
+
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    <script src="/js/smoothscroll.js"></script>
+
+
+
+
+
+
+
+    <!-- 多说公共 js 代码 start -->
+    <script type="text/javascript">
+        var duoshuoQuery = {
+            short_name: 'jcmels'
+        };
+        (function() {
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';
+            ds.async = true;
+            ds.src = 'https://static.duoshuo.com/embed.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0]
+             || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+    </script>
+    <!-- 多说公共 js 代码 end -->
+
+
+
+
+
+<!-- Swiftye -->
+
+
+<!-- Local Search-->
+
+    <script>
+    var searchFunc = function(path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: 'xml',
+            success: function( xmlResponse ) {
+                // get the contents from search data
+                var datas = $( 'entry', xmlResponse ).map(function() {
+                    return {
+                        title: $( 'title', this ).text(),
+                        content: $('content',this).text(),
+                        url: $( 'url' , this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function() {
+                    var str='<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function(data) {
+                        var isMatch = true;
+                        var content_index = [];
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                        var data_url = data.url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if(data_title != '' && data_content != '') {
+                            keywords.forEach(function(keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if( index_title < 0 && index_content < 0 ) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += '<li><a href="'+ data_url +'" class="search-result-title" target="_blank">'+ data_title;
+                            var content = data.content.trim().replace(/<[^>]+>/g, '');
+                            if (first_occur >= 0) {
+                                // cut out characters
+                                var start = first_occur - 6;
+                                var end = first_occur + 6;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 10;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, 'gi');
+                                    match_content = match_content.replace(regS, '<em class="search-keyword">'+keyword+'</em>');
+                                })
+                                str += '<p class="search-result">' + match_content +'...</p>' +'</a>';
+                            }
+                        }
+                    });
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    }
+</script>
+
+
+    <script>
+        var inputArea = document.querySelector('#search');
+        var getSearchFile = function() {
+            var path = 'search.xml';
+            searchFunc(path, 'search', 'local-search-result');
+        }
+
+        if(inputArea) {
+            inputArea.onfocus = function() {
+                getSearchFile();
+            }
+        }
+    </script>
+
+
+<!-- Window Load-->
+<script>
+    $(window).load(function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+
+                </main>
+            </div>
+        </body>
+    
+</html>
