@@ -10,6 +10,8 @@
     
     <title>
         
+            TensorFlow入门之TensorBoard入门 | 
+        
         Jcme丶Ls&#39;s Blog
     </title>
 
@@ -46,7 +48,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://jcmels.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Jcme丶Ls&#39;s Blog">
+    <meta property="og:title" content="TensorFlow入门之TensorBoard入门 | Jcme丶Ls&#39;s Blog">
     <meta property="og:description" content="coding live">
 
     <!--[if lte IE 9]>
@@ -207,6 +209,41 @@
 
                     <!-- Post TOC -->
 
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#可视化第一步"><span class="post-toc-number">2.</span> <span class="post-toc-text">可视化第一步</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#效果图"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">效果图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实现graphs"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">实现graphs</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#后记"><span class="post-toc-number">3.</span> <span class="post-toc-text">后记</span></a></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
 
 <!-- Layouts -->
 
@@ -232,7 +269,7 @@
         
     
             <p class="article-headline-p">
-                
+                TensorFlow入门之TensorBoard入门
             </p>
         </div>
 
@@ -251,7 +288,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>Jcme丶Ls</strong>
-        <span>4月 12, 2016</span>
+        <span>1月 13, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -272,7 +309,7 @@
         </button>
         <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
             <li class="mdl-menu__item">在其它设备中阅读本文章</li>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACZElEQVR42u3bQXKDMBAEQP//08kLjGdWILCrObkoCtQ6SJtZ5fX309cLDw8PDw8PDw/vYbxXfL17fva24zfPxoaHh4e3k/dhqT0cRHI/+f2Ol48NDw8Pbz8v/0xyp30+mZpobHh4eHgP4yULd1J2H5fReHh4eL/Ey4ODpBTGw8PD+3ZeXhCvPJ8X6zdkLXh4eHgxr21T7fx9Q38PDw8P75BXH2mKP5O0x1a2n+jQFR4eHt4FvPbY00pza9b0ykeLh4eHt4eXNKJWIoZZu6uNj/Hw8PB28oaLbxxYzO7M/jEADw8PbyevbfbPgonkfl5k4+Hh4d3FW2nwn7UZJG8rDhPg4eHhbeHNYtY20k22jSSw+PAePDw8vC28WRyQl7zt2/LpxsPDw7uLl5fI+UKfFMf5NlB8EQ8PD28jLy+FZ/FE0jzLI2M8PDy8u3izg1Cz8jpB1gcF2v4eHh4e3km8dvluA4V2mvKgJNoY8PDw8E7ltccF2mU6v1YCXzw8PLydvLZV3x6lWg+CLw8j8PDw8Ea8fHtog931aaq/i4eHh3cxr2075SXvLNhdiXrx8PDwdvKSYnfW7mrb//kYihgXDw8P71Te7CjVypbQTsFxEw4PDw9vP2+lTdUePpiFFHXgi4eHh3cxr/2Df7YNtFtC+048PDy8/bxkM1gZev78CXEwHh4e3kZeuxkcD+Ks6CEJRPDw8PCezEuOTK0g20nEw8PD+15eG/5GS3xwoKHu7+Hh4eGdyssL5SR+TYbeTkQ0Njw8PLwtvFkQkMey7aDbsAMPDw9vJ+/3Ljw8PDw8PDw8vAdc/yr6Al1R09bFAAAAAElFTkSuQmCC">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAACzklEQVR42u3aMXLjMBAEQP3/03epE1EzC9pFAc3IJdIgGgy2MIvXvyOvFzY2NjY2NjY2NvYj2a/4+jDoj2fe/e/1yMndlTljY2Nj783OSe/urj/z7l3XS1CMg42NjX0AOy8ebclJFiL5ZTZnbGxsbOwPw8W/zBYFGxsbG/tv2Hkpuh4hL5zY2NjY2LOAJuElQVJeFB+RpWFjY2M/np03TZ/z95/2t7GxsbEfzG6vJEKaNYCTJ5dmjo2Njb0pOy8M7dLMIv5ZCBUtHDY2Nvam7Da4SaKihDFr/eaFExsbG/scdnu8pmXnTYLZIhYlExsbG3tTdh4AtdH8rB2bvHdY8LCxsbEPYOevTF6WREJtw2C2ycHGxsY+h31v6NO2CtpNS920wMbGxt6anZei29quo2fakoaNjY2NnRew6yXLA6lZgby5gGFjY2N/FXvWRp2F/m0JbD/Gh1KHjY2NvSl7pWC025I8tGoPEkWNB2xsbOxN2bOoqC1p7eLmC100mLGxsbE3Zc8i+9mk241H0jYu3ouNjY19AHudd1fkdL1dmQVe2NjY2Cez81KUY9oWRdtOxsbGxj6HPWu+3kVtS9rK3LCxsbH3Zhft0uDuDJ+3e5NFiQoYNjY29qbsNuhpG67tW9ZLFzY2NvZp7HZjcFexWSlm0SfExsbGPozdHqlptzTtQudLf0OohI2Njf217La524Y7+Wj3fhJsbGzsc9izoH89DMqjpV/P0rCxsbG/kN1ed0VL+cGdlagLGxsb+wR2WySS2KhdlPwgZl5co1AJGxsbeyN2Ht+vbznySGulhTDcgWFjY2N/OTs/WNMexFwpQisBEzY2NjZ2Mt2VIrfSVM63LtjY2NjY+aSLAzSj8ZdaF9jY2NgHsPNAJ98G5A3athVRt5yxsbGxt2bPDji2v8/i/rZR8Sv9bWxsbOwHs8+5sLGxsbGxsbGxsR9z/QdWK2g67kAFiwAAAABJRU5ErkJggg==">
         </ul>
     
 
@@ -284,7 +321,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        
+        <a class="post_tag-link" href="/tags/TensorFlow/">TensorFlow</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/机器学习从入门到奥创/">机器学习从入门到奥创</a>
     </ul>
     
 
@@ -300,7 +337,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=&url=http://jcmels.github.io//baidu_verify_BUqm4iQePL.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=TensorFlow入门之TensorBoard入门&url=http://jcmels.github.io//2017/01/13/ML-tensorflow-tensorboard-primer/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -309,7 +346,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=&url=http://jcmels.github.io//baidu_verify_BUqm4iQePL.html&via=Jcme丶Ls" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=TensorFlow入门之TensorBoard入门&url=http://jcmels.github.io//2017/01/13/ML-tensorflow-tensorboard-primer/index.html&via=Jcme丶Ls" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -318,7 +355,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://jcmels.github.io//baidu_verify_BUqm4iQePL.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://jcmels.github.io//2017/01/13/ML-tensorflow-tensorboard-primer/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -327,7 +364,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://jcmels.github.io//baidu_verify_BUqm4iQePL.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://jcmels.github.io//2017/01/13/ML-tensorflow-tensorboard-primer/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -351,7 +388,39 @@
                 <!-- Post Content -->
                 <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        BUqm4iQePL
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>TensorFlow是以流动的张量为名的神经网络开发库，所以Google为了让人们更直观的了解流动的张量的含义，他们做了个TensorBoard让我们直观的看到我们写的框架是怎么个流动法的（纯属YY）。好了玩笑话不说，Google是怎么定义TensorBoard的呢？<br><a id="more"></a></p>
+<blockquote>
+<p>The computations you’ll use TensorFlow for - like training a massive deep neural network - can be complex and confusing. To make it easier to understand, debug, and optimize TensorFlow programs, we’ve included a suite of visualization tools called TensorBoard. You can use TensorBoard to visualize your TensorFlow graph, plot quantitative metrics about the execution of your graph, and show additional data like images that pass through it. </p>
+</blockquote>
+<p>大意其实就是我刚刚说的，我们使用TensorFlow写的神经网络直接看上去会显得十分的复杂和混乱，为了更加直观的去调试、优化我们的神经网络，他们开发了TensorBoard–一套可视化工具。。。插一句。。虽然图形化了，可是我看着还是复杂（O(∩_∩)O哈哈~）    </p>
+<p>提个醒，TensorBoard官方支持的浏览器是Chrome和Firefox，所以最好使用这两个浏览器去开TensorBoard吧。</p>
+<h1 id="可视化第一步"><a href="#可视化第一步" class="headerlink" title="可视化第一步"></a>可视化第一步</h1><h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><p><img src="http://upload-images.jianshu.io/upload_images/536961-d81b1d65d60152cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="WX20170113-151208@2x.png"></p>
+<p>我们可以对其进行展开，比如我们展开一个first_layer</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/536961-ee2e06ba59e531ac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="WX20170113-152056@2x.png"></p>
+<p>可以看出来一个layer里面是多么复杂的运算过程，其实我们代码里也就几行代码，TensorFlow帮我们完成了很多事情。  </p>
+<p>看了效果之后有没有非常想实现它？那么接下来我们就来学习下怎么去用TensorBoard去画出这么一幅图~</p>
+<h2 id="实现graphs"><a href="#实现graphs" class="headerlink" title="实现graphs"></a>实现graphs</h2><p>我们这里用的代码是之前讲TensorFlow入门里最后的拟合曲线的代码，代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_layer</span><span class="params">(layoutname,inputs,in_size,out_size,activatuib_funaction=None)</span>:</span></span><br><span class="line">    Weights=tf.Variable(tf.random_normal([in_size,out_size]))</span><br><span class="line">    biases=tf.Variable(tf.zeros([<span class="number">1</span>,out_size]))+<span class="number">0.1</span></span><br><span class="line">    Wx_plus_b=tf.matmul(inputs,Weights)+biases</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> activatuib_funaction <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">        outputs=Wx_plus_b</span><br><span class="line">    <span class="keyword">else</span> :</span><br><span class="line">        outputs=activatuib_funaction(Wx_plus_b)</span><br><span class="line">    <span class="keyword">return</span> outputs</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">x_data=np.linspace(<span class="number">-1</span>,<span class="number">1</span>,<span class="number">300</span>)[:,np.newaxis]</span><br><span class="line">noise=np.random.normal(<span class="number">0</span>,<span class="number">0.05</span>,x_data.shape)</span><br><span class="line">y_data=np.square(x_data)<span class="number">-0.5</span>+noise</span><br><span class="line"></span><br><span class="line">xs=tf.placeholder(tf.float32,[<span class="keyword">None</span>,<span class="number">1</span>])</span><br><span class="line">ys=tf.placeholder(tf.float32,[<span class="keyword">None</span>,<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">l1=add_layer(<span class="string">'first_layer'</span>,xs,<span class="number">1</span>,<span class="number">10</span>,activatuib_funaction=tf.nn.relu)</span><br><span class="line">prediction =add_layer(<span class="string">'secend_layer'</span>,l1,<span class="number">10</span>,<span class="number">1</span>,activatuib_funaction=<span class="keyword">None</span>)</span><br><span class="line"></span><br><span class="line">loss=tf.reduce_mean(tf.reduce_sum(tf.square(ys-prediction),reduction_indices=[<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line">train_step=tf.train.GradientDescentOptimizer(<span class="number">0.1</span>).minimize(loss)</span><br><span class="line"></span><br><span class="line">init=tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    fig=plt.figure()</span><br><span class="line">    ax=fig.add_subplot(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">    ax.scatter(x_data,y_data)</span><br><span class="line">    plt.show(block=<span class="keyword">False</span>)</span><br><span class="line"></span><br><span class="line">    sess.run(init)</span><br><span class="line">    <span class="keyword">for</span> train <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line"></span><br><span class="line">        sess.run(train_step,feed_dict=&#123;xs:x_data,ys:y_data&#125;)</span><br><span class="line">        <span class="keyword">if</span> train%<span class="number">50</span>==<span class="number">0</span>:</span><br><span class="line"></span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                ax.lines.remove(lines[<span class="number">0</span>])</span><br><span class="line">            <span class="keyword">except</span> Exception:</span><br><span class="line">                  <span class="keyword">pass</span></span><br><span class="line">            <span class="keyword">print</span> train,sess.run(loss,feed_dict=&#123;xs:x_data,ys:y_data&#125;)</span><br><span class="line">            prediction_value=sess.run(prediction,feed_dict=&#123;xs:x_data&#125;)</span><br><span class="line">            lines=ax.plot(x_data, prediction_value,<span class="string">'r-'</span>,lw=<span class="number">5</span>)</span><br><span class="line">            plt.pause(<span class="number">0.1</span>)</span><br></pre></td></tr></table></figure>
+<p>我们需要对代码进行写改动，让其生成Graphs。</p>
+<p>从最开始的缩略图，我们可以看到我们有input、两个layer、一个loss、一个train，那我们第一步先来构建这几个东西。</p>
+<p>我们想要构建这些大的框架，只需要我们在想要显示的地方加上这句话<code>with tf.name_scope(&#39;显示的名字&#39;):</code>然后缩进想要放在里面的代码。如input</p>
+<p>我们想要显示的效果如下图</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/536961-0855f3162e12ac06.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="WX20170113-155055@2x.png"></p>
+<p>我们需要用<code>with tf.name_scope(&#39;input&#39;):</code>把两个输入值缩进进去：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'inputs'</span>):</span><br><span class="line">    xs=tf.placeholder(tf.float32,[<span class="keyword">None</span>,<span class="number">1</span>],name=<span class="string">"x_input"</span>)</span><br><span class="line">    ys=tf.placeholder(tf.float32,[<span class="keyword">None</span>,<span class="number">1</span>],name=<span class="string">"y_input"</span>)</span><br></pre></td></tr></table></figure>
+<p>x_input、y_input这两个显示值我们只需要在声明的时候在最后加一个<code>name=&#39;显示名&#39;</code>就可以显示出上面的效果了。  </p>
+<p>然后两个layer也是类似，由于我们定义了一个方法去添加层，可是如果我们不给他名字，生成graphs的时候layer就是layer、layer_1、layer_2这样子，有点不好看，所以我们传入一个layername。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_layer</span><span class="params">(layoutname,inputs,in_size,out_size,activatuib_funaction=None,)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(layoutname):</span><br><span class="line">        <span class="keyword">with</span> tf.name_scope(<span class="string">'weights'</span>):</span><br><span class="line">            Weights=tf.Variable(tf.random_normal([in_size,out_size]),name=<span class="string">'W'</span>)</span><br><span class="line">        <span class="keyword">with</span> tf.name_scope(<span class="string">'biases'</span>):</span><br><span class="line">            biases=tf.Variable(tf.zeros([<span class="number">1</span>,out_size])+<span class="number">0.1</span>,name=<span class="string">'b'</span>)</span><br><span class="line">        <span class="keyword">with</span> tf.name_scope(<span class="string">'Wx_plus_b'</span>):</span><br><span class="line">            Wx_plus_b=tf.add(tf.matmul(inputs,Weights),biases)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> activatuib_funaction <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            outputs=Wx_plus_b</span><br><span class="line">        <span class="keyword">else</span> :</span><br><span class="line">            outputs=activatuib_funaction(Wx_plus_b)</span><br><span class="line">        <span class="keyword">return</span> outputs</span><br></pre></td></tr></table></figure>
+<p>layer图层里面还有weights和biases、Wx_plus_b等，所以他们也是小图层，所以我们对他们也要单独定义，另外给weights，biases给个name值。  激励函数这些会自动生成，我们不需要去管。</p>
+<p>loss和train也是类似，写完tf.name_scope(‘’):之后，我们还需要写文件，写文件的代码TensorFlow也帮我们封装好了，我们只需要调用<code>writer=tf.summary.FileWriter(&quot;文件保存路径如：logs/&quot;,sess.graph)</code>，完整代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_layer</span><span class="params">(layoutname,inputs,in_size,out_size,activatuib_funaction=None,)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(layoutname):</span><br><span class="line">        <span class="keyword">with</span> tf.name_scope(<span class="string">'weights'</span>):</span><br><span class="line">            Weights=tf.Variable(tf.random_normal([in_size,out_size]),name=<span class="string">'W'</span>)</span><br><span class="line">        <span class="keyword">with</span> tf.name_scope(<span class="string">'biases'</span>):</span><br><span class="line">            biases=tf.Variable(tf.zeros([<span class="number">1</span>,out_size])+<span class="number">0.1</span>,name=<span class="string">'b'</span>)</span><br><span class="line">        <span class="keyword">with</span> tf.name_scope(<span class="string">'Wx_plus_b'</span>):</span><br><span class="line">            Wx_plus_b=tf.add(tf.matmul(inputs,Weights),biases)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> activatuib_funaction <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            outputs=Wx_plus_b</span><br><span class="line">        <span class="keyword">else</span> :</span><br><span class="line">            outputs=activatuib_funaction(Wx_plus_b)</span><br><span class="line">        <span class="keyword">return</span> outputs</span><br><span class="line">x_data=np.linspace(<span class="number">-1</span>,<span class="number">1</span>,<span class="number">300</span>)[:,np.newaxis]</span><br><span class="line">noise=np.random.normal(<span class="number">0</span>,<span class="number">0.09</span>,x_data.shape)</span><br><span class="line">y_data=np.square(x_data)<span class="number">-0.05</span>+noise</span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'inputs'</span>):</span><br><span class="line">    xs=tf.placeholder(tf.float32,[<span class="keyword">None</span>,<span class="number">1</span>],name=<span class="string">"x_in"</span>)</span><br><span class="line">    ys=tf.placeholder(tf.float32,[<span class="keyword">None</span>,<span class="number">1</span>],name=<span class="string">"y_in"</span>)</span><br><span class="line">l1=add_layer(<span class="string">"first_layer"</span>,xs,<span class="number">1</span>,<span class="number">10</span>,activatuib_funaction=tf.nn.relu)</span><br><span class="line">prediction =add_layer(<span class="string">'second_layout'</span>,l1,<span class="number">10</span>,<span class="number">1</span>,activatuib_funaction=<span class="keyword">None</span>)</span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'loss'</span>):</span><br><span class="line">    loss=tf.reduce_mean(tf.reduce_sum(tf.square(ys-prediction),reduction_indices=[<span class="number">1</span>]))</span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'train'</span>):</span><br><span class="line">    train_step=tf.train.GradientDescentOptimizer(<span class="number">0.1</span>).minimize(loss)</span><br><span class="line"></span><br><span class="line">init=tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    writer=tf.summary.FileWriter(<span class="string">"logs/"</span>,sess.graph)</span><br><span class="line">    sess.run(init)</span><br></pre></td></tr></table></figure>
+<p>由于Graphs展示的是整个神经网络的框架，所以我们可以删去测试数据。</p>
+<p>到这里代码已经写好了，运行代码，生成文件，我们会发现项目的logs目录下会多一个文件</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/536961-433a965084bdfcf2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="WX20170113-161843@2x.png"></p>
+<p>生成文件之后，我们只需要调出Terminal，cd到项目目录，然后输入tensorboard –logdir=’目录路径如：logs/‘ –host 访问ip如：127.0.0.1，当然我们也可以让他默认ip，把最后的—host 127.0.0.1删掉即可。</p>
+<p>然后我们就可以访问127.0.0.1:6006去查看TensorBoard，如果没有数据的话就刷新一下。到此，我们就成功的使用可视化的方式查看我们的神经网络框架了，当然TensorBoard并不是只有这一个功能，后续的功能我会在后续的更新中指出。</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>TensorFlow配合TensorBoard的Graphs来构建我们的框架确实非常好用，牛逼的Google肯定不会只赋予TensorBoard这一个功能，他能监控我们的训练过程，让我们可视化的看到训练过程中参数的变化，甚至是图像、音频的变化，还能展示训练过程的数据分布图，所以tensorboard、TensorFlow博大精深，慢慢学习吧！<br>PS:感谢周莫烦大神出的机器学习系列–<a href="https://www.youtube.com/channel/UCdyjiB5H8Pu7aDTNVXTTpcg" target="_blank" rel="external">https://www.youtube.com/channel/UCdyjiB5H8Pu7aDTNVXTTpcg</a><br>需要翻墙观看</p>
+
     
 
     
@@ -380,8 +449,8 @@
     <!-- 多说评论框 start -->
     <div class="ds-thread"
         data-thread-key=""
-        data-url="http://jcmels.github.io/baidu_verify_BUqm4iQePL.html"
-        data-title="">
+        data-url="http://jcmels.github.io/2017/01/13/ML-tensorflow-tensorboard-primer/"
+        data-title="TensorFlow入门之TensorBoard入门">
     </div>
     <!-- 多说评论框 end -->
 </div>
@@ -397,11 +466,27 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
+        <a href="/2017/03/14/mac-tips-caffe/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
+    
+        <a href="/2017/01/12/ML-tensorflow-primer/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
     
 </nav>
 
@@ -570,6 +655,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 

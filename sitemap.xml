@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jcmels.github.io/2017/01/13/ML-tensorflow-tensorboard-primer/</loc>
+    
+    <lastmod>2017-05-02T11:50:28.388Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jcmels.github.io/2017/01/12/ML-tensorflow-primer/</loc>
     
     <lastmod>2017-05-02T11:37:36.920Z</lastmod>
